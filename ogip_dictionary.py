@@ -216,7 +216,9 @@ def ogip_dictionary(type):
         """
         optcols = ['']
         timeref={'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
-        ogip = {'RATE':rate, 'EVENTS':events, 'TIMEREF':timeref, 'ENEBAND':eneband, 'GTI':gti}
+        ogip = {'RATE':rate, 'EVENTS':events, 'TIMEREF':timeref,
+                'ENEBAND':eneband, 'GTI':gti,
+                'REFERENCE':'OGIP/93-003'}
     else:
         print "Currently defined for"
         print "Type = TIMING"
