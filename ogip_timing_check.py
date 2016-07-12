@@ -366,6 +366,20 @@ def ogip_timing_check(filename):
         print "\nFile %s does not contain a GTI extension\n" % fname
     print "\n=============== Checking TIMEREF Extension ==============="
     if 'TIMEREF' in extname:
+
+
+
+
+
+
+
+
+        0.
+
+
+
+
+        .0
         missing = cmp_keys_cols(filename,'TIMEREF')
     else:
         print "\nFile %s does not contain a TIMEREF extension" % fname
@@ -387,11 +401,13 @@ def ogip_timing_check(filename):
     return REPORT
 
 if __name__== "__main__":
-    filename= "/Users/corcoran/program/HEASARC/missions/Fermi/Data_Products/gbm_occultation_light_curves/201507/CRAB_daily_lc_mfc.fits"
+    #filename= "/Users/corcoran/program/HEASARC/missions/Fermi/Data_Products/gbm_occultation_light_curves/201507/CRAB_daily_lc_mfc.fits"
     #filename="/Users/corcoran/research/ETA_CAR/Swift/2014/work/00091911036/sw00091911036xwtw2stsr.lc"
     #filename = "/Users/corcoran/Downloads/xh95702010201_s0a.lc"
     #filename = "/Users/corcoran/research/ETA_CAR/Swift/2014/quicklook/work/00091911045/xspec/ec_src.pha"
     #filename = "/Users/corcoran/research/ETA_CAR/CHANDRA2/repro/seqid/200057/632/acisf00632_evt1a.fits"
+    #filename="http://heasarc.gsfc.nasa.gov/FTP/rosat/data/pspc/processed_data/200000/rp200069n00/rp200069n00_ltc.fits.Z"
+    filename = "/Users/mcorcora/Downloads/rp200069n00_ltc.fits"
 
     REPORT = ogip_timing_check(filename)
 
