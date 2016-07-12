@@ -21,185 +21,101 @@ def ogip_dictionary_rmf():
     global REPORT
 
     """
-    FOR SPECTRUM TABLE:
+    FOR the RMF file:
     """
     """
-    Define REQUIRED Keywords for SPECTRUM TABLE
+    Define REQUIRED Keywords for RMF EXTENSION (note: EXTNAME can be either MATRIX or SPECRESP MATRIX)
     """
     reqkeys = ['TELESCOP', 'INSTRUME']
     reqkeys.append('FILTER')
-    reqkeys.append('EXPOSURE')
-    reqkeys.append('BACKFILE')
-    reqkeys.append('CORRFILE')
-    reqkeys.append('CORRSCAL')
-    reqkeys.append('RESPFILE')
-    reqkeys.append('ANCRFILE')
-    reqkeys.append('HDUCLASS[OGIP]')  # OGIP is the allowed keyword value
-    reqkeys.append('HDUCLAS1[SPECTRUM]')  # SPECTRUM is the allowed keyword value
-    reqkeys.append('HDUVERS[1.2.1]')
-    reqkeys.append('POISSERR')
     reqkeys.append('CHANTYPE[PHA|PI]')
     reqkeys.append('DETCHANS')
+    reqkeys.append('HDUCLASS[OGIP]')
+    reqkeys.append('HDUCLAS1[RESPONSE]')
+    reqkeys.append('HDUCLAS2[RSP_MATRIX]')
+    reqkeys.append('HDUVERS[1.3.0]')
+    reqkeys.append('TLMIN*')
+    reqkeys.append('NUMGRP')
+    reqkeys.append('NUMELT')
+    reqkeys.append('CCLS0001[CPF]')
+    reqkeys.append('CCNM0001[MATRIX]')
+    reqkeys.append('CDTP0001[DATA]')
+    reqkeys.append('CVSD0001')
+    reqkeys.append('CVST0001')
+    reqkeys.append('CDES0001')
 
     """
     Define recommended Keywords
     """
-    optkeys = ['DETNAM']
-    optkeys.append('TLMIN*') # required if channel numbering doesn't start at 1
-    optkeys.append('TLMAX*') # required if channel numbering doesn't start at 1
-    optkeys.append('RA-OBJ')
-    optkeys.append('DEC-OBJ')
-    optkeys.append('XFLT*') # xspec filter descriptor
-    optkeys.append('DATE-OBS')
-    optkeys.append('DATE-END')
-    optkeys.append('TIME-OBS') # time-obs can be included in date-obs
-    optkeys.append('TIME-END') # time-end can be included in date-end
-    optkeys.append('CREATOR')
-    optkeys.append('HDUCLAS2[TOTAL|NET|BKG]')
-    optkeys.append('HDUCLAS3[COUNT|RATE]')
-    optkeys.append('ONTIME')
-    optkeys.append('TIMEZERO|TIMEZERI+TIMEZERF')  # can be given as single keyword or integer + fraction; either ok
-    optkeys.append('TSTART|TSTARTI+TSTARTF')  # can be given as single keyword or integer + fraction; either ok
-    optkeys.append('TSTOP|TSTOPI+TSTOPF')  # can be given as single keyword or integer + fraction; either ok
-    optkeys.append('TIMESYS')
-    optkeys.append('TIMEUNIT')
-    optkeys.append('TIMEREF')
-    optkeys.append('SYS_ERR[0]')
-    optkeys.append('QUALITY[0]')
-    optkeys.append('GROUPING[0]')
-
-    optkeys.append('CLOCKCOR')
-    optkeys.append('TIMVERSN')
-    optkeys.append('OBJECT')
-    optkeys.append('AUTHOR')
-    optkeys.append('TASSIGN')
-    optkeys.append('TIERRELA')
-    optkeys.append('TIERABSO')
-    optkeys.append('ONTIME')
-    optkeys.append('BACKAPP')
-    optkeys.append('VIGNAPP')
-    optkeys.append('DEADAPP')
-    optkeys.append('EMIN*')
-    optkeys.append('EMAX*')
-    optkeys.append('BACKV*')
-    optkeys.append('BACKE*')
-    optkeys.append('DEADC*')
-    optkeys.append('GEOAREA')
-    optkeys.append('VIGNET')
-    optkeys.append('NPIXSOU')
-    optkeys.append('NPIXBACK')
+    optkeys = ['PHAFILE']
+    optkeys.append('LO_THRES') # minimum probability threshold in matrix (values < this are set to 0)
+    optkeys.append('HDUCLAS3[REDIST|DETECTOR|FULL]') # required if channel numbering doesn't start at 1
+    optkeys.append('RMFVERSN[1992A]')
+    optkeys.append('HDUVERS1[1.1.0]')
+    optkeys.append('HDUVERS2[1.2.0]')
 
     """
     Define Required Columns
     """
-    reqcols = ['CHANNEL'] # should be sequential
-    reqcols = ['SPEC_NUM'] # required for PHA type II files
-    reqcols.append('RATE|COUNTS')  # means need either RATE or COUNTS column
-    reqcols.append('STAT_ERR') # optional if data given in counts per channel
-    reqcols.append('SYS_ERR') # can give SYS_ERR= 0 as keyword if no systematic error
-    reqcols.append('QUALITY') # can give QUALITY = 0 keyword if all data are good
-    reqcols.append('GROUPING') # can give GROUPING = 0 keyword if data are ungrouped
-    reqcols.append('AREASCAL')
-    reqcols.append('BACKSCAL') # often a measure of the area of the image from which data were extracted
-    #
-    # required for pha type 2 files
-    #
-    reqcols.append('EXPOSURE') # record of the exposure for each row in the type II file
-    reqcols.append('BACKFILE') # background file for each row in the type II file
-    reqcols.append('CORRFILE') # correction file for each row in the type II file
-    reqcols.append('CORRSCAL') # scaling for correction file for each row in the type II file
-    reqcols.append('RESPFILE') # response file for each row in the type II file
-    reqcols.append('ANCRFILE') # ancillary file for each row in the type II file
+    reqcols = ['ENERG_LO'] # lower energy bound of bin (keV)
+    reqcols.append('ENERG_HI') # upper energy bound of bin (keV); generally ENERG_LO(J) = ENERG_HI(J-1)
+    reqcols.append('N_GRP') # number of channel subsets for each row in the matrix
+    reqcols.append('F_CHAN') # first channel number of  subset
+    reqcols.append('N_CHAN') # number of channels in each subset
+    reqcols.append('MATRIX')
 
 
     """
     Define Optional Columns
     """
-    optcols = ['DQF'] # combination of quality and grouping (not recommended)
-    optcols.append('ROWID') # optionally used for type II files
+    optcols = ['ORDER'] # dispersion order for grating data
 
-
-    pha = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
+    specresp = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 
     """
-    FOR GTI TABLE (OPTIONAL)
+    FOR EBOUNDS TABLE
     """
     """
-    Define Required Keywords FOR GTI TABLE
+    Define Required Keywords FOR EBOUNDS TABLE
     """
     reqkeys = ['TELESCOP', 'INSTRUME']
+    reqkeys.append('FILTER')
+    reqkeys.append('CHANTYPE[PHA|PI]')
+    reqkeys.append('DETCHANS')
+    reqkeys.append('HDUCLASS[OGIP]')
+    reqkeys.append('HDUCLAS1[RESPONSE]')
+    reqkeys.append('HDUCLAS2[EBOUNDS]')
+    reqkeys.append('HDUVERS[1.2.0]')
+    reqkeys.append('CCLS0001[CPF]')
+    reqkeys.append('CCNM0001[EBOUNDS]')
+    reqkeys.append('CDTP0001[DATA]')
+    reqkeys.append('CVSD0001')
+    reqkeys.append('CVST0001')
+    reqkeys.append('CDES0001')
+
     """
     Define optional Keywords
     """
-    optkeys = ['DETNAM', 'FILTER']
-    optkeys.append('FILTER')
-    optkeys.append('RA*')
-    optkeys.append('DEC*')
-    optkeys.append('TIMEZERO|TIMEZERI+TIMEZERF')  # can be given as single keyword or integer + fraction; either ok
-    optkeys.append('TSTART|TSTARTI+TSTARTF')  # can be given as single keyword or integer + fraction; either ok
-    optkeys.append('TSTOP|TSTOPI+TSTARTF')  # can be given as single keyword or integer + fraction; either ok
-    optkeys.append('TIMESYS')
-    optkeys.append('TIMEUNIT')
-    optkeys = ['DATE-OBS']
-    optkeys.append('DATE-END')
-    optkeys.append('ONTIME')
-    optkeys=['HDUCLASS[OGIP]']
-    optkeys.append('HDUCLAS1[GTI]')
+    optkeys = ['PHAFILE']
+    optkeys.append('RMFVERSN[1992A]')
+    optkeys.append('HDUVERS1[1.1.0]')
+    optkeys.append('HDUVERS2[1.2.0]')
 
     """
     Define Required Columns
     """
-    reqcols = ['START', 'STOP']
+    reqcols = ['CHANNEL','E_MIN', 'E_MAX']
     """
     Define Optional Columns
     """
-    optcols = ['TIMEDEL']
+    optcols = ['']
 
-    gti={'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
-    """
-    FOR DETECTOR TABLE (optional)
-    """
-    """
-    Define Required keywords
-    """
-    detector=dict()
-    """
-    Define Optional keywords
-    """
-
-    """
-    Define Required Columns
-    """
-
-    """
-    Define Optional Columns
-    """
-
-    """
-    FOR HISTORY TABLE: (optional)
-    """
-    history=dict()
-    """
-    Define Required keywords
-    """
-
-    """
-    Define Optional keywords
-    """
-
-    """
-    Define Required Columns
-    """
-
-    """
-    Define Optional Columns
-    """
+    ebounds={'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 
     #
-    # create structure for pha file
+    # create structure for redistribution matrix file
     #
-    ogip = {'SPECTRUM':pha,'GTI':gti,'DETECTOR':detector, 'HISTORY':history,
-            'REFERENCE':'OGIP/92-007'}
+    ogip = {'MATRIX':specresp,'EBOUNDS':ebounds,'REFERENCE':'OGIP/92-002'}
     return ogip
 
 
