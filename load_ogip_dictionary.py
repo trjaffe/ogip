@@ -30,13 +30,16 @@ def load_ogip_dictionary(type):
     def caldb():
         og = ogip.ogip_dictionary_caldb()
         return og
-
+    def rmf():
+        og = ogip.ogip_dictionary_rmf()
+        return og
+    def arf():
+        og = ogip.ogip_dictionary_arf()
+        return og
 
     defined_types={'SPECTRAL':spec, 'TIMING':timing,
-                   'CALDB':caldb}
-
+                   'CALDB':caldb,'RMF':rmf, 'ARF':arf}
     key = type.strip().upper()
-
     try:
         # see https://bytebaker.com/2008/11/03/switch-case-statement-in-python/ for this way of
         # simulating a case/switch statement in python
@@ -50,6 +53,6 @@ def load_ogip_dictionary(type):
 
 if __name__ == "__main__":
     import ogip
-    type='CALDB'
-    og=ogip.load_ogip_dictionary(type)
+    type='ARF'
+    og=load_ogip_dictionary(type)
     print "For type = {1}, Found these EXTNAMES: {0}".format(og.keys(),type)
