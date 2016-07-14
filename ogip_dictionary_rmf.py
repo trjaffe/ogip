@@ -115,7 +115,7 @@ def ogip_dictionary_rmf():
     #
     # create structure for redistribution matrix file
     #
-    ogip = {'MATRIX':specresp,'EBOUNDS':ebounds,'REFERENCE':'OGIP/92-002'}
+    ogip = {'MATRIX':specresp,'EBOUNDS':ebounds,'REFERENCE':'OGIP/92-002, OGIP/92-002a'}
     return ogip
 
 
