@@ -4,7 +4,9 @@ A number of handy utilities
 import ogip_dictionary
 import ogip_timing_check
 
-import load_ogip_dictionary
-import ogip_dictionary_caldb
-import ogip_dictionary_spectral
-import ogip_dictionary_timing
+from load_ogip_dictionary import *
+from ogip_dictionary_caldb import *
+from ogip_dictionary_spectral import *
+from ogip_dictionary_timing import *
+from ogip_dictionary_rmf import *
+from ogip_dictionary_arf import *

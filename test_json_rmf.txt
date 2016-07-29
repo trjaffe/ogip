@@ -1,0 +1,35 @@
+A FILE HAS A TYPE (PHA, RMF ETC) - ALLOWED ONE OF THE DEFINED TYPES
+    A FILE TYPE CONTAINS ONE OR MORE DEFINED EXTNAMES
+        A DEFINED EXTNAME HAS
+            ALTERNATE FORMS ("SPECRESP MATRIX" OR "MATRIX")
+            A FITS TYPE (BINTABLE, IMAGE)
+                ONE OR MORE KEYWORDS
+                    WHICH HAVE REQUIREMENT TYPES (REQUIRED/RECOMMENDED), DEPENDENCIES (MJDREFI REQUIRES MJDREFF etc),
+                    DATATYPES (STRING, INTEGER, ETC), COMMENTS
+                NONE OR MORE COLUMNS; COLUMNS HAVE:
+                    TYPES (REQUIRED, RECOMMENDED), DEPENDENCIES, DATATYPES, KEYWORD FORMS,
+                    COMMENTS, UNITS, DISPLAY FORMATS, NULL VALUES
+
+
+So for example:
+
+RMF:[SPECRESP:{
+                KEYWORDS
+                COLUMNS
+                }
+     EBOUNDS:{
+                KEYWORDS
+                COLUMNS
+                }
+     ]
+
+So suppose we have an HDU object in pyfits that we've read in from some file;
+    we then create a template hdu for the FILE TYPE of interest (PHA, RMF, ETC)
+    then for each header keyword in the template HDU, we can test whether:
+        a) the header keyword exists in the test file
+        b) the header keyword has the correct datatype
+        c) the header keyword has a useful comment
+        d) any dependent HEADER keywords exist
+
+        then we could do the same for the columns (but we'd need to check if the keyword
+        version of the column exists if the column is missing)
