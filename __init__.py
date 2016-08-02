@@ -10,3 +10,4 @@ from ogip_dictionary_spectral import *
 from ogip_dictionary_timing import *
 from ogip_dictionary_rmf import *
 from ogip_dictionary_arf import *
+from ogip_general_checks import *

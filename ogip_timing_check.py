@@ -316,6 +316,7 @@ def ogip_timing_check(filename):
     http://heasarc.gsfc.nasa.gov/FTP/caldb/docs/ogip/fits_formats/docs/rates/ogip_93_003/ogip_93_003.pdf
     """
     #import pyfits
+    # TODO - ADD OPTIONS FOR VERBOSITY, LOGFILE
 
     global ERRORS, WARNINGS
     global REPORT
