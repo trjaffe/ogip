@@ -22,6 +22,11 @@ def ogip_dictionary_timing():
     global status
     global REPORT
 
+    #  Document reference:  OGIP/93-003
+    docref='OGIP/93-003: The Proposed Timing FITS File Format for High Energy Astrophysics Data'
+    docurl='http://heasarc.gsfc.nasa.gov/FTP/caldb/docs/ogip/fits_formats/docs/rates/ogip_93_003/ogip_93_003.pdf'
+
+
     """
     FOR RATE TABLE:
     """
