@@ -70,7 +70,7 @@ def ogip_timing_check(filename):
         print "\nFile %s does not contain a ENEBAND extension" % fname
     status.REPORT = status.REPORT[1:]
     if status.ERRORS > 0:
-        ogip_fail(filename)
+        ogip_fail(filename,ogip_dict)
     else:
         print "\n==========================================================="
         print "\nFile %s conforms to the OGIP Standards" % filename

@@ -6,7 +6,7 @@ Library of generic functions used by OGIP check utilities.
 
 class retstat:
     """
-    For passing status information through module functions and back to calling codes without the pain of global variables.
+    For passing status information through module functions and back to calling codes without global variables.
     """
 
     def __init__(self, status, REPORT, WARNINGS, ERRORS):
@@ -310,7 +310,7 @@ def ogip_fail(filename,ogip_dict):
 
     print "\n===========================================================\n"
     print "FAILURE: %s is not a Valid OGIP formatted file" % filename
-    print "Please see %s" % ogip_dict.docref
+    print "Please see %s: %s" % (ogip_dict["REFERENCE"],ogip_dict["REFTITLE"])
     print "Available at"
-    print "   %s" % ogip_dict.docurl
+    print "   %s" % ogip_dict["REFURL"]
     return
