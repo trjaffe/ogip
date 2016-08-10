@@ -111,14 +111,20 @@ def key_hasvalue(key, header, status):
     status.NUMCHECKS += 1
 
     beg=key.find("[")
-    val=key[beg+1:key.find(']')]
+    val=key[beg+1:key.find(']')].strip().upper()
     k=key[0:beg]
-    Found = False
+    Match = False
     if k in header:
-        if header[k].strip().upper() == val:
-            Found = True
-        else:
-            rpt = "Keyword %s Found, but Value = %s, should be %s" % (k, header[k].upper().strip(), val.upper().strip())
+        if type(header[k]) is str:
+            aval=header[k].strip().upper()
+            if aval == val:
+                Match = True
+        elif type(header[k]) is int:
+            aval=header[k]
+            if aval==int(val):
+                Match = True
+        if Match==False:
+            rpt = "Keyword %s Found, but Value = %s, should be %s" % (k, aval, val)
             print rpt
             status.REPORT.append(rpt)
             status.WARNINGS += 1
@@ -126,7 +132,7 @@ def key_hasvalue(key, header, status):
         rpt = "Keyword %s not found in header" % k
         print rpt
         status.REPORT.append(rpt)
-    return Found
+    return Match
 
 
 
