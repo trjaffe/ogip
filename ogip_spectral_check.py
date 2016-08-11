@@ -53,17 +53,17 @@ def ogip_spectral_check(filename):
         return status.status, status.REPORT
     print "\n=============== Checking GTI Extension ==============="
     if 'GTI' in extname:
-        missing = cmp_keys_cols(filename, 'GTI', status)
+        missing = cmp_keys_cols(filename, 'GTI',ogip_dict, status)
     else:
         print "\nFile %s does not contain a GTI extension\n" % fname
     print "\n=============== Checking DETECTOR Extension ==============="
     if 'DETECTOR' in extname:
-        missing = cmp_keys_cols(filename,'DETECTOR',status)
+        missing = cmp_keys_cols(filename,'DETECTOR',ogip_dict,status)
     else:
         print "\nFile %s does not contain a DETECTOR extension" % fname
     print "\n=============== Checking HISTORY Extension ==============="
     if 'HISTORY' in extname:
-        missing = cmp_keys_cols(filename,'HISTORY',status)
+        missing = cmp_keys_cols(filename,'HISTORY',ogip_dict,status)
     else:
         print "\nFile %s does not contain a HISTORY extension" % fname
     status.REPORT = status.REPORT[1:]
