@@ -1,4 +1,4 @@
-import pyfits
+from astropy.io import fits as pyfits
 from ogip_dictionary import ogip_dictionary
 from ogip_generic_lib import *
 
@@ -7,8 +7,10 @@ def ogip_timing_check(filename):
     """
     checks for the existence of OGIP required keywords for timing files based on
     http://heasarc.gsfc.nasa.gov/FTP/caldb/docs/ogip/fits_formats/docs/rates/ogip_93_003/ogip_93_003.pdf
+
+    changes: MFC 20160811 added ogip_dict to call to cmp_keys_cols
     """
-    #import pyfits
+    #
     # TODO - ADD OPTIONS FOR VERBOSITY, LOGFILE
 
     ogip_dict=ogip_dictionary('TIMING')
@@ -41,7 +43,7 @@ def ogip_timing_check(filename):
         missing = cmp_keys_cols(filename, 'RATE',ogip_dict, status)
     elif 'EVENTS' in extname:
         print "\n=============== Checking EVENTS Extension ===============\n"
-        missing = cmp_keys_cols(filename, 'EVENTS', status)
+        missing = cmp_keys_cols(filename, 'EVENTS', ogip_dict, status)
     else:
         rpt= "ERROR: %s has no RATE or EVENTS extension" % fname
         print rpt
@@ -55,17 +57,17 @@ def ogip_timing_check(filename):
         return status.status, status.REPORT
     print "\n=============== Checking GTI Extension ==============="
     if 'GTI' in extname:
-        missing = cmp_keys_cols(filename, 'GTI', status)
+        missing = cmp_keys_cols(filename, 'GTI', ogip_dict, status)
     else:
         print "\nFile %s does not contain a GTI extension\n" % fname
     print "\n=============== Checking TIMEREF Extension ==============="
     if 'TIMEREF' in extname:
-        missing = cmp_keys_cols(filename,'TIMEREF',status)
+        missing = cmp_keys_cols(filename,'TIMEREF',ogip_dict, status)
     else:
         print "\nFile %s does not contain a TIMEREF extension" % fname
     print "\n=============== Checking ENEBAND Extension ==============="
     if 'ENEBAND' in extname:
-        missing = cmp_keys_cols(filename,'ENEBAND',status)
+        missing = cmp_keys_cols(filename,'ENEBAND',ogip_dict,status)
     else:
         print "\nFile %s does not contain a ENEBAND extension" % fname
     status.REPORT = status.REPORT[1:]
@@ -87,7 +89,8 @@ if __name__== "__main__":
     #filename = "/Users/corcoran/research/ETA_CAR/Swift/2014/quicklook/work/00091911045/xspec/ec_src.pha"
     #filename = "/Users/corcoran/research/ETA_CAR/CHANDRA2/repro/seqid/200057/632/acisf00632_evt1a.fits"
     #filename="http://heasarc.gsfc.nasa.gov/FTP/rosat/data/pspc/processed_data/200000/rp200069n00/rp200069n00_ltc.fits.Z"
-    filename = "/Users/mcorcora/Downloads/rp200069n00_ltc.fits"
+    #filename = "/Users/mcorcora/Downloads/rp200069n00_ltc.fits"
+    filename = "test_files/CRAB_daily_lc.fits"
 
     REPORT = ogip_timing_check(filename)
 
