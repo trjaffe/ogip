@@ -8,6 +8,7 @@ __pycache__/
 # MFC don't include .idea (from pycharm) or .ipynb_checkpoints (from jupyter notebook)
 /.idea
 /.ipynb_checkpoints
+/test_files
 
 # C extensions
 *.so
