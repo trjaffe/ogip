@@ -19,18 +19,20 @@ class retstat:
 
 def cmp_keys_cols(filename, extname, ogip_dict, status):
     """
-    for a given hdu from a fits extension, get the required and optional keywords and columns
+    for a given filename from a fits file, get the required and optional keywords and columns
     then check that the given hdu has all the required elements
 
     filename is the name of the file that needs to be checked
     extname should be either RATE, EVENTS, GTI or ENEBAND
 
-    @param hdu:
-    @param type:
+    @param filename: name of file being checked
+    @param extname: name of extension being checked
+    @param ogip_dict: ogip_dictionary to check against
+    @param status: return status
     @return:
     """
     status.NUMCHECKS += 1
-
+    # TODO: do we really want to strip the path off?
     file = filename[filename.rfind('/')+1:] # remove directory path
 
     hdu = pyfits.open(filename)
