@@ -5,6 +5,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# MFC don't include .idea (from pycharm) or .ipynb_checkpoints (from jupyter notebook)
+/.idea
+/.ipynb_checkpoints
+
 # C extensions
 *.so
 
@@ -91,3 +95,4 @@ ENV/
 .ropeproject
 
 .gitignore
+.idea/
