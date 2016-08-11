@@ -199,7 +199,9 @@ def ogip_dictionary_spectral():
     # create structure for pha file
     #
     ogip = {'SPECTRUM':pha,'GTI':gti,'DETECTOR':detector, 'HISTORY':history,
-            'REFERENCE':'OGIP/92-007'}
+            'REFERENCE':'OGIP/92-007',
+            'REFURL':'https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/summary/ogip_92_007_summary.html',
+            'REFTITLE':'The OGIP Spectral File Format'}
     return ogip
 
 

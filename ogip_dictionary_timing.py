@@ -22,6 +22,7 @@ def ogip_dictionary_timing():
     global status
     global REPORT
 
+
     """
     FOR RATE TABLE:
     """
@@ -217,7 +218,10 @@ def ogip_dictionary_timing():
     timeref={'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
     ogip = {'RATE':rate, 'EVENTS':events, 'TIMEREF':timeref,
             'ENEBAND':eneband, 'GTI':gti,
-            'REFERENCE':'OGIP/93-003'}
+            'REFERENCE':'OGIP/93-003',
+            'REFTITLE':'The Proposed Timing FITS File Format for High Energy Astrophysics Data',
+            'REFURL':'http://heasarc.gsfc.nasa.gov/FTP/caldb/docs/ogip/fits_formats/docs/rates/ogip_93_003/ogip_93_003.pdf'}
+
     return ogip
 
 
