@@ -43,7 +43,7 @@ def ogip_timing_check(filename):
         missing = cmp_keys_cols(filename, 'RATE',ogip_dict, status)
     elif 'EVENTS' in extname:
         print "\n=============== Checking EVENTS Extension ===============\n"
-        missing = cmp_keys_cols(filename, 'EVENTS', status)
+        missing = cmp_keys_cols(filename, 'EVENTS', ogip_dict, status)
     else:
         rpt= "ERROR: %s has no RATE or EVENTS extension" % fname
         print rpt
