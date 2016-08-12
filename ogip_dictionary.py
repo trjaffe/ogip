@@ -25,8 +25,6 @@ def ogip_dictionary(type):
     this function returns the  required and optional keywords and columns
     as defined by OGIP 93-003 (TIMING), 92-007 (SPECTRAL), 92-002 and 92-002a (ARF and RMF) for a given extension
     """
-    global status
-    global REPORT
 
     if type.strip().upper() == 'TIMING':
         return ogip_dictionary_timing()
@@ -40,7 +38,7 @@ def ogip_dictionary(type):
         return ogip_dictionary_rmf()
     else:
         print "Currently defined for"
-        print "Type = TIMING"
+        print "Type = TIMING, SPECTRAL, CALDB, ARF, or RMF."
         ogip = 0
     return ogip
 

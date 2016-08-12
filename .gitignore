@@ -97,3 +97,7 @@ ENV/
 
 .gitignore
 .idea/
+
+# Emacs backups
+*~
+

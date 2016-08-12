@@ -194,11 +194,15 @@ def ogip_dictionary_spectral():
     """
     Define Optional Columns
     """
-
+    extns={'REQUIRED':['SPECTRUM'], 'OPTIONAL':['HISTORY','DETECTOR','GTI']}
     #
     # create structure for pha file
     #
-    ogip = {'SPECTRUM':pha,'GTI':gti,'DETECTOR':detector, 'HISTORY':history,
+    ogip = {'EXTENSIONS':extns, 
+            'SPECTRUM':pha,
+            'GTI':gti,
+            'DETECTOR':detector, 
+            'HISTORY':history,
             'REFERENCE':'OGIP/92-007',
             'REFURL':'https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/summary/ogip_92_007_summary.html',
             'REFTITLE':'The OGIP Spectral File Format'}

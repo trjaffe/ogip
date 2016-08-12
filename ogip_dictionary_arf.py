@@ -69,11 +69,16 @@ def ogip_dictionary_arf():
 
     specresp = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 
-
+    extns={'REQUIRED':['SPECRESP'],'OPTIONAL':[]}
     #
     # create structure for the ARF file
     #
-    ogip = {'SPECRESP':specresp,'REFERENCE':'OGIP/92-002'}
+    ogip = {'EXTENSIONS':extns,
+            'SPECRESP':specresp,
+            'REFERENCE':'OGIP/92-002',
+            'REFURL':'https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html',
+            'REFTITLE':'The Calibration Requirements for Spectral Analysis'}
+
     return ogip
 
 
