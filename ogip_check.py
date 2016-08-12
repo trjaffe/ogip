@@ -89,17 +89,21 @@ def ogip_check(args):
     # there, and now simply loop over the extensions and check
     # whatever's there. Note that the name in the dictionary may be a
     # substring of the name in the file (e.g., for RMF files, the
-    # required extension is 'MATRIX' while the file may have 'SPECRESP
-    # MATRIX'.) So check for substrings.
+    # required extension is 'MATRIX' while the file may have 
+    #  'SPECRESP MATRIX'.) So check for substrings.
     for this_extn in extnames:  
-        checked=False
-        for ref_extn in ereq+eopt:
-            if ref_extn in this_extn:
-                print "\n=============== Checking '%s' Extension ===============\n" % this_extn
-                missing=cmp_keys_cols(filename,ref_extn,ogip_dict,status)
-                checked=True
-        if checked==False:
-            print "\nExtension '%s' is not an OGIP defined extension for this type;  ignoring.\n" % this_extn
+        if type=='CALDB':
+            print "\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,ref_extn)
+            missing=cmp_keys_cols(filename,this_extn,'CALFILE',ogip_dict,status)
+        else:
+            checked=False
+            for ref_extn in ereq+eopt:
+                if ref_extn in this_extn:
+                    print "\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,ref_extn)
+                    missing=cmp_keys_cols(filename,this_extn,ref_extn,ogip_dict,status)
+                    checked=True
+            if checked==False:
+                print "\nExtension '%s' is not an OGIP defined extension for this type;  ignoring.\n" % this_extn
 
     status.REPORT = status.REPORT[1:]
     if status.ERRORS > 0:

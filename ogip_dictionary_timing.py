@@ -211,7 +211,7 @@ def ogip_dictionary_timing():
     """
     Define Optional Columns
     """
-    optcols = ['']
+    optcols = []
     timeref={'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 
     #  Define which extensions must be present, and which are optional

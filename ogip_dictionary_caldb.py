@@ -38,7 +38,7 @@ def ogip_dictionary_caldb():
     optkeys.append('CINS*')
     optkeys.append('CDT*')
     optkeys.append('CFI*')
-    calfile = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys},
+    calfile = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys},'COLUMNS':{'REQUIRED':[],'RECOMMENDED':[]}
     }
 
     extns={'REQUIRED':[],'OPTIONAL':[]}
@@ -48,8 +48,6 @@ def ogip_dictionary_caldb():
             'REFERENCE':'OGIP/92-011',
             'REFTITLE':'Required and Recommended FITS keywords for Calibration Files',
             'REFURL':'http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html#tab:keywordsum'} # for generic calibration file; EXTNAME not specified
-
-    print "\nDEBUGGIG\n"
 
     return ogip
 

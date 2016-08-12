@@ -65,7 +65,7 @@ def ogip_dictionary_arf():
     """
     Define Optional Columns
     """
-    optcols = [''] # dispersion order for grating data
+    optcols = [] # dispersion order for grating data
 
     specresp = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 

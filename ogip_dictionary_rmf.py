@@ -108,7 +108,7 @@ def ogip_dictionary_rmf():
     """
     Define Optional Columns
     """
-    optcols = ['']
+    optcols = []
 
     ebounds={'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 
              'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
