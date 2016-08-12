@@ -93,7 +93,7 @@ def ogip_check(args):
     #  'SPECRESP MATRIX'.) So check for substrings.
     for this_extn in extnames:  
         if type=='CALDB':
-            print "\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,ref_extn)
+            print "\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,'CALFILE')
             missing=cmp_keys_cols(filename,this_extn,'CALFILE',ogip_dict,status)
         else:
             checked=False
