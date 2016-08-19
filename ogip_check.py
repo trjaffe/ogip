@@ -5,30 +5,37 @@ from ogip_generic_lib import *
 
 def ogip_check(args):
     """
-    checks for the existence of OGIP required keywords for FITS files based on
+
+    Checks for the existence of OGIP required keywords and columns 
+    for FITS files based on the Standards doccumented here:  
     
     https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html
+
+    Any generic FITS-standard errors will also cause an exception.
 
     """
     #
     # TODO - ADD OPTIONS FOR VERBOSITY, LOGFILE
 
     filename=args.input
+    status=retstat(0,['FILE CONFORMS TO THE OGIP CONVENTIONS'],0,0)
+
 
     try:
         hdulist= pyfits.open(filename)
     except:
         print "ERROR: Could not open %s; RETURNING" % filename
-        status.ERRORS += 1
-        return
+        status.status += 1
+        return status
     hdulist.verify()
     numext= len(hdulist)
     if numext < 1:
         rpt= "ERROR: File needs at least 1 extension, found %i" % numext
         print rpt
         status.REPORT.append(rpt)
-        status.ERRORS += 1
+        status.status += 1
         ogip_fail(filename)
+        return status
 
     # Get a list of all the extnames in the file using a list comprehension
     extnames= [x.name for x in hdulist]
@@ -52,9 +59,8 @@ def ogip_check(args):
     ogip_dict=ogip_dictionary(type)
     if ogip_dict==0:
         print "\nERROR:  do not recognize OGIP type %s" % type
-        exit(1)
-
-    status=retstat(0,['FILE CONFORMS TO THE OGIP CONVENTIONS'],0,0)
+        status.status+=1
+        return status
 
     fname = filename
     if "/" in filename:
@@ -65,7 +71,7 @@ def ogip_check(args):
     ereq=ogip_dict['EXTENSIONS']['REQUIRED']
     eopt=ogip_dict['EXTENSIONS']['OPTIONAL']
 
-    check=False if type != 'CALDB' else True #  No required extension name(?)
+    check=True if type == 'CALDB' else False #  No required extension name(?)
 
     # If there are multiple entries in the required set, only one must
     # be in the file to be tested for it to pass.  This code will have
@@ -82,6 +88,7 @@ def ogip_check(args):
         print "QUITTING"
         status.REPORT.append(rpt)
         status.ERRORS +=  1
+        status.status +=  1
         status.REPORT = status.REPORT[1:]
         return status
 

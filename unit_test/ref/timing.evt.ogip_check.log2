@@ -1,0 +1,28 @@
+
+Checking file inputs/timing.evt as type TIMING
+
+=============== Checking 'EVENTS' extension against 'EVENTS' standard ===============
+
+WARNING: Key DETNAM not found in timing.evt[EVENTS]
+WARNING: Key FILTER not found in timing.evt[EVENTS]
+WARNING: Key FILTER not found in timing.evt[EVENTS]
+WARNING: Key CLOCKCOR not found in timing.evt[EVENTS]
+WARNING: Key NUMBAND not found in timing.evt[EVENTS]
+WARNING: Key TIME-OBS not found in timing.evt[EVENTS]
+WARNING: Key TIME-END not found in timing.evt[EVENTS]
+WARNING: Key TIMVERSN not found in timing.evt[EVENTS]
+WARNING: Key AUTHOR not found in timing.evt[EVENTS]
+WARNING: Key BACKAPP not found in timing.evt[EVENTS]
+WARNING: Key VIGNAPP not found in timing.evt[EVENTS]
+WARNING: Key DEADAPP not found in timing.evt[EVENTS]
+
+=============== Checking 'STDGTI' extension against 'GTI' standard ===============
+
+WARNING: Recommended column TIMEDEL missing from timing.evt[STDGTI]
+
+===========================================================
+
+File inputs/timing.evt conforms to the OGIP Standards
+
+=============== 0 Errors and 13 Warnings Found ===============
+

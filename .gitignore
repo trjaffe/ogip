@@ -101,3 +101,6 @@ ENV/
 # Emacs backups
 *~
 
+# Unit test run
+unit_test/out
+

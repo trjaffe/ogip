@@ -6,15 +6,22 @@ Library of generic functions used by OGIP check utilities.
 
 class retstat:
     """
-    For passing status information through module functions and back to calling codes without global variables.
+
+    For passing status information through module functions and back
+    to calling codes without global variables.  
+
+    REPORT contains the output to print
+    WARNINGS counts the number of warning messages (i.e. RECOMMENDED properties that fail)
+    ERRORS counts the number of error messages (i.e. REQUIRED properties that fail)
+    status counts running errors such as missing files, unrecognized formats, etc.
+
     """
 
     def __init__(self, status, REPORT, WARNINGS, ERRORS):
-        self.status = status
+        self.status=status
         self.REPORT=REPORT
         self.WARNINGS=WARNINGS
         self.ERRORS=ERRORS
-        self.NUMCHECKS=0
 
 
 def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, status):
@@ -32,7 +39,6 @@ def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, status):
     @param status: return status
     @return:
     """
-    status.NUMCHECKS += 1
     # TODO: do we really want to strip the path off?
     file = filename[filename.rfind('/')+1:] # remove directory path
 
@@ -107,7 +113,6 @@ def key_hasvalue(key, header, status):
     @return:
     """
 
-    status.NUMCHECKS += 1
 
     beg=key.find("[")
     val=key[beg+1:key.find(']')].strip().upper()
@@ -244,8 +249,6 @@ def check_groupcols(col, colnames, status):
     @param header:
     @return:
     """
-    status.NUMCHECKS+=1
-
     groupcols = col.split('+')
     groupcols = [x.upper().strip() for x in groupcols]
     colnames = [x.upper().strip() for x in colnames]
