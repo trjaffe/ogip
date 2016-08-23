@@ -3,6 +3,7 @@ A number of handy utilities
 """
 import ogip_dictionary
 import ogip_check
+import ogip_check_dir
 
 from load_ogip_dictionary import *
 from ogip_dictionary_caldb import *

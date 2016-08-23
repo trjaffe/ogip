@@ -1,4 +1,6 @@
+from __future__ import print_function
 import pyfits
+import sys
 
 """
 Library of generic functions used by OGIP check utilities.
@@ -16,15 +18,27 @@ class retstat:
     status counts running errors such as missing files, unrecognized formats, etc.
 
     """
+    def update(self, report=None, miskey=None, miscol=None, status=0, warn=0,err=0,log=sys.stdout):
+        if report:  self.REPORT.append(report)
+        if miskey:  self.MISKEYS.append(miskey)
+        if miscol:  self.MISCOLS.append(miscol)
+        self.status+=status
+        self.WARNINGS+=warn
+        self.ERRORS+=err
+        print(report,file=log)
 
-    def __init__(self, status, REPORT, WARNINGS, ERRORS):
+
+
+    def __init__(self, status=0, REPORT=[], WARNINGS=0, ERRORS=0,MISKEYS=[],MISCOLS=[]):
         self.status=status
         self.REPORT=REPORT
         self.WARNINGS=WARNINGS
         self.ERRORS=ERRORS
+        self.MISKEYS=MISKEYS
+        self.MISCOLS=MISCOLS
 
 
-def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, status):
+def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, logf, status):
     """
     for a given filename from a fits file, get the required and optional keywords and columns
     then check that the given hdu has all the required elements
@@ -59,47 +73,33 @@ def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, status):
     ogip=ogip_dict[extna]
 
     for key in ogip['KEYWORDS']['REQUIRED']:
-        Foundkey = check_keys(key, hdr,status)
+        Foundkey = check_keys(key, hdr,logf,status)
         if not Foundkey:
-            rpt= "ERROR: Key %s not found in %s[%s]" % (key,file, this_extn)
-            missing_keywords.append(key)
-            print rpt
-            status.REPORT.append(rpt)
-            status.ERRORS += 1
-    for key in ogip['KEYWORDS']['RECOMMENDED']:
-        Foundkey = check_keys(key,hdr,status)
-        if not Foundkey:
-            rpt= "WARNING: Key %s not found in %s[%s]" % (key,file, this_extn)
-            print rpt
-            status.REPORT.append(rpt)
-            status.WARNINGS += 1
-    for col in ogip['COLUMNS']['REQUIRED']:
-        Foundcol = check_cols(col, colnames,status)
-        if not Foundcol:
-            rpt = "ERROR: Required column %s missing from %s[%s]" % (col, file,  this_extn)
-            print rpt
-            status.REPORT.append(rpt)
-            status.ERRORS += 1
-            missing_columns.append(col)
-    for col in ogip['COLUMNS']['RECOMMENDED']:
-        Foundcol = check_cols(col, colnames,status)
-        if not Foundcol:
-            rpt = "WARNING: Recommended column %s missing from %s[%s]" % (col, file,  this_extn)
-            print rpt
-            status.REPORT.append(rpt)
-            status.WARNINGS += 1
-    if len(missing_keywords) > 1:
-        missing_keywords= missing_keywords[1:]
-    if len(missing_columns) > 1:
-        missing_columns= missing_columns[1:]
+            status.update(report="ERROR: Key %s not found in %s[%s]" % (key,file, this_extn), err=1,log=logf,miskey=key)
 
-    missing={'REF_EXTN':ref_extn ,'MISSING_KEYWORDS':missing_keywords, 'MISSING_COLUMNS':missing_columns}
+    for key in ogip['KEYWORDS']['RECOMMENDED']:
+        Foundkey = check_keys(key,hdr,logf,status)
+        if not Foundkey:
+            status.update(report="WARNING: Key %s not found in %s[%s]" % (key,file, this_extn), warn=1,log=logf)
+
+    for col in ogip['COLUMNS']['REQUIRED']:
+        Foundcol = check_cols(col, colnames,logf,status)
+        if not Foundcol:
+            status.update(report="ERROR: Required column %s missing from %s[%s]" % (col, file,  this_extn), err=1,log=logf, miscol=col)
+
+    for col in ogip['COLUMNS']['RECOMMENDED']:
+        Foundcol = check_cols(col, colnames,logf,status)
+        if not Foundcol:
+            status.update(report= "WARNING: Recommended column %s missing from %s[%s]" % (col, file,  this_extn), warn=1,log=logf, miscol=col)
+
+    # Backward compatibility
+    missing={'REF_EXTN':ref_extn ,'MISSING_KEYWORDS':status.MISKEYS, 'MISSING_COLUMNS':status.MISCOLS}
 
     return missing
 
 
 
-def key_hasvalue(key, header, status):
+def key_hasvalue(key, header,logf, status):
     """
     checks if a keyword with a specific value exists in the file header
     key should be of the form
@@ -129,18 +129,18 @@ def key_hasvalue(key, header, status):
                 Match = True
         if Match==False:
             rpt = "Keyword %s Found, but Value = %s, should be %s" % (k, aval, val)
-            print rpt
+            print(rpt,file=logf)
             status.REPORT.append(rpt)
             status.WARNINGS += 1
     else:
         rpt = "Keyword %s not found in header" % k
-        print rpt
+        print(rpt,file=logf)
         status.REPORT.append(rpt)
     return Match
 
 
 
-def check_altkey(key, header,status):
+def check_altkey(key, header,logf,status):
     """
     Check for presence of alternate key names
     @param key:
@@ -156,17 +156,17 @@ def check_altkey(key, header,status):
     while (count < len(altkeys)) and not Foundkey:
         akey = altkeys[count]
         if "+" in akey:  # check for coupled keywords
-            Foundkey = check_groupkey(akey, header,status)
+            Foundkey = check_groupkey(akey, header, logf, status)
         else:  # does not contain a + sign
             Foundkey = akey in header.keys()  # true if akey in hdr
         count += 1
     if count == len(altkeys) and not Foundkey:
         rpt = "Alternate keywords %s not found in header" % key
-        print rpt
+        print(rpt,file=logf)
     return Foundkey
 
 
-def check_altcols(col, colnames,status):
+def check_altcols(col, colnames,logf,status):
     """
 
     @param col:
@@ -185,14 +185,14 @@ def check_altcols(col, colnames,status):
         count += 1
     if count == len(altcols) and not Foundcol:
         rpt = "Alternate Column %s not found in header" % col
-        print rpt
+        print(rpt,file=logf)
     else:
-        print "Alternate Column %s found in header" % acol
+        print("Alternate Column %s found in header" % acol,file=logf)
     return Foundcol
 
 
 
-def check_groupkey(key, header, status):
+def check_groupkey(key, header, logf, status):
     """
     this function checks for grouped keywords of the form MJDREFI+MJDREFF, in which case both keywords need
     to exist in the header; True if so, False otherwise
@@ -211,16 +211,16 @@ def check_groupkey(key, header, status):
     Foundkey = set(groupkeys) < set(header.keys())  # true if groupkeys a subset of header keywords
     if not Foundkey:
         rpt = "Group keywords %s not Found in Header" % key
-        print rpt
+        print(rpt,file=logf)
     else: # all keywords exist in header; do they have the correct value, if specified?
         for k in groupkeys:
             if "[" in k: # value is specified
-                Foundkey = key_hasvalue(k, header, status)
+                Foundkey = key_hasvalue(k, header,logf, status)
     return Foundkey
 
 
 
-def check_enumkey(key, header,status):
+def check_enumkey(key, header,logf,status):
     """
     this function checks for enumerated keywords of the form EMIN*, which will return
     all header keywords beginning with EMIN
@@ -233,7 +233,7 @@ def check_enumkey(key, header,status):
     val=header[key]
     if len(val) == 0: # search did not return any elements
         rpt = "Enumerated keywords %s not Found in Header" % key
-        print rpt
+        print(rpt,file=logf)
         Foundkey = False
     return Foundkey
 
@@ -256,15 +256,15 @@ def check_groupcols(col, colnames, status):
     Foundcol = set(groupcols) < set(colnames)  # true if groupcolss a subset of column names
     if not Foundcol:
         rpt = "Group columns %s not Found in Table" % col
-        print rpt
+        print(rpt,file=logf)
         status.REPORT.append(rpt)
     else: # all columns are defined
-        print "Group columns %s found in Table"
+        print("Group columns %s found in Table",file=logf)
     return Foundcol
 
 
 
-def check_keys(key, header,status):
+def check_keys(key, header,logf,status):
     """
     checks that the key appears in the header
     @param key:
@@ -274,20 +274,20 @@ def check_keys(key, header,status):
 
 
     if "|" in key:  # this means that the keyword has an alternative definition (like MJDREF, MJDREFF+MJDREFI)
-        Foundkey = check_altkey(key, header,status)
+        Foundkey = check_altkey(key, header,logf,status)
     elif "[" in key:  # this means this keyword has an allowed value, which is bracketed by [ and ]
-        Foundkey = key_hasvalue(key, header,status)
+        Foundkey = key_hasvalue(key, header,logf,status)
     elif "+" in key:  # this is a group keyword with no alternates
-        Foundkey = check_groupkey(key, header,status)
+        Foundkey = check_groupkey(key, header,logf,status)
     elif "*" in key: # this is an enumerated keyword (EMIN1...EMINn for example
-        Foundkey = check_enumkey(key, header,status)
+        Foundkey = check_enumkey(key, header,logf,status)
     else:
         Foundkey = key in header.keys()
     return Foundkey
 
 
 
-def check_cols(col, colnames,status):
+def check_cols(col, colnames,logf, status):
     """
     checks that the col appears in the list of column names
     @param col:
@@ -298,7 +298,7 @@ def check_cols(col, colnames,status):
 
     Foundcol = True
     if "|" in col:  # this means that the column has an alternative definition (like COUNTS|RATE)
-        Foundcol = check_altcols(col, colnames,status)
+        Foundcol = check_altcols(col, colnames,logf,status)
     elif "+" in col:  # group column; all columns must be present if one column is
         Foundcol = check_groupcols(col, colnames)
     else:
@@ -308,7 +308,7 @@ def check_cols(col, colnames,status):
 
 
 
-def ogip_fail(filename,ogip_dict):
+def ogip_fail(filename,ogip_dict,logf):
     """
     Prints failure report for ogip_check
     @param filename:
@@ -316,9 +316,9 @@ def ogip_fail(filename,ogip_dict):
     """
 
 
-    print "\n===========================================================\n"
-    print "FAILURE: %s is not a Valid OGIP formatted file" % filename
-    print "Please see %s: %s" % (ogip_dict["REFERENCE"],ogip_dict["REFTITLE"])
-    print "Available at"
-    print "   %s" % ogip_dict["REFURL"]
+    print("\n===========================================================\n",file=logf)
+    print("FAILURE: %s is not a Valid OGIP formatted file" % filename,file=logf)
+    print("Please see %s: %s" % (ogip_dict["REFERENCE"],ogip_dict["REFTITLE"]),file=logf)
+    print("Available at",file=logf)
+    print("   %s" % ogip_dict["REFURL"],file=logf)
     return
