@@ -1,0 +1,14 @@
+#! /usr/bin/env python
+
+from ogip_check_dir import ogip_check_dir
+
+if __name__== "__main__":
+    import argparse
+    import sys
+    parser = argparse.ArgumentParser()
+    parser.add_argument("basedir", type=str, help="Input base directory to test")
+    parser.add_argument("logdir", type=str, help="Output directory to write logs to, one per tested file")
+    parser.add_argument("-v", "--verbosity", action="count", default=0)
+    args = parser.parse_args()
+    status= ogip_check_dir(args.basedir,args.logdir,args.verbosity)
+    exit(status.status)
