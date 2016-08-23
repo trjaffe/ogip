@@ -6,7 +6,7 @@ from ogip_generic_lib import retstat
 def ogip_check_dir(basedir,logdir,verbosity):
     """
 
-    Traverses the given base directory and for all files found:
+    Traverses the given base directory and for all files found beneath:
 
     - checks if FITS type, and if so
 
@@ -28,6 +28,9 @@ def ogip_check_dir(basedir,logdir,verbosity):
             #  Assumes no two files with same name, writes logs all in
             #  one place for now.  Remove later if no longer needed.
             logfile=os.path.join(logdir,name+".check.log")
+
+            #  Returns status that contains both the count of errors,
+            #  warnings, and the logged reports.
             this_status=ogip_check(one,None,logfile,verbosity)
 
 
