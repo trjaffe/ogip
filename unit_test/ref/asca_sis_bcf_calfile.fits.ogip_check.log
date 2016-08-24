@@ -1,0 +1,175 @@
+
+Checking file inputs/asca_sis_bcf_calfile.fits as type CALDB
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'ECD_G0E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G0E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G0E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G0E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G0E0]
+
+=============== Checking 'ECD_G1E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G1E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G1E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G1E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G1E0]
+
+=============== Checking 'ECD_G2E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G2E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G2E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G2E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G2E0]
+
+=============== Checking 'ECD_G3E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G3E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G3E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G3E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G3E0]
+
+=============== Checking 'ECD_G4E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G4E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G4E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G4E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G4E0]
+
+=============== Checking 'ECD_G5E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G5E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G5E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G5E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G5E0]
+
+=============== Checking 'ECD_G6E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G6E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G6E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G6E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G6E0]
+
+=============== Checking 'ECD_G7E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G7E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G7E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G7E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G7E0]
+
+=============== Checking 'ECD_D0E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D0E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D0E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D0E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D0E0]
+
+=============== Checking 'ECD_D1E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D1E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D1E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D1E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D1E0]
+
+=============== Checking 'ECD_D2E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D2E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D2E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D2E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D2E0]
+
+=============== Checking 'ECD_D3E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D3E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D3E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D3E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D3E0]
+
+=============== Checking 'ECD_D4E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D4E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D4E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D4E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D4E0]
+
+=============== Checking 'ECD_D5E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D5E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D5E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D5E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D5E0]
+
+=============== Checking 'ECD_D6E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D6E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D6E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D6E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D6E0]
+
+=============== Checking 'ECD_D7E0' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D7E0]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D7E0]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D7E0]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D7E0]
+
+===========================================================
+
+FAILURE: inputs/asca_sis_bcf_calfile.fits is not a Valid OGIP formatted file
+Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
+Available at
+   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
+
+=============== 16 Errors and 48 Warnings Found ===============
+

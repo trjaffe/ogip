@@ -57,7 +57,7 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
+#*.log
 local_settings.py
 
 # Flask stuff:
@@ -103,4 +103,5 @@ ENV/
 
 # Unit test run
 unit_test/out
+unit_test/ref.\*
 

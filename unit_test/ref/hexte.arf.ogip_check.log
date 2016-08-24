@@ -1,0 +1,36 @@
+
+Checking file inputs/hexte.arf as type ARF
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'SPECRESP' extension against 'SPECRESP' standard ===============
+
+Alternate keywords CHANTYPE[PHA|PI] not found in header
+ERROR: Key CHANTYPE[PHA|PI] not found in hexte.arf[SPECRESP]
+ERROR: Key DETCHANS not found in hexte.arf[SPECRESP]
+Enumerated keywords TLMIN* not Found in Header
+ERROR: Key TLMIN* not found in hexte.arf[SPECRESP]
+ERROR: Key NUMGRP not found in hexte.arf[SPECRESP]
+ERROR: Key NUMELT not found in hexte.arf[SPECRESP]
+Keyword CCNM0001 Found, but Value = EFF_AREA, should be SPECRESP
+ERROR: Key CCNM0001[SPECRESP] not found in hexte.arf[SPECRESP]
+WARNING: Key LO_THRES not found in hexte.arf[SPECRESP]
+Alternate keywords HDUCLAS3[REDIST|DETECTOR|FULL] not found in header
+WARNING: Key HDUCLAS3[REDIST|DETECTOR|FULL] not found in hexte.arf[SPECRESP]
+Keyword RMFVERSN not found in header
+WARNING: Key RMFVERSN[1992A] not found in hexte.arf[SPECRESP]
+Keyword HDUVERS1 Found, but Value = 1.0.0, should be 1.1.0
+WARNING: Key HDUVERS1[1.1.0] not found in hexte.arf[SPECRESP]
+Keyword HDUVERS2 Found, but Value = 1.1.0, should be 1.2.0
+WARNING: Key HDUVERS2[1.2.0] not found in hexte.arf[SPECRESP]
+
+===========================================================
+
+FAILURE: inputs/hexte.arf is not a Valid OGIP formatted file
+Please see OGIP/92-002: The Calibration Requirements for Spectral Analysis
+Available at
+   https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html
+
+=============== 6 Errors and 8 Warnings Found ===============
+
