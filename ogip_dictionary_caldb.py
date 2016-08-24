@@ -47,7 +47,7 @@ def ogip_dictionary_caldb():
             'CALFILE': calfile,
             'REFERENCE':'OGIP/92-011',
             'REFTITLE':'Required and Recommended FITS keywords for Calibration Files',
-            'REFURL':'http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html#tab:keywordsum'} # for generic calibration file; EXTNAME not specified
+            'REFURL':'http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html'} # for generic calibration file; EXTNAME not specified
 
     return ogip
 

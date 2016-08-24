@@ -12,7 +12,14 @@ def ogip_check(input,type,logfile,verbosity):
     
     https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html
 
-    Any generic FITS-standard errors will also cause an exception.
+    Failure to open the file as a FITS file will result in non-zero retstat.status.
+
+    Failure in the FITS verify step will result in non-zero retstat.status.
+
+    Failure to actually compare the file to any dictionary will 
+    result in a non-zero return value in the retstat.status attribue.  
+    But errors in required keys or columns will not;  they will 
+    simply be counted in the retstat.ERRORS attribue.  
 
     """
     #
@@ -42,18 +49,29 @@ def ogip_check(input,type,logfile,verbosity):
         hdulist= pyfits.open(filename)
     except:
         print("ERROR: Could not open %s as a FITS file; RETURNING" % filename)
-        #  If the file exists but is not a FITS file, do not return an
-        #  error status.  
-        if not os.path.isfile(filename):
-            # Only return an error status if you were given an input file
-            #  that does not exist. Otherwise, may be called from
-            #  ogip_check_dir, which will try to check everything,
-            #  since there's no way to know if it's a FITS file or not
-            #  just from the name.
-            status.status += 1  
+        status.status += 1  
         return status
 
-    hdulist.verify()
+    #  Basic FITS verification:
+    fits_errs=False
+    if logf is not sys.stdout:
+        #  Temporarily redirect STDOUT and STDERR:
+        with stdouterr_redirector(logf):
+            try:
+                hdulist.verify(option='exception')
+            except pyfits.verify.VerifyError:
+                #  Trap the error so that we can abort this check but
+                #  not necessarily the whole process if running in
+                #  batch.  (This way, finishes the redirection at the
+                #  end of the with statement block.)
+                fits_errs=True
+        if fits_errs == True:
+            status.update(report="ERROR:  file does not pass FITS verification;  aborting checks.",status=1)
+            return status
+    else:
+        hdulist.verify(option='exception')
+        
+    
     numext= len(hdulist)
     if numext < 1:
         rpt= "ERROR: File needs at least 1 extension, found %i" % numext

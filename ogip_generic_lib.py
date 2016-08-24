@@ -1,11 +1,42 @@
 from __future__ import print_function
 import pyfits
 import sys
+from contextlib import contextmanager
 
 """
 Library of generic functions used by OGIP check utilities.
 """
 
+
+
+@contextmanager
+def stdouterr_redirector(stream):
+    old_stdout = sys.stdout
+    old_stderr = sys.stderr
+    sys.stdout = stream
+    sys.stderr = stream
+    try:
+        yield
+    finally:
+        sys.stdout = old_stdout
+        sys.stderr = old_stderr
+
+"""  Alternate way? 
+class stdouterr_redirector2():
+    def __init__(self, stream):
+        self.stream = stream
+    def __enter__(self):
+        self.old_stdout = sys.stdout
+        self.old_stderr = sys.stderr
+        sys.stdout = self.stream
+        sys.stderr = self.stream
+    def __exit__(self, type, value, traceback):
+        sys.stdout = self.old_stdout
+        sys.stderr = self.old_stderr
+"""
+
+
+        
 class retstat:
     """
 

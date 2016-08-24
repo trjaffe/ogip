@@ -10,7 +10,9 @@ def ogip_check_dir(basedir,logdir,verbosity):
 
     - checks if FITS type, and if so
 
-    - runs ogip_check, capturing the output, and
+    - runs FITS verify (pyfits), then 
+
+    - runs ogip_check, capturing the output, then 
 
     - collects statistics on the results, and
 
@@ -19,28 +21,29 @@ def ogip_check_dir(basedir,logdir,verbosity):
     """
 
 
-    status=retstat(0,[''],0,0)
-
     # Goes through all contents of root directory
     for root, dirs, files in os.walk(basedir, topdown=False):
-        for name in files:
+        for name in [x for x in files if not x.endswith(('.jpg','.txt','.gif','.dat'))]:
             one=os.path.join(root, name)
             #  Assumes no two files with same name, writes logs all in
             #  one place for now.  Remove later if no longer needed.
             logfile=os.path.join(logdir,name+".check.log")
+            print("CHECKING %s;  see log in %s" % (one, logfile) )
+            #  Returns status that contains both the counts of errors,
+            #  warnings, and the logged reports.  
+            status=ogip_check(one,None,logfile,verbosity)
+            if status.status != 0:
+                print("ERROR:  failed to check file %s;  see log in %s\nContinuing.\n" % (one, logfile) )
+            else:
+                print("Done.  Found %s errors and %s warnings.\n" % (status.ERRORS,status.WARNINGS))
 
-            #  Returns status that contains both the count of errors,
-            #  warnings, and the logged reports.
-            this_status=ogip_check(one,None,logfile,verbosity)
-
-
-    return(status)
+    return 
 
 
 
 
 if __name__== "__main__":
-    dir = "~/"
+    dir = "."
 
     status = ogip_check_dir(dir)
 
