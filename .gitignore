@@ -105,3 +105,5 @@ ENV/
 unit_test/out
 unit_test/ref.\*
 
+unit_test/inputs.bak*
+unit_test/ref.bak*

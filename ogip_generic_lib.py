@@ -8,7 +8,10 @@ Library of generic functions used by OGIP check utilities.
 """
 
 
-
+#
+#  Temporarily redirects stdout and stderr to an already-open output
+#  log file.
+#
 @contextmanager
 def stdouterr_redirector(stream):
     old_stdout = sys.stdout
@@ -36,23 +39,23 @@ class stdouterr_redirector2():
 """
 
 
-        
 class retstat:
     """
 
     For passing status information through module functions and back
     to calling codes without global variables.  
 
-    REPORT contains the output to print
+    REPORT contains the logged reports to print
     WARNINGS counts the number of warning messages (i.e. RECOMMENDED properties that fail)
     ERRORS counts the number of error messages (i.e. REQUIRED properties that fail)
     status counts running errors such as missing files, unrecognized formats, etc.
 
     """
-    def update(self, report=None, miskey=None, miscol=None, status=0, warn=0,err=0,log=sys.stdout):
+    def update(self, report=None, miskey=None, miscol=None, status=0, warn=0,err=0,log=sys.stdout,otype=None):
         if report:  self.REPORT.append(report)
         if miskey:  self.MISKEYS.append(miskey)
         if miscol:  self.MISCOLS.append(miscol)
+        if otype:  self.otype=otype
         self.status+=status
         self.WARNINGS+=warn
         self.ERRORS+=err
@@ -60,13 +63,15 @@ class retstat:
 
 
 
-    def __init__(self, status=0, REPORT=[], WARNINGS=0, ERRORS=0,MISKEYS=[],MISCOLS=[]):
+    def __init__(self, status=0, REPORT=[], WARNINGS=0, ERRORS=0,MISKEYS=[],MISCOLS=[],otype='unknown'):
         self.status=status
         self.REPORT=REPORT
         self.WARNINGS=WARNINGS
         self.ERRORS=ERRORS
         self.MISKEYS=MISKEYS
         self.MISCOLS=MISCOLS
+        self.otype=otype
+
 
 
 def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, logf, status):

@@ -1,10 +1,10 @@
 from __future__ import print_function
-from astropy.io import fits as pyfits
+import pyfits
 from ogip_dictionary import ogip_dictionary
 from ogip_generic_lib import *
 import os.path
 
-def ogip_check(input,type,logfile,verbosity):
+def ogip_check(input,otype,logfile,verbosity):
     """
 
     Checks for the existence of OGIP required keywords and columns 
@@ -23,7 +23,7 @@ def ogip_check(input,type,logfile,verbosity):
 
     """
     #
-    # TODO - ADD OPTIONS FOR VERBOSITY, LOGFILE
+    # TODO - ADD OPTIONS FOR VERBOSITY
 
     filename=input
     status=retstat()
@@ -86,23 +86,24 @@ def ogip_check(input,type,logfile,verbosity):
     if 'PRIMARY' in extnames:
         extnames.remove('PRIMARY')
 
-    if type==None:
+    if otype==None:
         #  Try to determine the type based on the name of the first
         #  extension.  Try CALDB if nothing else matches.
-        if extnames[0] in ['RATE','EVENTS']: type='TIMING'
-        elif extnames[0] == 'SPECTRUM': type='SPECTRAL'
-        elif 'MATRIX' in extnames[0] or extnames[0]=='EBOUNDS': type='RMF'
-        elif extnames[0]=='SPECRESP': type='ARF'
-        else: type='CALDB'
-        print("\nChecking file %s as type %s" % (filename,type),file=logf)
+        if extnames[0] in ['RATE','EVENTS']: otype='TIMING'
+        elif extnames[0] == 'SPECTRUM': otype='SPECTRAL'
+        elif 'MATRIX' in extnames[0] or extnames[0]=='EBOUNDS': otype='RMF'
+        elif extnames[0]=='SPECRESP': otype='ARF'
+        else: otype='CALDB'
+        print("\nChecking file %s as type %s" % (filename,otype),file=logf)
         print("\n(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.\n",file=logf)
     else:
-        type=type
-        print("\nChecking file %s as type %s" % (filename,type),file=logf)
+        print("\nChecking file %s as type %s" % (filename,otype),file=logf)
 
-    ogip_dict=ogip_dictionary(type)
+    status.otype=otype
+
+    ogip_dict=ogip_dictionary(otype)
     if ogip_dict==0:
-        print("\nERROR:  do not recognize OGIP type %s" % type)
+        print("\nERROR:  do not recognize OGIP type %s" % otype)
         status.status+=1
         return status
 
@@ -115,7 +116,7 @@ def ogip_check(input,type,logfile,verbosity):
     ereq=ogip_dict['EXTENSIONS']['REQUIRED']
     eopt=ogip_dict['EXTENSIONS']['OPTIONAL']
 
-    check=True if type == 'CALDB' else False #  No required extension name(?)
+    check=True if otype == 'CALDB' else False #  No required extension name(?)
 
     # If there are multiple entries in the required set, only one must
     # be in the file to be tested for it to pass.  This code will have
@@ -127,7 +128,7 @@ def ogip_check(input,type,logfile,verbosity):
         rpt= "ERROR: %s does not have any of the required extensions" % fname
         print(rpt,file=logf)
         status.REPORT.append(rpt)
-        rpt= "%s NOT A VALID OGIP %s FILE \n" % (filename,type)
+        rpt= "%s NOT A VALID OGIP %s FILE \n" % (filename,otype)
         print(rpt,file=logf)
         print("QUITTING",file=logf)
         status.REPORT.append(rpt)
@@ -149,7 +150,7 @@ def ogip_check(input,type,logfile,verbosity):
     for this_extn in extnames:  
 
         #  Check any extensions found:
-        if type=='CALDB':
+        if otype=='CALDB':
             print("\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,'CALFILE'),file=logf)
             missing=cmp_keys_cols(filename,this_extn,'CALFILE',ogip_dict, logf,status)
 

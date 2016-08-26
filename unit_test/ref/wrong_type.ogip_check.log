@@ -1,6 +1,0 @@
-
-Checking file inputs/fermi_lat_bcf_edisp_calfile.fits as type TIMING
-ERROR: fermi_lat_bcf_edisp_calfile.fits does not have any of the required extensions
-inputs/fermi_lat_bcf_edisp_calfile.fits NOT A VALID OGIP TIMING FILE 
-
-QUITTING
