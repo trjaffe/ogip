@@ -1,0 +1,54 @@
+INTEGRAL/SPI results for Crab
+
+Analysis performed by V. Beckmann (Volker.Beckmann@obs.unige.ch) at ISDC
+
+rev.   : revolution number
+flux   : 20 - 40 keV flux in photons/cm**2/sec; 1 Crab = 0.1788 ph/cm**2/sec
+error  : 20 - 40 keV flux error in photons/cm**2/sec
+sigma  : significance of the detection
+logfile: SPIROS logfile these results were taken from
+
+rev.  flux      error     sigma    logfile
+
+ 43   0.178100  0.000553  321.8    rev43_Crabonaxis_results.txt
+ 43   0.182100  0.000611  298.1    rev43_Crabhex_results.txt
+ 43   0.178900  0.000344  519.9    rev43_Crab_results.txt
+ 44   0.180600  0.001024  176.3    rev44_Crab05_results.txt
+ 44   0.178600  0.000720  248.2    rev44_Crab1_results.txt
+ 44   0.179800  0.000502  358.5    rev44_Crabonaxis_results.txt
+ 44   0.179200  0.000395  454.2    rev44_Crab_results.txt
+ 45   0.182200  0.001593  114.4    rev45_Crab05_results.txt
+ 45   0.177300  0.000412  430.3    rev45_Crab_results.txt
+ 45   0.178400  0.000776  230.0    rev45_Crab5_results.txt
+ 45   0.180000  0.000805  223.7    rev45_Crab7_results.txt
+ 45   0.181500  0.000922  196.8    rev45_Crab10_results.txt
+ 47   0.175600  0.002966   59.2    rev47_GPS_results.txt
+ 51   0.184000  0.002548   72.2    rev51_GPS_results.txt
+ 55   0.174400  0.002615   66.7    rev55_GPS_results.txt
+ 58   0.178800  0.002046   87.4    rev58_GPS_results.txt
+ 63   0.181500  0.004342   41.8    rev63_GPS_results.txt
+102   0.175000  0.000705  248.3    rev102_Crab_dither_results.txt
+124   0.174200  0.000471  370.1    rev124_IC443_results.txt
+125   0.178600  0.000461  387.8    rev125_IC443_results.txt
+126   0.176100  0.000508  346.5    rev126_IC443_results.txt
+127   0.186000  0.002111   88.1    rev127_IC443_results.txt
+162   0.163300  0.004366   37.4    rev162_GPS_results.txt
+170   0.175400  0.000786  223.1    rev170_Craboff_results.txt
+170   0.179700  0.000823  218.3    rev170_Crab_results.txt
+177   0.171900  0.001921   89.5    rev177_GPS_results.txt
+181   0.187200  0.002836   66.0    rev181_GPS_results.txt
+225   0.177900  0.002003   88.8    rev225_GPS_results.txt
+229   0.178300  0.002718   65.6    rev229_GPS_results.txt
+234   0.181400  0.002672   67.9    rev234_GPS_results.txt
+239   0.184400  0.000965  191.1    rev239_Crabdither_results.txt
+242   0.185400  0.002303   80.5    rev242_GPS_results.txt
+250   0.175400  0.003756   46.7    rev250_GPS_results.txt
+286   0.178400  0.002707   65.9    rev286_GPS_results.txt
+292   0.169000  0.003414   49.5    rev292_GPS_results.txt
+300   0.176400  0.000945  186.6    rev300_CrabSPI_results.txt
+300   0.183600  0.001240  148.1    rev300_10deg1_results.txt
+300   0.187100  0.001267  147.7    rev300_10deg2_results.txt
+301   0.172700  0.002405   71.8    rev301_GPS_results.txt
+308   0.178000  0.003184   55.9    rev308_GPS_results.txt
+365   0.178900  0.000770  232.3    rev365_Crab_results.txt
+422   0.184800  0.000472  391.9    rev422_Crab_results.txt

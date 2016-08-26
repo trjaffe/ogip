@@ -1,0 +1,107 @@
+CHECKING inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201_lc.fits.gz;  see log in out/inputs.logs/3FGL_J0534d5p2201_lc.fits.gz.check.log
+Done.  Found file of type TIMING with 3 errors and 26 warnings.
+
+CHECKING inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201i_lc.fits.gz;  see log in out/inputs.logs/3FGL_J0534d5p2201i_lc.fits.gz.check.log
+ERROR:  file does not pass FITS verification;  aborting checks.
+ERROR:  failed to check file inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201i_lc.fits.gz;  see log in out/inputs.logs/3FGL_J0534d5p2201i_lc.fits.gz.check.log
+Continuing.
+
+CHECKING inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201s_lc.fits.gz;  see log in out/inputs.logs/3FGL_J0534d5p2201s_lc.fits.gz.check.log
+ERROR:  file does not pass FITS verification;  aborting checks.
+ERROR:  failed to check file inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201s_lc.fits.gz;  see log in out/inputs.logs/3FGL_J0534d5p2201s_lc.fits.gz.check.log
+Continuing.
+
+CHECKING inputs/fermi/crab/3FGL_J0534d5p2201s_lc.fits.gz;  see log in out/inputs.logs/3FGL_J0534d5p2201s_lc.fits.gz.check.log
+ERROR:  file does not pass FITS verification;  aborting checks.
+ERROR:  failed to check file inputs/fermi/crab/3FGL_J0534d5p2201s_lc.fits.gz;  see log in out/inputs.logs/3FGL_J0534d5p2201s_lc.fits.gz.check.log
+Continuing.
+
+CHECKING inputs/integral/crab/high_level/spectra/Crab_rmf.fits.gz;  see log in out/inputs.logs/Crab_rmf.fits.gz.check.log
+Done.  Found file of type CALDB with 22 errors and 12 warnings.
+
+CHECKING inputs/integral/crab/high_level/spectra/Crab_sum_arf.fits.gz;  see log in out/inputs.logs/Crab_sum_arf.fits.gz.check.log
+Done.  Found file of type CALDB with 8 errors and 4 warnings.
+
+CHECKING inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz;  see log in out/inputs.logs/Crab_sum_pha.fits.gz.check.log
+Done.  Found file of type CALDB with 8 errors and 4 warnings.
+
+CHECKING inputs/rosat/rh500047n00/rh500047n00.public_contents.Z;  see log in out/inputs.logs/rh500047n00.public_contents.Z.check.log
+ERROR: Could not open inputs/rosat/rh500047n00/rh500047n00.public_contents.Z as a FITS file; RETURNING
+ERROR:  failed to check file inputs/rosat/rh500047n00/rh500047n00.public_contents.Z;  see log in out/inputs.logs/rh500047n00.public_contents.Z.check.log
+Continuing.
+
+CHECKING inputs/rosat/rh500047n00/rh500047n00_anc.fits.Z;  see log in out/inputs.logs/rh500047n00_anc.fits.Z.check.log
+ERROR: Could not open inputs/rosat/rh500047n00/rh500047n00_anc.fits.Z as a FITS file; RETURNING
+ERROR:  failed to check file inputs/rosat/rh500047n00/rh500047n00_anc.fits.Z;  see log in out/inputs.logs/rh500047n00_anc.fits.Z.check.log
+Continuing.
+
+CHECKING inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z;  see log in out/inputs.logs/rh500047n00_bas.fits.Z.check.log
+ERROR: Could not open inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z as a FITS file; RETURNING
+ERROR:  failed to check file inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z;  see log in out/inputs.logs/rh500047n00_bas.fits.Z.check.log
+Continuing.
+
+CHECKING inputs/rosat/rh500047n00/rh500047n00_bk1.fits.Z;  see log in out/inputs.logs/rh500047n00_bk1.fits.Z.check.log
+ERROR: Could not open inputs/rosat/rh500047n00/rh500047n00_bk1.fits.Z as a FITS file; RETURNING
+ERROR:  failed to check file inputs/rosat/rh500047n00/rh500047n00_bk1.fits.Z;  see log in out/inputs.logs/rh500047n00_bk1.fits.Z.check.log
+Continuing.
+
+CHECKING inputs/rosat/rh500047n00/rh500047n00_his.fits.Z;  see log in out/inputs.logs/rh500047n00_his.fits.Z.check.log
+ERROR: Could not open inputs/rosat/rh500047n00/rh500047n00_his.fits.Z as a FITS file; RETURNING
+ERROR:  failed to check file inputs/rosat/rh500047n00/rh500047n00_his.fits.Z;  see log in out/inputs.logs/rh500047n00_his.fits.Z.check.log
+Continuing.
+
+CHECKING inputs/rosat/rh500047n00/rh500047n00_im1.fits.Z;  see log in out/inputs.logs/rh500047n00_im1.fits.Z.check.log
+ERROR: Could not open inputs/rosat/rh500047n00/rh500047n00_im1.fits.Z as a FITS file; RETURNING
+ERROR:  failed to check file inputs/rosat/rh500047n00/rh500047n00_im1.fits.Z;  see log in out/inputs.logs/rh500047n00_im1.fits.Z.check.log
+Continuing.
+
+CHECKING inputs/rosat/rh500047n00/rh500047n00_prt.fits.Z;  see log in out/inputs.logs/rh500047n00_prt.fits.Z.check.log
+ERROR: Could not open inputs/rosat/rh500047n00/rh500047n00_prt.fits.Z as a FITS file; RETURNING
+ERROR:  failed to check file inputs/rosat/rh500047n00/rh500047n00_prt.fits.Z;  see log in out/inputs.logs/rh500047n00_prt.fits.Z.check.log
+Continuing.
+
+CHECKING inputs/rosat/rh500047n00/rra;  see log in out/inputs.logs/rra.check.log
+ERROR: Could not open inputs/rosat/rh500047n00/rra as a FITS file; RETURNING
+ERROR:  failed to check file inputs/rosat/rh500047n00/rra;  see log in out/inputs.logs/rra.check.log
+Continuing.
+
+CHECKING inputs/asca_sis_bcf_calfile.fits;  see log in out/inputs.logs/asca_sis_bcf_calfile.fits.check.log
+Done.  Found file of type CALDB with 16 errors and 48 warnings.
+
+CHECKING inputs/fermi_lat_bcf_edisp_calfile.fits;  see log in out/inputs.logs/fermi_lat_bcf_edisp_calfile.fits.check.log
+Done.  Found file of type CALDB with 1 errors and 6 warnings.
+
+CHECKING inputs/hexte.arf;  see log in out/inputs.logs/hexte.arf.check.log
+Done.  Found file of type ARF with 6 errors and 8 warnings.
+
+CHECKING inputs/specresp_matrix.rmf;  see log in out/inputs.logs/specresp_matrix.rmf.check.log
+Done.  Found file of type RMF with 4 errors and 12 warnings.
+
+CHECKING inputs/spectrum.pha;  see log in out/inputs.logs/spectrum.pha.check.log
+Done.  Found file of type SPECTRAL with 15 errors and 28 warnings.
+
+CHECKING inputs/timing.evt;  see log in out/inputs.logs/timing.evt.check.log
+Done.  Found file of type TIMING with 0 errors and 13 warnings.
+
+CHECKING inputs/timing_fails.lc;  see log in out/inputs.logs/timing_fails.lc.check.log
+Done.  Found file of type TIMING with 2 errors and 18 warnings.
+
+CHECKING inputs/timing_passes.lc;  see log in out/inputs.logs/timing_passes.lc.check.log
+Done.  Found file of type TIMING with 0 errors and 17 warnings.
+
+***************************************************
+Done checking.  Now to summarize:
+
+The total number of files that could not be checked:  11
+The total number of files checked:  12
+The total number of files with no warnings or errors:  0
+The total number of files with only warnings:  2
+The total number of files with errors:  10
+Checked 4 files of type TIMING
+Checked 1 files of type SPECTRAL
+Checked 1 files of type RMF
+Checked 1 files of type ARF
+Checked 5 files of type CALDB
+Found 4 (out of 4) files of type TIMING missing key FILTER.
+Found 0 (out of 1) files of type SPECTRAL missing key HDUVERS.
+Found 1 (out of 1) files of type SPECTRAL missing key ONTIME.

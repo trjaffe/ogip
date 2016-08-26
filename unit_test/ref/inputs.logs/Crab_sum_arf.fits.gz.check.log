@@ -1,0 +1,36 @@
+
+Checking file inputs/integral/crab/high_level/spectra/Crab_sum_arf.fits.gz as type CALDB
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'ISGR-ARF.-RSP' extension against 'CALFILE' standard ===============
+
+ERROR: Key FILTER not found in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+ERROR: Key CCLS0001 not found in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+ERROR: Key CDTP0001 not found in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+ERROR: Key CCNM0001 not found in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+ERROR: Key CVSD0001 not found in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+ERROR: Key CVST0001 not found in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+
+===========================================================
+
+FAILURE: inputs/integral/crab/high_level/spectra/Crab_sum_arf.fits.gz is not a Valid OGIP formatted file
+Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
+Available at
+   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
+
+=============== 8 Errors and 4 Warnings Found ===============
+
