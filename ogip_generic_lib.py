@@ -39,6 +39,14 @@ class stdouterr_redirector2():
 """
 
 
+class statinfo:
+    def __init__(self):
+        self.REPORT=[]
+        self.WARNINGS=0
+        self.ERRORS=0
+        self.MISKEYS=[]
+        self.MISCOLS=[]
+
 class retstat:
     """
 
@@ -51,27 +59,48 @@ class retstat:
     status counts running errors such as missing files, unrecognized formats, etc.
 
     """
-    def update(self, report=None, miskey=None, miscol=None, status=0, warn=0,err=0,log=sys.stdout,otype=None):
-        if report:  self.REPORT.append(report)
-        if miskey:  self.MISKEYS.append(miskey)
-        if miscol:  self.MISCOLS.append(miscol)
-        if otype:  self.otype=otype
+    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, warn=0,err=0,log=sys.stdout,otype=None):
+        #  Set an error status for the file if nonzero
         self.status+=status
-        self.WARNINGS+=warn
-        self.ERRORS+=err
+        #  Set the file type
+        if otype:  self.otype=otype
+        #  Print the report for this update
         print(report,file=log)
 
+        #  If an extension is not given, nothing else to do, since the
+        #  above are the only two attributes that apply to the file as
+        #  a whole.  (Note that the report isn't saved in this case.)
+        if not extn:
+            return
+
+        #  Create the entry for the extension name if it doesn't already exist
+        if extn not in self.extns:
+            self.extns[extn]=statinfo()
+
+        if report:  self.extns[extn].REPORT.append(report)
+        if miskey:  self.extns[extn].MISKEYS.append(miskey)
+        if miscol:  self.extns[extn].MISCOLS.append(miscol)
+
+        self.extns[extn].WARNINGS+=warn
+        self.extns[extn].ERRORS+=err
 
 
-    def __init__(self, status=0, REPORT=[], WARNINGS=0, ERRORS=0,MISKEYS=[],MISCOLS=[],otype='unknown'):
-        self.status=status
-        self.REPORT=REPORT
-        self.WARNINGS=WARNINGS
-        self.ERRORS=ERRORS
-        self.MISKEYS=MISKEYS
-        self.MISCOLS=MISCOLS
+    def __init__(self,otype='unknown'):
+        self.status=0
         self.otype=otype
+        self.extns={}
 
+    def tot_errors(self):
+        errs=0
+        for extn in self.extns.itervalues():
+            errs+= extn.ERRORS
+        return errs
+
+    def tot_warnings(self):
+        warns=0
+        for extn in self.extns.itervalues():
+            warns+= extn.WARNINGS
+        return warns
 
 
 def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, logf, status):
@@ -111,25 +140,25 @@ def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, logf, status):
     for key in ogip['KEYWORDS']['REQUIRED']:
         Foundkey = check_keys(key, hdr,logf,status)
         if not Foundkey:
-            status.update(report="ERROR: Key %s not found in %s[%s]" % (key,file, this_extn), err=1,log=logf,miskey=key)
+            status.update(extn=this_extn,report="ERROR: Key %s not found in %s[%s]" % (key,file, this_extn), err=1,log=logf,miskey=key)
 
     for key in ogip['KEYWORDS']['RECOMMENDED']:
         Foundkey = check_keys(key,hdr,logf,status)
         if not Foundkey:
-            status.update(report="WARNING: Key %s not found in %s[%s]" % (key,file, this_extn), warn=1,log=logf)
+            status.update(extn=this_extn,report="WARNING: Key %s not found in %s[%s]" % (key,file, this_extn), warn=1,log=logf)
 
     for col in ogip['COLUMNS']['REQUIRED']:
-        Foundcol = check_cols(col, colnames,logf,status)
+        Foundcol = check_cols(col, colnames,logf,this_extn,status)
         if not Foundcol:
-            status.update(report="ERROR: Required column %s missing from %s[%s]" % (col, file,  this_extn), err=1,log=logf, miscol=col)
+            status.update(extn=this_extn,report="ERROR: Required column %s missing from %s[%s]" % (col, file,  this_extn), err=1,log=logf, miscol=col)
 
     for col in ogip['COLUMNS']['RECOMMENDED']:
-        Foundcol = check_cols(col, colnames,logf,status)
+        Foundcol = check_cols(col, colnames,logf,this_extn,status)
         if not Foundcol:
-            status.update(report= "WARNING: Recommended column %s missing from %s[%s]" % (col, file,  this_extn), warn=1,log=logf, miscol=col)
+            status.update(extn=this_extn,report= "WARNING: Recommended column %s missing from %s[%s]" % (col, file,  this_extn), warn=1,log=logf, miscol=col)
 
     # Backward compatibility
-    missing={'REF_EXTN':ref_extn ,'MISSING_KEYWORDS':status.MISKEYS, 'MISSING_COLUMNS':status.MISCOLS}
+    missing={'REF_EXTN':ref_extn ,'MISSING_KEYWORDS':status.extns[this_extn].MISKEYS, 'MISSING_COLUMNS':status.extns[this_extn].MISCOLS}
 
     return missing
 
@@ -164,14 +193,11 @@ def key_hasvalue(key, header,logf, status):
             if aval==int(val):
                 Match = True
         if Match==False:
-            rpt = "Keyword %s Found, but Value = %s, should be %s" % (k, aval, val)
-            print(rpt,file=logf)
-            status.REPORT.append(rpt)
-            status.WARNINGS += 1
+            status.update(extn=header['EXTNAME'],report="Keyword %s Found, but Value = %s, should be %s" % (k, aval, val),log=logf, warn=1)
+
     else:
-        rpt = "Keyword %s not found in header" % k
-        print(rpt,file=logf)
-        status.REPORT.append(rpt)
+        status.update(extn=header['EXTNAME'], report="Keyword %s not found in header" % k, log=logf)
+
     return Match
 
 
@@ -275,7 +301,7 @@ def check_enumkey(key, header,logf,status):
 
 
 
-def check_groupcols(col, colnames, status):
+def check_groupcols(col, colnames, extn, status):
     """
     this function checks for grouped keywords of the form MJDREFI+MJDREFF, in which case both keywords need
     to exist in the header; True if so, False otherwise
@@ -291,9 +317,7 @@ def check_groupcols(col, colnames, status):
     Foundcol = False
     Foundcol = set(groupcols) < set(colnames)  # true if groupcolss a subset of column names
     if not Foundcol:
-        rpt = "Group columns %s not Found in Table" % col
-        print(rpt,file=logf)
-        status.REPORT.append(rpt)
+        status.update(extn=extn,report="Group columns %s not Found in Table" % col, log=logf)
     else: # all columns are defined
         print("Group columns %s found in Table",file=logf)
     return Foundcol
@@ -323,7 +347,7 @@ def check_keys(key, header,logf,status):
 
 
 
-def check_cols(col, colnames,logf, status):
+def check_cols(col, colnames,logf, extn, status):
     """
     checks that the col appears in the list of column names
     @param col:
@@ -336,7 +360,7 @@ def check_cols(col, colnames,logf, status):
     if "|" in col:  # this means that the column has an alternative definition (like COUNTS|RATE)
         Foundcol = check_altcols(col, colnames,logf,status)
     elif "+" in col:  # group column; all columns must be present if one column is
-        Foundcol = check_groupcols(col, colnames)
+        Foundcol = check_groupcols(col, colnames, extn, status)
     else:
         Foundcol = col in colnames
     return Foundcol

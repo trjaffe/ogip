@@ -33,13 +33,11 @@ def ogip_check(input,otype,logfile,verbosity):
     if isinstance(logfile,(str,unicode)):
         try:  logf=open(logfile,'w')
         except:  
-            print("ERROR:  Cannot open output log file %",logfile)
-            status.status+=1
+            status.update(report="ERROR:  Cannot open output log file %s" % logfile, status=1)
             return status
     else:
         if logfile is not sys.stdout:
-            print("ERROR:  Cannot write to log file %",logfile)
-            status.status+=1
+            status.update(report="ERROR:  Cannot write to log file %s" % logfile, status=1)
             return status
         else:
             logf=logfile
@@ -48,8 +46,7 @@ def ogip_check(input,otype,logfile,verbosity):
     try:
         hdulist= pyfits.open(filename)
     except:
-        print("ERROR: Could not open %s as a FITS file; RETURNING" % filename)
-        status.status += 1  
+        status.update(report="ERROR: Could not open %s as a FITS file; RETURNING" % filename, status=1)
         return status
 
     #  Basic FITS verification:
@@ -74,10 +71,7 @@ def ogip_check(input,otype,logfile,verbosity):
     
     numext= len(hdulist)
     if numext < 1:
-        rpt= "ERROR: File needs at least 1 extension, found %i" % numext
-        print(rpt,file=logf)
-        status.REPORT.append(rpt)
-        status.status += 1
+        status.update(report="ERROR: File needs at least 1 extension, found %i" % numext, log=logf, status=1)
         ogip_fail(filename)
         return status
 
@@ -103,8 +97,7 @@ def ogip_check(input,otype,logfile,verbosity):
 
     ogip_dict=ogip_dictionary(otype)
     if ogip_dict==0:
-        print("\nERROR:  do not recognize OGIP type %s" % otype)
-        status.status+=1
+        status.update(report="\nERROR:  do not recognize OGIP type %s" % otype, status=1)
         return status
 
     fname = filename
@@ -125,16 +118,8 @@ def ogip_check(input,otype,logfile,verbosity):
         for y in extnames:
             if x in y: check=True
     if not check:
-        rpt= "ERROR: %s does not have any of the required extensions" % fname
-        print(rpt,file=logf)
-        status.REPORT.append(rpt)
-        rpt= "%s NOT A VALID OGIP %s FILE \n" % (filename,otype)
-        print(rpt,file=logf)
-        print("QUITTING",file=logf)
-        status.REPORT.append(rpt)
-        status.ERRORS +=  1
-        status.status +=  1
-        status.REPORT = status.REPORT[1:]
+        status.update(report="ERROR: %s does not have any of the required extensions" % fname, log=logf)
+        status.update(report="%s NOT A VALID OGIP %s FILE \nQUITTING\n" % (filename,otype), log=logf,status=1,error=1)
         return status
 
     # We have the type, have checked that at least one of the required extensions is
@@ -167,13 +152,13 @@ def ogip_check(input,otype,logfile,verbosity):
             if checked==False:
                 print("\nExtension '%s' is not an OGIP defined extension for this type;  ignoring.\n" % this_extn,file=logf)
 
-    if status.ERRORS > 0:
+    if status.tot_errors() > 0:
         ogip_fail(filename,ogip_dict,logf)
     else:
         print("\n===========================================================",file=logf)
         print("\nFile %s conforms to the OGIP Standards" % filename,file=logf)
 
-    print("\n=============== %i Errors and %i Warnings Found ===============\n" %(status.ERRORS, status.WARNINGS),file=logf)
+    print("\n=============== %i Errors and %i Warnings Found ===============\n" %(status.tot_errors(), status.tot_warnings()),file=logf)
     return status
 
 

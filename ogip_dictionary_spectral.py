@@ -162,7 +162,7 @@ def ogip_dictionary_spectral():
     """
     Define Required keywords
     """
-    detector=dict()
+    detector={'KEYWORDS':{'REQUIRED':[],'RECOMMENDED':[]}, 'COLUMNS':{'REQUIRED':[],'RECOMMENDED':[]} }
     """
     Define Optional keywords
     """
@@ -178,7 +178,7 @@ def ogip_dictionary_spectral():
     """
     FOR HISTORY TABLE: (optional)
     """
-    history=dict()
+    history={'KEYWORDS':{'REQUIRED':[],'RECOMMENDED':[]}, 'COLUMNS':{'REQUIRED':[],'RECOMMENDED':[]} }
     """
     Define Required keywords
     """

@@ -2,6 +2,7 @@ import os
 from ogip_check import ogip_check
 from ogip_generic_lib import *
 from itertools import chain
+from ogip_dictionary import ogip_dictionary
 
 
 
@@ -39,18 +40,36 @@ class ogip_collect:
         self.failed={} 
         # dictionary that just counts files found of each type
         self.count_types={}
+        # dictionary that just counts extensions in files of each type
+        self.count_extnames={}
 
 
     def update(self,dir=None,file=None,statobj=None,bad=0):
+        # Store dictionaries of directories containing dictionaries of
+        # files containing status class objects.  Also keeps a running
+        # count of types and extensions checked.
+
         if statobj.status != 0:
+            #  Those that cannot be checked:
             dict_add(self.bad, dir, file, statobj)
-        elif statobj.ERRORS == 0 and statobj.WARNINGS == 0:
+        elif statobj.tot_errors() == 0 and statobj.tot_warnings() == 0:
+            #  Those that pass with no warnings even:
             dict_add(self.good, dir, file, statobj)
-        elif statobj.ERRORS == 0:
+        elif statobj.tot_errors() == 0:
+            #  Those that pass with no errors (but maybe warnings):
             dict_add(self.warned, dir, file, statobj)
         else:
-            dict_add(self.failed, dir, file, statobj)
-        if statobj.otype != 'unknown':  dict_incr(self.count_types,statobj.otype)
+            #  Those that fail the check:
+           dict_add(self.failed, dir, file, statobj)
+
+        if statobj.otype != 'unknown':  
+            #  Add one to the corresponding type
+            dict_incr(self.count_types,statobj.otype)
+            #  Another level of dictionaries for extension names for each type
+            if statobj.otype not in self.count_extnames: self.count_extnames[statobj.otype]={}
+            for extn in statobj.extns:
+                dict_incr(self.count_extnames[statobj.otype],extn)
+
 
     def count_bad(self):
         return sum(len(d) for d in self.bad.itervalues())
@@ -67,7 +86,7 @@ class ogip_collect:
     def count_checked(self):
         return sum(len(d) for d in self.good.itervalues()) + sum(len(d) for d in self.warned.itervalues()) + sum(len(d) for d in self.failed.itervalues())
 
-    def count_missing_key(self,otype,key,extname=None):
+    def count_missing_key(self,otype,extname,key):
         #  Count how many files of a given type are missing a given
         #  keyword.
         #
@@ -81,10 +100,14 @@ class ogip_collect:
             #  Now d is a dictionary of files for a directory.  Check
             #  only those of the right type:
             for fstat in (dd for dd in d.itervalues() if dd.otype == otype):
-                if key in fstat.MISKEYS:  count+=1
+                if extname not in fstat.extns:
+                    continue
+                if key in fstat.extns[extname].MISKEYS:  count+=1
         for d in self.failed.itervalues():
             for fstat in (dd for dd in d.itervalues() if dd.otype == otype):
-                if key in fstat.MISKEYS:  count+=1
+                if extname not in fstat.extns:
+                    continue
+                if key in fstat.extns[extname].MISKEYS:  count+=1
 
         return count
 
@@ -126,7 +149,7 @@ def ogip_check_dir(basedir,logdir,ignore,verbosity):
             if status.status != 0:
                 print("ERROR:  failed to check file %s;  see log in %s\nContinuing.\n" % (one, logfile) )
             else:
-                print("Done.  Found file of type %s with %s errors and %s warnings.\n" % (status.otype, status.ERRORS,status.WARNINGS))
+                print("Done.  Found file of type %s with %s errors and %s warnings.\n" % (status.otype, status.tot_errors(),status.tot_warnings() ) )
             # Store the retstat info for the file
             summary.update(dir=dir,file=name,statobj=status)
 
@@ -141,14 +164,15 @@ def ogip_check_dir(basedir,logdir,ignore,verbosity):
     for k in summary.count_types:
         print("Checked %s files of type %s" % (summary.count_types[k],k) )
 
-    #  Check pairs of types and keywords:
-    check={ 'TIMING':['FILTER'], 
-            'SPECTRAL':['HDUVERS','ONTIME']}
-    for t in check:
-        for k in check[t]: 
-            print("Found %s (out of %s) files of type %s missing key %s." % (summary.count_missing_key(t,k), summary.count_types[t], t, k) )
+    #  Summarize required keywords for each type:
+    types=[ 'TIMING', 'SPECTRAL', 'RMF', 'ARF', 'CALDB' ]
 
-
+    for t in types:
+        dict=ogip_dictionary(t)
+        for extn in dict['EXTENSIONS']['REQUIRED']+ dict['EXTENSIONS']['OPTIONAL']:
+            for k in dict[extn]['KEYWORDS']['REQUIRED']: 
+                if extn in summary.count_extnames[t]:
+                    print("Found %s (out of %s) %s extensions of file type %s missing key %s." % (summary.count_missing_key(t,extn,k), summary.count_extnames[t][extn], extn, t, k) )
 
 
 

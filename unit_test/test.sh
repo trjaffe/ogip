@@ -274,32 +274,33 @@ echo ""
 echo "##################################################################"
 echo "Checking entire contents of directory inputs"
 mkdir out/inputs.logs
-../ogip_check_dir inputs out/inputs.logs >& out/inputs_check.log
+../ogip_check_dir inputs out/inputs.logs >& out/inputs.check.log
 retval=$?
 echo "Return status was $retval"
 if [[ "$retval" != "0" ]]; then 
     echo "ERROR:  ogip_check_dir returned an error status!"
     let errors+=1
-fi
-echo "Comparing output to reference.  You should see nothing."
-diffs=`diff ref/${file}.check.log out/${file}.check.log`
-if [[ ${#diffs} != 0 ]]; then
-    echo "ERROR:  Differences appear"
-#    echo ${diffs[@]} | tail
-    let diffcnt+=1
 else
-    echo "No differences."
-fi
-for file in asca_sis_bcf_calfile.fits fermi_lat_bcf_edisp_calfile.fits hexte.arf specresp_matrix.rmf spectrum.pha timing.evt timing_fails.lc timing_passes.lc ; do 
-    diffs=`diff out/${file}.check.log out/inputs.logs/${file}.check.log | tail`
+    echo "Comparing output to reference.  You should see nothing."
+    diffs=`diff ref/${file}.check.log out/${file}.check.log`
     if [[ ${#diffs} != 0 ]]; then
 	echo "ERROR:  Differences appear"
-	echo ${diffs[@]} | tail
+	#    echo ${diffs[@]} | tail
 	let diffcnt+=1
     else
 	echo "No differences."
     fi
-done
+    for file in asca_sis_bcf_calfile.fits fermi_lat_bcf_edisp_calfile.fits hexte.arf specresp_matrix.rmf spectrum.pha timing.evt timing_fails.lc timing_passes.lc ; do 
+	diffs=`diff out/${file}.check.log out/inputs.logs/${file}.check.log | tail`
+	if [[ ${#diffs} != 0 ]]; then
+	    echo "ERROR:  Differences appear"
+	    echo ${diffs[@]} | tail
+	    let diffcnt+=1
+	else
+	    echo "No differences."
+	fi
+    done
+fi
 
 echo ""
 
