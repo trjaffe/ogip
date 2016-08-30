@@ -1,0 +1,76 @@
+
+Checking file inputs/chandra/acisf07364N004_evt2.fits.gz as type TIMING
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'EVENTS' extension against 'EVENTS' standard ===============
+
+WARNING: Key FILTER not found in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key FILTER not found in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key CLOCKCOR not found in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key NUMBAND not found in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key TIME-OBS not found in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key TIME-END not found in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key AUTHOR not found in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key BACKAPP not found in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key VIGNAPP not found in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key DEADAPP not found in acisf07364N004_evt2.fits.gz[EVENTS]
+
+=============== Checking 'GTI' extension against 'GTI' standard ===============
+
+Keyword HDUCLASS not found in header
+WARNING: Key HDUCLASS[OGIP] not found in acisf07364N004_evt2.fits.gz[GTI]
+Keyword HDUCLAS1 not found in header
+WARNING: Key HDUCLAS1[GTI] not found in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+
+=============== Checking 'GTI' extension against 'GTI' standard ===============
+
+Keyword HDUCLASS not found in header
+WARNING: Key HDUCLASS[OGIP] not found in acisf07364N004_evt2.fits.gz[GTI]
+Keyword HDUCLAS1 not found in header
+WARNING: Key HDUCLAS1[GTI] not found in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+
+=============== Checking 'GTI' extension against 'GTI' standard ===============
+
+Keyword HDUCLASS not found in header
+WARNING: Key HDUCLASS[OGIP] not found in acisf07364N004_evt2.fits.gz[GTI]
+Keyword HDUCLAS1 not found in header
+WARNING: Key HDUCLAS1[GTI] not found in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+
+=============== Checking 'GTI' extension against 'GTI' standard ===============
+
+Keyword HDUCLASS not found in header
+WARNING: Key HDUCLASS[OGIP] not found in acisf07364N004_evt2.fits.gz[GTI]
+Keyword HDUCLAS1 not found in header
+WARNING: Key HDUCLAS1[GTI] not found in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+
+=============== Checking 'GTI' extension against 'GTI' standard ===============
+
+Keyword HDUCLASS not found in header
+WARNING: Key HDUCLASS[OGIP] not found in acisf07364N004_evt2.fits.gz[GTI]
+Keyword HDUCLAS1 not found in header
+WARNING: Key HDUCLAS1[GTI] not found in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+
+=============== Checking 'GTI' extension against 'GTI' standard ===============
+
+Keyword HDUCLASS not found in header
+WARNING: Key HDUCLASS[OGIP] not found in acisf07364N004_evt2.fits.gz[GTI]
+Keyword HDUCLAS1 not found in header
+WARNING: Key HDUCLAS1[GTI] not found in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+
+Extension 'REGION' is not an OGIP defined extension for this type;  ignoring.
+
+
+===========================================================
+
+File inputs/chandra/acisf07364N004_evt2.fits.gz conforms to the OGIP Standards
+
+=============== 0 Errors and 28 Warnings Found ===============
+

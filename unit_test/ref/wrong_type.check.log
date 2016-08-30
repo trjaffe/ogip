@@ -1,9 +1,6 @@
 
 Checking file inputs/fermi_lat_bcf_edisp_calfile.fits as type TIMING
 ERROR: fermi_lat_bcf_edisp_calfile.fits does not have any of the required extensions
-Traceback (most recent call last):
-  File "../ogip_check", line 15, in <module>
-    status= ogip_check(args.input,args.type,args.logfile,args.verbosity)
-  File "/Users/tjaffe/space/sw/heasarc/python/ogip/ogip_check.py", line 122, in ogip_check
-    status.update(report="%s NOT A VALID OGIP %s FILE \nQUITTING\n" % (filename,otype), log=logf,status=1,error=1)
-TypeError: update() got an unexpected keyword argument 'error'
+inputs/fermi_lat_bcf_edisp_calfile.fits NOT A VALID OGIP TIMING FILE 
+QUITTING
+

@@ -43,16 +43,30 @@ def ogip_check(input,otype,logfile,verbosity):
             logf=logfile
 
 
+    #  Why doesn't this seem to trap correctly?
     try:
-        hdulist= pyfits.open(filename)
-    except:
-        status.update(report="ERROR: Could not open %s as a FITS file; RETURNING" % filename, status=1)
+        hdulist = robust_open(filename,status)
+    except IOError:
+        #  Cases should be trapped in robust_open and already
+        #  reflected in status:
         return status
+    except:
+        #  For the unexpected:
+        print("ERROR:  Non-IOError error raised.  Status is %s." % status.status)
+        return status
+    else:
+        #  Just in case:
+        if status.status != 0:
+            print("ERROR:  No error raised, but status is %s." % status.status)
+            return status
+        #else:
+            #print("File opened successfully")
+
 
     #  Basic FITS verification:
     fits_errs=False
     if logf is not sys.stdout:
-        #  Temporarily redirect STDOUT and STDERR:
+        #  Temporarily redirect STDOUT and STDERR for pyfits verification:
         with stdouterr_redirector(logf):
             try:
                 hdulist.verify(option='exception')
@@ -67,12 +81,11 @@ def ogip_check(input,otype,logfile,verbosity):
             return status
     else:
         hdulist.verify(option='exception')
-        
-    
+
+
     numext= len(hdulist)
-    if numext < 1:
-        status.update(report="ERROR: File needs at least 1 extension, found %i" % numext, log=logf, status=1)
-        ogip_fail(filename)
+    if numext <= 1:
+        status.update(report="ERROR: File needs at least 1 BINARY (not primary) extension, found %i total" % numext, status=1)
         return status
 
     # Get a list of all the extnames in the file using a list comprehension
@@ -119,7 +132,7 @@ def ogip_check(input,otype,logfile,verbosity):
             if x in y: check=True
     if not check:
         status.update(report="ERROR: %s does not have any of the required extensions" % fname, log=logf)
-        status.update(report="%s NOT A VALID OGIP %s FILE \nQUITTING\n" % (filename,otype), log=logf,status=1,error=1)
+        status.update(report="%s NOT A VALID OGIP %s FILE \nQUITTING\n" % (filename,otype), log=logf,status=1,err=1)
         return status
 
     # We have the type, have checked that at least one of the required extensions is
@@ -160,12 +173,6 @@ def ogip_check(input,otype,logfile,verbosity):
 
     print("\n=============== %i Errors and %i Warnings Found ===============\n" %(status.tot_errors(), status.tot_warnings()),file=logf)
     return status
-
-
-
-
-
-
 
 
 

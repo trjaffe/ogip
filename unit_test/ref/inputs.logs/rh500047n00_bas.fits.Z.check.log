@@ -1,0 +1,141 @@
+
+Checking file inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z as type CALDB
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'STDGTI' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_bas.fits.Z[STDGTI]
+ERROR: Key CCLS0001 not found in rh500047n00_bas.fits.Z[STDGTI]
+ERROR: Key CDTP0001 not found in rh500047n00_bas.fits.Z[STDGTI]
+ERROR: Key CCNM0001 not found in rh500047n00_bas.fits.Z[STDGTI]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_bas.fits.Z[STDGTI]
+ERROR: Key CVSD0001 not found in rh500047n00_bas.fits.Z[STDGTI]
+ERROR: Key CVST0001 not found in rh500047n00_bas.fits.Z[STDGTI]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_bas.fits.Z[STDGTI]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_bas.fits.Z[STDGTI]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_bas.fits.Z[STDGTI]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_bas.fits.Z[STDGTI]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_bas.fits.Z[STDGTI]
+
+=============== Checking 'STDEVT' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_bas.fits.Z[STDEVT]
+ERROR: Key CCLS0001 not found in rh500047n00_bas.fits.Z[STDEVT]
+ERROR: Key CDTP0001 not found in rh500047n00_bas.fits.Z[STDEVT]
+ERROR: Key CCNM0001 not found in rh500047n00_bas.fits.Z[STDEVT]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_bas.fits.Z[STDEVT]
+ERROR: Key CVSD0001 not found in rh500047n00_bas.fits.Z[STDEVT]
+ERROR: Key CVST0001 not found in rh500047n00_bas.fits.Z[STDEVT]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_bas.fits.Z[STDEVT]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_bas.fits.Z[STDEVT]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_bas.fits.Z[STDEVT]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_bas.fits.Z[STDEVT]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_bas.fits.Z[STDEVT]
+
+=============== Checking 'REJEVT' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key CCLS0001 not found in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key CDTP0001 not found in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key CCNM0001 not found in rh500047n00_bas.fits.Z[REJEVT]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key CVSD0001 not found in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key CVST0001 not found in rh500047n00_bas.fits.Z[REJEVT]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_bas.fits.Z[REJEVT]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_bas.fits.Z[REJEVT]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_bas.fits.Z[REJEVT]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_bas.fits.Z[REJEVT]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_bas.fits.Z[REJEVT]
+
+=============== Checking 'TSI' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_bas.fits.Z[TSI]
+ERROR: Key CCLS0001 not found in rh500047n00_bas.fits.Z[TSI]
+ERROR: Key CDTP0001 not found in rh500047n00_bas.fits.Z[TSI]
+ERROR: Key CCNM0001 not found in rh500047n00_bas.fits.Z[TSI]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_bas.fits.Z[TSI]
+ERROR: Key CVSD0001 not found in rh500047n00_bas.fits.Z[TSI]
+ERROR: Key CVST0001 not found in rh500047n00_bas.fits.Z[TSI]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_bas.fits.Z[TSI]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_bas.fits.Z[TSI]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_bas.fits.Z[TSI]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_bas.fits.Z[TSI]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_bas.fits.Z[TSI]
+
+=============== Checking 'STDQLM' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_bas.fits.Z[STDQLM]
+ERROR: Key CCLS0001 not found in rh500047n00_bas.fits.Z[STDQLM]
+ERROR: Key CDTP0001 not found in rh500047n00_bas.fits.Z[STDQLM]
+ERROR: Key CCNM0001 not found in rh500047n00_bas.fits.Z[STDQLM]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_bas.fits.Z[STDQLM]
+ERROR: Key CVSD0001 not found in rh500047n00_bas.fits.Z[STDQLM]
+ERROR: Key CVST0001 not found in rh500047n00_bas.fits.Z[STDQLM]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_bas.fits.Z[STDQLM]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_bas.fits.Z[STDQLM]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_bas.fits.Z[STDQLM]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_bas.fits.Z[STDQLM]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_bas.fits.Z[STDQLM]
+
+=============== Checking 'ALLQLM' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_bas.fits.Z[ALLQLM]
+ERROR: Key CCLS0001 not found in rh500047n00_bas.fits.Z[ALLQLM]
+ERROR: Key CDTP0001 not found in rh500047n00_bas.fits.Z[ALLQLM]
+ERROR: Key CCNM0001 not found in rh500047n00_bas.fits.Z[ALLQLM]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_bas.fits.Z[ALLQLM]
+ERROR: Key CVSD0001 not found in rh500047n00_bas.fits.Z[ALLQLM]
+ERROR: Key CVST0001 not found in rh500047n00_bas.fits.Z[ALLQLM]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_bas.fits.Z[ALLQLM]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_bas.fits.Z[ALLQLM]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_bas.fits.Z[ALLQLM]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_bas.fits.Z[ALLQLM]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_bas.fits.Z[ALLQLM]
+
+===========================================================
+
+FAILURE: inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z is not a Valid OGIP formatted file
+Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
+Available at
+   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
+
+=============== 48 Errors and 24 Warnings Found ===============
+

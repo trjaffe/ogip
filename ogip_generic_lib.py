@@ -2,6 +2,9 @@ from __future__ import print_function
 import pyfits
 import sys
 from contextlib import contextmanager
+import os
+import subprocess
+
 
 """
 Library of generic functions used by OGIP check utilities.
@@ -103,6 +106,71 @@ class retstat:
         return warns
 
 
+
+
+
+def robust_open(filename,status):
+
+    tmpname=''
+
+    try:
+        hdulist=pyfits.open(filename)
+
+    except IOError:
+
+        if filename.endswith(".gz"):
+            #  For files named ".gz" that aren't really gzipped, FITS
+            #  tools fall over quite naturally.  So create a link
+            #  without the ".gz" and try to open it through that.
+            tmpname='./.ogip_check_tmp_'+os.path.basename(filename)[:-3]
+            if os.path.islink(tmpname):
+                os.remove(tmpname)
+            os.symlink(filename,tmpname)
+            try:
+                hdulist=pyfits.open(tmpname)
+                    
+            except IOError:
+                os.remove(tmpname)
+                status.update(report="ERROR: Could not open %s as a FITS file (gzipped or not); RETURNING" % os.path.basename(filename), status=1)
+                raise IOError
+        
+            else:
+                print("WARNING:  filename %s ends with .gz but appears not to be gzipped." % os.path.basename(filename))
+
+        elif filename.endswith(".Z"):
+            tmpname='./.ogip_check_tmp_'+os.path.basename(filename)
+            #status.update(report="ERROR: cannot currently open zipped files; RETURNING", status=1)
+            #raise IOError
+            subprocess.call("cp %s %s" % (filename,tmpname),shell=True)
+            subprocess.call("gunzip %s" % tmpname,shell=True)
+            tmpname=tmpname[:-2]
+            try:
+                hdulist=pyfits.open(tmpname)
+            except IOError:
+                os.remove(tmpname)
+                status.update(report="ERROR: Could not open %s as a FITS file (even unzipped); RETURNING" % os.path.basename(filename), status=1)
+                raise IOError
+            except:
+                status.update(report="ERROR:  cannot unzip file %s" % os.path.basename(filename),status=1)
+                os.remove(tmpname)
+            else:
+                os.remove(tmpname)
+
+        else:
+            status.update(report="ERROR: could not open %s as a FITS file; RETURNING" % filename, status=1)
+            raise IOError
+
+    except:
+        print("DEBUGGING:  how did I get here?")
+
+
+    if os.path.islink(tmpname):  os.unlink(tmpname)
+
+    return hdulist
+
+
+
+
 def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, logf, status):
     """
     for a given filename from a fits file, get the required and optional keywords and columns
@@ -121,7 +189,7 @@ def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, logf, status):
     # TODO: do we really want to strip the path off?
     file = filename[filename.rfind('/')+1:] # remove directory path
 
-    hdu = pyfits.open(filename)
+    hdu = robust_open(filename,status)
     extlist = [x.name for x in hdu]
         
     extno=extlist.index(this_extn)  

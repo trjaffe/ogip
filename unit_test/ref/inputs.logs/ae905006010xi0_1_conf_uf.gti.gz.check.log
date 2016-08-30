@@ -1,0 +1,59 @@
+
+Checking file inputs/suzaku/ae905006010xi0_1_conf_uf.gti.gz as type CALDB
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'STDGTI' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+ERROR: Key FILTER not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+ERROR: Key CCLS0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+ERROR: Key CDTP0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+ERROR: Key CCNM0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+ERROR: Key CVSD0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+ERROR: Key CVST0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+
+=============== Checking 'STDGTI' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+ERROR: Key FILTER not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+ERROR: Key CCLS0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+ERROR: Key CDTP0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+ERROR: Key CCNM0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+ERROR: Key CVSD0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+ERROR: Key CVST0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+
+===========================================================
+
+FAILURE: inputs/suzaku/ae905006010xi0_1_conf_uf.gti.gz is not a Valid OGIP formatted file
+Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
+Available at
+   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
+
+=============== 18 Errors and 8 Warnings Found ===============
+

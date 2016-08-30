@@ -1,0 +1,309 @@
+
+Checking file inputs/rosat/rh500047n00/rh500047n00_prt.fits.Z as type CALDB
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'SUMPG.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[SUMPG.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[SUMPG.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[SUMPG.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[SUMPG.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[SUMPG.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[SUMPG.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[SUMPG.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[SUMPG.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[SUMPG.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[SUMPG.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[SUMPG.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[SUMPG.trl]
+
+=============== Checking 'OUTPUT.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[OUTPUT.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[OUTPUT.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[OUTPUT.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[OUTPUT.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[OUTPUT.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[OUTPUT.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[OUTPUT.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[OUTPUT.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[OUTPUT.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[OUTPUT.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[OUTPUT.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[OUTPUT.trl]
+
+=============== Checking 'SKYLST.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[SKYLST.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[SKYLST.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[SKYLST.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[SKYLST.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[SKYLST.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[SKYLST.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[SKYLST.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[SKYLST.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[SKYLST.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[SKYLST.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[SKYLST.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[SKYLST.trl]
+
+=============== Checking 'FLDPLT.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[FLDPLT.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[FLDPLT.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[FLDPLT.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[FLDPLT.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[FLDPLT.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[FLDPLT.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[FLDPLT.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[FLDPLT.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[FLDPLT.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[FLDPLT.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[FLDPLT.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[FLDPLT.trl]
+
+=============== Checking 'SRCPLT.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[SRCPLT.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[SRCPLT.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[SRCPLT.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[SRCPLT.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[SRCPLT.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[SRCPLT.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[SRCPLT.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[SRCPLT.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[SRCPLT.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[SRCPLT.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[SRCPLT.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[SRCPLT.trl]
+
+=============== Checking 'SKYMAP.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[SKYMAP.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[SKYMAP.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[SKYMAP.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[SKYMAP.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[SKYMAP.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[SKYMAP.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[SKYMAP.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[SKYMAP.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[SKYMAP.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[SKYMAP.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[SKYMAP.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[SKYMAP.trl]
+
+=============== Checking 'SMBPLT.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[SMBPLT.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[SMBPLT.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[SMBPLT.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[SMBPLT.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[SMBPLT.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[SMBPLT.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[SMBPLT.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[SMBPLT.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[SMBPLT.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[SMBPLT.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[SMBPLT.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[SMBPLT.trl]
+
+=============== Checking 'SMBLST.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[SMBLST.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[SMBLST.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[SMBLST.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[SMBLST.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[SMBLST.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[SMBLST.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[SMBLST.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[SMBLST.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[SMBLST.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[SMBLST.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[SMBLST.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[SMBLST.trl]
+
+=============== Checking 'CORLST.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[CORLST.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[CORLST.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[CORLST.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[CORLST.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[CORLST.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[CORLST.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[CORLST.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[CORLST.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[CORLST.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[CORLST.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[CORLST.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[CORLST.trl]
+
+=============== Checking 'CORPS.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[CORPS.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[CORPS.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[CORPS.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[CORPS.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[CORPS.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[CORPS.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[CORPS.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[CORPS.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[CORPS.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[CORPS.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[CORPS.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[CORPS.trl]
+
+=============== Checking 'STRPLT.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[STRPLT.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[STRPLT.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[STRPLT.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[STRPLT.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[STRPLT.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[STRPLT.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[STRPLT.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[STRPLT.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[STRPLT.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[STRPLT.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[STRPLT.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[STRPLT.trl]
+
+=============== Checking 'HIMAGE.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[HIMAGE.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[HIMAGE.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[HIMAGE.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[HIMAGE.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[HIMAGE.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[HIMAGE.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[HIMAGE.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[HIMAGE.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[HIMAGE.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[HIMAGE.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[HIMAGE.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[HIMAGE.trl]
+
+=============== Checking 'SMBID.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[SMBID.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[SMBID.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[SMBID.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[SMBID.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[SMBID.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[SMBID.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[SMBID.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[SMBID.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[SMBID.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[SMBID.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[SMBID.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[SMBID.trl]
+
+=============== Checking 'SMBPS.trl' extension against 'CALFILE' standard ===============
+
+ERROR: Key DETNAM not found in rh500047n00_prt.fits.Z[SMBPS.trl]
+ERROR: Key CCLS0001 not found in rh500047n00_prt.fits.Z[SMBPS.trl]
+ERROR: Key CDTP0001 not found in rh500047n00_prt.fits.Z[SMBPS.trl]
+ERROR: Key CCNM0001 not found in rh500047n00_prt.fits.Z[SMBPS.trl]
+Enumerated keywords CBD* not Found in Header
+ERROR: Key CBD* not found in rh500047n00_prt.fits.Z[SMBPS.trl]
+ERROR: Key CVSD0001 not found in rh500047n00_prt.fits.Z[SMBPS.trl]
+ERROR: Key CVST0001 not found in rh500047n00_prt.fits.Z[SMBPS.trl]
+Enumerated keywords CDES* not Found in Header
+ERROR: Key CDES* not found in rh500047n00_prt.fits.Z[SMBPS.trl]
+Enumerated keywords CTEL* not Found in Header
+WARNING: Key CTEL* not found in rh500047n00_prt.fits.Z[SMBPS.trl]
+Enumerated keywords CINS* not Found in Header
+WARNING: Key CINS* not found in rh500047n00_prt.fits.Z[SMBPS.trl]
+Enumerated keywords CDT* not Found in Header
+WARNING: Key CDT* not found in rh500047n00_prt.fits.Z[SMBPS.trl]
+Enumerated keywords CFI* not Found in Header
+WARNING: Key CFI* not found in rh500047n00_prt.fits.Z[SMBPS.trl]
+
+===========================================================
+
+FAILURE: inputs/rosat/rh500047n00/rh500047n00_prt.fits.Z is not a Valid OGIP formatted file
+Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
+Available at
+   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
+
+=============== 112 Errors and 56 Warnings Found ===============
+
