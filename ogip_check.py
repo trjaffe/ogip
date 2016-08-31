@@ -85,7 +85,7 @@ def ogip_check(input,otype,logfile,verbosity):
 
     numext= len(hdulist)
     if numext <= 1:
-        status.update(report="ERROR: File needs at least 1 BINARY (not primary) extension, found %i total" % numext, status=1)
+        status.update(report="ERROR: File needs at least 1 BINARY extension in addition to the PRIMARY; only found %i total" % numext, status=1)
         return status
 
     # Get a list of all the extnames in the file using a list comprehension
@@ -150,7 +150,7 @@ def ogip_check(input,otype,logfile,verbosity):
         #  Check any extensions found:
         if otype=='CALDB':
             print("\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,'CALFILE'),file=logf)
-            missing=cmp_keys_cols(filename,this_extn,'CALFILE',ogip_dict, logf,status)
+            missing=cmp_keys_cols(hdulist,filename,this_extn,'CALFILE',ogip_dict, logf,status)
 
         #  Check only extensions recognized, i.e., defined in the
         #  dictionary, allowing partial matches:
@@ -159,7 +159,7 @@ def ogip_check(input,otype,logfile,verbosity):
             for ref_extn in ereq+eopt:
                 if ref_extn in this_extn:
                     print("\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,ref_extn),file=logf)
-                    missing=cmp_keys_cols(filename,this_extn,ref_extn,ogip_dict,logf,status)
+                    missing=cmp_keys_cols(hdulist,filename,this_extn,ref_extn,ogip_dict,logf,status)
                     checked=True
                     break
             if checked==False:

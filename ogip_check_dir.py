@@ -161,20 +161,36 @@ def ogip_check_dir(basedir,logdir,ignore,verbosity):
     print("The total number of files with only warnings:  %s" % summary.count_warned() )
     print("The total number of files with errors:  %s" % summary.count_failed() )
 
+    print("")
     for k in summary.count_types:
         print("Checked %s files of type %s" % (summary.count_types[k],k) )
 
+    print("")
     #  Summarize required keywords for each type:
     types=[ 'TIMING', 'SPECTRAL', 'RMF', 'ARF', 'CALDB' ]
 
     for t in types:
+        print("")
+        if t not in summary.count_types:
+            #  Don't bother to summarize types for which no files were found
+            print("Found no files of type %s" % t)
+            continue 
+        print("Summary of missing required keywords for type %s:" % t)
         dict=ogip_dictionary(t)
-        for extn in dict['EXTENSIONS']['REQUIRED']+ dict['EXTENSIONS']['OPTIONAL']:
-            for k in dict[extn]['KEYWORDS']['REQUIRED']: 
-                if extn in summary.count_extnames[t]:
-                    print("Found %s (out of %s) %s extensions of file type %s missing key %s." % (summary.count_missing_key(t,extn,k), summary.count_extnames[t][extn], extn, t, k) )
+        if t == 'CALDB':
+            #  CALDB types don't have required extnames.  Any files
+            #  checked as CALDB types will store the extn as CALFILE.
+            check_extns=['CALFILE']
+        else:
+            check_extns=dict['EXTENSIONS']['REQUIRED']+ dict['EXTENSIONS']['OPTIONAL']
+        for extn in check_extns:
+            if extn in summary.count_extnames[t]:
+                for k in dict[extn]['KEYWORDS']['REQUIRED']: 
+                    if summary.count_missing_key(t,extn,k) > 0:
+                        print("    Found %s (out of %s) %s extensions of file type %s missing key %s." % (summary.count_missing_key(t,extn,k), summary.count_extnames[t][extn], extn, t, k) )
 
 
+    print("\nDone\n")
 
     return
 

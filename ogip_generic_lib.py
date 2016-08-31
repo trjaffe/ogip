@@ -171,7 +171,7 @@ def robust_open(filename,status):
 
 
 
-def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, logf, status):
+def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
     """
     for a given filename from a fits file, get the required and optional keywords and columns
     then check that the given hdu has all the required elements
@@ -186,10 +186,8 @@ def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, logf, status):
     @param status: return status
     @return:
     """
-    # TODO: do we really want to strip the path off?
     file = filename[filename.rfind('/')+1:] # remove directory path
 
-    hdu = robust_open(filename,status)
     extlist = [x.name for x in hdu]
         
     extno=extlist.index(this_extn)  
@@ -208,25 +206,25 @@ def cmp_keys_cols(filename, this_extn, ref_extn, ogip_dict, logf, status):
     for key in ogip['KEYWORDS']['REQUIRED']:
         Foundkey = check_keys(key, hdr,logf,status)
         if not Foundkey:
-            status.update(extn=this_extn,report="ERROR: Key %s not found in %s[%s]" % (key,file, this_extn), err=1,log=logf,miskey=key)
+            status.update(extn=extna,report="ERROR: Key %s not found in %s[%s]" % (key,file, this_extn), err=1,log=logf,miskey=key)
 
     for key in ogip['KEYWORDS']['RECOMMENDED']:
         Foundkey = check_keys(key,hdr,logf,status)
         if not Foundkey:
-            status.update(extn=this_extn,report="WARNING: Key %s not found in %s[%s]" % (key,file, this_extn), warn=1,log=logf)
+            status.update(extn=extna,report="WARNING: Key %s not found in %s[%s]" % (key,file, this_extn), warn=1,log=logf)
 
     for col in ogip['COLUMNS']['REQUIRED']:
         Foundcol = check_cols(col, colnames,logf,this_extn,status)
         if not Foundcol:
-            status.update(extn=this_extn,report="ERROR: Required column %s missing from %s[%s]" % (col, file,  this_extn), err=1,log=logf, miscol=col)
+            status.update(extn=extna,report="ERROR: Required column %s missing from %s[%s]" % (col, file,  this_extn), err=1,log=logf, miscol=col)
 
     for col in ogip['COLUMNS']['RECOMMENDED']:
         Foundcol = check_cols(col, colnames,logf,this_extn,status)
         if not Foundcol:
-            status.update(extn=this_extn,report= "WARNING: Recommended column %s missing from %s[%s]" % (col, file,  this_extn), warn=1,log=logf, miscol=col)
+            status.update(extn=extna,report= "WARNING: Recommended column %s missing from %s[%s]" % (col, file,  this_extn), warn=1,log=logf, miscol=col)
 
     # Backward compatibility
-    missing={'REF_EXTN':ref_extn ,'MISSING_KEYWORDS':status.extns[this_extn].MISKEYS, 'MISSING_COLUMNS':status.extns[this_extn].MISCOLS}
+    missing={'REF_EXTN':ref_extn ,'MISSING_KEYWORDS':status.extns[extna].MISKEYS, 'MISSING_COLUMNS':status.extns[extna].MISCOLS}
 
     return missing
 

@@ -40,6 +40,7 @@ CHECKING inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z;  see log in out/inputs
 Done.  Found file of type CALDB with 48 errors and 24 warnings.
 
 CHECKING inputs/rosat/rh500047n00/rh500047n00_bk1.fits.Z;  see log in out/inputs.logs/rh500047n00_bk1.fits.Z.check.log
+ERROR: File needs at least 1 BINARY extension in addition to the PRIMARY; only found 1 total
 ERROR:  failed to check file inputs/rosat/rh500047n00/rh500047n00_bk1.fits.Z;  see log in out/inputs.logs/rh500047n00_bk1.fits.Z.check.log
 Continuing.
 
@@ -47,6 +48,7 @@ CHECKING inputs/rosat/rh500047n00/rh500047n00_his.fits.Z;  see log in out/inputs
 Done.  Found file of type CALDB with 264 errors and 96 warnings.
 
 CHECKING inputs/rosat/rh500047n00/rh500047n00_im1.fits.Z;  see log in out/inputs.logs/rh500047n00_im1.fits.Z.check.log
+ERROR: File needs at least 1 BINARY extension in addition to the PRIMARY; only found 1 total
 ERROR:  failed to check file inputs/rosat/rh500047n00/rh500047n00_im1.fits.Z;  see log in out/inputs.logs/rh500047n00_im1.fits.Z.check.log
 Continuing.
 
@@ -59,8 +61,6 @@ ERROR:  failed to check file inputs/rosat/rh500047n00/rra;  see log in out/input
 Continuing.
 
 CHECKING inputs/suzaku/ae905006010xi0_1_conf_uf.gti.gz;  see log in out/inputs.logs/ae905006010xi0_1_conf_uf.gti.gz.check.log
-WARNING:  filename ae905006010xi0_1_conf_uf.gti.gz ends with .gz but appears not to be gzipped.
-WARNING:  filename ae905006010xi0_1_conf_uf.gti.gz ends with .gz but appears not to be gzipped.
 WARNING:  filename ae905006010xi0_1_conf_uf.gti.gz ends with .gz but appears not to be gzipped.
 Done.  Found file of type CALDB with 18 errors and 8 warnings.
 
@@ -96,83 +96,51 @@ The total number of files checked:  18
 The total number of files with no warnings or errors:  0
 The total number of files with only warnings:  3
 The total number of files with errors:  15
+
 Checked 5 files of type TIMING
 Checked 1 files of type SPECTRAL
 Checked 1 files of type RMF
 Checked 1 files of type ARF
 Checked 10 files of type CALDB
-Found 0 (out of 3) RATE extensions of file type TIMING missing key TELESCOP.
-Found 0 (out of 3) RATE extensions of file type TIMING missing key INSTRUME.
-Found 0 (out of 3) RATE extensions of file type TIMING missing key DATE-OBS.
-Found 0 (out of 3) RATE extensions of file type TIMING missing key DATE-END.
-Found 1 (out of 3) RATE extensions of file type TIMING missing key ONTIME.
-Found 1 (out of 3) RATE extensions of file type TIMING missing key TIMEZERO|TIMEZERI+TIMEZERF.
-Found 0 (out of 3) RATE extensions of file type TIMING missing key TSTART|TSTARTI+TSTARTF.
-Found 0 (out of 3) RATE extensions of file type TIMING missing key TSTOP|TSTOPI+TSTOPF.
-Found 0 (out of 3) RATE extensions of file type TIMING missing key TIMESYS.
-Found 0 (out of 3) RATE extensions of file type TIMING missing key TIMEUNIT.
-Found 2 (out of 3) RATE extensions of file type TIMING missing key TIMEREF.
-Found 1 (out of 3) RATE extensions of file type TIMING missing key HDUCLASS[OGIP].
-Found 0 (out of 3) RATE extensions of file type TIMING missing key HDUCLAS1[LIGHTCURVE].
-Found 0 (out of 2) EVENTS extensions of file type TIMING missing key TELESCOP.
-Found 0 (out of 2) EVENTS extensions of file type TIMING missing key INSTRUME.
-Found 0 (out of 2) EVENTS extensions of file type TIMING missing key DATE-OBS.
-Found 0 (out of 2) EVENTS extensions of file type TIMING missing key DATE-END.
-Found 0 (out of 2) EVENTS extensions of file type TIMING missing key ONTIME.
-Found 0 (out of 2) EVENTS extensions of file type TIMING missing key TIMEZER*.
-Found 0 (out of 2) EVENTS extensions of file type TIMING missing key TSTART*.
-Found 0 (out of 2) EVENTS extensions of file type TIMING missing key TSTOP*.
-Found 0 (out of 2) EVENTS extensions of file type TIMING missing key TIMESYS.
-Found 0 (out of 2) EVENTS extensions of file type TIMING missing key TIMEUNIT.
-Found 0 (out of 2) EVENTS extensions of file type TIMING missing key HDUCLASS[OGIP].
-Found 0 (out of 2) EVENTS extensions of file type TIMING missing key HDUCLAS1[EVENTS].
-Found 0 (out of 1) GTI extensions of file type TIMING missing key TELESCOP.
-Found 0 (out of 1) GTI extensions of file type TIMING missing key INSTRUME.
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key TELESCOP.
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key INSTRUME.
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key FILTER.
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key EXPOSURE.
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key BACKFILE.
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key CORRFILE.
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key CORRSCAL.
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key RESPFILE.
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key ANCRFILE.
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key HDUCLASS[OGIP].
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key HDUCLAS1[SPECTRUM].
-Found 1 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key HDUVERS[1.2.1].
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key POISSERR.
-Found 1 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key CHANTYPE[PHA|PI].
-Found 0 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key DETCHANS.
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key TELESCOP.
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key INSTRUME.
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key FILTER.
-Found 1 (out of 1) EBOUNDS extensions of file type RMF missing key CHANTYPE[PHA|PI].
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key DETCHANS.
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key HDUCLASS[OGIP].
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key HDUCLAS1[RESPONSE].
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key HDUCLAS2[EBOUNDS].
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key HDUVERS[1.2.0].
-Found 1 (out of 1) EBOUNDS extensions of file type RMF missing key CCLS0001[CPF].
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key CCNM0001[EBOUNDS].
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key CDTP0001[DATA].
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key CVSD0001.
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key CVST0001.
-Found 0 (out of 1) EBOUNDS extensions of file type RMF missing key CDES0001.
-Found 0 (out of 1) SPECRESP extensions of file type ARF missing key TELESCOP.
-Found 0 (out of 1) SPECRESP extensions of file type ARF missing key INSTRUME.
-Found 0 (out of 1) SPECRESP extensions of file type ARF missing key FILTER.
-Found 1 (out of 1) SPECRESP extensions of file type ARF missing key CHANTYPE[PHA|PI].
-Found 1 (out of 1) SPECRESP extensions of file type ARF missing key DETCHANS.
-Found 0 (out of 1) SPECRESP extensions of file type ARF missing key HDUCLASS[OGIP].
-Found 0 (out of 1) SPECRESP extensions of file type ARF missing key HDUCLAS1[RESPONSE].
-Found 0 (out of 1) SPECRESP extensions of file type ARF missing key HDUCLAS2[SPECRESP].
-Found 0 (out of 1) SPECRESP extensions of file type ARF missing key HDUVERS[1.1.0].
-Found 1 (out of 1) SPECRESP extensions of file type ARF missing key TLMIN*.
-Found 1 (out of 1) SPECRESP extensions of file type ARF missing key NUMGRP.
-Found 1 (out of 1) SPECRESP extensions of file type ARF missing key NUMELT.
-Found 0 (out of 1) SPECRESP extensions of file type ARF missing key CCLS0001[CPF].
-Found 1 (out of 1) SPECRESP extensions of file type ARF missing key CCNM0001[SPECRESP].
-Found 0 (out of 1) SPECRESP extensions of file type ARF missing key CDTP0001[DATA].
-Found 0 (out of 1) SPECRESP extensions of file type ARF missing key CVSD0001.
-Found 0 (out of 1) SPECRESP extensions of file type ARF missing key CVST0001.
-Found 0 (out of 1) SPECRESP extensions of file type ARF missing key CDES0001.
+
+
+Summary of missing required keywords for type TIMING:
+    Found 1 (out of 3) RATE extensions of file type TIMING missing key ONTIME.
+    Found 1 (out of 3) RATE extensions of file type TIMING missing key TIMEZERO|TIMEZERI+TIMEZERF.
+    Found 2 (out of 3) RATE extensions of file type TIMING missing key TIMEREF.
+    Found 1 (out of 3) RATE extensions of file type TIMING missing key HDUCLASS[OGIP].
+
+Summary of missing required keywords for type SPECTRAL:
+    Found 1 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key HDUVERS[1.2.1].
+    Found 1 (out of 1) SPECTRUM extensions of file type SPECTRAL missing key CHANTYPE[PHA|PI].
+    Found 1 (out of 1) GTI extensions of file type SPECTRAL missing key TELESCOP.
+
+Summary of missing required keywords for type RMF:
+    Found 1 (out of 1) MATRIX extensions of file type RMF missing key CHANTYPE[PHA|PI].
+    Found 1 (out of 1) MATRIX extensions of file type RMF missing key CCLS0001[CPF].
+    Found 1 (out of 1) EBOUNDS extensions of file type RMF missing key CHANTYPE[PHA|PI].
+    Found 1 (out of 1) EBOUNDS extensions of file type RMF missing key CCLS0001[CPF].
+
+Summary of missing required keywords for type ARF:
+    Found 1 (out of 1) SPECRESP extensions of file type ARF missing key CHANTYPE[PHA|PI].
+    Found 1 (out of 1) SPECRESP extensions of file type ARF missing key DETCHANS.
+    Found 1 (out of 1) SPECRESP extensions of file type ARF missing key TLMIN*.
+    Found 1 (out of 1) SPECRESP extensions of file type ARF missing key NUMGRP.
+    Found 1 (out of 1) SPECRESP extensions of file type ARF missing key NUMELT.
+    Found 1 (out of 1) SPECRESP extensions of file type ARF missing key CCNM0001[SPECRESP].
+
+Summary of missing required keywords for type CALDB:
+    Found 1 (out of 10) CALFILE extensions of file type CALDB missing key TELESCOP.
+    Found 1 (out of 10) CALFILE extensions of file type CALDB missing key INSTRUME.
+    Found 5 (out of 10) CALFILE extensions of file type CALDB missing key DETNAM.
+    Found 7 (out of 10) CALFILE extensions of file type CALDB missing key FILTER.
+    Found 8 (out of 10) CALFILE extensions of file type CALDB missing key CCLS0001.
+    Found 8 (out of 10) CALFILE extensions of file type CALDB missing key CDTP0001.
+    Found 8 (out of 10) CALFILE extensions of file type CALDB missing key CCNM0001.
+    Found 8 (out of 10) CALFILE extensions of file type CALDB missing key CBD*.
+    Found 8 (out of 10) CALFILE extensions of file type CALDB missing key CVSD0001.
+    Found 8 (out of 10) CALFILE extensions of file type CALDB missing key CVST0001.
+    Found 8 (out of 10) CALFILE extensions of file type CALDB missing key CDES*.
+
+Done
+
