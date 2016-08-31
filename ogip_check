@@ -1,6 +1,4 @@
 #! /usr/bin/env python
-
-import pyfits
 from ogip_check import ogip_check
 
 if __name__== "__main__":

@@ -1,5 +1,5 @@
 from __future__ import print_function
-import pyfits
+import astropy.io.fits as pyfits
 from ogip_dictionary import ogip_dictionary
 from ogip_generic_lib import *
 import os.path

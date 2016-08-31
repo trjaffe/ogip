@@ -1,5 +1,5 @@
 from __future__ import print_function
-import pyfits
+import astropy.io.fits as pyfits
 import sys
 from contextlib import contextmanager
 import os
