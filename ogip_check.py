@@ -6,7 +6,6 @@ import os.path
 
 def ogip_check(input,otype,logfile,verbosity):
     """
-
     Checks for the existence of OGIP required keywords and columns 
     for FITS files based on the Standards doccumented here:  
     
@@ -17,9 +16,10 @@ def ogip_check(input,otype,logfile,verbosity):
     Failure in the FITS verify step will result in non-zero retstat.status.
 
     Failure to actually compare the file to any dictionary will 
-    result in a non-zero return value in the retstat.status attribue.  
-    But errors in required keys or columns will not;  they will 
-    simply be counted in the retstat.ERRORS attribue.  
+    result in a non-zero return value in the retstat.status attribute.  
+
+    But errors in required keys or columns will simply be counted in
+    the retstat.ERRORS attribute.
 
     """
     #
@@ -43,24 +43,27 @@ def ogip_check(input,otype,logfile,verbosity):
             logf=logfile
 
 
-    #  Why doesn't this seem to trap correctly?
-    try:
-        hdulist = robust_open(filename,status)
-    except IOError:
+    #  Even just trying to open it can lead to pyfits barfing errors
+    #  and warnings all over.  Leave stdout though, since
+    #  robust_open() logs what happens to stdout and we'll want to see
+    #  that.
+    with stdouterr_redirector(logf,stdout=False):
+        try:
+            hdulist = robust_open(filename,logf,status)
+        except IOError:
         #  Cases should be trapped in robust_open and already
         #  reflected in status:
-        return status
-    except:
-        #  For the unexpected:
-        print("ERROR:  Non-IOError error raised.  Status is %s." % status.status)
-        return status
-    else:
-        #  Just in case:
-        if status.status != 0:
-            print("ERROR:  No error raised, but status is %s." % status.status)
             return status
-        #else:
-            #print("File opened successfully")
+        except:
+        #  For the unexpected, e.g., the system call to gunzip fails
+        #  for some reason:
+            print("ERROR:  Non-IOError error raised.  Status is %s." % status.status)
+            return status
+        else:
+        #  Just in case:
+            if status.status != 0:
+                print("ERROR:  No error raised, but status is %s." % status.status)
+                return status
 
 
     #  Basic FITS verification:
@@ -77,7 +80,7 @@ def ogip_check(input,otype,logfile,verbosity):
                 #  end of the with statement block.)
                 fits_errs=True
         if fits_errs == True:
-            status.update(report="ERROR:  file does not pass FITS verification;  aborting checks.",status=1)
+            status.update(report="ERROR:  file does not pass FITS verification.",fver=1,status=1)
             return status
     else:
         hdulist.verify(option='exception')
@@ -88,29 +91,38 @@ def ogip_check(input,otype,logfile,verbosity):
         status.update(report="ERROR: File needs at least 1 BINARY extension in addition to the PRIMARY; only found %i total" % numext, status=1)
         return status
 
-    # Get a list of all the extnames in the file using a list comprehension
-    extnames= [x.name for x in hdulist]
-    if 'PRIMARY' in extnames:
-        extnames.remove('PRIMARY')
+    # Get a list of all the extnames (after the 0th, which is PRIMARY)
+    # which are BINTABLE type in the file using a list comprehension.  
+    # Obviously, this needs to change if we do images. 
+    extnames= [x.name for x in hdulist[1:] if x.header['XTENSION'].startswith('BINTABLE') ]
+    if len(extnames) == 0:
+        status.update(report="ERROR:  file does not have BINTABLE extension.",status=1)
+        return status
 
-    if otype==None:
-        #  Try to determine the type based on the name of the first
-        #  extension.  Try CALDB if nothing else matches.
-        if extnames[0] in ['RATE','EVENTS']: otype='TIMING'
-        elif extnames[0] == 'SPECTRUM': otype='SPECTRAL'
-        elif 'MATRIX' in extnames[0] or extnames[0]=='EBOUNDS': otype='RMF'
-        elif extnames[0]=='SPECRESP': otype='ARF'
-        else: otype='CALDB'
-        print("\nChecking file %s as type %s" % (filename,otype),file=logf)
-        print("\n(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.\n",file=logf)
+    if extnames[0] == '':
+        #  Let these continue for now and see if HDUCLS
+        status.update(report="WARNING:  file has BINTABLE extension with no name")
+
+    #  Try to determine the type from the first (not PRIMARY) extension:
+    if otype is None:
+        for t in ['TIMING','SPECTRAL','RMF','ARF','CALDB']:
+            ref_extn=ogip_determine_ref(hdulist[1], t)
+            if ref_extn:
+                otype = t
+                print("\nChecking file as type %s" % otype,file=logf)
+                print("\n(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.\n",file=logf)
+                break
+        if otype is None:
+            status.update(report="ERROR:  failed to determine the file type;  trying CALDB",err=1,log=logf)
+            otype='CALDB'
     else:
-        print("\nChecking file %s as type %s" % (filename,otype),file=logf)
+        print("\nChecking file as type %s" % otype,file=logf)
 
     status.otype=otype
 
     ogip_dict=ogip_dictionary(otype)
     if ogip_dict==0:
-        status.update(report="\nERROR:  do not recognize OGIP type %s" % otype, status=1)
+        status.update(report="ERROR:  do not recognize OGIP type %s" % otype, status=1)
         return status
 
     fname = filename
@@ -127,43 +139,39 @@ def ogip_check(input,otype,logfile,verbosity):
     # If there are multiple entries in the required set, only one must
     # be in the file to be tested for it to pass.  This code will have
     # to change if there is a requirement for multiple extensions.
-    for x in ereq:
-        for y in extnames:
-            if x in y: check=True
+    for ref in ereq:
+        for actual in extnames:
+            if ref in actual: check=True
+            
     if not check:
-        status.update(report="ERROR: %s does not have any of the required extensions" % fname, log=logf)
-        status.update(report="%s NOT A VALID OGIP %s FILE \nQUITTING\n" % (filename,otype), log=logf,status=1,err=1)
-        return status
+        status.update(report="ERROR: %s does not have any of the required extension names" % fname, log=logf,err=1)
 
-    # We have the type, have checked that at least one of the required extensions is
-    # there, and now simply loop over the extensions found in the file and check
-    # whatever's there against what's expected for the type, except
-    # for calibration files, which could have any extension name.
-
+    # We have the type, now simply loop over the extensions found in
+    # the file and check whatever's there against what's expected for
+    # the type, except for calibration files, which could have any
+    # extension name.
+    #
     # Note that the name in the dictionary may be a
     # substring of the name in the file (e.g., for RMF files, the
     # required extension is 'MATRIX' while the file may have 
-    #  'SPECRESP MATRIX'.) So check for substrings.
+    #  'SPECRESP MATRIX'.)   So check for substrings.
 
     for this_extn in extnames:  
-
-        #  Check any extensions found:
-        if otype=='CALDB':
-            print("\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,'CALFILE'),file=logf)
-            missing=cmp_keys_cols(hdulist,filename,this_extn,'CALFILE',ogip_dict, logf,status)
-
-        #  Check only extensions recognized, i.e., defined in the
-        #  dictionary, allowing partial matches:
+        
+        #  Determines which reference extension to check this one
+        #  against.  Sometimes not named correctly, but we'd still
+        #  want to check.
+        if otype == 'CALDB':
+            ref_extn='CALFILE'
         else:
-            checked=False
-            for ref_extn in ereq+eopt:
-                if ref_extn in this_extn:
-                    print("\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,ref_extn),file=logf)
-                    missing=cmp_keys_cols(hdulist,filename,this_extn,ref_extn,ogip_dict,logf,status)
-                    checked=True
-                    break
-            if checked==False:
-                print("\nExtension '%s' is not an OGIP defined extension for this type;  ignoring.\n" % this_extn,file=logf)
+            ref_extn = ogip_determine_ref( hdulist[extnames.index(this_extn)+1], otype )
+
+        if ref_extn:
+            print("\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,ref_extn),file=logf)
+            missing=cmp_keys_cols(hdulist,filename,this_extn,ref_extn,ogip_dict,logf,status)
+        else:
+            print("\nExtension '%s' is not an OGIP defined extension for this type;  ignoring.\n" % this_extn,file=logf)
+
 
     if status.tot_errors() > 0:
         ogip_fail(filename,ogip_dict,logf)
@@ -172,6 +180,7 @@ def ogip_check(input,otype,logfile,verbosity):
         print("\nFile %s conforms to the OGIP Standards" % filename,file=logf)
 
     print("\n=============== %i Errors and %i Warnings Found ===============\n" %(status.tot_errors(), status.tot_warnings()),file=logf)
+
     return status
 
 

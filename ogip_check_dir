@@ -11,12 +11,14 @@ if __name__== "__main__":
     parser.add_argument("-v", "--verbosity", action="count", default=0)
 
     parser.add_argument("--ignore_dir",type=str,help="Comma-separated list of directory names to ignore;  default none.",default='')
-    parser.add_argument("--ignore_suffix",type=str,help="Comma-separated list of file suffixes to ignore;  default=.jpg,.txt,.gif,.dat",default='.jpg,.txt,.gif,.dat')
+    parser.add_argument("--ignore_suffix",type=str,help="Comma-separated list of file suffixes to ignore;  default=.jpg,.txt,.gif,.dat,.ps,.html,.par,.PNG,.PDF,.HTM",default='.jpg,.txt,.gif,.dat,.ps,.html,.par,.PNG,.PDF,.HTM')
 
     args = parser.parse_args()
 
+    slist= args.ignore_suffix.split(',') 
+    slist=slist+[x+'.gz' for x in slist]
     ignore={
-        'suffixes':tuple(args.ignore_suffix.split(',') ),
+        'suffixes':tuple(slist),
         'directories':tuple(args.ignore_dir.split(',')),
     }
     status=ogip_check_dir(args.basedir,args.logdir,ignore,args.verbosity)

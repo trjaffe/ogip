@@ -195,10 +195,15 @@ def ogip_dictionary_spectral():
     Define Optional Columns
     """
     extns={'REQUIRED':['SPECTRUM'], 'OPTIONAL':['HISTORY','DETECTOR','GTI']}
+    #  Alternate extension names for those required.  Will generate an
+    #  error but allow checking to continue.
+    alt_extns={'SPECTRUM':['PHA']}
+
     #
     # create structure for pha file
     #
     ogip = {'EXTENSIONS':extns, 
+            'ALT_EXTNS':alt_extns,
             'SPECTRUM':pha,
             'GTI':gti,
             'DETECTOR':detector, 

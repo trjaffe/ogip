@@ -74,6 +74,14 @@ class ogip_collect:
     def count_bad(self):
         return sum(len(d) for d in self.bad.itervalues())
 
+    def count_fopen(self):
+        #  Inner list comprehension returns a list of files and counts fopen errors,
+        #  then iterated and summed over all the directories
+        return sum( sum([f.fopen for f in d.itervalues()]) for d in self.bad.itervalues() )
+
+    def count_fver(self):
+        return sum( sum([f.fver for f in d.itervalues()]) for d in self.bad.itervalues() )
+
     def count_failed(self):
         return sum(len(d) for d in self.failed.itervalues())
 
@@ -141,21 +149,24 @@ def ogip_check_dir(basedir,logdir,ignore,verbosity):
             #  Assumes no two files with same name, writes logs all in
             #  one place for now.  Remove later if no longer needed.
             logfile=os.path.join(logdir,name+".check.log")
-            print("CHECKING %s;  see log in %s" % (one, logfile) )
+            print("\nCHECKING %s;  see log in %s" % (one, logfile) )
             #  Returns status that contains both the counts of errors,
             #  warnings, and the logged reports.  
             status=ogip_check(one,None,logfile,verbosity)
 
-            if status.status != 0:
-                print("ERROR:  failed to check file %s;  see log in %s\nContinuing.\n" % (one, logfile) )
-            else:
-                print("Done.  Found file of type %s with %s errors and %s warnings.\n" % (status.otype, status.tot_errors(),status.tot_warnings() ) )
+            #if status.status != 0:
+                #print("ERROR:  failed to check file %s;  see log in %s\nContinuing." % (one, logfile) )
+            if status.status == 0:
+                print("Done.  Found file of type %s with %s errors and %s warnings." % (status.otype, status.tot_errors(),status.tot_warnings() ) )
             # Store the retstat info for the file
             summary.update(dir=dir,file=name,statobj=status)
 
-    print("***************************************************")
+    print("\n***************************************************")
     print("Done checking.  Now to summarize:\n")
-    print("The total number of files that could not be checked:  %s" % summary.count_bad() )
+    print("The total number of files found: %s" % int(summary.count_bad()+summary.count_checked()) )
+    print("The total number of files that could not be opened as FITS:  %s" % summary.count_fopen() )
+    print("The total number of files that failed FITS verify:  %s" % summary.count_fver() )
+    print("The total number of files that could not be checked for other reasons:  %s" % int(summary.count_bad()-summary.count_fopen()-summary.count_fver()) )
     print("The total number of files checked:  %s" % summary.count_checked() )
     print("The total number of files with no warnings or errors:  %s" % summary.count_good() )
     print("The total number of files with only warnings:  %s" % summary.count_warned() )

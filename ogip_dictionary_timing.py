@@ -216,8 +216,13 @@ def ogip_dictionary_timing():
 
     #  Define which extensions must be present, and which are optional
     extns={'REQUIRED':['RATE','EVENTS'],'OPTIONAL':['TIMEREF','ENEBAND','GTI']}
+    #  Alternate extension names for those required.  Will generate an
+    #  error but allow checking to continue.
+    alt_extns={'RATE':[],'EVENTS':[]}
+
 
     ogip = {'EXTENSIONS':extns, 
+            'ALT_EXTNS':alt_extns,
             'RATE':rate, 
             'EVENTS':events, 
             'TIMEREF':timeref,

@@ -70,10 +70,15 @@ def ogip_dictionary_arf():
     specresp = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 
     extns={'REQUIRED':['SPECRESP'],'OPTIONAL':[]}
+    #  Alternate extension names for those required.  Will generate an
+    #  error but allow checking to continue.
+    alt_extns={'SPECRESP':[]}
+
     #
     # create structure for the ARF file
     #
     ogip = {'EXTENSIONS':extns,
+            'ALT_EXTNS':alt_extns,
             'SPECRESP':specresp,
             'REFERENCE':'OGIP/92-002',
             'REFURL':'https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html',

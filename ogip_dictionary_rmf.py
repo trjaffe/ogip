@@ -114,11 +114,15 @@ def ogip_dictionary_rmf():
              'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 
     extns={'REQUIRED':['MATRIX'],'OPTIONAL':['EBOUNDS']}
+    #  Alternate extension names for those required.  Will generate an
+    #  error but allow checking to continue.
+    alt_extns={'MATRIX':[]}
 
     #
     # create structure for redistribution matrix file
     #
     ogip = {'EXTENSIONS':extns,
+            'ALT_EXTNS':alt_extns,
             'MATRIX':specresp,
             'EBOUNDS':ebounds,
             'REFERENCE':'OGIP/92-002, OGIP/92-002a',
