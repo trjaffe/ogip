@@ -1,5 +1,6 @@
+Attempting to open file inputs/hexte.arf
 
-Checking file inputs/hexte.arf as type ARF
+Checking file as type ARF
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
@@ -25,12 +26,12 @@ WARNING: Key HDUVERS1[1.1.0] not found in hexte.arf[SPECRESP]
 Keyword HDUVERS2 Found, but Value = 1.1.0, should be 1.2.0
 WARNING: Key HDUVERS2[1.2.0] not found in hexte.arf[SPECRESP]
 
+=============== 6 Errors and 8 Warnings Found in 1 extensions checked ===============
+
+
 ===========================================================
 
 FAILURE: inputs/hexte.arf is not a Valid OGIP formatted file
 Please see OGIP/92-002: The Calibration Requirements for Spectral Analysis
 Available at
    https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html
-
-=============== 6 Errors and 8 Warnings Found ===============
-

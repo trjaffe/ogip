@@ -1,76 +1,63 @@
+Attempting to open file inputs/integral/crab/high_level/spectra/Crab_rmf.fits.gz
 
-Checking file inputs/integral/crab/high_level/spectra/Crab_rmf.fits.gz as type CALDB
+Checking file as type RMF
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
+ERROR: Crab_rmf.fits.gz does not have any of the required extension names
 
-=============== Checking 'GROUPING' extension against 'CALFILE' standard ===============
+Extension 'GROUPING' is not an OGIP defined extension for this type;  ignoring.
 
-ERROR: Key FILTER not found in Crab_rmf.fits.gz[GROUPING]
-ERROR: Key CCLS0001 not found in Crab_rmf.fits.gz[GROUPING]
-ERROR: Key CDTP0001 not found in Crab_rmf.fits.gz[GROUPING]
-ERROR: Key CCNM0001 not found in Crab_rmf.fits.gz[GROUPING]
-Enumerated keywords CBD* not Found in Header
-ERROR: Key CBD* not found in Crab_rmf.fits.gz[GROUPING]
-ERROR: Key CVSD0001 not found in Crab_rmf.fits.gz[GROUPING]
-ERROR: Key CVST0001 not found in Crab_rmf.fits.gz[GROUPING]
-Enumerated keywords CDES* not Found in Header
-ERROR: Key CDES* not found in Crab_rmf.fits.gz[GROUPING]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in Crab_rmf.fits.gz[GROUPING]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in Crab_rmf.fits.gz[GROUPING]
-Enumerated keywords CDT* not Found in Header
-WARNING: Key CDT* not found in Crab_rmf.fits.gz[GROUPING]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in Crab_rmf.fits.gz[GROUPING]
 
-=============== Checking 'ISGR-RMF.-RSP' extension against 'CALFILE' standard ===============
+=============== Checking 'ISGR-RMF.-RSP' extension against 'MATRIX' standard ===============
 
-ERROR: Key CCLS0001 not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-ERROR: Key CDTP0001 not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-ERROR: Key CCNM0001 not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-Enumerated keywords CBD* not Found in Header
-ERROR: Key CBD* not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+Alternate keywords CHANTYPE[PHA|PI] not found in header
+ERROR: Key CHANTYPE[PHA|PI] not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+Keyword CCLS0001 not found in header
+ERROR: Key CCLS0001[CPF] not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+Keyword CCNM0001 not found in header
+ERROR: Key CCNM0001[MATRIX] not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+Keyword CDTP0001 not found in header
+ERROR: Key CDTP0001[DATA] not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
 ERROR: Key CVSD0001 not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
 ERROR: Key CVST0001 not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-Enumerated keywords CDES* not Found in Header
-ERROR: Key CDES* not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-Enumerated keywords CDT* not Found in Header
-WARNING: Key CDT* not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+ERROR: Key CDES0001 not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+WARNING: Key PHAFILE not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+Alternate keywords HDUCLAS3[REDIST|DETECTOR|FULL] not found in header
+WARNING: Key HDUCLAS3[REDIST|DETECTOR|FULL] not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+Keyword HDUVERS1 Found, but Value = 1.0.0, should be 1.1.0
+WARNING: Key HDUVERS1[1.1.0] not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+Keyword HDUVERS2 Found, but Value = 1.3.0, should be 1.2.0
+WARNING: Key HDUVERS2[1.2.0] not found in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+WARNING: Recommended column ORDER missing from Crab_rmf.fits.gz[ISGR-RMF.-RSP]
 
-=============== Checking 'ISGR-EBDS-MOD' extension against 'CALFILE' standard ===============
+=============== Checking 'ISGR-EBDS-MOD' extension against 'EBOUNDS' standard ===============
 
-ERROR: Key CCLS0001 not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-ERROR: Key CDTP0001 not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-ERROR: Key CCNM0001 not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-Enumerated keywords CBD* not Found in Header
-ERROR: Key CBD* not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+Alternate keywords CHANTYPE[PHA|PI] not found in header
+ERROR: Key CHANTYPE[PHA|PI] not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+Keyword HDUVERS Found, but Value = 1.3.0, should be 1.2.0
+ERROR: Key HDUVERS[1.2.0] not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+Keyword CCLS0001 not found in header
+ERROR: Key CCLS0001[CPF] not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+Keyword CCNM0001 not found in header
+ERROR: Key CCNM0001[EBOUNDS] not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+Keyword CDTP0001 not found in header
+ERROR: Key CDTP0001[DATA] not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 ERROR: Key CVSD0001 not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 ERROR: Key CVST0001 not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-Enumerated keywords CDES* not Found in Header
-ERROR: Key CDES* not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-Enumerated keywords CDT* not Found in Header
-WARNING: Key CDT* not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Key CDES0001 not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+WARNING: Key PHAFILE not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+Keyword HDUVERS1 Found, but Value = 1.0.0, should be 1.1.0
+WARNING: Key HDUVERS1[1.1.0] not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+Keyword HDUVERS2 Found, but Value = 1.3.0, should be 1.2.0
+WARNING: Key HDUVERS2[1.2.0] not found in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+
+=============== 16 Errors and 13 Warnings Found in 2 extensions checked ===============
+
 
 ===========================================================
 
 FAILURE: inputs/integral/crab/high_level/spectra/Crab_rmf.fits.gz is not a Valid OGIP formatted file
-Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
+Please see OGIP/92-002, OGIP/92-002a: The Calibration Requirements for Spectral Analysis
 Available at
-   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
-
-=============== 22 Errors and 12 Warnings Found ===============
-
+   https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html

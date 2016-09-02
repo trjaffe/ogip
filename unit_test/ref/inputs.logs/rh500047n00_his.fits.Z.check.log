@@ -1,5 +1,8 @@
-
-Checking file inputs/rosat/rh500047n00/rh500047n00_his.fits.Z as type CALDB
+Attempting to open file inputs/rosat/rh500047n00/rh500047n00_his.fits.Z
+Failed to open as a FITS file.  Trying to unzip first.
+Trying to gunzip it.
+Trying now to open it again as FITS.
+ERROR:  failed to determine the file type;  trying CALDB
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
@@ -580,12 +583,12 @@ WARNING: Key CDT* not found in rh500047n00_his.fits.Z[OBL011.trl]
 Enumerated keywords CFI* not Found in Header
 WARNING: Key CFI* not found in rh500047n00_his.fits.Z[OBL011.trl]
 
+=============== 264 Errors and 96 Warnings Found in 24 extensions checked ===============
+
+
 ===========================================================
 
 FAILURE: inputs/rosat/rh500047n00/rh500047n00_his.fits.Z is not a Valid OGIP formatted file
 Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
 Available at
    http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
-
-=============== 264 Errors and 96 Warnings Found ===============
-

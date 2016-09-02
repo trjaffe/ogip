@@ -1,5 +1,6 @@
+Attempting to open file inputs/specresp_matrix.rmf
 
-Checking file inputs/specresp_matrix.rmf as type RMF
+Checking file as type RMF
 
 =============== Checking 'SPECRESP MATRIX' extension against 'MATRIX' standard ===============
 
@@ -26,12 +27,12 @@ WARNING: Key PHAFILE not found in specresp_matrix.rmf[EBOUNDS]
 Keyword HDUVERS1 Found, but Value = 1.0.0, should be 1.1.0
 WARNING: Key HDUVERS1[1.1.0] not found in specresp_matrix.rmf[EBOUNDS]
 
+=============== 4 Errors and 12 Warnings Found in 2 extensions checked ===============
+
+
 ===========================================================
 
 FAILURE: inputs/specresp_matrix.rmf is not a Valid OGIP formatted file
 Please see OGIP/92-002, OGIP/92-002a: The Calibration Requirements for Spectral Analysis
 Available at
    https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html
-
-=============== 4 Errors and 12 Warnings Found ===============
-

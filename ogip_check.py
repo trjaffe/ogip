@@ -106,15 +106,22 @@ def ogip_check(input,otype,logfile,verbosity):
     #  Try to determine the type from the first (not PRIMARY) extension:
     if otype is None:
         for t in ['TIMING','SPECTRAL','RMF','ARF','CALDB']:
-            ref_extn=ogip_determine_ref(hdulist[1], t)
+
+            #  Integral files sometimes start with indexing;  skip this
+            if hdulist[1].header['EXTNAME']=='GROUPING': xno=2
+            else: xno=1
+
+            ref_extn=ogip_determine_ref(hdulist[xno], t)
+
             if ref_extn:
                 otype = t
                 print("\nChecking file as type %s" % otype,file=logf)
-                print("\n(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.\n",file=logf)
                 break
         if otype is None:
             status.update(report="ERROR:  failed to determine the file type;  trying CALDB",err=1,log=logf)
             otype='CALDB'
+        print("\n(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.\n",file=logf)
+
     else:
         print("\nChecking file as type %s" % otype,file=logf)
 
@@ -144,7 +151,7 @@ def ogip_check(input,otype,logfile,verbosity):
             if ref in actual: check=True
             
     if not check:
-        status.update(report="ERROR: %s does not have any of the required extension names" % fname, log=logf,err=1)
+        status.update(report="ERROR: %s does not have any of the required extension names" % fname, log=logf,err=1,extn='none')
 
     # We have the type, now simply loop over the extensions found in
     # the file and check whatever's there against what's expected for
@@ -155,6 +162,8 @@ def ogip_check(input,otype,logfile,verbosity):
     # substring of the name in the file (e.g., for RMF files, the
     # required extension is 'MATRIX' while the file may have 
     #  'SPECRESP MATRIX'.)   So check for substrings.
+
+    extns_checked=0
 
     for this_extn in extnames:  
         
@@ -169,8 +178,15 @@ def ogip_check(input,otype,logfile,verbosity):
         if ref_extn:
             print("\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,ref_extn),file=logf)
             missing=cmp_keys_cols(hdulist,filename,this_extn,ref_extn,ogip_dict,logf,status)
+            extns_checked+=1
         else:
             print("\nExtension '%s' is not an OGIP defined extension for this type;  ignoring.\n" % this_extn,file=logf)
+
+
+    if extns_checked > 0:
+        print("\n=============== %i Errors and %i Warnings Found in %s extensions checked ===============\n" %(status.tot_errors(), status.tot_warnings(),extns_checked),file=logf)
+    else:
+        status.update(report="\nERROR:  No extensions could be checked\n",log=logf,status=1)
 
 
     if status.tot_errors() > 0:
@@ -179,7 +195,6 @@ def ogip_check(input,otype,logfile,verbosity):
         print("\n===========================================================",file=logf)
         print("\nFile %s conforms to the OGIP Standards" % filename,file=logf)
 
-    print("\n=============== %i Errors and %i Warnings Found ===============\n" %(status.tot_errors(), status.tot_warnings()),file=logf)
 
     return status
 

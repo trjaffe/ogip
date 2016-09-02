@@ -1,5 +1,6 @@
+Attempting to open file inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201_lc.fits.gz
 
-Checking file inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201_lc.fits.gz as type TIMING
+Checking file as type TIMING
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
@@ -42,12 +43,12 @@ WARNING: Recommended column BACKV missing from 3FGL_J0534d5p2201_lc.fits.gz[RATE
 WARNING: Recommended column BACKE missing from 3FGL_J0534d5p2201_lc.fits.gz[RATE]
 WARNING: Recommended column DEADC missing from 3FGL_J0534d5p2201_lc.fits.gz[RATE]
 
+=============== 3 Errors and 26 Warnings Found in 1 extensions checked ===============
+
+
 ===========================================================
 
 FAILURE: inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201_lc.fits.gz is not a Valid OGIP formatted file
 Please see OGIP/93-003: The Proposed Timing FITS File Format for High Energy Astrophysics Data
 Available at
    http://heasarc.gsfc.nasa.gov/FTP/caldb/docs/ogip/fits_formats/docs/rates/ogip_93_003/ogip_93_003.pdf
-
-=============== 3 Errors and 26 Warnings Found ===============
-

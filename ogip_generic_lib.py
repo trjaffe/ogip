@@ -44,8 +44,19 @@ class stdouterr_redirector2():
         sys.stderr = self.old_stderr
 """
 
-#  Status information stored for each extension
+  
 class statinfo:
+    """
+
+    Status information stored for each extension
+
+    REPORT contains the logged reports to print
+    WARNINGS counts the number of warning messages (i.e. RECOMMENDED properties that fail)
+    ERRORS counts the number of error messages (i.e. REQUIRED properties that fail)
+    status counts running errors such as missing files, unrecognized formats, etc.
+
+
+    """
     def __init__(self):
         self.REPORT=[]
         self.WARNINGS=0
@@ -53,17 +64,15 @@ class statinfo:
         self.MISKEYS=[]
         self.MISCOLS=[]
 
-#  Status information stored for each file.  Each extension has a statinfo 
+
+
+
+
 class retstat:
     """
 
     For passing status information through module functions and back
     to calling codes without global variables.  
-
-    REPORT contains the logged reports to print
-    WARNINGS counts the number of warning messages (i.e. RECOMMENDED properties that fail)
-    ERRORS counts the number of error messages (i.e. REQUIRED properties that fail)
-    status counts running errors such as missing files, unrecognized formats, etc.
 
     """
     def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, warn=0,err=0,log=sys.stdout,otype=None,fver=0,fopen=0):
@@ -163,12 +172,11 @@ def robust_open(filename,logf,status):
                     status.update(report="ERROR: Could not open %s as a FITS file (even unzipped); RETURNING" % os.path.basename(filename), status=1,fopen=1)
                     raise IOError
             except IOError:
-                print("Failed to gunzip the file with IOError.",file=logf)
-                os.remove(tmpname)
+                if os.path.isfile(tmpname):  os.remove(tmpname)
                 raise IOError
             except:
                 print("Failed to gunzip the file with Non-IOError.",file=logf)
-                os.remove(tmpname)
+                if os.path.isfile(tmpname):  os.remove(tmpname)
                 status.update(report="ERROR:  cannot unzip file %s" % os.path.basename(filename),status=1)
                 raise IOError  # even though it might have been from the call to gunzip
 
@@ -177,43 +185,13 @@ def robust_open(filename,logf,status):
             status.update(report="ERROR: could not open %s as a FITS file; RETURNING" % filename, status=1,fopen=1)
             raise IOError
 
-#            This doesn't seem to be needed.  The .FTZ files seem to open OK in pyfits.  
-#
-#            # Some pathological missions name things whatever they
-#            # feel like.  Try just creating a link that is .gz or
-#            # copying to a .Z filename and see if either works
-#            print("DEBUGGING:  couldn't open it;  try renaming to .gz and opening that way.")
-#            #  Try as file named ".gz"
-#            tmpname='./.ogip_check_tmp_'+os.path.basename(filename)+'.gz'
-#            if os.path.islink(tmpname): os.remove(tmpname)
-#            os.symlink(filename,tmpname)
-#            try:
-#                hdulist=pyfits.open(tmpname)
-#            except IOError:
-#                print("DEBUGGING:  couldn't open as .gz.  Trying .Z and unzip.")
-#                os.remove(tmpname)
-#                #  Try to unzip 
-#                tmpname='./.ogip_check_tmp_'+os.path.basename(filename)+".Z"
-#                subprocess.call("cp %s %s" % (filename,tmpname),shell=True)
-#                try:
-#                    subprocess.call("gunzip %s" % tmpname,shell=True)
-#                except:
-#                    status.update(report="ERROR:  cannot either gunzip or unsip file %s" % os.path.basename(filename),status=1)
-#                else:
-#                    print("DEBUGGING:  managed to unzip it.  Now try to open as FITS")
-#                    tmpname=tmpname[:-2]
-#                    try:
-#                        hdulist=pyfits.open(tmpname)
-#                    except IOError:
-#                        os.remove(tmpname)
-#                        status.update("ERROR:  unzipped file but cannot open as FITS",status=1)
 
     except:
         print("DEBUGGING:  how did I get here?")
 
     #  Success should always end up here:
     if os.path.islink(tmpname):  os.unlink(tmpname)
-    if os.path.isfile(tmpname):  os.unlink(tmpname)
+    if os.path.isfile(tmpname):  os.remove(tmpname)
 
     return hdulist
 
@@ -252,7 +230,7 @@ def ogip_determine_ref(in_extn,otype):
         #  extension is sometimes 'SPECRESP MATRIX' in some
         #  missions:
         for extn in all_extns:
-            if ( extn in in_extn.header['EXTNAME']):
+            if ( extn in in_extn.header['EXTNAME'] and extn != ''):
                 return extn  
 
         #  If that hasn't worked, check alternate extension
@@ -266,7 +244,26 @@ def ogip_determine_ref(in_extn,otype):
         #  keywords (which is sometimes required and sometimes only
         #  recommended. And may not exist in the file. Check if either
         #  is a substring of the other.  
-        if 'HDUCLAS1' in in_extn.header:
+
+        #  Check more-specific HDUCLAS2 first. (Both ARF and RMF may have
+        #  HDUCLAS1[RESPONSE], so they'd all end up whichever came
+        #  first if you check that first. Check HDUCLAS2 first, which
+        #  is MATRIX versus SPECRESP. But compare the value of the
+        #  current file's HDUCLAS2 against the refernce for both
+        #  HDUCLAS1 and HDUCLAS2.
+        if 'HDUCLAS2' in in_extn.header:
+            for extn in all_extns:
+                ref_keys=ogip_dict[extn]['KEYWORDS']['REQUIRED']+ogip_dict[extn]['KEYWORDS']['RECOMMENDED']
+                for key in [k for k in ref_keys if 'HDUCLAS2' in k]:
+                    beg=key.find("[")
+                    val=key[beg+1:key.find(']')].strip().upper()
+                    key=key[0:beg]
+                    if val in in_extn.header['HDUCLAS2'] or in_extn.header['HDUCLAS2'] in val:
+                        return extn 
+
+        #  Check less-specific HDUCLAS1, but not for ARF or RMF,
+        #  because both have value RESPONSE. 
+        if 'HDUCLAS1' in in_extn.header and not (otype == 'ARF' or otype == 'RMF'):
             for extn in all_extns:
                 ref_keys=ogip_dict[extn]['KEYWORDS']['REQUIRED']+ogip_dict[extn]['KEYWORDS']['RECOMMENDED']
                 for key in [k for k in ref_keys if 'HDUCLAS1' in k]:
@@ -277,19 +274,8 @@ def ogip_determine_ref(in_extn,otype):
                     if val in in_extn.header['HDUCLAS1'] or in_extn.header['HDUCLAS1'] in val:
                         return extn 
 
-        if 'HDUCLAS2' in in_extn.header:
-            for extn in all_extns:
-                ref_keys=ogip_dict[extn]['KEYWORDS']['REQUIRED']+ogip_dict[extn]['KEYWORDS']['RECOMMENDED']
-                for key in [k for k in ref_keys if 'HDUCLAS2' in k]:
-                    #  (Should be only one)
-                    beg=key.find("[")
-                    val=key[beg+1:key.find(']')].strip().upper()
-                    key=key[0:beg]
-                    if val in in_extn.header['HDUCLAS2'] or in_extn.header['HDUCLAS2'] in val:
-                        return extn 
-
-
-
+        if 'CCLS0001' in in_extn.header and otype == 'CALDB':
+            return 'CALFILE'
 
 
 

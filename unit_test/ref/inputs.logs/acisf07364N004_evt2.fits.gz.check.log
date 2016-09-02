@@ -1,5 +1,6 @@
+Attempting to open file inputs/chandra/acisf07364N004_evt2.fits.gz
 
-Checking file inputs/chandra/acisf07364N004_evt2.fits.gz as type TIMING
+Checking file as type TIMING
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
@@ -68,9 +69,9 @@ WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI
 Extension 'REGION' is not an OGIP defined extension for this type;  ignoring.
 
 
+=============== 0 Errors and 28 Warnings Found in 7 extensions checked ===============
+
+
 ===========================================================
 
 File inputs/chandra/acisf07364N004_evt2.fits.gz conforms to the OGIP Standards
-
-=============== 0 Errors and 28 Warnings Found ===============
-

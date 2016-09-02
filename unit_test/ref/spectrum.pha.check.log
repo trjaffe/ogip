@@ -1,5 +1,6 @@
+Attempting to open file inputs/spectrum.pha
 
-Checking file inputs/spectrum.pha as type SPECTRAL
+Checking file as type SPECTRAL
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
@@ -65,12 +66,12 @@ WARNING: Recommended column ROWID missing from spectrum.pha[SPECTRUM]
 ERROR: Key TELESCOP not found in spectrum.pha[STDGTI]
 WARNING: Recommended column TIMEDEL missing from spectrum.pha[STDGTI]
 
+=============== 15 Errors and 28 Warnings Found in 2 extensions checked ===============
+
+
 ===========================================================
 
 FAILURE: inputs/spectrum.pha is not a Valid OGIP formatted file
 Please see OGIP/92-007: The OGIP Spectral File Format
 Available at
    https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/summary/ogip_92_007_summary.html
-
-=============== 15 Errors and 28 Warnings Found ===============
-

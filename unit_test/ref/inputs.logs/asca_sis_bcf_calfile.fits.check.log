@@ -1,5 +1,6 @@
+Attempting to open file inputs/asca_sis_bcf_calfile.fits
 
-Checking file inputs/asca_sis_bcf_calfile.fits as type CALDB
+Checking file as type CALDB
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
@@ -164,12 +165,12 @@ WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D7E0]
 Enumerated keywords CFI* not Found in Header
 WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D7E0]
 
+=============== 16 Errors and 48 Warnings Found in 16 extensions checked ===============
+
+
 ===========================================================
 
 FAILURE: inputs/asca_sis_bcf_calfile.fits is not a Valid OGIP formatted file
 Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
 Available at
    http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
-
-=============== 16 Errors and 48 Warnings Found ===============
-

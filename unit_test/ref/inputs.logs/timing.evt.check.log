@@ -1,5 +1,6 @@
+Attempting to open file inputs/timing.evt
 
-Checking file inputs/timing.evt as type TIMING
+Checking file as type TIMING
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
@@ -23,9 +24,9 @@ WARNING: Key DEADAPP not found in timing.evt[EVENTS]
 
 WARNING: Recommended column TIMEDEL missing from timing.evt[STDGTI]
 
+=============== 0 Errors and 13 Warnings Found in 2 extensions checked ===============
+
+
 ===========================================================
 
 File inputs/timing.evt conforms to the OGIP Standards
-
-=============== 0 Errors and 13 Warnings Found ===============
-

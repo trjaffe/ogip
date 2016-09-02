@@ -1,0 +1,4 @@
+Attempting to open file inputs/rosat/rh500047n00/rh500047n00.public_contents.Z
+Failed to open as a FITS file.  Trying to unzip first.
+Trying to gunzip it.
+Trying now to open it again as FITS.

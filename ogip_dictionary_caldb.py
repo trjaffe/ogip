@@ -41,7 +41,7 @@ def ogip_dictionary_caldb():
     calfile = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys},'COLUMNS':{'REQUIRED':[],'RECOMMENDED':[]}
     }
 
-    extns={'REQUIRED':[''],'OPTIONAL':[]}
+    extns={'REQUIRED':[],'OPTIONAL':[]}
     alt_extns={}
 
 

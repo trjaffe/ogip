@@ -41,7 +41,7 @@ do
     diffs=`diff ref/${file}.check.log out/${file}.check.log`
 
     if [[ ${#diffs} != 0 ]]; then 
-	echo "ERROR:  Found ${#diffs[@]} differences in 'diff ref/${file}.check.log out/${file}.check.log'"
+	echo "WARNING:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
 	let diffcnt+=1
     else
 	echo "No differences."
@@ -66,7 +66,7 @@ fi
 echo "Comparing output to reference.  "
 diffs=`diff ref/${file}.check.log out/${file}.check.log`
 if [[ ${#diffs} != 0 ]]; then
-    echo "ERROR:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
+    echo "WARNING:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
 #    echo ${diffs[@]} | tail
     let diffcnt+=1
 else
@@ -88,7 +88,7 @@ fi
 echo "Comparing output to reference.  "
 diffs=`diff ref/${file}.check.log out/${file}.check.log`
 if [[ ${#diffs} != 0 ]]; then
-    echo "ERROR:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
+    echo "WARNING:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
 #    echo ${diffs[@]} | tail
     let diffcnt+=1
 else
@@ -110,7 +110,7 @@ fi
 echo "Comparing output to reference.  "
 diffs=`diff ref/${file}.check.log out/${file}.check.log`
 if [[ ${#diffs} != 0 ]]; then
-    echo "ERROR:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
+    echo "WARNING:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
 #    echo ${diffs[@]} | tail
     let diffcnt+=1
 else
@@ -124,6 +124,7 @@ file="specresp_matrix.rmf"
 echo "Checking file ${file}"
 ../ogip_check inputs/${file} -t RMF >& out/${file}.check.log2
 retval=$?
+echo "Return status was $retval"
 if [[ "$retval" != "0" ]]; then 
     echo "ERROR:  ogip_check returned an error status!"
     let errors+=1
@@ -131,7 +132,7 @@ fi
 echo "Comparing output to reference.  "
 diffs=`diff ref/${file}.check.log out/${file}.check.log`
 if [[ ${#diffs} != 0 ]]; then
-    echo "ERROR:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
+    echo "WARNING:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
 #    echo ${diffs[@]} | tail
     let diffcnt+=1
 else
@@ -153,7 +154,7 @@ fi
 echo "Comparing output to reference.  "
 diffs=`diff ref/${file}.check.log out/${file}.check.log`
 if [[ ${#diffs} != 0 ]]; then
-    echo "ERROR:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
+    echo "WARNING:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
 #    echo ${diffs[@]} | tail
     let diffcnt+=1
 else
@@ -175,7 +176,7 @@ fi
 echo "Comparing output to reference.  "
 diffs=`diff ref/${file}.check.log out/${file}.check.log`
 if [[ ${#diffs} != 0 ]]; then
-    echo "ERROR:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
+    echo "WARNING:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
 #    echo ${diffs[@]} | tail
     let diffcnt+=1
 else
@@ -203,9 +204,10 @@ else
     let errors+=1
 fi
 echo "Comparing output to reference.  "
-diffs=`diff ref/${file}.check.log out/${file}.check.log`
+diffs=`diff ref/bad_type.check.log out/bad_type.check.log`
 if [[ ${#diffs} != 0 ]]; then
-    echo "ERROR:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
+    echo "WARNING:  Differences appear in 'diff ref/bad_type.check.log out/bad_type.check.log'"
+    echo $diffs
 #    echo ${diffs[@]} | tail
     let diffcnt+=1
 else
@@ -228,10 +230,10 @@ else
     let errors+=1
 fi
 echo "Comparing output to reference.  "
-diffs=`diff ref/${file}.check.log out/${file}.check.log`
+diffs=`diff ref/wrong_type.check.log out/wrong_type.check.log`
 if [[ ${#diffs} != 0 ]]; then
-    echo "ERROR:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
-#    echo ${diffs[@]} | tail
+    echo "WARNING:  Differences appear in 'diff ref/wrong_type.check.log out/wrong_type.check.log'"
+    echo ${diffs[@]}
     let diffcnt+=1
 else
     echo "No differences."
@@ -255,7 +257,7 @@ fi
 echo "Comparing output to reference.  "
 diffs=`diff ref/${file}.check.log out/${file}.check.log`
 if [[ ${#diffs} != 0 ]]; then
-    echo "ERROR:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
+    echo "WARNING:  Differences appear in 'diff ref/${file}.check.log out/${file}.check.log'"
 #    echo ${diffs[@]} | tail
     let diffcnt+=1
 else
@@ -284,20 +286,19 @@ else
     echo "Comparing output to reference.  "
     diffs=`diff ref/inputs.check.log out/inputs.check.log`
     if [[ ${#diffs} != 0 ]]; then
-	echo "ERROR:  Differences appear in 'diff ref/inputs.check.log out/inputs.check.log'"
+	echo "WARNING:  Differences appear in 'diff ref/inputs.check.log out/inputs.check.log'"
 	#    echo ${diffs[@]} | tail
 	let diffcnt+=1
     else
-	echo "No differences."
+	echo "No differences in directory check log."
     fi
+    echo "Comparing logs of individual files run this way with those run individually."
     for file in asca_sis_bcf_calfile.fits fermi_lat_bcf_edisp_calfile.fits hexte.arf specresp_matrix.rmf spectrum.pha timing.evt timing_fails.lc timing_passes.lc ; do 
 	diffs=`diff out/${file}.check.log out/inputs.logs/${file}.check.log | tail`
 	if [[ ${#diffs} != 0 ]]; then
-	    echo "ERROR:  Differences appear in 'diff out/${file}.check.log out/inputs.logs/${file}.check.log'"
+	    echo "WARNING:  Differences appear in 'diff out/${file}.check.log out/inputs.logs/${file}.check.log'"
 	    echo ${diffs[@]} | tail
 	    let diffcnt+=1
-	else
-	    echo "No differences."
 	fi
     done
 fi

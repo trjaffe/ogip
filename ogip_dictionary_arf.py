@@ -72,7 +72,7 @@ def ogip_dictionary_arf():
     extns={'REQUIRED':['SPECRESP'],'OPTIONAL':[]}
     #  Alternate extension names for those required.  Will generate an
     #  error but allow checking to continue.
-    alt_extns={'SPECRESP':[]}
+    alt_extns={'SPECRESP':['ARF']}
 
     #
     # create structure for the ARF file

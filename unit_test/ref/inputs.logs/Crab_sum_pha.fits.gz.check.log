@@ -1,36 +1,78 @@
+Attempting to open file inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz
 
-Checking file inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz as type CALDB
+Checking file as type SPECTRAL
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
+ERROR: Crab_sum_pha.fits.gz does not have any of the required extension names
 
-=============== Checking 'ISGR-PHA1-SPE' extension against 'CALFILE' standard ===============
+=============== Checking 'ISGR-PHA1-SPE' extension against 'SPECTRUM' standard ===============
 
 ERROR: Key FILTER not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-ERROR: Key CCLS0001 not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-ERROR: Key CDTP0001 not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-ERROR: Key CCNM0001 not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Enumerated keywords CBD* not Found in Header
-ERROR: Key CBD* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-ERROR: Key CVSD0001 not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-ERROR: Key CVST0001 not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Enumerated keywords CDES* not Found in Header
-ERROR: Key CDES* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Enumerated keywords CDT* not Found in Header
-WARNING: Key CDT* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Keyword HDUVERS Found, but Value = 1.2.0, should be 1.2.1
+ERROR: Key HDUVERS[1.2.1] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Alternate keywords CHANTYPE[PHA|PI] not found in header
+ERROR: Key CHANTYPE[PHA|PI] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key RA-OBJ not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key DEC-OBJ not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Enumerated keywords XFLT* not Found in Header
+WARNING: Key XFLT* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TIME-OBS not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TIME-END not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Alternate keywords HDUCLAS2[TOTAL|NET|BKG] not found in header
+WARNING: Key HDUCLAS2[TOTAL|NET|BKG] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Alternate keywords HDUCLAS3[COUNT|RATE] not found in header
+WARNING: Key HDUCLAS3[COUNT|RATE] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Group keywords TIMEZERI+TIMEZERF not Found in Header
+Alternate keywords TIMEZERO|TIMEZERI+TIMEZERF not found in header
+WARNING: Key TIMEZERO|TIMEZERI+TIMEZERF not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Keyword SYS_ERR not found in header
+WARNING: Key SYS_ERR[0] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Keyword QUALITY not found in header
+WARNING: Key QUALITY[0] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Keyword GROUPING not found in header
+WARNING: Key GROUPING[0] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key CLOCKCOR not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TIMVERSN not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key OBJECT not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key AUTHOR not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TASSIGN not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TIERRELA not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TIERABSO not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key BACKAPP not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key VIGNAPP not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key DEADAPP not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Enumerated keywords EMIN* not Found in Header
+WARNING: Key EMIN* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Enumerated keywords EMAX* not Found in Header
+WARNING: Key EMAX* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Enumerated keywords BACKV* not Found in Header
+WARNING: Key BACKV* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Enumerated keywords BACKE* not Found in Header
+WARNING: Key BACKE* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key GEOAREA not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key VIGNET not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key NPIXSOU not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key NPIXBACK not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+ERROR: Required column SPEC_NUM missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+Alternate Column RATE found in header
+ERROR: Required column AREASCAL missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+ERROR: Required column BACKSCAL missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+ERROR: Required column EXPOSURE missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+ERROR: Required column BACKFILE missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+ERROR: Required column CORRFILE missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+ERROR: Required column CORRSCAL missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+ERROR: Required column RESPFILE missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+ERROR: Required column ANCRFILE missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Recommended column DQF missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Recommended column ROWID missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+
+=============== 13 Errors and 32 Warnings Found in 1 extensions checked ===============
+
 
 ===========================================================
 
 FAILURE: inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz is not a Valid OGIP formatted file
-Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
+Please see OGIP/92-007: The OGIP Spectral File Format
 Available at
-   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
-
-=============== 8 Errors and 4 Warnings Found ===============
-
+   https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/summary/ogip_92_007_summary.html

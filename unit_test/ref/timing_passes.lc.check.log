@@ -1,5 +1,6 @@
+Attempting to open file inputs/timing_passes.lc
 
-Checking file inputs/timing_passes.lc as type TIMING
+Checking file as type TIMING
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
@@ -30,9 +31,9 @@ WARNING: Recommended column BACKV missing from timing_passes.lc[RATE]
 WARNING: Recommended column BACKE missing from timing_passes.lc[RATE]
 WARNING: Recommended column DEADC missing from timing_passes.lc[RATE]
 
+=============== 0 Errors and 17 Warnings Found in 1 extensions checked ===============
+
+
 ===========================================================
 
 File inputs/timing_passes.lc conforms to the OGIP Standards
-
-=============== 0 Errors and 17 Warnings Found ===============
-

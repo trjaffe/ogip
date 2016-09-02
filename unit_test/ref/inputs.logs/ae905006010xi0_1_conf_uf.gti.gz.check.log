@@ -1,59 +1,26 @@
+Attempting to open file inputs/suzaku/ae905006010xi0_1_conf_uf.gti.gz
+Failed to open as a FITS file.  Since it's named .gz, try after removing suffix.
 
-Checking file inputs/suzaku/ae905006010xi0_1_conf_uf.gti.gz as type CALDB
+Checking file as type TIMING
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
+ERROR: ae905006010xi0_1_conf_uf.gti.gz does not have any of the required extension names
 
-=============== Checking 'STDGTI' extension against 'CALFILE' standard ===============
+=============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
-ERROR: Key DETNAM not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-ERROR: Key FILTER not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-ERROR: Key CCLS0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-ERROR: Key CDTP0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-ERROR: Key CCNM0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-Enumerated keywords CBD* not Found in Header
-ERROR: Key CBD* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-ERROR: Key CVSD0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-ERROR: Key CVST0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-Enumerated keywords CDES* not Found in Header
-ERROR: Key CDES* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-Enumerated keywords CDT* not Found in Header
-WARNING: Key CDT* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Recommended column TIMEDEL missing from ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
 
-=============== Checking 'STDGTI' extension against 'CALFILE' standard ===============
+=============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
-ERROR: Key DETNAM not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-ERROR: Key FILTER not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-ERROR: Key CCLS0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-ERROR: Key CDTP0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-ERROR: Key CCNM0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-Enumerated keywords CBD* not Found in Header
-ERROR: Key CBD* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-ERROR: Key CVSD0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-ERROR: Key CVST0001 not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-Enumerated keywords CDES* not Found in Header
-ERROR: Key CDES* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-Enumerated keywords CDT* not Found in Header
-WARNING: Key CDT* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Recommended column TIMEDEL missing from ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+
+=============== 1 Errors and 2 Warnings Found in 2 extensions checked ===============
+
 
 ===========================================================
 
 FAILURE: inputs/suzaku/ae905006010xi0_1_conf_uf.gti.gz is not a Valid OGIP formatted file
-Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
+Please see OGIP/93-003: The Proposed Timing FITS File Format for High Energy Astrophysics Data
 Available at
-   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
-
-=============== 18 Errors and 8 Warnings Found ===============
-
+   http://heasarc.gsfc.nasa.gov/FTP/caldb/docs/ogip/fits_formats/docs/rates/ogip_93_003/ogip_93_003.pdf
