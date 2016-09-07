@@ -1,5 +1,4 @@
 #! /usr/bin/env python
-
 from ogip_check_dir import ogip_check_dir
 
 if __name__== "__main__":

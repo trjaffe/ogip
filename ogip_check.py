@@ -47,7 +47,25 @@ def ogip_check(input,otype,logfile,verbosity):
     #  and warnings all over.  Leave stdout though, since
     #  robust_open() logs what happens to stdout and we'll want to see
     #  that.
-    with stdouterr_redirector(logf,stdout=False):
+    if logf is not sys.stdout:
+        with stdouterr_redirector(logf,redir_out=False):
+            try:
+                hdulist = robust_open(filename,logf,status)
+            except IOError:
+            #  Cases should be trapped in robust_open and already
+            #  reflected in status:
+                return status
+            except:
+            #  For the unexpected, e.g., the system call to gunzip fails
+            #  for some reason:
+                print("ERROR:  Non-IOError error raised.  Status is %s." % status.status)
+                return status
+            else:
+            #  Just in case:
+                if status.status != 0:
+                    print("ERROR:  No error raised, but status is %s." % status.status)
+                    return status
+    else:
         try:
             hdulist = robust_open(filename,logf,status)
         except IOError:
@@ -66,24 +84,14 @@ def ogip_check(input,otype,logfile,verbosity):
                 return status
 
 
+
     #  Basic FITS verification:
-    fits_errs=False
-    if logf is not sys.stdout:
-        #  Temporarily redirect STDOUT and STDERR for pyfits verification:
-        with stdouterr_redirector(logf):
-            try:
-                hdulist.verify(option='exception')
-            except pyfits.verify.VerifyError:
-                #  Trap the error so that we can abort this check but
-                #  not necessarily the whole process if running in
-                #  batch.  (This way, finishes the redirection at the
-                #  end of the with statement block.)
-                fits_errs=True
-        if fits_errs == True:
-            status.update(report="ERROR:  file does not pass FITS verification.",fver=1,status=1)
-            return status
-    else:
-        hdulist.verify(option='exception')
+    fits_errs=ogip_fits_verify(hdulist,filename,logf,status)
+    if fits_errs == 1:
+        status.update(report="ERROR:  file does not pass FITS verification but able to continue.",fver=1,err=1)
+    if fits_errs == 2:  
+        status.update(report="ERROR:  file does not pass FITS verification;  giving up.",fver=2,status=1)
+        return status
 
 
     numext= len(hdulist)

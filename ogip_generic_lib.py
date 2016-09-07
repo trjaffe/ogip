@@ -1,7 +1,6 @@
 from __future__ import print_function
 import astropy.io.fits as pyfits
 import sys
-from contextlib import contextmanager
 import os
 import subprocess
 from ogip_dictionary import ogip_dictionary
@@ -15,34 +14,46 @@ Library of generic functions used by OGIP check utilities.
 #  Temporarily redirects stdout and stderr to an already-open output
 #  log file.
 #
+"""  Alternate way?  Move import to hea
+
+from contextlib import contextmanager
+
 @contextmanager
-def stdouterr_redirector(stream,stdout=True,stderr=True):
-    if stdout: 
+def stdouterr_redirector(stream,redir_out=True,redir_err=True):
+    if redir_out: 
         old_stdout = sys.stdout
         sys.stdout = stream
-    if stderr: 
+    if redir_err: 
         old_stderr = sys.stderr
         sys.stderr = stream
     try:
         yield
     finally:
-        if stdout:  sys.stdout = old_stdout
-        if stderr:  sys.stderr = old_stderr
-
-
-"""  Alternate way? 
-class stdouterr_redirector2():
-    def __init__(self, stream):
-        self.stream = stream
-    def __enter__(self):
-        self.old_stdout = sys.stdout
-        self.old_stderr = sys.stderr
-        sys.stdout = self.stream
-        sys.stderr = self.stream
-    def __exit__(self, type, value, traceback):
-        sys.stdout = self.old_stdout
-        sys.stderr = self.old_stderr
+        if redir_out:  sys.stdout = old_stdout
+        if redir_err:  sys.stderr = old_stderr
 """
+
+class stdouterr_redirector():
+    def __init__(self, stream,redir_out=True,redir_err=True):
+        self.stream = stream
+        self.redir_out=redir_out
+        self.redir_err=redir_err
+        self.reverse=False
+    def __enter__(self):
+        if self.stream is not sys.stdout:
+            self.reverse=True
+            if self.redir_out:
+                self.old_stdout = sys.stdout
+                sys.stdout = self.stream
+            if self.redir_err:
+                self.old_stderr = sys.stderr
+                sys.stderr = self.stream
+    def __exit__(self, type, value, traceback):
+        if self.reverse:
+            if self.redir_out:
+                sys.stdout = self.old_stdout
+            if self.redir_err:
+                sys.stderr = self.old_stderr
 
   
 class statinfo:
@@ -194,6 +205,82 @@ def robust_open(filename,logf,status):
     if os.path.isfile(tmpname):  os.remove(tmpname)
 
     return hdulist
+
+
+
+
+def ogip_fits_verify(hdulist,filename,logf,status):
+
+    """
+
+    The report to STDERR of problems found by astropy.io.fits.verify() does 
+    not work for reasons unknown when run in the ogip_check_dir context
+    of looping over files.  The first file to fail verification gets 
+    logged but subsequent files, that information is not logged, no idea
+    why.  
+    
+
+    fits_err=0
+
+    #  Temporarily redirect STDOUT and STDERR for pyfits verification:
+    with stdouterr_redirector(logf):
+        try:
+            #  Trap the error so that we can abort this check but
+            #  not necessarily the whole process if running in
+            #  batch.  (This way, finishes the redirection at the
+            #  end of the with statement block.)
+            hdulist.verify(option='exception')
+        except pyfits.verify.VerifyError:
+            #  Run it again with option='warn', since annoyingly,
+            #  fits.verify(option='exception') does not print any
+            #  information on why it failed!  And option='warn'
+            #  would make it hard to trap the outcome.
+            hdulist.verify(option='warn')
+            fits_err=2
+
+    return fits_err
+
+    """
+
+    #  I don't actually want to keep the STDOUT from ftverify, only
+    #  STDERR that lists the errors.
+
+    try:
+        ftv=subprocess.Popen("ftverify %s" % filename,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    except:
+        print("ERROR:  Could not ftverify the file.  The futil ftverify needs to be in the path for a spawned shell command!")
+        exit(-1)
+
+    #  I don't actually want to keep the STDOUT from ftverify, only
+    #  STDERR that lists the errors.
+    result=ftv.stderr.read().split('\n')
+    if result != ['']:
+        [status.update(report="Ftverify:  %s" % x,err=1,log=logf) for x in result]
+        fits_errs=1
+
+        #  See if we can continue.  Use
+        #  astropy.io.fits.verify(option='fix').  If it can, it fixes
+        #  the copy in memory.  If not, it throws an exception.  This
+        #  function will return 2 if this happens.  Otherwise, we try
+        #  to continue despite the possible issues (return value 1).
+        #  Presume that if the verify() is satisfied, then we won't
+        #  run into actuall exceptions later.
+
+
+        #  This has the same problem as the above, cannot see what is fixed.  
+
+        with stdouterr_redirector(logf):
+            try:
+                print("Trying to fix simple errors with astropy.io.fits.verify(option='fix')",file=logf)
+                hdulist.verify(option='fix')
+            except:
+                fits_errs=2
+
+    else:
+        fits_errs=0
+
+    return fits_errs
+
 
 
 

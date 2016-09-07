@@ -44,7 +44,7 @@ class ogip_collect:
         self.count_extnames={}
 
 
-    def update(self,dir=None,file=None,statobj=None,bad=0):
+    def update(self,dir=None,file=None,statobj=None):
         # Store dictionaries of directories containing dictionaries of
         # files containing status class objects.  Also keeps a running
         # count of types and extensions checked.
@@ -79,8 +79,13 @@ class ogip_collect:
         #  then iterated and summed over all the directories
         return sum( sum([f.fopen for f in d.itervalues()]) for d in self.bad.itervalues() )
 
-    def count_fver(self):
-        return sum( sum([f.fver for f in d.itervalues()]) for d in self.bad.itervalues() )
+    def count_fver_bad(self):
+        #  These are either bad (couldn't be checked, fver==2) or
+        #  failed (could be checked but with errors, fver=1)
+        return sum( sum([f.fver/2 for f in d.itervalues()]) for d in self.bad.itervalues() )
+
+    def count_fver_fixed(self):
+        return sum( sum([f.fver for f in d.itervalues()]) for d in self.failed.itervalues() )
 
     def count_failed(self):
         return sum(len(d) for d in self.failed.itervalues())
@@ -148,8 +153,12 @@ def ogip_check_dir(basedir,logdir,ignore,verbosity):
             one=os.path.join(dir, name)
             #  Assumes no two files with same name, writes logs all in
             #  one place for now.  Remove later if no longer needed.
-            logfile=os.path.join(logdir,name+".check.log")
-            print("\nCHECKING %s;  see log in %s" % (one, logfile) )
+            if logdir:
+                logfile=os.path.join(logdir,name+".check.log")
+                print("\nCHECKING %s;  see log in %s" % (one, logfile) )
+            else:
+                logfile=sys.stdout
+                print("\nCHECKING %s" % one)
             #  Returns status that contains both the counts of errors,
             #  warnings, and the logged reports.  
             status=ogip_check(one,None,logfile,verbosity)
@@ -165,8 +174,9 @@ def ogip_check_dir(basedir,logdir,ignore,verbosity):
     print("Done checking.  Now to summarize:\n")
     print("The total number of files found: %s" % int(summary.count_bad()+summary.count_checked()) )
     print("The total number of files that could not be opened as FITS:  %s" % summary.count_fopen() )
-    print("The total number of files that failed FITS verify:  %s" % summary.count_fver() )
-    print("The total number of files that could not be checked for other reasons:  %s" % int(summary.count_bad()-summary.count_fopen()-summary.count_fver()) )
+    print("The total number of files that could not be checked for other reasons:  %s" % int(summary.count_bad()-summary.count_fopen()) )
+    print("The total number of files that failed FITS verify and could not be checked:  %s" % summary.count_fver_bad() )
+    print("The total number of files that failed FITS verify but 'fixed' and checked:  %s" % summary.count_fver_fixed() )
     print("The total number of files checked:  %s" % summary.count_checked() )
     print("The total number of files with no warnings or errors:  %s" % summary.count_good() )
     print("The total number of files with only warnings:  %s" % summary.count_warned() )
