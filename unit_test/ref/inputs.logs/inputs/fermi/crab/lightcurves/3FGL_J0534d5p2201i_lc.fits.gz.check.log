@@ -1,0 +1,99 @@
+Attempting to open file inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201i_lc.fits.gz
+Ftverify:  *** Error:   Keyword #94, CNF68SMA: Type of value "NAN" is unknown.
+Ftverify:  *** Error:   Keyword #95, CNF68SMI: Type of value "NAN" is unknown.
+Ftverify:  *** Error:   Keyword #96, CNF68PA: Type of value "NAN" is unknown.
+Ftverify:  *** Error:   Keyword #97, CNF95SMA: Type of value "NAN" is unknown.
+Ftverify:  *** Error:   Keyword #98, CNF95SMI: Type of value "NAN" is unknown.
+Ftverify:  *** Error:   Keyword #99, CNF95PA: Type of value "NAN" is unknown.
+Ftverify:  *** Error:   Keyword #100, SIG_AVG: Bad numerical value "-INF".
+Ftverify:  *** Error:   Keyword #103, FLXDNSER: Bad numerical value "-INF".
+Ftverify:  *** Error:   Keyword #105, SPCINDER: Bad numerical value "-INF".
+Ftverify:  *** Error:   Keyword #107, FBAND1ER: Bad numerical value "-INF".
+Ftverify:  *** Error:   Keyword #109, EFBAND1E: Bad numerical value "-INF".
+Ftverify:  *** Error:   Keyword #114, TSBAND3: Type of value "NAN" is unknown.
+Ftverify:  *** Error:   Keyword #116, TSBAND4: Type of value "NAN" is unknown.
+Ftverify:  
+Trying to fix simple errors with astropy.io.fits.verify(option='fix')
+WARNING: VerifyWarning: Verification reported errors: [astropy.io.fits.verify]
+WARNING: VerifyWarning: HDU 1: [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 93: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'CNF68SMA' is not FITS standard (invalid value string: 'NAN /').  Fixed 'CNF68SMA' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 94: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'CNF68SMI' is not FITS standard (invalid value string: 'NAN /').  Fixed 'CNF68SMI' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 95: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'CNF68PA' is not FITS standard (invalid value string: 'NAN /').  Fixed 'CNF68PA' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 96: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'CNF95SMA' is not FITS standard (invalid value string: 'NAN /').  Fixed 'CNF95SMA' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 97: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'CNF95SMI' is not FITS standard (invalid value string: 'NAN /').  Fixed 'CNF95SMI' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 98: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'CNF95PA' is not FITS standard (invalid value string: 'NAN /').  Fixed 'CNF95PA' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 99: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'SIG_AVG' is not FITS standard (invalid value string: '-INF /').  Fixed 'SIG_AVG' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 102: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'FLXDNSER' is not FITS standard (invalid value string: '-INF /').  Fixed 'FLXDNSER' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 104: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'SPCINDER' is not FITS standard (invalid value string: '-INF /').  Fixed 'SPCINDER' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 106: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'FBAND1ER' is not FITS standard (invalid value string: '-INF /').  Fixed 'FBAND1ER' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 108: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'EFBAND1E' is not FITS standard (invalid value string: '-INF /').  Fixed 'EFBAND1E' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 113: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'TSBAND3' is not FITS standard (invalid value string: 'NAN /').  Fixed 'TSBAND3' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 115: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'TSBAND4' is not FITS standard (invalid value string: 'NAN /').  Fixed 'TSBAND4' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning: Note: PyFITS uses zero-based indexing.
+ [astropy.io.fits.verify]
+
+Checking file as type TIMING
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'RATE' extension against 'RATE' standard ===============
+
+ERROR: Key ONTIME not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+Group keywords TIMEZERI+TIMEZERF not Found in Header
+Alternate keywords TIMEZERO|TIMEZERI+TIMEZERF not found in header
+ERROR: Key TIMEZERO|TIMEZERI+TIMEZERF not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+ERROR: Key TIMEREF not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key DETNAM not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key FILTER not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key CLOCKCOR not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key NUMBAND not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key TIME-OBS not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key TIME-END not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key TIMVERSN not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key OBJECT not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key AUTHOR not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key TASSIGN not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key TIERRELA not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key TIERABSO not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key ONTIME not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key BACKAPP not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key VIGNAPP not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key DEADAPP not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+Enumerated keywords BACKV* not Found in Header
+WARNING: Key BACKV* not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+Enumerated keywords BACKE* not Found in Header
+WARNING: Key BACKE* not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+Enumerated keywords DEADC* not Found in Header
+WARNING: Key DEADC* not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key GEOAREA not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key VIGNET not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key NPIXSOU not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Key NPIXBACK not found in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+Alternate Column RATE found in header
+WARNING: Recommended column BACKV missing from 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Recommended column BACKE missing from 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Recommended column DEADC missing from 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+
+=============== 3 Errors and 26 Warnings Found in 1 extensions checked ===============
+
+
+===========================================================
+
+FAILURE: inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201i_lc.fits.gz is not a Valid OGIP formatted file
+Please see OGIP/93-003: The Proposed Timing FITS File Format for High Energy Astrophysics Data
+Available at
+   http://heasarc.gsfc.nasa.gov/FTP/caldb/docs/ogip/fits_formats/docs/rates/ogip_93_003/ogip_93_003.pdf

@@ -1,4 +1,14 @@
 Attempting to open file inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz
+Ftverify:  *** Error:   Keyword #37, DATE-END: (from CFITSIO error stack:)
+Ftverify:               input date string has illegal format:
+Ftverify:               UTC_format
+Ftverify:               
+Ftverify:  *** Error:   Keyword #36, DATE-OBS: (from CFITSIO error stack:)
+Ftverify:               input date string has illegal format:
+Ftverify:               UTC_format
+Ftverify:               
+Ftverify:  
+Trying to fix simple errors with astropy.io.fits.verify(option='fix')
 
 Checking file as type SPECTRAL
 

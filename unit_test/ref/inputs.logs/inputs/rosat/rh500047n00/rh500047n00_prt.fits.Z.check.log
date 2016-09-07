@@ -2,6 +2,56 @@ Attempting to open file inputs/rosat/rh500047n00/rh500047n00_prt.fits.Z
 Failed to open as a FITS file.  Trying to unzip first.
 Trying to gunzip it.
 Trying now to open it again as FITS.
+Ftverify:  *** Error:   String in row #45, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #91, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #231, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #261, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #290, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #337, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #377, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #435, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #487, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #537, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #587, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #637, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #687, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #737, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #787, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #837, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #887, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #937, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #987, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1037, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1087, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1137, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1187, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1237, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1287, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1337, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1387, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1437, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1487, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1537, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1587, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1637, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1687, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1737, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1787, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1837, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1887, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1937, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #1987, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #2037, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #2087, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #2137, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #2187, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #2237, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #2287, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #2337, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #2387, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #2437, column #1 contains non-ASCII text.
+Ftverify:  
+Trying to fix simple errors with astropy.io.fits.verify(option='fix')
 ERROR:  failed to determine the file type;  trying CALDB
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.

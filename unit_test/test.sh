@@ -294,18 +294,21 @@ else
     fi
     echo "Comparing logs of individual files run this way with those run individually."
     for file in asca_sis_bcf_calfile.fits fermi_lat_bcf_edisp_calfile.fits hexte.arf specresp_matrix.rmf spectrum.pha timing.evt timing_fails.lc timing_passes.lc ; do 
-	diffs=`diff out/${file}.check.log out/inputs.logs/${file}.check.log`
+	diffs=`diff out/${file}.check.log out/inputs.logs/inputs/${file}.check.log`
 	if [[ ${#diffs} != 0 ]]; then
 	    echo "WARNING:  Differences appear in 'diff out/${file}.check.log out/inputs.logs/${file}.check.log'"
 	    let diffcnt+=1
 	fi
     done
     echo "Comparing all logs of individual files run this way against ref."
-    for file in $( ls out/inputs.logs );
+    for file in $( (cd out;  find inputs.logs ) );
     do
-	diffs=`diff ref/inputs.logs/${file} out/inputs.logs/${file}`
+	if [ -d out/${file} ]; then
+	    continue
+	fi
+	diffs=`diff ref/${file} out/${file}`
 	if [[ ${#diffs} != 0 ]]; then
-	    echo "WARNING:  Differences appear in 'diff ref/inputs.logs/${file} out/inputs.logs/${file}'"
+	    echo "WARNING:  Differences appear in 'diff ref/${file} out/${file}'"
 	    let diffcnt+=1
 	fi
     done

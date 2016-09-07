@@ -151,10 +151,10 @@ def ogip_check_dir(basedir,logdir,ignore,verbosity):
             continue
         for name in [x for x in files if not x.endswith(ignore['suffixes'])]:
             one=os.path.join(dir, name)
-            #  Assumes no two files with same name, writes logs all in
-            #  one place for now.  Remove later if no longer needed.
             if logdir:
-                logfile=os.path.join(logdir,name+".check.log")
+                logpath= os.path.join(logdir,dir)
+                if not os.path.isdir(logpath):  os.makedirs(logpath)
+                logfile=os.path.join(logpath,name+".check.log")
                 print("\nCHECKING %s;  see log in %s" % (one, logfile) )
             else:
                 logfile=sys.stdout
