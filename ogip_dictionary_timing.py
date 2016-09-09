@@ -3,19 +3,7 @@ def ogip_dictionary_timing():
     for a given OGIP file type (timing, etc),
     returns a dictionary giving the extnames, the keywords and columns for that extension, and whether the
     entry is required (1) or recommended (0), and the specific values for the entry, if any
-    An asterisk (*) as the final character of a keyword indicates that the keyword root can have multiple values,
-    for example: MJDREF (MJDREFI + MJDREFF), E_MIN1...E_MINn, etc
-    Other Special Characters:
-        a "+" is used if values are tied - if one appears the others need to appear ("MJDREFI + MJDREFF")
-        a "|" separates names which can be used as alternates ("MJDREF | MJDREFI + MJDREFF")
-        Square brackets "[ ]" mark required keyword values "HDUCLASS[OGIP]"
 
-    Allowed OGIP types:
-        type = TIMING
-    @param extname:
-    @return:
-    """
-    """
     this function returns the  required and optional keywords and columns
     as defined by OGIP 93-003 for a given extension
     """
@@ -26,47 +14,54 @@ def ogip_dictionary_timing():
     """
     Define REQUIRED Keywords for RATE TABLE
     """
-    reqkeys = ['TELESCOP', 'INSTRUME']
-    reqkeys.append('DATE-OBS')
-    reqkeys.append('DATE-END')
-    reqkeys.append('ONTIME')
-    reqkeys.append('TIMEZERO|TIMEZERI+TIMEZERF')  # can be given as single keyword or integer + fraction; either ok
-    reqkeys.append('TSTART|TSTARTI+TSTARTF')  # can be given as single keyword or integer + fraction; either ok
-    reqkeys.append('TSTOP|TSTOPI+TSTOPF')  # can be given as single keyword or integer + fraction; either ok
-    reqkeys.append('TIMESYS')
-    reqkeys.append('TIMEUNIT')
-    reqkeys.append('TIMEREF')
-    reqkeys.append('HDUCLASS[OGIP]')  # OGIP is the allowed keyword value
-    reqkeys.append('HDUCLAS1[LIGHTCURVE]')  # LIGHTCURVE is the allowed keyword value
+    reqkeys = {
+        'TELESCOP':"h.Exists('TELESCOP')",
+         'INSTRUME':"h.Exists('INSTRUME')",
+        'DATE-OBS':"h.Exists('DATE-OBS')",
+        'DATE-END':"h.Exists('DATE-END')",
+        'ONTIME':"h.Exists('ONTIME')",
+        'TIMEZERO':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )",  # can be given as single keyword or integer + fraction; either ok
+        'TSTART':"h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )",  # can be given as single keyword or integer + fraction; either ok
+        'TSTOP':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists('TSTOPF') )",  # can be given as single keyword or integer + fraction; either ok
+        'TIMESYS':"h.Exists('TIMESYS')",
+        'TIMEUNIT':"h.Exists('TIMEUNIT')",
+        'TIMEREF':"h.Exists('TIMEREF')",
+        'HDUCLASS':"h.hasVal('HDUCLASS','OGIP')",  # OGIP is the allowed keyword value
+        'HDUCLAS1':"h.hasVal('HDUCLAS1','LIGHTCURVE')"  # LIGHTCURVE is the allowed keyword value
+    }
     """
     Define recommended Keywords
     """
-    optkeys = ['DETNAM', 'FILTER']
-    optkeys.append('RA*')
-    optkeys.append('DEC*')
-    optkeys.append('CLOCKCOR')
-    optkeys.append('NUMBAND')
-    optkeys.append('TIME-OBS')  # time-obs can be included in date-obs
-    optkeys.append('TIME-END')  # time-end can be included in date-end
-    optkeys.append('TIMVERSN')
-    optkeys.append('OBJECT')
-    optkeys.append('AUTHOR')
-    optkeys.append('TASSIGN')
-    optkeys.append('TIERRELA')
-    optkeys.append('TIERABSO')
-    optkeys.append('ONTIME')
-    optkeys.append('BACKAPP')
-    optkeys.append('VIGNAPP')
-    optkeys.append('DEADAPP')
-    optkeys.append('EMIN*')
-    optkeys.append('EMAX*')
-    optkeys.append('BACKV*')
-    optkeys.append('BACKE*')
-    optkeys.append('DEADC*')
-    optkeys.append('GEOAREA')
-    optkeys.append('VIGNET')
-    optkeys.append('NPIXSOU')
-    optkeys.append('NPIXBACK')
+    optkeys = {
+        'DETNAM':"h.Exists('DETNAM')",
+        'FILTER':"h.Exists('FILTER')",
+        'RA*':"h.Exists('RA*')",
+        'DEC*':"h.Exists('DEC*')",
+        'CLOCKCOR':"h.Exists('CLOCKCOR')",
+        'NUMBAND':"h.Exists('NUMBAND')",
+        'TIME-OBS':"h.Exists('TIME-OBS')",  # time-obs can be included in date-obs
+        'TIME-END':"h.Exists('TIME-END')",  # time-end can be included in date-end
+        'TIMVERSN':"h.Exists('TIMVERSN')",
+        'OBJECT':"h.Exists('OBJECT')",
+        'AUTHOR':"h.Exists('AUTHOR')",
+        'TASSIGN':"h.Exists('TASSIGN')",
+        'TIERRELA':"h.Exists('TIERRELA')",
+        'TIERABSO':"h.Exists('TIERABSO')",
+        'ONTIME':"h.Exists('ONTIME')",
+        'BACKAPP':"h.Exists('BACKAPP')",
+        'VIGNAPP':"h.Exists('VIGNAPP')",
+        'DEADAPP':"h.Exists('DEADAPP')",
+        'EMIN*':"h.Exists('EMIN*')",
+        'EMAX*':"h.Exists('EMAX*')",
+        'BACKV*':"h.Exists('BACKV*')",
+        'BACKE*':"h.Exists('BACKE*')",
+        'DEADC*':"h.Exists('DEADC*')",
+        'GEOAREA':"h.Exists('GEOAREA')",
+        'VIGNET':"h.Exists('VIGNET')",
+        'NPIXSOU':"h.Exists('NPIXSOU')",
+        'NPIXBACK':"h.Exists('NPIXBACK')"
+    }
+
     """
     Define Required Columns
     """
@@ -88,39 +83,44 @@ def ogip_dictionary_timing():
     """
     Define Required Keywords FOR EVENTS TABLE
     """
-    reqkeys = ['TELESCOP', 'INSTRUME']
-    reqkeys.append('DATE-OBS')
-    reqkeys.append('DATE-END')
-    reqkeys.append('ONTIME')
-    reqkeys.append('TIMEZER*')  # can be given as single keyword or integer + fraction; either ok
-    reqkeys.append('TSTART*')  # can be given as single keyword or integer + fraction; either ok
-    reqkeys.append('TSTOP*')  # can be given as single keyword or integer + fraction; either ok
-    reqkeys.append('TIMESYS')
-    reqkeys.append('TIMEUNIT')
-    reqkeys.append('HDUCLASS[OGIP]')
-    reqkeys.append('HDUCLAS1[EVENTS]')
+    reqkeys = {
+        'TELESCOP':"h.Exists('TELESCOP')",
+        'INSTRUME':"h.Exists('INSTRUME')",
+        'DATE-OBS':"h.Exists('DATE-OBS')",
+        'DATE-END':"h.Exists('DATE-END')",
+        'ONTIME':"h.Exists('ONTIME')",
+        'TIMEZER*':"h.Exists('TIMEZER*')",  # can be given as single keyword or integer + fraction; either ok
+        'TSTART*':"h.Exists('TSTART*')",  # can be given as single keyword or integer + fraction; either ok
+        'TSTOP*':"h.Exists('TSTOP*')",  # can be given as single keyword or integer + fraction; either ok
+        'TIMESYS':"h.Exists('TIMESYS')",
+        'TIMEUNIT':"h.Exists('TIMEUNIT')",
+        'HDUCLASS':"h.hasVal('HDUCLASS','OGIP')",
+        'HDUCLAS1':"h.hasVal('HDUCLAS1','EVENTS')"
+    }
 
     """
     Define Optional Keywords
     """
-    optkeys = ['DETNAM', 'FILTER']
-    optkeys.append('FILTER')
-    optkeys.append('RA*')
-    optkeys.append('DEC*')
-    optkeys.append('CLOCKCOR')
-    optkeys.append('NUMBAND')
-    optkeys.append('TIME-OBS')  # time-obs can be included in date-obs
-    optkeys.append('TIME-END')  # time-end can be included in date-end
-    optkeys.append('TIMVERSN')
-    optkeys.append('OBJECT')
-    optkeys.append('AUTHOR')
-    optkeys.append('TASSIGN')
-    optkeys.append('TIERRELA')
-    optkeys.append('TIERABSO')
-    optkeys.append('ONTIME')
-    optkeys.append('BACKAPP')
-    optkeys.append('VIGNAPP')
-    optkeys.append('DEADAPP')
+    optkeys = {
+        'DETNAM':"h.Exists('DETNAM')",
+        'FILTER':"h.Exists('FILTER')",
+        'RA*':"h.Exists('RA*')",
+        'DEC*':"h.Exists('DEC*')",
+        'CLOCKCOR':"h.Exists('CLOCKCOR')",
+        'NUMBAND':"h.Exists('NUMBAND')",
+        'TIME-OBS':"h.Exists('TIME-OBS')",  # time-obs can be included in date-obs
+        'TIME-END':"h.Exists('TIME-END')",  # time-end can be included in date-end
+        'TIMVERSN':"h.Exists('TIMVERSN')",
+        'OBJECT':"h.Exists('OBJECT')",
+        'AUTHOR':"h.Exists('AUTHOR')",
+        'TASSIGN':"h.Exists('TASSIGN')",
+        'TIERRELA':"h.Exists('TIERRELA')",
+        'TIERABSO':"h.Exists('TIERABSO')",
+        'ONTIME':"h.Exists('ONTIME')",
+        'BACKAPP':"h.Exists('BACKAPP')",
+        'VIGNAPP':"h.Exists('VIGNAPP')",
+        'DEADAPP':"h.Exists('DEADAPP')"
+    }
     """
     Define Required Columns
     """
@@ -137,24 +137,29 @@ def ogip_dictionary_timing():
     """
     Define Required Keywords FOR GTI TABLE
     """
-    reqkeys = ['TELESCOP', 'INSTRUME']
+    reqkeys = {
+        'TELESCOP':"h.Exists('TELESCOP')",
+        'INSTRUME':"h.Exists('INSTRUME')"
+    }
     """
     Define optional Keywords
     """
-    optkeys = ['DETNAM', 'FILTER']
-    optkeys.append('FILTER')
-    optkeys.append('RA*')
-    optkeys.append('DEC*')
-    optkeys.append('TIMEZERO|TIMEZERI+TIMEZERF')  # can be given as single keyword or integer + fraction; either ok
-    optkeys.append('TSTART|TSTARTI+TSTARTF')  # can be given as single keyword or integer + fraction; either ok
-    optkeys.append('TSTOP|TSTOPI+TSTARTF')  # can be given as single keyword or integer + fraction; either ok
-    optkeys.append('TIMESYS')
-    optkeys.append('TIMEUNIT')
-    optkeys = ['DATE-OBS']
-    optkeys.append('DATE-END')
-    optkeys.append('ONTIME')
-    optkeys=['HDUCLASS[OGIP]']
-    optkeys.append('HDUCLAS1[GTI]')
+    optkeys = {
+        'DETNAM':"h.Exists('DETNAM')",
+        'FILTER':"h.Exists('FILTER')",
+        'RA*':"h.Exists('RA*')",
+        'DEC*':"h.Exists('DEC*')",
+        'TIMEZERO':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )",  # can be given as single keyword or integer + fraction; either ok
+        'TSTART':"h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )",  # can be given as single keyword or integer + fraction; either ok
+        'TSTOP':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists('TSTARTF') )",  # can be given as single keyword or integer + fraction; either ok
+        'TIMESYS':"h.Exists('TIMESYS')",
+        'TIMEUNIT':"h.Exists('TIMEUNIT')",
+        'DATE-OBS':"h.Exists('DATE-OBS')",
+        'DATE-END':"h.Exists('DATE-END')",
+        'ONTIME':"h.Exists('ONTIME')",
+        'HDUCLASS':"h.hasVal('HDUCLASS','OGIP')",
+        'HDUCLAS1':"h.hasVal('HDUCLAS1','GTI')"
+    }
 
     """
     Define Required Columns
@@ -172,11 +177,18 @@ def ogip_dictionary_timing():
     """
     Define Required keywords
     """
-    reqkeys = ['TELESCOP', 'INSTRUME']# no ENEBANDS-specific required keywords
+    reqkeys = {
+        'TELESCOP':"h.Exists('TELESCOP')",
+        'INSTRUME':"h.Exists('INSTRUME')" 
+    }# no ENEBANDS-specific required keywords
+
     """
     Define Optional keywords
     """
-    optkeys = ['DETNAM', 'FILTER']
+    optkeys = {
+        'DETNAM':"h.Exists('DETNAM')",
+        'FILTER':"h.Exists('FILTER')"
+    }
     """
     Define Required Columns
     """
@@ -194,15 +206,21 @@ def ogip_dictionary_timing():
     """
     Define Required keywords
     """
-    reqkeys = ['TELESCOP', 'INSTRUME']
-    reqkeys.append('TSTART|TSTARTI+TSTARTF')
-    reqkeys.append('TSTOP|TSTOPI+TSTARTF')
-    reqkeys.append('TIMEZERO|TIMEZERI+TIMEZERF')
-    reqkeys.append('TIMEUNIT')
+    reqkeys = {
+        'TELESCOP':"h.Exists('TELESCOP')",
+        'INSTRUME':"h.Exists('INSTRUME')",
+        'TSTART':"h.Exists('TSTART') or (h.Exists('TSTARTI') and h.Exists('TSTARTF') )",
+        'TSTOP':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists(('TSTARTF') )",
+        'TIMEZERO':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )",
+        'TIMEUNIT':"h.Exists('TIMEUNIT')"
+        }
     """
     Define Optional keywords
     """
-    optkeys = ['DETNAM', 'FILTER']
+    optkeys = {
+        'DETNAM':"h.Exists('DETNAM')",
+        'FILTER':"h.Exists('FILTER')"
+    }
     """
     Define Required Columns
     """

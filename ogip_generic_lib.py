@@ -4,6 +4,7 @@ import sys
 import os
 import subprocess
 from ogip_dictionary import ogip_dictionary
+import re
 
 """
 Library of generic functions used by OGIP check utilities.
@@ -310,59 +311,58 @@ def ogip_determine_ref(in_extn,otype):
     if in_extn.header['EXTNAME'] in all_extns:  
         return in_extn.header['EXTNAME']
 
-    else:
-        #  Second easiest case: for each reference extension, 
-        #  see if the ref extname is a substring of the
-        #  actual extension name (e.g., RMF type 'MATRIX'
-        #  extension is sometimes 'SPECRESP MATRIX' in some
-        #  missions:
+    #  Second easiest case: for each reference extension, 
+    #  see if the ref extname is a substring of the
+    #  actual extension name (e.g., RMF type 'MATRIX'
+    #  extension is sometimes 'SPECRESP MATRIX' in some
+    #  missions:
+    for extn in all_extns:
+        if ( extn in in_extn.header['EXTNAME'] and extn != ''):
+            return extn  
+
+    #  If that hasn't worked, check alternate extension
+    #  names for each defined extension:
+    for extn in [x for x in all_extns if x in ogip_dict['ALT_EXTNS'] ] :
+        for aextn in ogip_dict['ALT_EXTNS'][extn]:
+            if aextn in  in_extn.header['EXTNAME']:
+                return extn
+
+    #  Third possibility: compare the HDUCLAS1 and HDUCLAS2
+    #  keywords (which is sometimes required and sometimes only
+    #  recommended. And may not exist in the file. Check if either
+    #  is a substring of the other.  
+
+    #  Check more-specific HDUCLAS2 first. (Both ARF and RMF may have
+    #  HDUCLAS1[RESPONSE], so they'd all end up whichever came
+    #  first if you check that first. Check HDUCLAS2 first, which
+    #  is MATRIX versus SPECRESP. But compare the value of the
+    #  current file's HDUCLAS2 against the reference for both
+    #  HDUCLAS1 and HDUCLAS2.
+    if 'HDUCLAS2' in in_extn.header:
         for extn in all_extns:
-            if ( extn in in_extn.header['EXTNAME'] and extn != ''):
-                return extn  
+            ref_keys=ogip_dict[extn]['KEYWORDS']['REQUIRED']+ogip_dict[extn]['KEYWORDS']['RECOMMENDED']
+            for key in [k for k in ref_keys if 'HDUCLAS2' in k]:
+                beg=key.find("[")
+                val=key[beg+1:key.find(']')].strip().upper()
+                key=key[0:beg]
+                if val in in_extn.header['HDUCLAS2'] or in_extn.header['HDUCLAS2'] in val:
+                    return extn 
 
-        #  If that hasn't worked, check alternate extension
-        #  names for each defined extension:
-        for extn in [x for x in all_extns if x in ogip_dict['ALT_EXTNS'] ] :
-            for aextn in ogip_dict['ALT_EXTNS'][extn]:
-                if aextn in  in_extn.header['EXTNAME']:
-                    return extn
+    #  Check less-specific HDUCLAS1, but not for ARF or RMF,
+    #  because both have value RESPONSE. 
+    if 'HDUCLAS1' in in_extn.header and not (otype == 'ARF' or otype == 'RMF'):
+        for extn in all_extns:
+            ref_keys=ogip_dict[extn]['KEYWORDS']['REQUIRED']+ogip_dict[extn]['KEYWORDS']['RECOMMENDED']
+            for key in [k for k in ref_keys if 'HDUCLAS1' in k]:
+                #  (Should be only one)
+                beg=key.find("[")
+                val=key[beg+1:key.find(']')].strip().upper()
+                key=key[0:beg]
+                if val in in_extn.header['HDUCLAS1'] or in_extn.header['HDUCLAS1'] in val:
+                    return extn 
 
-        #  Third possibility: compare the HDUCLAS1 and HDUCLAS2
-        #  keywords (which is sometimes required and sometimes only
-        #  recommended. And may not exist in the file. Check if either
-        #  is a substring of the other.  
-
-        #  Check more-specific HDUCLAS2 first. (Both ARF and RMF may have
-        #  HDUCLAS1[RESPONSE], so they'd all end up whichever came
-        #  first if you check that first. Check HDUCLAS2 first, which
-        #  is MATRIX versus SPECRESP. But compare the value of the
-        #  current file's HDUCLAS2 against the refernce for both
-        #  HDUCLAS1 and HDUCLAS2.
-        if 'HDUCLAS2' in in_extn.header:
-            for extn in all_extns:
-                ref_keys=ogip_dict[extn]['KEYWORDS']['REQUIRED']+ogip_dict[extn]['KEYWORDS']['RECOMMENDED']
-                for key in [k for k in ref_keys if 'HDUCLAS2' in k]:
-                    beg=key.find("[")
-                    val=key[beg+1:key.find(']')].strip().upper()
-                    key=key[0:beg]
-                    if val in in_extn.header['HDUCLAS2'] or in_extn.header['HDUCLAS2'] in val:
-                        return extn 
-
-        #  Check less-specific HDUCLAS1, but not for ARF or RMF,
-        #  because both have value RESPONSE. 
-        if 'HDUCLAS1' in in_extn.header and not (otype == 'ARF' or otype == 'RMF'):
-            for extn in all_extns:
-                ref_keys=ogip_dict[extn]['KEYWORDS']['REQUIRED']+ogip_dict[extn]['KEYWORDS']['RECOMMENDED']
-                for key in [k for k in ref_keys if 'HDUCLAS1' in k]:
-                    #  (Should be only one)
-                    beg=key.find("[")
-                    val=key[beg+1:key.find(']')].strip().upper()
-                    key=key[0:beg]
-                    if val in in_extn.header['HDUCLAS1'] or in_extn.header['HDUCLAS1'] in val:
-                        return extn 
-
-        if 'CCLS0001' in in_extn.header and otype == 'CALDB':
-            return 'CALFILE'
+    if 'CCLS0001' in in_extn.header and otype == 'CALDB':
+        return 'CALFILE'
 
 
 
@@ -400,15 +400,24 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
 
     ogip=ogip_dict[extna]
 
-    for key in ogip['KEYWORDS']['REQUIRED']:
-        Foundkey = check_keys(key, hdr,logf,status)
-        if not Foundkey:
-            status.update(extn=extna,report="ERROR: Key %s not found in %s[%s]" % (key,file, this_extn), err=1,log=logf,miskey=key)
+    #  The hdr_check() object that holds the header as well as the
+    #  functions in which the requirements are encoded.
+    h=hdr_check(hdr) 
 
-    for key in ogip['KEYWORDS']['RECOMMENDED']:
-        Foundkey = check_keys(key,hdr,logf,status)
-        if not Foundkey:
-            status.update(extn=extna,report="WARNING: Key %s not found in %s[%s]" % (key,file, this_extn), warn=1,log=logf)
+    #  Each req is a string containing code that can be evaluated that
+    #  uses the methods of the hdr_check() object that must be called
+    #  h and whatever logic is needed to express the requirement.
+    #  
+    #  Check mandatory keyword requirements. 
+    for req in ogip['KEYWORDS']['REQUIRED']:
+        if not eval(ogip['KEYWORDS']['REQUIRED'][req]):  
+            status.update(extn=extna,report="ERROR: Key %s incorrect in %s[%s]" % (req,file, this_extn), err=1,log=logf,miskey=req)
+
+    #  Check recommended keyword requirements. 
+    for req in ogip['KEYWORDS']['RECOMMENDED']:
+        if not eval(ogip['KEYWORDS']['RECOMMENDED'][req]):
+            status.update(extn=extna,report="WARNING: Key %s incorrect in %s[%s]" % (req,file, this_extn), warn=1,log=logf)
+
 
     for col in ogip['COLUMNS']['REQUIRED']:
         Foundcol = check_cols(col, colnames,logf,this_extn,status)
@@ -424,71 +433,185 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
     missing={'REF_EXTN':ref_extn ,'MISSING_KEYWORDS':status.extns[extna].MISKEYS, 'MISSING_COLUMNS':status.extns[extna].MISCOLS}
 
     return missing
+##  
+##  def check_relkeys(key, ref_extn, filename, header, this_extn, logf, status, required=True):
+##      """
+##      Checks keys that may depend on other keys.  Case for which it is designed:
+##  
+##      'HDUCLAS2[TOTAL(HDUCLAS3[RATE|COUNT])|NET(HDUCLAS3[RATE|COUNT])|BKG(HDUCLAS3[RATE|COUNT])|DETECTOR]'
+##  
+##      Note that this does not allow alternate keywords.  So you cannot have 'KEY1[VAL1()|VAL2()]|ANYKEY[]' 
+##      and expect this to work.  Likewise, groups of keys, i.e. 'KEY1[VAL1()|VAL2()]+KEY2[]'.  
+##  
+##      which means:
+##  
+##  	HDUCLAS2 = 'TOTAL' | 'NET' | 'BKG' | 'DETECTOR'
+##  	HDUCLAS 3 = 'RATE' | 'COUNT' (only if HDUCLAS2 =  'TOTAL' | 'NET' | 'BKG')
+##  
+##  
+##      """
+##      top_key=re.split('\[',key)[0]  #  E.g., HDUCLAS2
+##  
+##      #  If the key isn't in the given header, nothing to do but report 
+##      if top_key not in header:
+##          if required:  status.update(extn=ref_extn,report="ERROR:  Key %s not found in %s[%s]" %  (key,filename, this_extn), err=1,log=logf,miskey=key)
+##          else:   status.update(extn=ref_extn,report="WARNING:  Key %s not found in %s[%s]" %  (key,filename, this_extn), warn=1,log=logf)
+##          return
+##  
+##      else:
+##          this_key_value=header[top_key] # the value of HDUCLAS2 in the given header
+##  
+##      # Now parse the reference value that contains a conditional on another key
+##  
+##      #  First, get the expression inside the brackets:
+##      val_expr=re.search('^\w+\[(.*)\]$',key).group(1) 
+##  
+##      #  Split it into possible options, 
+##      #  e.g., 'TOTAL(HDUCLAS3[RATE|COUNT]' ... 'DETECTOR':
+##      options=re.split('\)\|',val_expr) 
+##  
+##  
+##      #  For each of the options, see if the current key matches, then
+##      #  parse the condition for that option:
+##      for opt in options:
+##  
+##          #  Get the optional value of the main keyword:
+##          if re.search('^(.*)\(',opt):
+##              opt_val=re.search('^(.*)\(',opt).group(1)  # E.g., 'TOTAL' ... 'BKG'
+##          else:
+##              #  There is no conditional, so the whole thing should just
+##              #  be the value for the top_key:
+##              opt_val=opt # 'DETECTOR'
+##  
+##          #  See if this is the option found:
+##          if this_key_value != opt_val:
+##              continue 
+##  
+##          #  If the actual key is the current option, check the condition.
+##          if not re.search('\(',opt):
+##              #  No condition.  Return, having found the one key with a correct value, e.g., HDUCLAS2=='DETECTOR'
+##              return 
+##  
+##          #  
+##          opt_cond=re.search('^(.*)\((.*?)$',opt).group(2) # 'HDUCLAS3[RATE|COUNT]' etc.
+##          cond_key=re.search('(.*)\[',opt_cond).group(1)
+##  
+##          if cond_key not in header:
+##              if required:  status.update(extn=ref_extn,report='ERROR:  Key %s found in %s[%s] with value %s, but dependent key %s not found' % (key, filename, this_extn, cond_key), err=1,log=logf,miskey=cond_key)
+##              else:  status.update(extn=ref_extn,report='WARNING:  Key %s found in %s[%s] with value %s, but dependent key %s not found' % (key, filename, this_extn, cond_key), warn=1,log=logf)
+##              return 
+##  
+##          #  Now have conditional key and it's two possible values.  Simply use existing function
+##          if check_altkey(opt_cond, header,logf,status):
+##              return
+##          else:
+##              if required:  status.update(extn=ref_extn,report='ERROR:  Key %s is not as expected given key %s[%s] in %s[%s]' % (cond_key,top_key,this_key_value,filename,this_extn),err=1,log=logf,miskey=cond_key)
+##              else:  status.update(extn=ref_extn,report='WARNING:  Key %s is not as expected given key %s[%s] in %s[%s]' % (cond_key,top_key,this_key_value,filename,this_extn),warn=1,log=logf)
+##              return
+##  
+##      #  If you get here without returning, the key didn't have any of
+##      #  the recognized values:
+##      if required:  status.update(extn=ref_extn,report="ERROR:  Key %s found in %s[%s] but does not have any recognized value" %  (key,filename, this_extn), err=1,log=logf,miskey=key)
+##      else:   status.update(extn=ref_extn,report="WARNING:  Key %s found in %s[%s] but does not have any recognized value" %  (key,filename, this_extn), warn=1,log=logf)
+##  
+##      return
+##      
 
 
 
-def key_hasvalue(key, header,logf, status):
+
+
+"""
+
+The class object that holds a header (a dictionary of key-value
+pairs) and has methods for checking the existence and value of
+individual keys.
+
+
+For checking whether a requirement is satisfied by a given header.  Can
+simply be the existence of a single key.  Can also be arbitrarily
+complicated combination of tests.  The requirement must be written
+assuming an instance h of the hdr_check() class which contains methods 
+
+h.Exists('KEYNAME'):   returns boolean;  accepts 'KEY*" for partial matches.
+h.hasVal('KEYNAME','VALUE'):  returns boolean for integer or string == comparison
+h.intVal('KEYNAME'):  returns the value of the keyword cast as int()
+h.strVal("KEYNAME'):  returns the value of the keyword cast as str()
+
+For example, a requirement may be given as a string such as:
+
+req="h.Exists('KEY1') or ( h.Exists('KEY2') and h.hasVal('KEY3','VAL3') )"
+
+and that string will be called with eval() and returned.  
+""" 
+class hdr_check():
+    def __init__(self,hdr):
+        self.hdr=hdr
+
+    #  Check function that checks for existence of a given keyword,
+    #  and if a value is given, checks that it has that value.
+    #  Returns boolean.
+    def Exists(self,key):
+        #  Check keys with wildcard first, which cannot have a value as well:
+        if "*" in key:
+            return len(self.hdr[key]) > 0
+        #  Otherwise, just check if the key exists
+        else: return key in self.hdr
+
+
+    def hasVal(self,k,val):  
+        # checks if a keyword with a specific value exists in the file header
+        Match = False
+        if k in self.hdr:
+            if type(self.hdr[k]) is str:
+                aval=self.hdr[k].strip().upper()
+                if aval == val:
+                    Match = True
+            elif type(self.hdr[k]) is int:
+                aval=self.hdr[k]
+                if aval==int(val):
+                    Match = True
+            else:
+                print("ERROR:  Check your requirements definition.  Cannot do exact comparison with anything except string and integer types.")
+                exit(1)
+        return Match
+
+    def intVal(self,key):
+        if key in self.hdr:
+            return int(self.hdr[key])
+        else:
+            return None
+
+    def strVal(self,key):
+        if key in self.hdr:
+            return str(self.hdr[key])
+        else:
+            return ''
+
+
+
+
+
+
+def check_cols(col, colnames,logf, extn, status):
     """
-    checks if a keyword with a specific value exists in the file header
-    key should be of the form
-    key = 'HDUCLASS[OGIP]'
-    where the value in the square brackets is the allowed value of the keyword
-    This assumes a given keyword can have only 1 allowed value
-    header is a fits header as returned from pyfits
-    Returns True if the keyword is found with the correct value, False otherwise
-    @param key:
+    checks that the col appears in the list of column names
+    @param col:
     @param header:
     @return:
     """
 
 
-    beg=key.find("[")
-    val=key[beg+1:key.find(']')].strip().upper()
-    k=key[0:beg]
-    Match = False
-    if k in header:
-        if type(header[k]) is str:
-            aval=header[k].strip().upper()
-            if aval == val:
-                Match = True
-        elif type(header[k]) is int:
-            aval=header[k]
-            if aval==int(val):
-                Match = True
-        if Match==False:
-            status.update(extn=header['EXTNAME'],report="Keyword %s Found, but Value = %s, should be %s" % (k, aval, val),log=logf, warn=1)
-
+    Foundcol = True
+    if "|" in col:  # this means that the column has an alternative definition (like COUNTS|RATE)
+        Foundcol = check_altcols(col, colnames,logf,status)
+    elif "+" in col:  # group column; all columns must be present if one column is
+        Foundcol = check_groupcols(col, colnames, extn, status)
     else:
-        status.update(extn=header['EXTNAME'], report="Keyword %s not found in header" % k, log=logf)
-
-    return Match
-
+        Foundcol = col in colnames
+    return Foundcol
 
 
-def check_altkey(key, header,logf,status):
-    """
-    Check for presence of alternate key names
-    @param key:
-    @param header:
-    @return:
-    """
-
-
-    altkeys = key.split('|')
-    altkeys = [x.upper().strip() for x in altkeys]
-    count = 0
-    Foundkey = False
-    while (count < len(altkeys)) and not Foundkey:
-        akey = altkeys[count]
-        if "+" in akey:  # check for coupled keywords
-            Foundkey = check_groupkey(akey, header, logf, status)
-        else:  # does not contain a + sign
-            Foundkey = akey in header.keys()  # true if akey in hdr
-        count += 1
-    if count == len(altkeys) and not Foundkey:
-        rpt = "Alternate keywords %s not found in header" % key
-        print(rpt,file=logf)
-    return Foundkey
 
 
 def check_altcols(col, colnames,logf,status):
@@ -517,52 +640,6 @@ def check_altcols(col, colnames,logf,status):
 
 
 
-def check_groupkey(key, header, logf, status):
-    """
-    this function checks for grouped keywords of the form MJDREFI+MJDREFF, in which case both keywords need
-    to exist in the header; True if so, False otherwise
-    A more general case is a group like key =  A[a]+B[b]+C[c] where A, B & C all need to be present
-    and they all need to have the specified values a, b, c respectively; True if so, False otherwise
-    @param key:
-    @param header:
-    @return:
-    """
-
-    groupkeys = key.split('+')
-    groupkeys = [x.upper().strip() for x in groupkeys]
-    hkeys = header.keys()
-    hkeys = [x.upper().strip() for x in hkeys]
-    Foundkey = False
-    Foundkey = set(groupkeys) < set(header.keys())  # true if groupkeys a subset of header keywords
-    if not Foundkey:
-        rpt = "Group keywords %s not Found in Header" % key
-        print(rpt,file=logf)
-    else: # all keywords exist in header; do they have the correct value, if specified?
-        for k in groupkeys:
-            if "[" in k: # value is specified
-                Foundkey = key_hasvalue(k, header,logf, status)
-    return Foundkey
-
-
-
-def check_enumkey(key, header,logf,status):
-    """
-    this function checks for enumerated keywords of the form EMIN*, which will return
-    all header keywords beginning with EMIN
-    @param key:
-    @param header:
-    @return:
-    """
-
-    Foundkey = True
-    val=header[key]
-    if len(val) == 0: # search did not return any elements
-        rpt = "Enumerated keywords %s not Found in Header" % key
-        print(rpt,file=logf)
-        Foundkey = False
-    return Foundkey
-
-
 
 def check_groupcols(col, colnames, extn, status):
     """
@@ -583,49 +660,6 @@ def check_groupcols(col, colnames, extn, status):
         status.update(extn=extn,report="Group columns %s not Found in Table" % col, log=logf)
     else: # all columns are defined
         print("Group columns %s found in Table",file=logf)
-    return Foundcol
-
-
-
-def check_keys(key, header,logf,status):
-    """
-    checks that the key appears in the header
-    @param key:
-    @param header:
-    @return:
-    """
-
-
-    if "|" in key:  # this means that the keyword has an alternative definition (like MJDREF, MJDREFF+MJDREFI)
-        Foundkey = check_altkey(key, header,logf,status)
-    elif "[" in key:  # this means this keyword has an allowed value, which is bracketed by [ and ]
-        Foundkey = key_hasvalue(key, header,logf,status)
-    elif "+" in key:  # this is a group keyword with no alternates
-        Foundkey = check_groupkey(key, header,logf,status)
-    elif "*" in key: # this is an enumerated keyword (EMIN1...EMINn for example
-        Foundkey = check_enumkey(key, header,logf,status)
-    else:
-        Foundkey = key in header.keys()
-    return Foundkey
-
-
-
-def check_cols(col, colnames,logf, extn, status):
-    """
-    checks that the col appears in the list of column names
-    @param col:
-    @param header:
-    @return:
-    """
-
-
-    Foundcol = True
-    if "|" in col:  # this means that the column has an alternative definition (like COUNTS|RATE)
-        Foundcol = check_altcols(col, colnames,logf,status)
-    elif "+" in col:  # group column; all columns must be present if one column is
-        Foundcol = check_groupcols(col, colnames, extn, status)
-    else:
-        Foundcol = col in colnames
     return Foundcol
 
 
