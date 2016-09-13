@@ -4,30 +4,21 @@ Checking file as type RMF
 
 =============== Checking 'SPECRESP MATRIX' extension against 'MATRIX' standard ===============
 
-Alternate keywords CHANTYPE[PHA|PI] not found in header
-ERROR: Key CHANTYPE[PHA|PI] not found in specresp_matrix.rmf[SPECRESP MATRIX]
-Keyword CCLS0001 Found, but Value = BCF, should be CPF
-ERROR: Key CCLS0001[CPF] not found in specresp_matrix.rmf[SPECRESP MATRIX]
-WARNING: Key PHAFILE not found in specresp_matrix.rmf[SPECRESP MATRIX]
-Alternate keywords HDUCLAS3[REDIST|DETECTOR|FULL] not found in header
-WARNING: Key HDUCLAS3[REDIST|DETECTOR|FULL] not found in specresp_matrix.rmf[SPECRESP MATRIX]
-Keyword HDUVERS1 Found, but Value = 1.0.0, should be 1.1.0
-WARNING: Key HDUVERS1[1.1.0] not found in specresp_matrix.rmf[SPECRESP MATRIX]
-Keyword HDUVERS2 Found, but Value = 1.3.0, should be 1.2.0
-WARNING: Key HDUVERS2[1.2.0] not found in specresp_matrix.rmf[SPECRESP MATRIX]
+ERROR: Key CCLS0001 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
+WARNING: Key PHAFILE incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
+WARNING: Key HDUVERS1 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
+WARNING: Key HDUVERS2 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
 WARNING: Recommended column ORDER missing from specresp_matrix.rmf[SPECRESP MATRIX]
 
 =============== Checking 'EBOUNDS' extension against 'EBOUNDS' standard ===============
 
-Alternate keywords CHANTYPE[PHA|PI] not found in header
-ERROR: Key CHANTYPE[PHA|PI] not found in specresp_matrix.rmf[EBOUNDS]
-Keyword CCLS0001 Found, but Value = BCF, should be CPF
-ERROR: Key CCLS0001[CPF] not found in specresp_matrix.rmf[EBOUNDS]
-WARNING: Key PHAFILE not found in specresp_matrix.rmf[EBOUNDS]
-Keyword HDUVERS1 Found, but Value = 1.0.0, should be 1.1.0
-WARNING: Key HDUVERS1[1.1.0] not found in specresp_matrix.rmf[EBOUNDS]
+ERROR: Key CCLS0001 incorrect in specresp_matrix.rmf[EBOUNDS]
+ERROR: Key HDUVERS incorrect in specresp_matrix.rmf[EBOUNDS]
+WARNING: Key PHAFILE incorrect in specresp_matrix.rmf[EBOUNDS]
+WARNING: Key HDUVERS1 incorrect in specresp_matrix.rmf[EBOUNDS]
+WARNING: Key HDUVERS2 incorrect in specresp_matrix.rmf[EBOUNDS]
 
-=============== 4 Errors and 12 Warnings Found in 2 extensions checked ===============
+=============== 3 Errors and 7 Warnings Found in 2 extensions checked ===============
 
 
 ===========================================================

@@ -7,24 +7,27 @@ Checking file as type TIMING
 
 =============== Checking 'EVENTS' extension against 'EVENTS' standard ===============
 
-WARNING: Key DETNAM not found in timing.evt[EVENTS]
-WARNING: Key FILTER not found in timing.evt[EVENTS]
-WARNING: Key FILTER not found in timing.evt[EVENTS]
-WARNING: Key CLOCKCOR not found in timing.evt[EVENTS]
-WARNING: Key NUMBAND not found in timing.evt[EVENTS]
-WARNING: Key TIME-OBS not found in timing.evt[EVENTS]
-WARNING: Key TIME-END not found in timing.evt[EVENTS]
-WARNING: Key TIMVERSN not found in timing.evt[EVENTS]
-WARNING: Key AUTHOR not found in timing.evt[EVENTS]
-WARNING: Key BACKAPP not found in timing.evt[EVENTS]
-WARNING: Key VIGNAPP not found in timing.evt[EVENTS]
-WARNING: Key DEADAPP not found in timing.evt[EVENTS]
+WARNING: Key NUMBAND incorrect in timing.evt[EVENTS]
+WARNING: Key TIME-END incorrect in timing.evt[EVENTS]
+WARNING: Key AUTHOR incorrect in timing.evt[EVENTS]
+WARNING: Key TIME-OBS incorrect in timing.evt[EVENTS]
+WARNING: Key BACKAPP incorrect in timing.evt[EVENTS]
+WARNING: Key DEADAPP incorrect in timing.evt[EVENTS]
+WARNING: Key FILTER incorrect in timing.evt[EVENTS]
+WARNING: Key DETNAM incorrect in timing.evt[EVENTS]
+WARNING: Key CLOCKCOR incorrect in timing.evt[EVENTS]
+WARNING: Key TIMVERSN incorrect in timing.evt[EVENTS]
+WARNING: Key VIGNAPP incorrect in timing.evt[EVENTS]
 
 =============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
+WARNING: Key TIMEZERO incorrect in timing.evt[STDGTI]
+WARNING: Key DEC* incorrect in timing.evt[STDGTI]
+WARNING: Key FILTER incorrect in timing.evt[STDGTI]
+WARNING: Key DETNAM incorrect in timing.evt[STDGTI]
 WARNING: Recommended column TIMEDEL missing from timing.evt[STDGTI]
 
-=============== 0 Errors and 13 Warnings Found in 2 extensions checked ===============
+=============== 0 Errors and 16 Warnings Found in 2 extensions checked ===============
 
 
 ===========================================================

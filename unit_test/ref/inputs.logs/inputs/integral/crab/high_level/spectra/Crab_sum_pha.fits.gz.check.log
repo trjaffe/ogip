@@ -18,52 +18,35 @@ ERROR: Crab_sum_pha.fits.gz does not have any of the required extension names
 
 =============== Checking 'ISGR-PHA1-SPE' extension against 'SPECTRUM' standard ===============
 
-ERROR: Key FILTER not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Keyword HDUVERS Found, but Value = 1.2.0, should be 1.2.1
-ERROR: Key HDUVERS[1.2.1] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Alternate keywords CHANTYPE[PHA|PI] not found in header
-ERROR: Key CHANTYPE[PHA|PI] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key RA-OBJ not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key DEC-OBJ not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Enumerated keywords XFLT* not Found in Header
-WARNING: Key XFLT* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key TIME-OBS not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key TIME-END not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Alternate keywords HDUCLAS2[TOTAL|NET|BKG] not found in header
-WARNING: Key HDUCLAS2[TOTAL|NET|BKG] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Alternate keywords HDUCLAS3[COUNT|RATE] not found in header
-WARNING: Key HDUCLAS3[COUNT|RATE] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Group keywords TIMEZERI+TIMEZERF not Found in Header
-Alternate keywords TIMEZERO|TIMEZERI+TIMEZERF not found in header
-WARNING: Key TIMEZERO|TIMEZERI+TIMEZERF not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Keyword SYS_ERR not found in header
-WARNING: Key SYS_ERR[0] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Keyword QUALITY not found in header
-WARNING: Key QUALITY[0] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Keyword GROUPING not found in header
-WARNING: Key GROUPING[0] not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key CLOCKCOR not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key TIMVERSN not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key OBJECT not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key AUTHOR not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key TASSIGN not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key TIERRELA not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key TIERABSO not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key BACKAPP not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key VIGNAPP not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key DEADAPP not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Enumerated keywords EMIN* not Found in Header
-WARNING: Key EMIN* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Enumerated keywords EMAX* not Found in Header
-WARNING: Key EMAX* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Enumerated keywords BACKV* not Found in Header
-WARNING: Key BACKV* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-Enumerated keywords BACKE* not Found in Header
-WARNING: Key BACKE* not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key GEOAREA not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key VIGNET not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key NPIXSOU not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key NPIXBACK not found in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+ERROR: Key HDUVERS incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+ERROR: Key FILTER incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TIME-END incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key BACKE* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key EMIN* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key VIGNET incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key EMAX* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key BACKV* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key OBJECT incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key BACKAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TIERRELA incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TIERABSO incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TASSIGN incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key RA-OBJ incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key CLOCKCOR incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key XFLT* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key SYS_ERR incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TIMEZERO incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TIME-OBS incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key DEC-OBJ incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key NPIXSOU incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key DEADAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key GEOAREA incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key NPIXBACK incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key VIGNAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key AUTHOR incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key QUALITY incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key TIMVERSN incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key GROUPING incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 ERROR: Required column SPEC_NUM missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 Alternate Column RATE found in header
 ERROR: Required column AREASCAL missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
@@ -77,7 +60,7 @@ ERROR: Required column ANCRFILE missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Recommended column DQF missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Recommended column ROWID missing from Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 
-=============== 13 Errors and 32 Warnings Found in 1 extensions checked ===============
+=============== 12 Errors and 29 Warnings Found in 1 extensions checked ===============
 
 
 ===========================================================

@@ -7,69 +7,104 @@ Checking file as type TIMING
 
 =============== Checking 'EVENTS' extension against 'EVENTS' standard ===============
 
-WARNING: Key FILTER not found in acisf07364N004_evt2.fits.gz[EVENTS]
-WARNING: Key FILTER not found in acisf07364N004_evt2.fits.gz[EVENTS]
-WARNING: Key CLOCKCOR not found in acisf07364N004_evt2.fits.gz[EVENTS]
-WARNING: Key NUMBAND not found in acisf07364N004_evt2.fits.gz[EVENTS]
-WARNING: Key TIME-OBS not found in acisf07364N004_evt2.fits.gz[EVENTS]
-WARNING: Key TIME-END not found in acisf07364N004_evt2.fits.gz[EVENTS]
-WARNING: Key AUTHOR not found in acisf07364N004_evt2.fits.gz[EVENTS]
-WARNING: Key BACKAPP not found in acisf07364N004_evt2.fits.gz[EVENTS]
-WARNING: Key VIGNAPP not found in acisf07364N004_evt2.fits.gz[EVENTS]
-WARNING: Key DEADAPP not found in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key NUMBAND incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key TIME-END incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key AUTHOR incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key TIME-OBS incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key BACKAPP incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key DEADAPP incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key CLOCKCOR incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key VIGNAPP incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
 
 =============== Checking 'GTI' extension against 'GTI' standard ===============
 
-Keyword HDUCLASS not found in header
-WARNING: Key HDUCLASS[OGIP] not found in acisf07364N004_evt2.fits.gz[GTI]
-Keyword HDUCLAS1 not found in header
-WARNING: Key HDUCLAS1[GTI] not found in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-END incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key RA* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLAS1 incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-OBS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key TIMEZERO incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DEC* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
 
 =============== Checking 'GTI' extension against 'GTI' standard ===============
 
-Keyword HDUCLASS not found in header
-WARNING: Key HDUCLASS[OGIP] not found in acisf07364N004_evt2.fits.gz[GTI]
-Keyword HDUCLAS1 not found in header
-WARNING: Key HDUCLAS1[GTI] not found in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-END incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key RA* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLAS1 incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-OBS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key TIMEZERO incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DEC* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
 
 =============== Checking 'GTI' extension against 'GTI' standard ===============
 
-Keyword HDUCLASS not found in header
-WARNING: Key HDUCLASS[OGIP] not found in acisf07364N004_evt2.fits.gz[GTI]
-Keyword HDUCLAS1 not found in header
-WARNING: Key HDUCLAS1[GTI] not found in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-END incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key RA* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLAS1 incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-OBS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key TIMEZERO incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DEC* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
 
 =============== Checking 'GTI' extension against 'GTI' standard ===============
 
-Keyword HDUCLASS not found in header
-WARNING: Key HDUCLASS[OGIP] not found in acisf07364N004_evt2.fits.gz[GTI]
-Keyword HDUCLAS1 not found in header
-WARNING: Key HDUCLAS1[GTI] not found in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-END incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key RA* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLAS1 incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-OBS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key TIMEZERO incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DEC* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
 
 =============== Checking 'GTI' extension against 'GTI' standard ===============
 
-Keyword HDUCLASS not found in header
-WARNING: Key HDUCLASS[OGIP] not found in acisf07364N004_evt2.fits.gz[GTI]
-Keyword HDUCLAS1 not found in header
-WARNING: Key HDUCLAS1[GTI] not found in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-END incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key RA* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLAS1 incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-OBS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key TIMEZERO incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DEC* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
 
 =============== Checking 'GTI' extension against 'GTI' standard ===============
 
-Keyword HDUCLASS not found in header
-WARNING: Key HDUCLASS[OGIP] not found in acisf07364N004_evt2.fits.gz[GTI]
-Keyword HDUCLAS1 not found in header
-WARNING: Key HDUCLAS1[GTI] not found in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-END incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key RA* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLAS1 incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-OBS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key TIMEZERO incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DEC* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
 
 Extension 'REGION' is not an OGIP defined extension for this type;  ignoring.
 
 
-=============== 0 Errors and 28 Warnings Found in 7 extensions checked ===============
+=============== 0 Errors and 75 Warnings Found in 7 extensions checked ===============
 
 
 ===========================================================

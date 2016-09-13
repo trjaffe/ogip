@@ -1,18 +1,18 @@
 def ogip_dictionary_caldb():
     """
-    for a given OGIP CALDB file,
-    returns a dictionary giving the extnames, the keywords and columns for that extension, and whether the
-    entry is required (1) or recommended (0), and the specific values for the entry, if any
-    An asterisk (*) as the final character of a keyword indicates that the keyword root can have multiple values,
-    for example: MJDREF (MJDREFI + MJDREFF), E_MIN1...E_MINn, etc
-    Other Special Characters:
-        a "+" is used if values are tied - if one appears the others need to appear ("MJDREFI + MJDREFF")
-        a "|" separates names which can be used as alternates ("MJDREF | MJDREFI + MJDREFF")
-        Square brackets "[ ]" mark required keyword values "HDUCLASS[OGIP]"
 
-    Allowed OGIP types:
-        type = TIMING
-    @param extname:
+    For a given OGIP file type, returns a dictionary giving the
+    extnames, the keywords and columns for that extension, and whether
+    the entry is required (1) or recommended (0), and the specific
+    values for the entry, if any.
+
+    All logic is possible, as the requirement is given as a string that will be passed to eval() in a context where the object h will contain a class instance that contains the header and the functions 
+
+    h.Exists('KEY')
+    h.hasVal('KEY','VAL')
+    etc.  
+
+
     @return:
     """
     #
@@ -23,21 +23,30 @@ def ogip_dictionary_caldb():
     # FOR CALDB File:
     # Define REQUIRED Keywords for CALDB file
     #
-    reqkeys = ['TELESCOP', 'INSTRUME', 'DETNAM', 'FILTER']
-    reqkeys.append('CCLS0001')
-    reqkeys.append('CDTP0001')
-    reqkeys.append('CCNM0001')
-    reqkeys.append('CBD*')  # BOUNDARY KEYWORDS
-    reqkeys.append('CVSD0001')
-    reqkeys.append('CVST0001')
-    reqkeys.append('CDES*')  # can be given as single keyword or integer + fraction; either ok
+    reqkeys = {
+        'TELESCOP':"h.Exists('TELESCOP')",
+        'INSTRUME':"h.Exists('INSTRUME')",
+        'DETNAM':"h.Exists('DETNAM')",
+        'FILTER':"h.Exists('FILTER')",
+        'CCLS0001':"h.Exists('CCLS0001')",
+        'CDTP0001':"h.Exists('CDTP0001')",
+        'CCNM0001':"h.Exists('CCNM0001')",
+        'CBD*':"h.Exists('CBD*')",  # BOUNDARY KEYWORD
+        'CVSD0001':"h.Exists('CVSD0001')",
+        'CVST0001':"h.Exists('CVST0001')",
+        'CDES*' :"h.Exists('CDES*')" # can be given as single keyword or integer + fraction; either ok
+    }
+
     #
     # Define recommended Keywords
     #
-    optkeys = ['CTEL*']
-    optkeys.append('CINS*')
-    optkeys.append('CDT*')
-    optkeys.append('CFI*')
+    optkeys = {
+        'CTEL*':"h.Exists('CTEL*')",
+        'CINS*':"h.Exists('CINS*')",
+        'CDT*':"h.Exists('CDT*')",
+        'CFI*':"h.Exists('CFI*')",
+    }
+
     calfile = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys},'COLUMNS':{'REQUIRED':[],'RECOMMENDED':[]}
     }
 

@@ -11,52 +11,20 @@ ERROR: rh500047n00_bas.fits.Z does not have any of the required extension names
 
 =============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
+WARNING: Key DATE-END incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Key TIMESYS incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Key TSTOP incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Key DETNAM incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Key TSTART incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Key TIMEUNIT incorrect in rh500047n00_bas.fits.Z[STDGTI]
 WARNING: Recommended column TIMEDEL missing from rh500047n00_bas.fits.Z[STDGTI]
 
-=============== Checking 'STDEVT' extension against 'EVENTS' standard ===============
+Extension 'STDEVT' is not an OGIP defined extension for this type;  ignoring.
 
-ERROR: Key DATE-END not found in rh500047n00_bas.fits.Z[STDEVT]
-Enumerated keywords TIMEZER* not Found in Header
-ERROR: Key TIMEZER* not found in rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Key DETNAM not found in rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Key NUMBAND not found in rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Key TIME-END not found in rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Key AUTHOR not found in rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Key TIERRELA not found in rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Key TIERABSO not found in rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Key BACKAPP not found in rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Key VIGNAPP not found in rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Key DEADAPP not found in rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Recommended column DETX missing from rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Recommended column DETY missing from rh500047n00_bas.fits.Z[STDEVT]
 
-=============== Checking 'REJEVT' extension against 'EVENTS' standard ===============
+Extension 'REJEVT' is not an OGIP defined extension for this type;  ignoring.
 
-ERROR: Key DATE-END not found in rh500047n00_bas.fits.Z[REJEVT]
-ERROR: Key ONTIME not found in rh500047n00_bas.fits.Z[REJEVT]
-Enumerated keywords TIMEZER* not Found in Header
-ERROR: Key TIMEZER* not found in rh500047n00_bas.fits.Z[REJEVT]
-Enumerated keywords TSTART* not Found in Header
-ERROR: Key TSTART* not found in rh500047n00_bas.fits.Z[REJEVT]
-Enumerated keywords TSTOP* not Found in Header
-ERROR: Key TSTOP* not found in rh500047n00_bas.fits.Z[REJEVT]
-ERROR: Key TIMESYS not found in rh500047n00_bas.fits.Z[REJEVT]
-ERROR: Key TIMEUNIT not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key DETNAM not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key CLOCKCOR not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key NUMBAND not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key TIME-END not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key TIMVERSN not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key AUTHOR not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key TASSIGN not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key TIERRELA not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key TIERABSO not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key ONTIME not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key BACKAPP not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key VIGNAPP not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Key DEADAPP not found in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Recommended column DETX missing from rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Recommended column DETY missing from rh500047n00_bas.fits.Z[REJEVT]
 
 Extension 'TSI' is not an OGIP defined extension for this type;  ignoring.
 
@@ -67,7 +35,7 @@ Extension 'STDQLM' is not an OGIP defined extension for this type;  ignoring.
 Extension 'ALLQLM' is not an OGIP defined extension for this type;  ignoring.
 
 
-=============== 10 Errors and 27 Warnings Found in 3 extensions checked ===============
+=============== 1 Errors and 8 Warnings Found in 1 extensions checked ===============
 
 
 ===========================================================

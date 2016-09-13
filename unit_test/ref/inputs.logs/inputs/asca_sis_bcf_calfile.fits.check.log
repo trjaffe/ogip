@@ -7,163 +7,115 @@ Checking file as type CALDB
 
 =============== Checking 'ECD_G0E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G0E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G0E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G0E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G0E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G0E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G0E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G0E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G0E0]
 
 =============== Checking 'ECD_G1E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G1E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G1E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G1E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G1E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G1E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G1E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G1E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G1E0]
 
 =============== Checking 'ECD_G2E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G2E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G2E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G2E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G2E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G2E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G2E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G2E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G2E0]
 
 =============== Checking 'ECD_G3E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G3E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G3E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G3E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G3E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G3E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G3E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G3E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G3E0]
 
 =============== Checking 'ECD_G4E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G4E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G4E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G4E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G4E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G4E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G4E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G4E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G4E0]
 
 =============== Checking 'ECD_G5E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G5E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G5E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G5E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G5E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G5E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G5E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G5E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G5E0]
 
 =============== Checking 'ECD_G6E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G6E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G6E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G6E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G6E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G6E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G6E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G6E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G6E0]
 
 =============== Checking 'ECD_G7E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_G7E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_G7E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_G7E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_G7E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G7E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G7E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G7E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G7E0]
 
 =============== Checking 'ECD_D0E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D0E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D0E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D0E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D0E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D0E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D0E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D0E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D0E0]
 
 =============== Checking 'ECD_D1E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D1E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D1E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D1E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D1E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D1E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D1E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D1E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D1E0]
 
 =============== Checking 'ECD_D2E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D2E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D2E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D2E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D2E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D2E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D2E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D2E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D2E0]
 
 =============== Checking 'ECD_D3E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D3E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D3E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D3E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D3E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D3E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D3E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D3E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D3E0]
 
 =============== Checking 'ECD_D4E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D4E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D4E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D4E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D4E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D4E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D4E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D4E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D4E0]
 
 =============== Checking 'ECD_D5E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D5E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D5E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D5E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D5E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D5E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D5E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D5E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D5E0]
 
 =============== Checking 'ECD_D6E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D6E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D6E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D6E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D6E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D6E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D6E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D6E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D6E0]
 
 =============== Checking 'ECD_D7E0' extension against 'CALFILE' standard ===============
 
-ERROR: Key FILTER not found in asca_sis_bcf_calfile.fits[ECD_D7E0]
-Enumerated keywords CTEL* not Found in Header
-WARNING: Key CTEL* not found in asca_sis_bcf_calfile.fits[ECD_D7E0]
-Enumerated keywords CINS* not Found in Header
-WARNING: Key CINS* not found in asca_sis_bcf_calfile.fits[ECD_D7E0]
-Enumerated keywords CFI* not Found in Header
-WARNING: Key CFI* not found in asca_sis_bcf_calfile.fits[ECD_D7E0]
+ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D7E0]
+WARNING: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D7E0]
+WARNING: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D7E0]
+WARNING: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D7E0]
 
 =============== 16 Errors and 48 Warnings Found in 16 extensions checked ===============
 

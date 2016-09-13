@@ -1,8 +1,10 @@
 def ogip_dictionary_spectral():
     """
-    for a given OGIP file type (PHA type I or type II),
-    returns a dictionary giving the extnames, the keywords and columns for that extension, and whether the
-    entry is required (1) or recommended (0), and the specific values for the entry, if any.
+
+    For a given OGIP file type, returns a dictionary giving the
+    extnames, the keywords and columns for that extension, and whether
+    the entry is required (1) or recommended (0), and the specific
+    values for the entry, if any.
 
     All logic is possible, as the requirement is given as a string that will be passed to eval() in a context where the object h will contain a class instance that contains the header and the functions 
 
@@ -10,8 +12,6 @@ def ogip_dictionary_spectral():
     h.hasVal('KEY','VAL')
     etc.  
 
-    this function returns the  required and optional keywords and columns
-    as defined by OGIP 92-007 for a given extension
     """
     global status
     global REPORT
@@ -170,7 +170,7 @@ def ogip_dictionary_spectral():
     """
     Define Required keywords
     """
-    detector={'KEYWORDS':{'REQUIRED':[],'RECOMMENDED':[]}, 'COLUMNS':{'REQUIRED':[],'RECOMMENDED':[]} }
+    detector={'KEYWORDS':{'REQUIRED':{},'RECOMMENDED':{}}, 'COLUMNS':{'REQUIRED':[],'RECOMMENDED':[]} }
     """
     Define Optional keywords
     """
@@ -186,7 +186,7 @@ def ogip_dictionary_spectral():
     """
     FOR HISTORY TABLE: (optional)
     """
-    history={'KEYWORDS':{'REQUIRED':[],'RECOMMENDED':[]}, 'COLUMNS':{'REQUIRED':[],'RECOMMENDED':[]} }
+    history={'KEYWORDS':{'REQUIRED':{},'RECOMMENDED':{}}, 'COLUMNS':{'REQUIRED':[],'RECOMMENDED':[]} }
     """
     Define Required keywords
     """

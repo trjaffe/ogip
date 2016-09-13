@@ -340,7 +340,7 @@ def ogip_determine_ref(in_extn,otype):
     #  HDUCLAS1 and HDUCLAS2.
     if 'HDUCLAS2' in in_extn.header:
         for extn in all_extns:
-            ref_keys=ogip_dict[extn]['KEYWORDS']['REQUIRED']+ogip_dict[extn]['KEYWORDS']['RECOMMENDED']
+            ref_keys=dict(ogip_dict[extn]['KEYWORDS']['REQUIRED'].items()+ogip_dict[extn]['KEYWORDS']['RECOMMENDED'].items())
             for key in [k for k in ref_keys if 'HDUCLAS2' in k]:
                 beg=key.find("[")
                 val=key[beg+1:key.find(']')].strip().upper()
@@ -352,7 +352,7 @@ def ogip_determine_ref(in_extn,otype):
     #  because both have value RESPONSE. 
     if 'HDUCLAS1' in in_extn.header and not (otype == 'ARF' or otype == 'RMF'):
         for extn in all_extns:
-            ref_keys=ogip_dict[extn]['KEYWORDS']['REQUIRED']+ogip_dict[extn]['KEYWORDS']['RECOMMENDED']
+            ref_keys=dict(ogip_dict[extn]['KEYWORDS']['REQUIRED'].items()+ogip_dict[extn]['KEYWORDS']['RECOMMENDED'].items())
             for key in [k for k in ref_keys if 'HDUCLAS1' in k]:
                 #  (Should be only one)
                 beg=key.find("[")

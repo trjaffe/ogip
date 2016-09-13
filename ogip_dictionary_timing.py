@@ -1,11 +1,17 @@
 def ogip_dictionary_timing():
     """
-    for a given OGIP file type (timing, etc),
-    returns a dictionary giving the extnames, the keywords and columns for that extension, and whether the
-    entry is required (1) or recommended (0), and the specific values for the entry, if any
 
-    this function returns the  required and optional keywords and columns
-    as defined by OGIP 93-003 for a given extension
+    For a given OGIP file type, returns a dictionary giving the
+    extnames, the keywords and columns for that extension, and whether
+    the entry is required (1) or recommended (0), and the specific
+    values for the entry, if any.
+
+    All logic is possible, as the requirement is given as a string that will be passed to eval() in a context where the object h will contain a class instance that contains the header and the functions 
+
+    h.Exists('KEY')
+    h.hasVal('KEY','VAL')
+    etc.  
+
     """
 
     """

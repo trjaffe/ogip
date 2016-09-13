@@ -7,44 +7,29 @@ Checking file as type SPECTRAL
 
 =============== Checking 'SPECTRUM' extension against 'SPECTRUM' standard ===============
 
-Keyword HDUVERS not found in header
-ERROR: Key HDUVERS[1.2.1] not found in spectrum.pha[SPECTRUM]
-Alternate keywords CHANTYPE[PHA|PI] not found in header
-ERROR: Key CHANTYPE[PHA|PI] not found in spectrum.pha[SPECTRUM]
-WARNING: Key RA-OBJ not found in spectrum.pha[SPECTRUM]
-WARNING: Key DEC-OBJ not found in spectrum.pha[SPECTRUM]
-Alternate keywords HDUCLAS2[TOTAL|NET|BKG] not found in header
-WARNING: Key HDUCLAS2[TOTAL|NET|BKG] not found in spectrum.pha[SPECTRUM]
-Alternate keywords HDUCLAS3[COUNT|RATE] not found in header
-WARNING: Key HDUCLAS3[COUNT|RATE] not found in spectrum.pha[SPECTRUM]
-WARNING: Key ONTIME not found in spectrum.pha[SPECTRUM]
-Group keywords TIMEZERI+TIMEZERF not Found in Header
-Alternate keywords TIMEZERO|TIMEZERI+TIMEZERF not found in header
-WARNING: Key TIMEZERO|TIMEZERI+TIMEZERF not found in spectrum.pha[SPECTRUM]
-WARNING: Key TIMEREF not found in spectrum.pha[SPECTRUM]
-WARNING: Key CLOCKCOR not found in spectrum.pha[SPECTRUM]
-WARNING: Key TIMVERSN not found in spectrum.pha[SPECTRUM]
-WARNING: Key AUTHOR not found in spectrum.pha[SPECTRUM]
-WARNING: Key TASSIGN not found in spectrum.pha[SPECTRUM]
-WARNING: Key TIERRELA not found in spectrum.pha[SPECTRUM]
-WARNING: Key TIERABSO not found in spectrum.pha[SPECTRUM]
-WARNING: Key ONTIME not found in spectrum.pha[SPECTRUM]
-WARNING: Key BACKAPP not found in spectrum.pha[SPECTRUM]
-WARNING: Key VIGNAPP not found in spectrum.pha[SPECTRUM]
-Enumerated keywords EMIN* not Found in Header
-WARNING: Key EMIN* not found in spectrum.pha[SPECTRUM]
-Enumerated keywords EMAX* not Found in Header
-WARNING: Key EMAX* not found in spectrum.pha[SPECTRUM]
-Enumerated keywords BACKV* not Found in Header
-WARNING: Key BACKV* not found in spectrum.pha[SPECTRUM]
-Enumerated keywords BACKE* not Found in Header
-WARNING: Key BACKE* not found in spectrum.pha[SPECTRUM]
-Enumerated keywords DEADC* not Found in Header
-WARNING: Key DEADC* not found in spectrum.pha[SPECTRUM]
-WARNING: Key GEOAREA not found in spectrum.pha[SPECTRUM]
-WARNING: Key VIGNET not found in spectrum.pha[SPECTRUM]
-WARNING: Key NPIXSOU not found in spectrum.pha[SPECTRUM]
-WARNING: Key NPIXBACK not found in spectrum.pha[SPECTRUM]
+ERROR: Key HDUVERS incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key BACKE* incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key EMIN* incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key VIGNET incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key EMAX* incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key BACKV* incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key BACKAPP incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key TIERRELA incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key TIERABSO incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key TASSIGN incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key RA-OBJ incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key CLOCKCOR incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key DEADC* incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key TIMEZERO incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key ONTIME incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key DEC-OBJ incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key TIMEREF incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key NPIXSOU incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key GEOAREA incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key NPIXBACK incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key VIGNAPP incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key AUTHOR incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key TIMVERSN incorrect in spectrum.pha[SPECTRUM]
 ERROR: Required column SPEC_NUM missing from spectrum.pha[SPECTRUM]
 Alternate Column COUNTS found in header
 ERROR: Required column SYS_ERR missing from spectrum.pha[SPECTRUM]
@@ -63,10 +48,12 @@ WARNING: Recommended column ROWID missing from spectrum.pha[SPECTRUM]
 
 =============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
-ERROR: Key TELESCOP not found in spectrum.pha[STDGTI]
+ERROR: Key TELESCOP incorrect in spectrum.pha[STDGTI]
+WARNING: Key FILTER incorrect in spectrum.pha[STDGTI]
+WARNING: Key DETNAM incorrect in spectrum.pha[STDGTI]
 WARNING: Recommended column TIMEDEL missing from spectrum.pha[STDGTI]
 
-=============== 15 Errors and 28 Warnings Found in 2 extensions checked ===============
+=============== 14 Errors and 27 Warnings Found in 2 extensions checked ===============
 
 
 ===========================================================
