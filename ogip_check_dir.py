@@ -161,6 +161,8 @@ def ogip_check_dir(basedir,logdir,ignore,verbosity):
                 print("\nCHECKING %s" % one)
             #  Returns status that contains both the counts of errors,
             #  warnings, and the logged reports.  
+            if ("sw00039146005sen" in one):
+                print "DEBUGGING"
             status=ogip_check(one,None,logfile,verbosity)
 
             #if status.status != 0:

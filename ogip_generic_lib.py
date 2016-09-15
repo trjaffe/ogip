@@ -248,13 +248,14 @@ def ogip_fits_verify(hdulist,filename,logf,status):
 
     try:
         ftv=subprocess.Popen("ftverify %s" % filename,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        out, err = ftv.communicate()
     except:
         print("ERROR:  Could not ftverify the file.  The futil ftverify needs to be in the path for a spawned shell command!")
         exit(-1)
 
     #  I don't actually want to keep the STDOUT from ftverify, only
     #  STDERR that lists the errors.
-    result=ftv.stderr.read().split('\n')
+    result=err.split('\n')
     if result != ['']:
         [status.update(report="Ftverify:  %s" % x,err=1,log=logf) for x in result]
         fits_errs=1
@@ -308,24 +309,26 @@ def ogip_determine_ref(in_extn,otype):
 
     #  Easy case: the extension name matches the reference
     #  extension name for a type
-    if in_extn.header['EXTNAME'] in all_extns:  
-        return in_extn.header['EXTNAME']
+    if 'EXTNAME' in in_extn.header:
 
-    #  Second easiest case: for each reference extension, 
-    #  see if the ref extname is a substring of the
-    #  actual extension name (e.g., RMF type 'MATRIX'
-    #  extension is sometimes 'SPECRESP MATRIX' in some
-    #  missions:
-    for extn in all_extns:
-        if ( extn in in_extn.header['EXTNAME'] and extn != ''):
-            return extn  
+        if in_extn.header['EXTNAME'] in all_extns:  
+            return in_extn.header['EXTNAME']
 
-    #  If that hasn't worked, check alternate extension
-    #  names for each defined extension:
-    for extn in [x for x in all_extns if x in ogip_dict['ALT_EXTNS'] ] :
-        for aextn in ogip_dict['ALT_EXTNS'][extn]:
-            if aextn in  in_extn.header['EXTNAME']:
-                return extn
+        #  Second easiest case: for each reference extension, 
+        #  see if the ref extname is a substring of the
+        #  actual extension name (e.g., RMF type 'MATRIX'
+        #  extension is sometimes 'SPECRESP MATRIX' in some
+        #  missions:
+        for extn in all_extns:
+            if ( extn in in_extn.header['EXTNAME'] and extn != ''):
+                return extn  
+
+        #  If that hasn't worked, check alternate extension
+        #  names for each defined extension:
+        for extn in [x for x in all_extns if x in ogip_dict['ALT_EXTNS'] ] :
+            for aextn in ogip_dict['ALT_EXTNS'][extn]:
+                if aextn in  in_extn.header['EXTNAME']:
+                    return extn
 
     #  Third possibility: compare the HDUCLAS1 and HDUCLAS2
     #  keywords (which is sometimes required and sometimes only

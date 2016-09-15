@@ -116,8 +116,9 @@ def ogip_check(input,otype,logfile,verbosity):
         for t in ['TIMING','SPECTRAL','RMF','ARF','CALDB']:
 
             #  Integral files sometimes start with indexing;  skip this
-            if hdulist[1].header['EXTNAME']=='GROUPING': xno=2
-            else: xno=1
+            xno=1
+            if 'EXTNAME' in hdulist[1].header:
+                if hdulist[1].header['EXTNAME']=='GROUPING': xno=2
 
             ref_extn=ogip_determine_ref(hdulist[xno], t)
 
