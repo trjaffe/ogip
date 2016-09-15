@@ -129,7 +129,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
         if otype is None:
             if dtype:
                 if dtype == 'none':
-                    status.update(report="ERROR:  do not recognize the file as any type",status=1)
+                    status.update(report="ERROR:  do not recognize the file as any type (extnames "+", ".join(extnames)+")",status=1)
                     return status
                 else:
                     status.update(report="ERROR:  failed to determine the file type;  trying %s" % dtype,err=1,log=logf)

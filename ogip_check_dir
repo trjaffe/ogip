@@ -10,7 +10,7 @@ if __name__== "__main__":
     parser.add_argument("-v", "--verbosity", action="count", default=0)
 
     parser.add_argument("--ignore_dir",type=str,help="Comma-separated list of directory names to ignore;  default none.",default='')
-    parser.add_argument("--default_type",type=str,help="Default type to check for unrecognized files;  default 'none'.",default='CALDB')
+    parser.add_argument("--default_type",type=str,help="Default type to check for unrecognized files;  default 'none'.",default='none')
     parser.add_argument("--ignore_suffix",type=str,help="Comma-separated list of file suffixes to ignore;  default=.jpg,.txt,.gif,.dat,.ps,.html,.par,.PNG,.PDF,.HTM",default='.jpg,.txt,.gif,.dat,.ps,.html,.par,.PNG,.PDF,.HTM')
 
     args = parser.parse_args()
