@@ -4,7 +4,7 @@ from ogip_dictionary import ogip_dictionary
 from ogip_generic_lib import *
 import os.path
 
-def ogip_check(input,otype,logfile,verbosity):
+def ogip_check(input,otype,logfile,verbosity,dtype=None):
     """
     Checks for the existence of OGIP required keywords and columns 
     for FITS files based on the Standards doccumented here:  
@@ -127,8 +127,16 @@ def ogip_check(input,otype,logfile,verbosity):
                 print("\nChecking file as type %s" % otype,file=logf)
                 break
         if otype is None:
-            status.update(report="ERROR:  failed to determine the file type;  trying CALDB",err=1,log=logf)
-            otype='CALDB'
+            if dtype:
+                if dtype == 'none':
+                    status.update(report="ERROR:  do not recognize the file as any type",status=1)
+                    return status
+                else:
+                    status.update(report="ERROR:  failed to determine the file type;  trying %s" % dtype,err=1,log=logf)
+                    otype=dtype
+            else:
+                status.update(report="ERROR:  failed to determine the file type;  trying CALDB",err=1,log=logf)
+                otype='CALDB'
         print("\n(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.\n",file=logf)
 
     else:

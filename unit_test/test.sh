@@ -276,7 +276,7 @@ echo ""
 echo "##################################################################"
 echo "Checking entire contents of directory inputs"
 mkdir out/inputs.logs
-../ogip_check_dir inputs out/inputs.logs >& out/inputs.check.log
+../ogip_check_dir inputs out/inputs.logs --default_type 'CALDB' >& out/inputs.check.log
 retval=$?
 echo "Return status was $retval"
 if [[ "$retval" != "0" ]]; then 
@@ -316,6 +316,27 @@ else
 fi
 
 echo ""
+echo ""
+echo "Checking without using CALDB as default for unknown types:"
+mkdir out/inputs2.logs
+../ogip_check_dir inputs out/inputs2.logs --default_type 'none' >& out/inputs.check2.log
+retval=$?
+echo "Return status was $retval"
+if [[ "$retval" != "0" ]]; then 
+    echo "ERROR:  ogip_check_dir returned an error status!"
+    let errors+=1
+else
+    echo "Comparing output to reference.  "
+    diffs=`diff ref/inputs.check2.log out/inputs.check2.log`
+    if [[ ${#diffs} != 0 ]]; then
+	echo "WARNING:  Differences appear in 'diff ref/inputs.check.log out/inputs.check.log'"
+	#    echo ${diffs[@]} | tail
+	let diffcnt+=1
+    else
+	echo "No differences in directory check log."
+    fi
+fi
+
 
 
 

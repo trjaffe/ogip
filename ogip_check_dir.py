@@ -127,7 +127,7 @@ class ogip_collect:
 
 
 
-def ogip_check_dir(basedir,logdir,ignore,verbosity):
+def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
     """
 
     Traverses the given base directory and for all files found beneath:
@@ -161,9 +161,7 @@ def ogip_check_dir(basedir,logdir,ignore,verbosity):
                 print("\nCHECKING %s" % one)
             #  Returns status that contains both the counts of errors,
             #  warnings, and the logged reports.  
-            if ("sw00039146005sen" in one):
-                print "DEBUGGING"
-            status=ogip_check(one,None,logfile,verbosity)
+            status=ogip_check(one,None,logfile,verbosity,dtype=default_type)
 
             #if status.status != 0:
                 #print("ERROR:  failed to check file %s;  see log in %s\nContinuing." % (one, logfile) )
