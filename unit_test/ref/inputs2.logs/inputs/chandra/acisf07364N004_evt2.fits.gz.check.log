@@ -1,0 +1,112 @@
+Attempting to open file inputs/chandra/acisf07364N004_evt2.fits.gz
+
+Checking file as type TIMING
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'EVENTS' extension against 'EVENTS' standard ===============
+
+WARNING: Key NUMBAND incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key TIME-END incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key AUTHOR incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key TIME-OBS incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key BACKAPP incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key DEADAPP incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key CLOCKCOR incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Key VIGNAPP incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+
+=============== Checking 'GTI' extension against 'GTI' standard ===============
+
+WARNING: Key DATE-END incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key RA* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLAS1 incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-OBS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key TIMEZERO incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DEC* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+
+=============== Checking 'GTI' extension against 'GTI' standard ===============
+
+WARNING: Key DATE-END incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key RA* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLAS1 incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-OBS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key TIMEZERO incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DEC* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+
+=============== Checking 'GTI' extension against 'GTI' standard ===============
+
+WARNING: Key DATE-END incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key RA* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLAS1 incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-OBS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key TIMEZERO incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DEC* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+
+=============== Checking 'GTI' extension against 'GTI' standard ===============
+
+WARNING: Key DATE-END incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key RA* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLAS1 incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-OBS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key TIMEZERO incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DEC* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+
+=============== Checking 'GTI' extension against 'GTI' standard ===============
+
+WARNING: Key DATE-END incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key RA* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLAS1 incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-OBS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key TIMEZERO incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DEC* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+
+=============== Checking 'GTI' extension against 'GTI' standard ===============
+
+WARNING: Key DATE-END incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key RA* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLAS1 incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DATE-OBS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key TIMEZERO incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DEC* incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+
+Extension 'REGION' is not an OGIP defined extension for this type;  ignoring.
+
+
+=============== 0 Errors and 75 Warnings Found in 7 extensions checked ===============
+
+
+===========================================================
+
+File inputs/chandra/acisf07364N004_evt2.fits.gz conforms to the OGIP Standards

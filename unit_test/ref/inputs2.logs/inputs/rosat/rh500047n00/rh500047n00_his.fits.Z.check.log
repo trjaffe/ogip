@@ -1,0 +1,14 @@
+Attempting to open file inputs/rosat/rh500047n00/rh500047n00_his.fits.Z
+Failed to open as a FITS file.  Trying to unzip first.
+Trying to gunzip it.
+Trying now to open it again as FITS.
+Ftverify:  *** Error:   String in row #367, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #370, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #373, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #376, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #379, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #382, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #385, column #1 contains non-ASCII text.
+Ftverify:  *** Error:   String in row #388, column #1 contains non-ASCII text.
+Ftverify:  
+Trying to fix simple errors with astropy.io.fits.verify(option='fix')

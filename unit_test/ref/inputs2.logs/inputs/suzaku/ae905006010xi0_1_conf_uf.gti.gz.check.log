@@ -1,0 +1,40 @@
+Attempting to open file inputs/suzaku/ae905006010xi0_1_conf_uf.gti.gz
+Failed to open as a FITS file.  Since it's named .gz, try after removing suffix.
+
+Checking file as type TIMING
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+ERROR: ae905006010xi0_1_conf_uf.gti.gz does not have any of the required extension names
+
+=============== Checking 'STDGTI' extension against 'GTI' standard ===============
+
+WARNING: Key RA* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Key TSTOP incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Key DEC* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Key FILTER incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Key DETNAM incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Key ONTIME incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Key TSTART incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Recommended column TIMEDEL missing from ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+
+=============== Checking 'STDGTI' extension against 'GTI' standard ===============
+
+WARNING: Key RA* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Key TSTOP incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Key DEC* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Key FILTER incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Key DETNAM incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Key ONTIME incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Key TSTART incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Recommended column TIMEDEL missing from ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+
+=============== 1 Errors and 16 Warnings Found in 2 extensions checked ===============
+
+
+===========================================================
+
+FAILURE: inputs/suzaku/ae905006010xi0_1_conf_uf.gti.gz is not a Valid OGIP formatted file
+Please see OGIP/93-003: The Proposed Timing FITS File Format for High Energy Astrophysics Data
+Available at
+   http://heasarc.gsfc.nasa.gov/FTP/caldb/docs/ogip/fits_formats/docs/rates/ogip_93_003/ogip_93_003.pdf

@@ -1,0 +1,46 @@
+Attempting to open file inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z
+Failed to open as a FITS file.  Trying to unzip first.
+Trying to gunzip it.
+Trying now to open it again as FITS.
+
+Checking file as type TIMING
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+ERROR: rh500047n00_bas.fits.Z does not have any of the required extension names
+
+=============== Checking 'STDGTI' extension against 'GTI' standard ===============
+
+WARNING: Key DATE-END incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Key TIMESYS incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Key TSTOP incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Key DETNAM incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Key TSTART incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Key TIMEUNIT incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Recommended column TIMEDEL missing from rh500047n00_bas.fits.Z[STDGTI]
+
+Extension 'STDEVT' is not an OGIP defined extension for this type;  ignoring.
+
+
+Extension 'REJEVT' is not an OGIP defined extension for this type;  ignoring.
+
+
+Extension 'TSI' is not an OGIP defined extension for this type;  ignoring.
+
+
+Extension 'STDQLM' is not an OGIP defined extension for this type;  ignoring.
+
+
+Extension 'ALLQLM' is not an OGIP defined extension for this type;  ignoring.
+
+
+=============== 1 Errors and 8 Warnings Found in 1 extensions checked ===============
+
+
+===========================================================
+
+FAILURE: inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z is not a Valid OGIP formatted file
+Please see OGIP/93-003: The Proposed Timing FITS File Format for High Energy Astrophysics Data
+Available at
+   http://heasarc.gsfc.nasa.gov/FTP/caldb/docs/ogip/fits_formats/docs/rates/ogip_93_003/ogip_93_003.pdf

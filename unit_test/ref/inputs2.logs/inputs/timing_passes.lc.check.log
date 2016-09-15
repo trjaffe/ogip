@@ -1,0 +1,34 @@
+Attempting to open file inputs/timing_passes.lc
+
+Checking file as type TIMING
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'RATE' extension against 'RATE' standard ===============
+
+WARNING: Key VIGNET incorrect in timing_passes.lc[RATE]
+WARNING: Key NUMBAND incorrect in timing_passes.lc[RATE]
+WARNING: Key EMIN* incorrect in timing_passes.lc[RATE]
+WARNING: Key CLOCKCOR incorrect in timing_passes.lc[RATE]
+WARNING: Key AUTHOR incorrect in timing_passes.lc[RATE]
+WARNING: Key NPIXBACK incorrect in timing_passes.lc[RATE]
+WARNING: Key NPIXSOU incorrect in timing_passes.lc[RATE]
+WARNING: Key EMAX* incorrect in timing_passes.lc[RATE]
+WARNING: Key BACKV* incorrect in timing_passes.lc[RATE]
+WARNING: Key GEOAREA incorrect in timing_passes.lc[RATE]
+WARNING: Key FILTER incorrect in timing_passes.lc[RATE]
+WARNING: Key DETNAM incorrect in timing_passes.lc[RATE]
+WARNING: Key BACKE* incorrect in timing_passes.lc[RATE]
+WARNING: Key DEADC* incorrect in timing_passes.lc[RATE]
+Alternate Column RATE found in header
+WARNING: Recommended column BACKV missing from timing_passes.lc[RATE]
+WARNING: Recommended column BACKE missing from timing_passes.lc[RATE]
+WARNING: Recommended column DEADC missing from timing_passes.lc[RATE]
+
+=============== 0 Errors and 17 Warnings Found in 1 extensions checked ===============
+
+
+===========================================================
+
+File inputs/timing_passes.lc conforms to the OGIP Standards

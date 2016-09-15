@@ -1,0 +1,32 @@
+Attempting to open file inputs/specresp_matrix.rmf
+
+Checking file as type RMF
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'SPECRESP MATRIX' extension against 'MATRIX' standard ===============
+
+ERROR: Key CCLS0001 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
+WARNING: Key PHAFILE incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
+WARNING: Key HDUVERS1 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
+WARNING: Key HDUVERS2 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
+WARNING: Recommended column ORDER missing from specresp_matrix.rmf[SPECRESP MATRIX]
+
+=============== Checking 'EBOUNDS' extension against 'EBOUNDS' standard ===============
+
+ERROR: Key CCLS0001 incorrect in specresp_matrix.rmf[EBOUNDS]
+ERROR: Key HDUVERS incorrect in specresp_matrix.rmf[EBOUNDS]
+WARNING: Key PHAFILE incorrect in specresp_matrix.rmf[EBOUNDS]
+WARNING: Key HDUVERS1 incorrect in specresp_matrix.rmf[EBOUNDS]
+WARNING: Key HDUVERS2 incorrect in specresp_matrix.rmf[EBOUNDS]
+
+=============== 3 Errors and 7 Warnings Found in 2 extensions checked ===============
+
+
+===========================================================
+
+FAILURE: inputs/specresp_matrix.rmf is not a Valid OGIP formatted file
+Please see OGIP/92-002, OGIP/92-002a: The Calibration Requirements for Spectral Analysis
+Available at
+   https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html

@@ -1,0 +1,35 @@
+Attempting to open file inputs/timing.evt
+
+Checking file as type TIMING
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'EVENTS' extension against 'EVENTS' standard ===============
+
+WARNING: Key NUMBAND incorrect in timing.evt[EVENTS]
+WARNING: Key TIME-END incorrect in timing.evt[EVENTS]
+WARNING: Key AUTHOR incorrect in timing.evt[EVENTS]
+WARNING: Key TIME-OBS incorrect in timing.evt[EVENTS]
+WARNING: Key BACKAPP incorrect in timing.evt[EVENTS]
+WARNING: Key DEADAPP incorrect in timing.evt[EVENTS]
+WARNING: Key FILTER incorrect in timing.evt[EVENTS]
+WARNING: Key DETNAM incorrect in timing.evt[EVENTS]
+WARNING: Key CLOCKCOR incorrect in timing.evt[EVENTS]
+WARNING: Key TIMVERSN incorrect in timing.evt[EVENTS]
+WARNING: Key VIGNAPP incorrect in timing.evt[EVENTS]
+
+=============== Checking 'STDGTI' extension against 'GTI' standard ===============
+
+WARNING: Key TIMEZERO incorrect in timing.evt[STDGTI]
+WARNING: Key DEC* incorrect in timing.evt[STDGTI]
+WARNING: Key FILTER incorrect in timing.evt[STDGTI]
+WARNING: Key DETNAM incorrect in timing.evt[STDGTI]
+WARNING: Recommended column TIMEDEL missing from timing.evt[STDGTI]
+
+=============== 0 Errors and 16 Warnings Found in 2 extensions checked ===============
+
+
+===========================================================
+
+File inputs/timing.evt conforms to the OGIP Standards
