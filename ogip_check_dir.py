@@ -74,6 +74,10 @@ class ogip_collect:
     def count_bad(self):
         return sum(len(d) for d in self.bad.itervalues())
 
+    def count_unrecognized(self):
+        return sum( sum([f.unrec for f in d.itervalues()]) for d in self.bad.itervalues() )
+
+
     def count_fopen(self):
         #  Inner list comprehension returns a list of files and counts fopen errors,
         #  then iterated and summed over all the directories
@@ -152,7 +156,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
         for name in [x for x in files if not x.endswith(ignore['suffixes'])]:
             one=os.path.join(dir, name)
             if logdir:
-                logpath= os.path.join(logdir,dir)
+                logpath= os.path.join(logdir,os.path.relpath(dir,basedir))
                 if not os.path.isdir(logpath):  os.makedirs(logpath)
                 logfile=os.path.join(logpath,name+".check.log")
                 print("\nCHECKING %s;  see log in %s" % (one, logfile) )
@@ -174,7 +178,8 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
     print("Done checking.  Now to summarize:\n")
     print("The total number of files found: %s" % int(summary.count_bad()+summary.count_checked()) )
     print("The total number of files that could not be opened as FITS:  %s" % summary.count_fopen() )
-    print("The total number of files that could not be checked for other reasons:  %s" % int(summary.count_bad()-summary.count_fopen()) )
+    print("The total number of files whose type could not be recognized:  %s" % summary.count_unrecognized() )
+    print("The total number of files that could not be checked for other reasons:  %s" % int(summary.count_bad()-summary.count_fopen()-summary.count_unrecognized()) )
     print("The total number of files that failed FITS verify and could not be checked:  %s" % summary.count_fver_bad() )
     print("The total number of files that failed FITS verify but 'fixed' and checked:  %s" % summary.count_fver_fixed() )
     print("The total number of files checked:  %s" % summary.count_checked() )

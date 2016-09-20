@@ -87,11 +87,13 @@ class retstat:
     to calling codes without global variables.  
 
     """
-    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, warn=0,err=0,log=sys.stdout,otype=None,fver=0,fopen=0):
+    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, warn=0,err=0,log=sys.stdout,otype=None,fver=0,fopen=0,unrec=0):
         #  Set an error status for the file if nonzero;  this will halt the checks.
         self.status+=status
         #  Flag problems opening the file as FITS specifically
         self.fopen+=fopen
+        #  Flag unrecognized FITS files
+        self.unrec+=unrec
         #  Flag FITS verification errors specifically
         self.fver+=fver
         #  Set the file type
@@ -121,6 +123,7 @@ class retstat:
         self.status=0
         self.fver=0
         self.fopen=0
+        self.unrec=0
         self.otype=otype
         self.extns={}
 
