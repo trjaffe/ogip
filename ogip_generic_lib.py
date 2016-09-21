@@ -102,12 +102,13 @@ class retstat:
         print(report,file=log)
 
         #  If an extension is not given, nothing else to do, since the
-        #  above are the only two attributes that apply to the file as
+        #  above are the only attributes that apply to the file as
         #  a whole.  (Note that the report isn't saved in this case.)
         if not extn:
             return
 
-        #  Create the entry for the extension name if it doesn't already exist
+        #  Create the entry for the extension name (an object of
+        #  statinfo type) if it doesn't already exist
         if extn not in self.extns:
             self.extns[extn]=statinfo()
 
@@ -252,9 +253,11 @@ def ogip_fits_verify(hdulist,filename,logf,status):
     try:
         ftv=subprocess.Popen("ftverify %s" % filename,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
         out, err = ftv.communicate()
-    except:
+        stat=ftv.returncode
+        if stat != 0: raise OSError
+    except OSError:
         print("ERROR:  Could not ftverify the file.  The futil ftverify needs to be in the path for a spawned shell command!")
-        exit(-1)
+#        exit(-1)
 
     #  I don't actually want to keep the STDOUT from ftverify, only
     #  STDERR that lists the errors.

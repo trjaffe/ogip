@@ -52,14 +52,17 @@ class ogip_collect:
         if statobj.status != 0:
             #  Those that cannot be checked:
             dict_add(self.bad, dir, file, statobj)
-        elif statobj.tot_errors() == 0 and statobj.tot_warnings() == 0:
+
+        elif statobj.tot_errors() == 0 and statobj.tot_warnings() == 0 and statobj.fver == 0:
             #  Those that pass with no warnings even:
             dict_add(self.good, dir, file, statobj)
-        elif statobj.tot_errors() == 0:
+
+        elif statobj.tot_errors() == 0 and statobj.fver == 0:
             #  Those that pass with no errors (but maybe warnings):
             dict_add(self.warned, dir, file, statobj)
+
         else:
-            #  Those that fail the check:
+            #  Those that have errors, either FITS (verify) or OGIP standards:
            dict_add(self.failed, dir, file, statobj)
 
         if statobj.otype != 'unknown':  
@@ -149,6 +152,9 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
     """
     summary=ogip_collect()
 
+    print("\nRunning ogip_check_dir with:\n   directory %s\n    logdir %s\n    ignore %s\n" % (basedir,logdir,ignore) )
+
+
     # Goes through all contents of root directory
     for dir, subdirs, files in os.walk(basedir, topdown=False):
         if dir in ignore['directories']:
@@ -213,7 +219,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
             if extn in summary.count_extnames[t]:
                 for k in dict[extn]['KEYWORDS']['REQUIRED']: 
                     if summary.count_missing_key(t,extn,k) > 0:
-                        print("    Found %s (out of %s) %s extensions of file type %s missing key %s." % (summary.count_missing_key(t,extn,k), summary.count_extnames[t][extn], extn, t, k) )
+                        print("    Found %s (out of %s) files have at least one extension %s missing key %s." % (summary.count_missing_key(t,extn,k), summary.count_extnames[t][extn], extn, k) )
 
 
     print("\nDone\n")

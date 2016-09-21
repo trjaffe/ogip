@@ -1,4 +1,10 @@
 
+Running ogip_check_dir with:
+   directory inputs
+    logdir out/inputs2.logs
+    ignore {'directories': ('',), 'suffixes': ('.jpg', '.txt', '.gif', '.dat', '.ps', '.html', '.par', '.PNG', '.PDF', '.HTM', '.jpg.gz', '.txt.gz', '.gif.gz', '.dat.gz', '.ps.gz', '.html.gz', '.par.gz', '.PNG.gz', '.PDF.gz', '.HTM.gz')}
+
+
 CHECKING inputs/chandra/acisf07364N004_evt2.fits.gz;  see log in out/inputs2.logs/chandra/acisf07364N004_evt2.fits.gz.check.log
 Done.  Found file of type TIMING with 0 errors and 75 warnings.
 
@@ -103,38 +109,38 @@ Checked 2 files of type CALDB
 
 
 Summary of missing required keywords for type TIMING:
-    Found 4 (out of 6) RATE extensions of file type TIMING missing key TIMEZERO.
-    Found 4 (out of 6) RATE extensions of file type TIMING missing key ONTIME.
-    Found 5 (out of 6) RATE extensions of file type TIMING missing key TIMEREF.
-    Found 1 (out of 6) RATE extensions of file type TIMING missing key HDUCLASS.
+    Found 4 (out of 6) files have at least one extension RATE missing key TIMEZERO.
+    Found 4 (out of 6) files have at least one extension RATE missing key ONTIME.
+    Found 5 (out of 6) files have at least one extension RATE missing key TIMEREF.
+    Found 1 (out of 6) files have at least one extension RATE missing key HDUCLASS.
 
 Summary of missing required keywords for type SPECTRAL:
-    Found 2 (out of 2) SPECTRUM extensions of file type SPECTRAL missing key HDUVERS.
-    Found 1 (out of 2) SPECTRUM extensions of file type SPECTRAL missing key FILTER.
-    Found 1 (out of 1) GTI extensions of file type SPECTRAL missing key TELESCOP.
+    Found 2 (out of 2) files have at least one extension SPECTRUM missing key HDUVERS.
+    Found 1 (out of 2) files have at least one extension SPECTRUM missing key FILTER.
+    Found 1 (out of 1) files have at least one extension GTI missing key TELESCOP.
 
 Summary of missing required keywords for type RMF:
-    Found 1 (out of 1) MATRIX extensions of file type RMF missing key CCLS0001.
-    Found 1 (out of 1) EBOUNDS extensions of file type RMF missing key CCLS0001.
-    Found 1 (out of 1) EBOUNDS extensions of file type RMF missing key HDUVERS.
+    Found 1 (out of 1) files have at least one extension MATRIX missing key CCLS0001.
+    Found 1 (out of 1) files have at least one extension EBOUNDS missing key CCLS0001.
+    Found 1 (out of 1) files have at least one extension EBOUNDS missing key HDUVERS.
 
 Summary of missing required keywords for type ARF:
-    Found 1 (out of 2) SPECRESP extensions of file type ARF missing key HDUVERS.
-    Found 2 (out of 2) SPECRESP extensions of file type ARF missing key TLMIN*.
-    Found 2 (out of 2) SPECRESP extensions of file type ARF missing key NUMELT.
-    Found 2 (out of 2) SPECRESP extensions of file type ARF missing key CCNM0001.
-    Found 1 (out of 2) SPECRESP extensions of file type ARF missing key CVSD0001.
-    Found 2 (out of 2) SPECRESP extensions of file type ARF missing key DETCHANS.
-    Found 1 (out of 2) SPECRESP extensions of file type ARF missing key CDES0001.
-    Found 1 (out of 2) SPECRESP extensions of file type ARF missing key FILTER.
-    Found 2 (out of 2) SPECRESP extensions of file type ARF missing key NUMGRP.
-    Found 1 (out of 2) SPECRESP extensions of file type ARF missing key CVST0001.
-    Found 2 (out of 2) SPECRESP extensions of file type ARF missing key CHANTYPE.
-    Found 1 (out of 2) SPECRESP extensions of file type ARF missing key CCLS0001.
-    Found 1 (out of 2) SPECRESP extensions of file type ARF missing key CDTP0001.
+    Found 1 (out of 2) files have at least one extension SPECRESP missing key HDUVERS.
+    Found 2 (out of 2) files have at least one extension SPECRESP missing key TLMIN*.
+    Found 2 (out of 2) files have at least one extension SPECRESP missing key NUMELT.
+    Found 2 (out of 2) files have at least one extension SPECRESP missing key CCNM0001.
+    Found 1 (out of 2) files have at least one extension SPECRESP missing key CVSD0001.
+    Found 2 (out of 2) files have at least one extension SPECRESP missing key DETCHANS.
+    Found 1 (out of 2) files have at least one extension SPECRESP missing key CDES0001.
+    Found 1 (out of 2) files have at least one extension SPECRESP missing key FILTER.
+    Found 2 (out of 2) files have at least one extension SPECRESP missing key NUMGRP.
+    Found 1 (out of 2) files have at least one extension SPECRESP missing key CVST0001.
+    Found 2 (out of 2) files have at least one extension SPECRESP missing key CHANTYPE.
+    Found 1 (out of 2) files have at least one extension SPECRESP missing key CCLS0001.
+    Found 1 (out of 2) files have at least one extension SPECRESP missing key CDTP0001.
 
 Summary of missing required keywords for type CALDB:
-    Found 2 (out of 2) CALFILE extensions of file type CALDB missing key FILTER.
+    Found 2 (out of 2) files have at least one extension CALFILE missing key FILTER.
 
 Done
 

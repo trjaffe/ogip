@@ -88,7 +88,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
     #  Basic FITS verification:
     fits_errs=ogip_fits_verify(hdulist,filename,logf,status)
     if fits_errs == 1:
-        status.update(report="ERROR:  file does not pass FITS verification but able to continue.",fver=1,err=1)
+        status.update(report="ERROR:  file does not pass FITS verification but able to continue.",fver=1)
     if fits_errs == 2:  
         status.update(report="ERROR:  file does not pass FITS verification;  giving up.",fver=2,status=1)
         return status
