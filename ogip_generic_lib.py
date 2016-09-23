@@ -466,8 +466,6 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
 
     return
 
-
-
 ##  
 ##  def check_relkeys(key, ref_extn, filename, header, this_extn, logf, status, required=True):
 ##      """

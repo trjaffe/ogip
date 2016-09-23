@@ -162,6 +162,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
         for name in [x for x in files if not x.endswith(ignore['suffixes'])]:
             one=os.path.join(dir, name)
             print "\nTIMESTAMP:  " + datetime.now().strftime("%Y-%m-%d %X")
+
             if logdir:
                 logpath= os.path.join(logdir,os.path.relpath(dir,basedir))
                 if not os.path.isdir(logpath):  os.makedirs(logpath)
