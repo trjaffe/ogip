@@ -284,9 +284,9 @@ if [[ "$retval" != "0" ]]; then
     let errors+=1
 else
     echo "Comparing output to reference.  "
-    diffs=`diff ref/inputs.check.log out/inputs.check.log`
+    diffs=`diff  -I TIMESTAMP ref/inputs.check.log out/inputs.check.log`
     if [[ ${#diffs} != 0 ]]; then
-	echo "WARNING:  Differences appear in 'diff ref/inputs.check.log out/inputs.check.log'"
+	echo "WARNING:  Differences appear in 'diff -I TIMESTAMP ref/inputs.check.log out/inputs.check.log'"
 	#    echo ${diffs[@]} | tail
 	let diffcnt+=1
     else
@@ -294,9 +294,9 @@ else
     fi
     echo "Comparing logs of individual files run this way with those run individually."
     for file in asca_sis_bcf_calfile.fits fermi_lat_bcf_edisp_calfile.fits hexte.arf specresp_matrix.rmf spectrum.pha timing.evt timing_fails.lc timing_passes.lc ; do 
-	diffs=`diff out/${file}.check.log out/inputs.logs/${file}.check.log`
+	diffs=`diff -I TIMESTAMP out/${file}.check.log out/inputs.logs/${file}.check.log`
 	if [[ ${#diffs} != 0 ]]; then
-	    echo "WARNING:  Differences appear in 'diff out/${file}.check.log out/inputs.logs/${file}.check.log'"
+	    echo "WARNING:  Differences appear in 'diff -I TIMESTAMP out/${file}.check.log out/inputs.logs/${file}.check.log'"
 	    let diffcnt+=1
 	fi
     done
@@ -327,9 +327,9 @@ if [[ "$retval" != "0" ]]; then
     let errors+=1
 else
     echo "Comparing output to reference.  "
-    diffs=`diff ref/inputs.check2.log out/inputs.check2.log`
+    diffs=`diff -I TIMESTAMP ref/inputs.check2.log out/inputs.check2.log`
     if [[ ${#diffs} != 0 ]]; then
-	echo "WARNING:  Differences appear in 'diff ref/inputs.check2.log out/inputs.check2.log'"
+	echo "WARNING:  Differences appear in 'diff -I TIMESTAMP ref/inputs.check2.log out/inputs.check2.log'"
 	#    echo ${diffs[@]} | tail
 	let diffcnt+=1
     else

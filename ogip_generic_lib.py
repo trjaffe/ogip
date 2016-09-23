@@ -273,7 +273,7 @@ def ogip_fits_verify(hdulist,filename,logf,status):
         stat=ftv.returncode
         if stat != 0: raise OSError
     except OSError:
-        print("ERROR:  Could not ftverify the file.  The futil ftverify needs to be in the path for a spawned shell command!")
+        print("ERROR: external call to ftverify returns an error.")
 #        exit(-1)
 
     #  I don't actually want to keep the STDOUT from ftverify, only
@@ -417,8 +417,17 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
 
     hdr = hdu[extno].header
 
-    colnames = hdu[extno].data.names
-    colnames = [x.upper().strip() for x in colnames] # convert to uppercase, remove whitespace
+    #  DO NOT USE THIS!  For large files in memory, this somehow
+    #  causes memory usage to climb to several times the size of the
+    #  file.  No idea why.  Just accessing the data attribute of the
+    #  file that's gunzipped in memory?  Whatever.  Don't use the
+    #  .data
+    #  
+    #colnames = hdu[extno].data.names
+    #colnames = [x.upper().strip() for x in colnames] # convert to uppercase, remove whitespace
+
+    colnames=[hdu[extno].header[key].upper().strip() for key in hdu[extno].header if 'TTYPE' in key]
+
 
     missing_keywords = []
     missing_columns = []
@@ -455,7 +464,10 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
         if not Foundcol:
             status.update(extn=extna,report= "WARNING: Recommended column %s missing from %s[%s]" % (col, file,  this_extn), warn=1,log=logf, miscol=col)
 
-        return
+    return
+
+
+
 ##  
 ##  def check_relkeys(key, ref_extn, filename, header, this_extn, logf, status, required=True):
 ##      """

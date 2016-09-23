@@ -3,8 +3,8 @@ from ogip_check import ogip_check
 from ogip_generic_lib import *
 from itertools import chain
 from ogip_dictionary import ogip_dictionary
-import datetime
-
+from datetime import datetime
+import gc
 
 def dict_add(dict,dir,file,statobj):
     #  If an entry for this directory exists, add an entry for the
@@ -161,16 +161,16 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
             continue
         for name in [x for x in files if not x.endswith(ignore['suffixes'])]:
             one=os.path.join(dir, name)
-            print datetime.datetime.now()
+            print "\nTIMESTAMP:  " + datetime.now().strftime("%Y-%m-%d %X")
             if logdir:
                 logpath= os.path.join(logdir,os.path.relpath(dir,basedir))
                 if not os.path.isdir(logpath):  os.makedirs(logpath)
                 logfile=os.path.join(logpath,name+".check.log")
-                print("\nCHECKING %s;  see log in %s" % (one, logfile) )
+                print("CHECKING %s;  see log in %s" % (one, logfile) )
                 sys.stdout.flush()
             else:
                 logfile=sys.stdout
-                print("\nCHECKING %s" % one)
+                print("CHECKING %s" % one)
                 sys.stdout.flush()
             #  Returns status that contains both the counts of errors,
             #  warnings, and the logged reports.  
@@ -183,6 +183,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
                 sys.stdout.flush()
             # Store the retstat info for the file
             summary.update(dir=dir,file=name,statobj=status)
+            gc.collect() # Should be unnecessary but just in case.
 
     print("\n***************************************************")
     print("Done checking.  Now to summarize:\n")

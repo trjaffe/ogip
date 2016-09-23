@@ -66,7 +66,6 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
                 if status.status != 0:
                     print("ERROR:  No error raised, but status is %s." % status.status)
                     sys.stdout.flush()
-                    cleanup(hdulist)
                     return status
     else:
         try:
@@ -74,21 +73,18 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
         except IOError:
         #  Cases should be trapped in robust_open and already
         #  reflected in status:
-            cleanup(hdulist)
             return status
         except:
         #  For the unexpected, e.g., the system call to gunzip fails
         #  for some reason:
             print("ERROR:  Non-IOError error raised.  Status is %s." % status.status)
             sys.stdout.flush()
-            cleanup(hdulist)
             return status
         else:
         #  Just in case:
             if status.status != 0:
                 print("ERROR:  No error raised, but status is %s." % status.status)
                 sys.stdout.flush()
-                cleanup(hdulist)
                 return status
 
 
@@ -99,14 +95,12 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
         status.update(report="ERROR:  file does not pass FITS verification but able to continue.",fver=1)
     if fits_errs == 2:  
         status.update(report="ERROR:  file does not pass FITS verification;  giving up.",fver=2,status=1)
-        cleanup(hdulist)
         return status
 
 
     numext= len(hdulist)
     if numext <= 1:
         status.update(report="ERROR: File needs at least 1 BINARY extension in addition to the PRIMARY; only found %i total" % numext, status=1)
-        cleanup(hdulist)
         return status
 
     # Get a list of all the extnames (after the 0th, which is PRIMARY)
@@ -115,7 +109,6 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
     extnames= [x.name for x in hdulist[1:] if x.header['XTENSION'].startswith('BINTABLE') ]
     if len(extnames) == 0:
         status.update(report="ERROR:  file does not have BINTABLE extension.",status=1)
-        cleanup(hdulist)
         return status
 
     if extnames[0] == '':
@@ -141,7 +134,6 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
             if dtype:
                 if dtype == 'none':
                     status.update(report="ERROR:  do not recognize the file as any type (extnames "+", ".join(extnames)+")",status=1,unrec=1)
-                    cleanup(hdulist)
                     return status
                 else:
                     status.update(report="ERROR:  failed to determine the file type;  trying %s" % dtype,err=1,log=logf)
@@ -159,7 +151,6 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
     ogip_dict=ogip_dictionary(otype)
     if ogip_dict==0:
         status.update(report="ERROR:  do not recognize OGIP type %s" % otype, status=1)
-        cleanup(hdulist)
         return status
 
     fname = filename
@@ -226,7 +217,6 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
         print("\nFile %s conforms to the OGIP Standards" % filename,file=logf)
 
 
-    cleanup(hdulist)
     return status
 
 
