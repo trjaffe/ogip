@@ -273,7 +273,7 @@ def ogip_fits_verify(hdulist,filename,logf,status):
         stat=ftv.returncode
         if stat != 0: raise OSError
     except OSError:
-        print("ERROR:  Could not ftverify the file.  The futil ftverify needs to be in the path for a spawned shell command!")
+        print("ERROR: external call to ftverify returns an error.")
 #        exit(-1)
 
     #  I don't actually want to keep the STDOUT from ftverify, only
@@ -455,7 +455,8 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
         if not Foundcol:
             status.update(extn=extna,report= "WARNING: Recommended column %s missing from %s[%s]" % (col, file,  this_extn), warn=1,log=logf, miscol=col)
 
-        return
+    return
+
 ##  
 ##  def check_relkeys(key, ref_extn, filename, header, this_extn, logf, status, required=True):
 ##      """
