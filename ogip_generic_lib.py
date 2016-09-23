@@ -5,6 +5,7 @@ import os
 import subprocess
 from ogip_dictionary import ogip_dictionary
 import re
+import gc
 
 """
 Library of generic functions used by OGIP check utilities.
@@ -150,7 +151,7 @@ def robust_open(filename,logf,status):
 
     try:
         print("Attempting to open file %s" % filename,file=logf)
-        hdulist=pyfits.open(filename)
+        hdulist=pyfits.open(filename,mmap=True)
 
     except IOError:
         if filename.endswith(".gz"):
@@ -162,7 +163,7 @@ def robust_open(filename,logf,status):
             if os.path.islink(tmpname):  os.remove(tmpname)
             os.symlink(filename,tmpname)
             try:
-                hdulist=pyfits.open(tmpname)
+                hdulist=pyfits.open(tmpname,mmap=True)
             except IOError:
                 os.remove(tmpname)
                 status.update(report="ERROR: Could not open %s as a FITS file (gzipped or not); RETURNING" % os.path.basename(filename), status=1,fopen=1)
@@ -182,7 +183,7 @@ def robust_open(filename,logf,status):
                 try:
                     print("Trying now to open it again as FITS.",file=logf)
                     tmpname=tmpname[:-2]
-                    hdulist=pyfits.open(tmpname)
+                    hdulist=pyfits.open(tmpname,mmap=True)
                 except IOError:
                     os.remove(tmpname)
                     status.update(report="ERROR: Could not open %s as a FITS file (even unzipped); RETURNING" % os.path.basename(filename), status=1,fopen=1)
@@ -210,6 +211,22 @@ def robust_open(filename,logf,status):
     if os.path.isfile(tmpname):  os.remove(tmpname)
 
     return hdulist
+
+
+
+
+
+
+
+def cleanup(hdulist):
+    for hdu in hdulist:
+        del hdu.data
+    hdulist.close()
+    gc.collect()
+
+
+
+
 
 
 
@@ -438,10 +455,7 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
         if not Foundcol:
             status.update(extn=extna,report= "WARNING: Recommended column %s missing from %s[%s]" % (col, file,  this_extn), warn=1,log=logf, miscol=col)
 
-    # Backward compatibility
-    missing={'REF_EXTN':ref_extn ,'MISSING_KEYWORDS':status.extns[extna].MISKEYS, 'MISSING_COLUMNS':status.extns[extna].MISCOLS}
-
-    return missing
+        return
 ##  
 ##  def check_relkeys(key, ref_extn, filename, header, this_extn, logf, status, required=True):
 ##      """

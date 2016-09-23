@@ -3,7 +3,7 @@ from ogip_check import ogip_check
 from ogip_generic_lib import *
 from itertools import chain
 from ogip_dictionary import ogip_dictionary
-
+import datetime
 
 
 def dict_add(dict,dir,file,statobj):
@@ -161,14 +161,17 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
             continue
         for name in [x for x in files if not x.endswith(ignore['suffixes'])]:
             one=os.path.join(dir, name)
+            print datetime.datetime.now()
             if logdir:
                 logpath= os.path.join(logdir,os.path.relpath(dir,basedir))
                 if not os.path.isdir(logpath):  os.makedirs(logpath)
                 logfile=os.path.join(logpath,name+".check.log")
                 print("\nCHECKING %s;  see log in %s" % (one, logfile) )
+                sys.stdout.flush()
             else:
                 logfile=sys.stdout
                 print("\nCHECKING %s" % one)
+                sys.stdout.flush()
             #  Returns status that contains both the counts of errors,
             #  warnings, and the logged reports.  
             status=ogip_check(one,None,logfile,verbosity,dtype=default_type)
@@ -177,6 +180,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
                 #print("ERROR:  failed to check file %s;  see log in %s\nContinuing." % (one, logfile) )
             if status.status == 0:
                 print("Done.  Found file of type %s with %s errors and %s warnings." % (status.otype, status.tot_errors(),status.tot_warnings() ) )
+                sys.stdout.flush()
             # Store the retstat info for the file
             summary.update(dir=dir,file=name,statobj=status)
 
