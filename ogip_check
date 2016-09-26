@@ -1,4 +1,4 @@
-#! /usr/bin/env python -W all::UserWarning:
+#! /usr/bin/env python 
 
 #
 # Note that the -W is required in order to avoid python's warnings
