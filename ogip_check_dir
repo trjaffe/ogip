@@ -1,4 +1,12 @@
-#! /usr/bin/env python
+#! /usr/bin/env python -W all::UserWarning:
+
+#
+# Note that the -W is required in order to avoid python's warnings
+# module from supressing repeated messages, which we would actually
+# want to see from possibly the same wrong keywords in different files
+# or exensions...
+#
+
 from ogip_check_dir import ogip_check_dir
 
 if __name__== "__main__":

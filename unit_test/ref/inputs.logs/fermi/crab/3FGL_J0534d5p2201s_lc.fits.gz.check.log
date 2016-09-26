@@ -7,6 +7,22 @@ Ftverify:  *** Error:   Keyword #98, CNF95SMI: Type of value "NAN" is unknown.
 Ftverify:  *** Error:   Keyword #99, CNF95PA: Type of value "NAN" is unknown.
 Ftverify:  
 Trying to fix simple errors with astropy.io.fits.verify(option='fix')
+WARNING: VerifyWarning: Verification reported errors: [astropy.io.fits.verify]
+WARNING: VerifyWarning: HDU 1: [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 93: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'CNF68SMA' is not FITS standard (invalid value string: 'NAN /').  Fixed 'CNF68SMA' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 94: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'CNF68SMI' is not FITS standard (invalid value string: 'NAN /').  Fixed 'CNF68SMI' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 95: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'CNF68PA' is not FITS standard (invalid value string: 'NAN /').  Fixed 'CNF68PA' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 96: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'CNF95SMA' is not FITS standard (invalid value string: 'NAN /').  Fixed 'CNF95SMA' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 97: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'CNF95SMI' is not FITS standard (invalid value string: 'NAN /').  Fixed 'CNF95SMI' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning:     Card 98: [astropy.io.fits.verify]
+WARNING: VerifyWarning:         Card 'CNF95PA' is not FITS standard (invalid value string: 'NAN /').  Fixed 'CNF95PA' card to meet the FITS standard. [astropy.io.fits.verify]
+WARNING: VerifyWarning: Note: PyFITS uses zero-based indexing.
+ [astropy.io.fits.verify]
 
 Checking file as type TIMING
 
