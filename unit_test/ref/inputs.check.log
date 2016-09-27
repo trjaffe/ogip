@@ -5,110 +5,110 @@ Running ogip_check_dir with:
     ignore {'directories': ('',), 'suffixes': ('.jpg', '.txt', '.gif', '.dat', '.ps', '.html', '.par', '.PNG', '.PDF', '.HTM', '.jpg.gz', '.txt.gz', '.gif.gz', '.dat.gz', '.ps.gz', '.html.gz', '.par.gz', '.PNG.gz', '.PDF.gz', '.HTM.gz')}
 
 
-TIMESTAMP:  2016-09-26 11:21:07
+TIMESTAMP:  2016-09-27 12:45:00
 CHECKING inputs/chandra/acisf07364N004_evt2.fits.gz;  see log in out/inputs.logs/chandra/acisf07364N004_evt2.fits.gz.check.log
 Done.  Found file of type TIMING with 0 errors and 75 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:07
+TIMESTAMP:  2016-09-27 12:45:00
 CHECKING inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201_lc.fits.gz;  see log in out/inputs.logs/fermi/crab/lightcurves/3FGL_J0534d5p2201_lc.fits.gz.check.log
 Done.  Found file of type TIMING with 3 errors and 26 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:07
+TIMESTAMP:  2016-09-27 12:45:00
 CHECKING inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201i_lc.fits.gz;  see log in out/inputs.logs/fermi/crab/lightcurves/3FGL_J0534d5p2201i_lc.fits.gz.check.log
 ERROR:  file does not pass FITS verification but able to continue.
 Done.  Found file of type TIMING with 3 errors and 26 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:07
+TIMESTAMP:  2016-09-27 12:45:01
 CHECKING inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201s_lc.fits.gz;  see log in out/inputs.logs/fermi/crab/lightcurves/3FGL_J0534d5p2201s_lc.fits.gz.check.log
 ERROR:  file does not pass FITS verification but able to continue.
 Done.  Found file of type TIMING with 3 errors and 26 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:07
+TIMESTAMP:  2016-09-27 12:45:01
 CHECKING inputs/fermi/crab/3FGL_J0534d5p2201s_lc.fits.gz;  see log in out/inputs.logs/fermi/crab/3FGL_J0534d5p2201s_lc.fits.gz.check.log
 ERROR:  file does not pass FITS verification but able to continue.
 Done.  Found file of type TIMING with 3 errors and 26 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:07
+TIMESTAMP:  2016-09-27 12:45:01
 CHECKING inputs/integral/crab/high_level/spectra/Crab_rmf.fits.gz;  see log in out/inputs.logs/integral/crab/high_level/spectra/Crab_rmf.fits.gz.check.log
-Done.  Found file of type CALDB with 22 errors and 12 warnings.
+Done.  Found file of type RMF with 22 errors and 11 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:08
+TIMESTAMP:  2016-09-27 12:45:01
 CHECKING inputs/integral/crab/high_level/spectra/Crab_sum_arf.fits.gz;  see log in out/inputs.logs/integral/crab/high_level/spectra/Crab_sum_arf.fits.gz.check.log
 Done.  Found file of type ARF with 14 errors and 6 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:08
+TIMESTAMP:  2016-09-27 12:45:01
 CHECKING inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz;  see log in out/inputs.logs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz.check.log
 ERROR:  file does not pass FITS verification but able to continue.
 Done.  Found file of type SPECTRAL with 12 errors and 29 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:08
+TIMESTAMP:  2016-09-27 12:45:01
 CHECKING inputs/rosat/rh500047n00/raa;  see log in out/inputs.logs/rosat/rh500047n00/raa.check.log
 ERROR: could not open inputs/rosat/rh500047n00/raa as a FITS file; RETURNING
 
-TIMESTAMP:  2016-09-26 11:21:08
+TIMESTAMP:  2016-09-27 12:45:01
 CHECKING inputs/rosat/rh500047n00/rh500047n00.public_contents.Z;  see log in out/inputs.logs/rosat/rh500047n00/rh500047n00.public_contents.Z.check.log
 ERROR: Could not open rh500047n00.public_contents.Z as a FITS file (even unzipped); RETURNING
 
-TIMESTAMP:  2016-09-26 11:21:08
+TIMESTAMP:  2016-09-27 12:45:02
 CHECKING inputs/rosat/rh500047n00/rh500047n00_anc.fits.Z;  see log in out/inputs.logs/rosat/rh500047n00/rh500047n00_anc.fits.Z.check.log
 Done.  Found file of type CALDB with 48 errors and 24 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:08
+TIMESTAMP:  2016-09-27 12:45:02
 CHECKING inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z;  see log in out/inputs.logs/rosat/rh500047n00/rh500047n00_bas.fits.Z.check.log
-Done.  Found file of type TIMING with 1 errors and 8 warnings.
+Done.  Found file of type TIMING with 10 errors and 34 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:15
+TIMESTAMP:  2016-09-27 12:45:08
 CHECKING inputs/rosat/rh500047n00/rh500047n00_bk1.fits.Z;  see log in out/inputs.logs/rosat/rh500047n00/rh500047n00_bk1.fits.Z.check.log
 ERROR: File needs at least 1 BINARY extension in addition to the PRIMARY; only found 1 total
 
-TIMESTAMP:  2016-09-26 11:21:15
+TIMESTAMP:  2016-09-27 12:45:08
 CHECKING inputs/rosat/rh500047n00/rh500047n00_his.fits.Z;  see log in out/inputs.logs/rosat/rh500047n00/rh500047n00_his.fits.Z.check.log
 ERROR:  file does not pass FITS verification but able to continue.
 Done.  Found file of type CALDB with 264 errors and 96 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:15
+TIMESTAMP:  2016-09-27 12:45:09
 CHECKING inputs/rosat/rh500047n00/rh500047n00_im1.fits.Z;  see log in out/inputs.logs/rosat/rh500047n00/rh500047n00_im1.fits.Z.check.log
 ERROR: File needs at least 1 BINARY extension in addition to the PRIMARY; only found 1 total
 
-TIMESTAMP:  2016-09-26 11:21:16
+TIMESTAMP:  2016-09-27 12:45:09
 CHECKING inputs/rosat/rh500047n00/rh500047n00_prt.fits.Z;  see log in out/inputs.logs/rosat/rh500047n00/rh500047n00_prt.fits.Z.check.log
 ERROR:  file does not pass FITS verification but able to continue.
 Done.  Found file of type CALDB with 112 errors and 56 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:16
+TIMESTAMP:  2016-09-27 12:45:09
 CHECKING inputs/suzaku/ae905006010xi0_1_conf_uf.gti.gz;  see log in out/inputs.logs/suzaku/ae905006010xi0_1_conf_uf.gti.gz.check.log
 WARNING:  Filename ae905006010xi0_1_conf_uf.gti.gz ends with .gz but appears not to be gzipped;  has been opened after removing the suffix.
 Done.  Found file of type TIMING with 1 errors and 16 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:16
+TIMESTAMP:  2016-09-27 12:45:09
 CHECKING inputs/asca_sis_bcf_calfile.fits;  see log in out/inputs.logs/./asca_sis_bcf_calfile.fits.check.log
 Done.  Found file of type CALDB with 16 errors and 48 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:16
+TIMESTAMP:  2016-09-27 12:45:09
 CHECKING inputs/fermi_lat_bcf_edisp_calfile.fits;  see log in out/inputs.logs/./fermi_lat_bcf_edisp_calfile.fits.check.log
-Done.  Found file of type CALDB with 1 errors and 6 warnings.
+Done.  Found file of type RMF with 30 errors and 14 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:16
+TIMESTAMP:  2016-09-27 12:45:09
 CHECKING inputs/hexte.arf;  see log in out/inputs.logs/./hexte.arf.check.log
 Done.  Found file of type ARF with 6 errors and 5 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:16
+TIMESTAMP:  2016-09-27 12:45:09
 CHECKING inputs/specresp_matrix.rmf;  see log in out/inputs.logs/./specresp_matrix.rmf.check.log
 Done.  Found file of type RMF with 3 errors and 7 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:16
+TIMESTAMP:  2016-09-27 12:45:09
 CHECKING inputs/spectrum.pha;  see log in out/inputs.logs/./spectrum.pha.check.log
 Done.  Found file of type SPECTRAL with 14 errors and 27 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:16
+TIMESTAMP:  2016-09-27 12:45:09
 CHECKING inputs/timing.evt;  see log in out/inputs.logs/./timing.evt.check.log
 Done.  Found file of type TIMING with 0 errors and 16 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:17
+TIMESTAMP:  2016-09-27 12:45:10
 CHECKING inputs/timing_fails.lc;  see log in out/inputs.logs/./timing_fails.lc.check.log
 Done.  Found file of type TIMING with 2 errors and 17 warnings.
 
-TIMESTAMP:  2016-09-26 11:21:17
+TIMESTAMP:  2016-09-27 12:45:10
 CHECKING inputs/timing_passes.lc;  see log in out/inputs.logs/./timing_passes.lc.check.log
 Done.  Found file of type TIMING with 0 errors and 17 warnings.
 
@@ -128,9 +128,9 @@ The total number of files with errors:  18
 
 Checked 10 files of type TIMING
 Checked 2 files of type SPECTRAL
-Checked 1 files of type RMF
+Checked 3 files of type RMF
 Checked 2 files of type ARF
-Checked 6 files of type CALDB
+Checked 4 files of type CALDB
 
 
 Summary of missing required keywords for type TIMING:
@@ -138,6 +138,13 @@ Summary of missing required keywords for type TIMING:
     Found 4 (out of 6) files have at least one extension RATE missing key ONTIME.
     Found 5 (out of 6) files have at least one extension RATE missing key TIMEREF.
     Found 1 (out of 6) files have at least one extension RATE missing key HDUCLASS.
+    Found 1 (out of 3) files have at least one extension EVENTS missing key DATE-END.
+    Found 1 (out of 3) files have at least one extension EVENTS missing key TIMESYS.
+    Found 1 (out of 3) files have at least one extension EVENTS missing key ONTIME.
+    Found 1 (out of 3) files have at least one extension EVENTS missing key TSTOP*.
+    Found 1 (out of 3) files have at least one extension EVENTS missing key TIMEUNIT.
+    Found 1 (out of 3) files have at least one extension EVENTS missing key TIMEZER*.
+    Found 1 (out of 3) files have at least one extension EVENTS missing key TSTART*.
 
 Summary of missing required keywords for type SPECTRAL:
     Found 2 (out of 2) files have at least one extension SPECTRUM missing key HDUVERS.
@@ -145,7 +152,20 @@ Summary of missing required keywords for type SPECTRAL:
     Found 1 (out of 1) files have at least one extension GTI missing key TELESCOP.
 
 Summary of missing required keywords for type RMF:
-    Found 1 (out of 1) files have at least one extension MATRIX missing key CCLS0001.
+    Found 1 (out of 3) files have at least one extension MATRIX missing key HDUVERS.
+    Found 1 (out of 3) files have at least one extension MATRIX missing key TLMIN*.
+    Found 2 (out of 3) files have at least one extension MATRIX missing key NUMELT.
+    Found 2 (out of 3) files have at least one extension MATRIX missing key CCNM0001.
+    Found 1 (out of 3) files have at least one extension MATRIX missing key CVSD0001.
+    Found 1 (out of 3) files have at least one extension MATRIX missing key DETCHANS.
+    Found 1 (out of 3) files have at least one extension MATRIX missing key CDES0001.
+    Found 2 (out of 3) files have at least one extension MATRIX missing key HDUCLAS2.
+    Found 1 (out of 3) files have at least one extension MATRIX missing key FILTER.
+    Found 2 (out of 3) files have at least one extension MATRIX missing key NUMGRP.
+    Found 1 (out of 3) files have at least one extension MATRIX missing key CVST0001.
+    Found 1 (out of 3) files have at least one extension MATRIX missing key CHANTYPE.
+    Found 3 (out of 3) files have at least one extension MATRIX missing key CCLS0001.
+    Found 1 (out of 3) files have at least one extension MATRIX missing key CDTP0001.
     Found 1 (out of 1) files have at least one extension EBOUNDS missing key CCLS0001.
     Found 1 (out of 1) files have at least one extension EBOUNDS missing key HDUVERS.
 
@@ -165,17 +185,17 @@ Summary of missing required keywords for type ARF:
     Found 1 (out of 2) files have at least one extension SPECRESP missing key CDTP0001.
 
 Summary of missing required keywords for type CALDB:
-    Found 4 (out of 6) files have at least one extension CALFILE missing key CBD*.
-    Found 4 (out of 6) files have at least one extension CALFILE missing key CVSD0001.
-    Found 4 (out of 6) files have at least one extension CALFILE missing key CDTP0001.
-    Found 4 (out of 6) files have at least one extension CALFILE missing key CVST0001.
-    Found 4 (out of 6) files have at least one extension CALFILE missing key CCLS0001.
-    Found 4 (out of 6) files have at least one extension CALFILE missing key CDES*.
-    Found 4 (out of 6) files have at least one extension CALFILE missing key CCNM0001.
-    Found 1 (out of 6) files have at least one extension CALFILE missing key TELESCOP.
-    Found 4 (out of 6) files have at least one extension CALFILE missing key FILTER.
-    Found 1 (out of 6) files have at least one extension CALFILE missing key INSTRUME.
-    Found 3 (out of 6) files have at least one extension CALFILE missing key DETNAM.
+    Found 3 (out of 4) files have at least one extension CALFILE missing key CBD*.
+    Found 3 (out of 4) files have at least one extension CALFILE missing key CVSD0001.
+    Found 3 (out of 4) files have at least one extension CALFILE missing key CDTP0001.
+    Found 3 (out of 4) files have at least one extension CALFILE missing key CVST0001.
+    Found 3 (out of 4) files have at least one extension CALFILE missing key CCLS0001.
+    Found 3 (out of 4) files have at least one extension CALFILE missing key CDES*.
+    Found 3 (out of 4) files have at least one extension CALFILE missing key CCNM0001.
+    Found 1 (out of 4) files have at least one extension CALFILE missing key TELESCOP.
+    Found 2 (out of 4) files have at least one extension CALFILE missing key FILTER.
+    Found 1 (out of 4) files have at least one extension CALFILE missing key INSTRUME.
+    Found 3 (out of 4) files have at least one extension CALFILE missing key DETNAM.
 
 Done
 

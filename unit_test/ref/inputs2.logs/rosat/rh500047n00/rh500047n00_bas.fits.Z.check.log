@@ -3,7 +3,7 @@ Failed to open as a FITS file.  Trying to unzip first.
 Trying to gunzip it.
 Trying now to open it again as FITS.
 
-Checking file as type TIMING
+Checking file as type TIMING (match for this file's STDGTI and reference extension GTI)
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
@@ -20,11 +20,46 @@ WARNING: Key TSTART incorrect in rh500047n00_bas.fits.Z[STDGTI]
 WARNING: Key TIMEUNIT incorrect in rh500047n00_bas.fits.Z[STDGTI]
 WARNING: Recommended column TIMEDEL missing from rh500047n00_bas.fits.Z[STDGTI]
 
-Extension 'STDEVT' is not an OGIP defined extension for this type;  ignoring.
+=============== Checking 'STDEVT' extension against 'EVENTS' standard ===============
 
+ERROR: Key DATE-END incorrect in rh500047n00_bas.fits.Z[STDEVT]
+ERROR: Key TIMEZER* incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Key TIERABSO incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Key NUMBAND incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Key TIME-END incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Key AUTHOR incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Key BACKAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Key DEADAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Key TIERRELA incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Key DETNAM incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Key VIGNAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Recommended column DETX missing from rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Recommended column DETY missing from rh500047n00_bas.fits.Z[STDEVT]
 
-Extension 'REJEVT' is not an OGIP defined extension for this type;  ignoring.
+=============== Checking 'REJEVT' extension against 'EVENTS' standard ===============
 
+ERROR: Key DATE-END incorrect in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key TIMESYS incorrect in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key ONTIME incorrect in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key TSTOP* incorrect in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key TIMEUNIT incorrect in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key TIMEZER* incorrect in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key TSTART* incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key TIERABSO incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key NUMBAND incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key TIME-END incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key ONTIME incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key AUTHOR incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key BACKAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key DEADAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key TIERRELA incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key DETNAM incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key TASSIGN incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key CLOCKCOR incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key TIMVERSN incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Key VIGNAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Recommended column DETX missing from rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Recommended column DETY missing from rh500047n00_bas.fits.Z[REJEVT]
 
 Extension 'TSI' is not an OGIP defined extension for this type;  ignoring.
 
@@ -35,7 +70,7 @@ Extension 'STDQLM' is not an OGIP defined extension for this type;  ignoring.
 Extension 'ALLQLM' is not an OGIP defined extension for this type;  ignoring.
 
 
-=============== 1 Errors and 8 Warnings Found in 1 extensions checked ===============
+=============== 10 Errors and 34 Warnings Found in 3 extensions checked ===============
 
 
 ===========================================================

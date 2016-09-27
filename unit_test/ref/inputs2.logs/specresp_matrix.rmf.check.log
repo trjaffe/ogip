@@ -1,6 +1,6 @@
 Attempting to open file inputs/specresp_matrix.rmf
 
-Checking file as type RMF
+Checking file as type RMF (match for this file's SPECRESP MATRIX and reference extension MATRIX)
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 

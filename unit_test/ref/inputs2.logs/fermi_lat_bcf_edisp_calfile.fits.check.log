@@ -1,29 +1,66 @@
 Attempting to open file inputs/fermi_lat_bcf_edisp_calfile.fits
 
-Checking file as type CALDB
+Checking file as type RMF (match for this file's ENERGY DISPERSION and reference extension MATRIX)
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
+ERROR: fermi_lat_bcf_edisp_calfile.fits does not have any of the required extension names
 
-=============== Checking 'ENERGY DISPERSION' extension against 'CALFILE' standard ===============
+=============== Checking 'ENERGY DISPERSION' extension against 'MATRIX' standard ===============
 
+ERROR: Key HDUVERS incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+ERROR: Key TLMIN* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+ERROR: Key NUMELT incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+ERROR: Key CCNM0001 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+ERROR: Key DETCHANS incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+ERROR: Key HDUCLAS2 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
 ERROR: Key FILTER incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
-WARNING: Key CTEL* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
-WARNING: Key CFI* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
-WARNING: Key CINS* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+ERROR: Key NUMGRP incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+ERROR: Key CHANTYPE incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+ERROR: Key CCLS0001 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING: Key PHAFILE incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING: Key RMFVERSN incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING: Key HDUVERS1 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING: Key HDUVERS2 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING: Key LO_THRES incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING: Key HDUCLAS3 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+ERROR: Required column MATRIX missing from fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+ERROR: Required column F_CHAN missing from fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+ERROR: Required column N_CHAN missing from fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+ERROR: Required column N_GRP missing from fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING: Recommended column ORDER missing from fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
 
-=============== Checking 'EDISP_SCALING_PARAMS' extension against 'CALFILE' standard ===============
+=============== Checking 'EDISP_SCALING_PARAMS' extension against 'MATRIX' standard ===============
 
-WARNING: Key CTEL* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
-WARNING: Key CFI* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
-WARNING: Key CINS* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Key HDUVERS incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Key TLMIN* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Key NUMELT incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Key CCNM0001 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Key DETCHANS incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Key HDUCLAS2 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Key NUMGRP incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Key CHANTYPE incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Key CCLS0001 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING: Key PHAFILE incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING: Key RMFVERSN incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING: Key HDUVERS1 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING: Key HDUVERS2 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING: Key LO_THRES incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING: Key HDUCLAS3 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Required column ENERG_HI missing from fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Required column MATRIX missing from fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Required column F_CHAN missing from fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Required column ENERG_LO missing from fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Required column N_CHAN missing from fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+ERROR: Required column N_GRP missing from fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING: Recommended column ORDER missing from fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
 
-=============== 1 Errors and 6 Warnings Found in 2 extensions checked ===============
+=============== 30 Errors and 14 Warnings Found in 2 extensions checked ===============
 
 
 ===========================================================
 
 FAILURE: inputs/fermi_lat_bcf_edisp_calfile.fits is not a Valid OGIP formatted file
-Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
+Please see OGIP/92-002, OGIP/92-002a: The Calibration Requirements for Spectral Analysis
 Available at
-   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
+   https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html

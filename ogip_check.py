@@ -117,20 +117,16 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
 
     #  Try to determine the type from the first (not PRIMARY) extension:
     if otype is None:
-        for t in ['TIMING','SPECTRAL','RMF','ARF','CALDB']:
+        #  Integral files sometimes start with indexing;  skip this
+        xno=1
+        if 'EXTNAME' in hdulist[1].header:
+            if hdulist[1].header['EXTNAME']=='GROUPING': xno=2
 
-            #  Integral files sometimes start with indexing;  skip this
-            xno=1
-            if 'EXTNAME' in hdulist[1].header:
-                if hdulist[1].header['EXTNAME']=='GROUPING': xno=2
+        ref_extn, otype =ogip_determine_ref(hdulist[xno])
 
-            ref_extn=ogip_determine_ref(hdulist[xno], t)
-
-            if ref_extn:
-                otype = t
-                print("\nChecking file as type %s" % otype,file=logf)
-                break
-        if otype is None:
+        if ref_extn is not None and otype is not None:
+            print("\nChecking file as type %s (match for this file's %s and reference extension %s)" % (otype,hdulist[xno].header['EXTNAME'],ref_extn),file=logf)
+        elif otype is None:
             if dtype:
                 if dtype == 'none':
                     status.update(report="ERROR:  do not recognize the file as any type (extnames "+", ".join(extnames)+")",status=1,unrec=1)
@@ -194,7 +190,8 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
         if otype == 'CALDB':
             ref_extn='CALFILE'
         else:
-            ref_extn = ogip_determine_ref( hdulist[extnames.index(this_extn)+1], otype )
+            #  The type is already set.  Throw away it's return val here.
+            ref_extn, t = ogip_determine_ref( hdulist[extnames.index(this_extn)+1], otype )
 
         if ref_extn:
             print("\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,ref_extn),file=logf)

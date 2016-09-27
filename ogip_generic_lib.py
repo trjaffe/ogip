@@ -316,80 +316,93 @@ def ogip_fits_verify(hdulist,filename,logf,status):
 #  - check the HDUCLAS1 and HDUCLAS2 keywords against those for each dict['EXTENSIONS']
 #  and return the first matching reference extension, or None.
 #
-def ogip_determine_ref(in_extn,otype):
+def ogip_determine_ref(in_extn, intype=None):
 
-    #  Look for a matching extension based on the EXTNAME or its HDUCLAS1 keyword.  
+    if intype is not None:
+        types=[intype]
+    else:
+        types=['TIMING','SPECTRAL','RMF','ARF','CALDB']
 
+    #  Look for a matching extension based on the EXTNAME or its HDUCLAS* keywords.  
+    #
     #  Since a GTI extension can be spectral or timing, cannot use
-    #  it to determine the type.  (Though it probably shouldn't be
-    #  the first extension.)  
+    #  it to determine the type.
+    #
+    #  Likewise, HDUCLAS1==RESPONSE can be either RMF or ARF or
+    #  possibly CALDB, so check HDUCLAS2.
 
-    #  Likewise, HDUCLAS1==RESPONSE can be either RMF or ARF, so
-    #  check HDUCLAS2.
 
-    ogip_dict=ogip_dictionary(otype)
-    all_extns=ogip_dict['EXTENSIONS']['REQUIRED']+ogip_dict['EXTENSIONS']['OPTIONAL']
+    #  First, check the extensions.  
 
-    #  Easy case: the extension name matches the reference
-    #  extension name for a type
-    if 'EXTNAME' in in_extn.header:
+    for otype in types: 
+        ogip_dict=ogip_dictionary(otype)
+        all_extns=ogip_dict['EXTENSIONS']['REQUIRED']+ogip_dict['EXTENSIONS']['OPTIONAL']
 
-        if in_extn.header['EXTNAME'] in all_extns:  
-            return in_extn.header['EXTNAME']
+        #  Easy case: the extension name matches the reference
+        #  extension name for a type
+        if 'EXTNAME' in in_extn.header:
 
-        #  Second easiest case: for each reference extension, 
-        #  see if the ref extname is a substring of the
-        #  actual extension name (e.g., RMF type 'MATRIX'
-        #  extension is sometimes 'SPECRESP MATRIX' in some
-        #  missions:
-        for extn in all_extns:
-            if ( extn in in_extn.header['EXTNAME'] and extn != ''):
-                return extn  
+            if in_extn.header['EXTNAME'] in all_extns:  
+                return in_extn.header['EXTNAME'], otype 
 
-        #  If that hasn't worked, check alternate extension
-        #  names for each defined extension:
-        for extn in [x for x in all_extns if x in ogip_dict['ALT_EXTNS'] ] :
-            for aextn in ogip_dict['ALT_EXTNS'][extn]:
-                if aextn in  in_extn.header['EXTNAME']:
-                    return extn
+            #  Second easiest case: for each reference extension, 
+            #  see if the ref extname is a substring of the
+            #  actual extension name (e.g., RMF type 'MATRIX'
+            #  extension is sometimes 'SPECRESP MATRIX' in some
+            #  missions:
+            for extn in all_extns:
+                if ( extn in in_extn.header['EXTNAME'] and extn != ''):
+                    return extn, otype
 
-    #  Third possibility: compare the HDUCLAS1 and HDUCLAS2
-    #  keywords (which is sometimes required and sometimes only
-    #  recommended. And may not exist in the file. Check if either
-    #  is a substring of the other.  
+            #  If that hasn't worked, check alternate extension
+            #  names for each defined extension:
+            for extn in [x for x in all_extns if x in ogip_dict['ALT_EXTNS'] ] :
+                for aextn in ogip_dict['ALT_EXTNS'][extn]:
+                    if aextn in  in_extn.header['EXTNAME']:
+                        return extn, otype 
 
-    #  Check more-specific HDUCLAS2 first. (Both ARF and RMF may have
-    #  HDUCLAS1[RESPONSE], so they'd all end up whichever came
+
+    #  If that didn't find a match, then compare the required HDUCLAS1
+    #  and HDUCLAS2 keywords.
+
+    #  Check more-specific HDUCLAS2 first. Both ARF and RMF may have
+    #  HDUCLAS1==RESPONSE, so they'd all end up whichever came
     #  first if you check that first. Check HDUCLAS2 first, which
-    #  is MATRIX versus SPECRESP. But compare the value of the
-    #  current file's HDUCLAS2 against the reference for both
-    #  HDUCLAS1 and HDUCLAS2.
-    if 'HDUCLAS2' in in_extn.header:
+    #  is MATRIX versus SPECRESP. 
+    #
+    #  Note that if it's there, it's in REQUIRED.  Not there for CALDB type.
+    #
+    #  Note also that the HDUCLAS2 requirement sometimes checks
+    #  HDUCLAS3 as well, and it might fail because of HDUCLAS3 being
+    #  incorrect.  If so, it might still then match when HDUCLAS1 is
+    #  checked.  
+    #
+
+    for otype in types: 
+        ogip_dict=ogip_dictionary(otype)
+        all_extns=ogip_dict['EXTENSIONS']['REQUIRED']+ogip_dict['EXTENSIONS']['OPTIONAL']
+        #  Object needed for eval() 
+        h=hdr_check(in_extn.header) 
+
         for extn in all_extns:
-            ref_keys=dict(ogip_dict[extn]['KEYWORDS']['REQUIRED'].items()+ogip_dict[extn]['KEYWORDS']['RECOMMENDED'].items())
-            for key in [k for k in ref_keys if 'HDUCLAS2' in k]:
-                beg=key.find("[")
-                val=key[beg+1:key.find(']')].strip().upper()
-                key=key[0:beg]
-                if val in in_extn.header['HDUCLAS2'] or in_extn.header['HDUCLAS2'] in val:
-                    return extn 
 
-    #  Check less-specific HDUCLAS1, but not for ARF or RMF,
-    #  because both have value RESPONSE. 
-    if 'HDUCLAS1' in in_extn.header and not (otype == 'ARF' or otype == 'RMF'):
-        for extn in all_extns:
-            ref_keys=dict(ogip_dict[extn]['KEYWORDS']['REQUIRED'].items()+ogip_dict[extn]['KEYWORDS']['RECOMMENDED'].items())
-            for key in [k for k in ref_keys if 'HDUCLAS1' in k]:
-                #  (Should be only one)
-                beg=key.find("[")
-                val=key[beg+1:key.find(']')].strip().upper()
-                key=key[0:beg]
-                if val in in_extn.header['HDUCLAS1'] or in_extn.header['HDUCLAS1'] in val:
-                    return extn 
+            if 'HDUCLAS2' in in_extn.header and 'HDUCLAS2' in ogip_dict[extn]['KEYWORDS']['REQUIRED']:
+                if eval(ogip_dict[extn]['KEYWORDS']['REQUIRED']['HDUCLAS2']):
+                    return extn, otype
 
-    if 'CCLS0001' in in_extn.header and otype == 'CALDB':
-        return 'CALFILE'
+            #  Check less-specific HDUCLAS1, but not for ARF or RMF,
+            #  because both have value RESPONSE. 
+            if 'HDUCLAS1' in in_extn.header and 'HDUCLAS1' in ogip_dict[extn]['KEYWORDS']['REQUIRED']:
+                if eval(ogip_dict[extn]['KEYWORDS']['REQUIRED']['HDUCLAS1']):
+                    return extn, otype
 
+
+    #  Lastly, since there's no other way to recognize a CALDB type:
+    if (intype is None and 'CCLS0001' in in_extn.header) or intype == 'CALDB':
+        return 'CALFILE', 'CALDB'
+
+    #  If you get here, no match, return Nones
+    return None, None
 
 
 

@@ -1,58 +1,58 @@
 Attempting to open file inputs/integral/crab/high_level/spectra/Crab_rmf.fits.gz
-ERROR:  failed to determine the file type;  trying CALDB
+
+Checking file as type RMF (match for this file's ISGR-RMF.-RSP and reference extension MATRIX)
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
+ERROR: Crab_rmf.fits.gz does not have any of the required extension names
 
-=============== Checking 'GROUPING' extension against 'CALFILE' standard ===============
+Extension 'GROUPING' is not an OGIP defined extension for this type;  ignoring.
 
-ERROR: Key CBD* incorrect in Crab_rmf.fits.gz[GROUPING]
-ERROR: Key CVSD0001 incorrect in Crab_rmf.fits.gz[GROUPING]
-ERROR: Key CDTP0001 incorrect in Crab_rmf.fits.gz[GROUPING]
-ERROR: Key CVST0001 incorrect in Crab_rmf.fits.gz[GROUPING]
-ERROR: Key CCLS0001 incorrect in Crab_rmf.fits.gz[GROUPING]
-ERROR: Key CDES* incorrect in Crab_rmf.fits.gz[GROUPING]
-ERROR: Key CCNM0001 incorrect in Crab_rmf.fits.gz[GROUPING]
-ERROR: Key FILTER incorrect in Crab_rmf.fits.gz[GROUPING]
-WARNING: Key CTEL* incorrect in Crab_rmf.fits.gz[GROUPING]
-WARNING: Key CFI* incorrect in Crab_rmf.fits.gz[GROUPING]
-WARNING: Key CINS* incorrect in Crab_rmf.fits.gz[GROUPING]
-WARNING: Key CDT* incorrect in Crab_rmf.fits.gz[GROUPING]
 
-=============== Checking 'ISGR-RMF.-RSP' extension against 'CALFILE' standard ===============
+=============== Checking 'ISGR-RMF.-RSP' extension against 'MATRIX' standard ===============
 
-ERROR: Key CBD* incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+ERROR: Key CCNM0001 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
 ERROR: Key CVSD0001 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-ERROR: Key CDTP0001 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+ERROR: Key CDES0001 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
 ERROR: Key CVST0001 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
 ERROR: Key CCLS0001 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-ERROR: Key CDES* incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-ERROR: Key CCNM0001 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-WARNING: Key CTEL* incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-WARNING: Key CFI* incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-WARNING: Key CINS* incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-WARNING: Key CDT* incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+ERROR: Key CDTP0001 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+WARNING: Key PHAFILE incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+WARNING: Key HDUVERS1 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+WARNING: Key HDUVERS2 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+WARNING: Key HDUCLAS3 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+WARNING: Recommended column ORDER missing from Crab_rmf.fits.gz[ISGR-RMF.-RSP]
 
-=============== Checking 'ISGR-EBDS-MOD' extension against 'CALFILE' standard ===============
+=============== Checking 'ISGR-EBDS-MOD' extension against 'MATRIX' standard ===============
 
-ERROR: Key CBD* incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Key NUMELT incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Key CCNM0001 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 ERROR: Key CVSD0001 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-ERROR: Key CDTP0001 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Key CDES0001 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Key HDUCLAS2 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Key NUMGRP incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 ERROR: Key CVST0001 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 ERROR: Key CCLS0001 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-ERROR: Key CDES* incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-ERROR: Key CCNM0001 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-WARNING: Key CTEL* incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-WARNING: Key CFI* incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-WARNING: Key CINS* incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-WARNING: Key CDT* incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Key CDTP0001 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+WARNING: Key PHAFILE incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+WARNING: Key HDUVERS1 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+WARNING: Key HDUVERS2 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+WARNING: Key LO_THRES incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+WARNING: Key HDUCLAS3 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Required column ENERG_HI missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Required column MATRIX missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Required column F_CHAN missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Required column ENERG_LO missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Required column N_CHAN missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Required column N_GRP missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+WARNING: Recommended column ORDER missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 
-=============== 22 Errors and 12 Warnings Found in 3 extensions checked ===============
+=============== 22 Errors and 11 Warnings Found in 2 extensions checked ===============
 
 
 ===========================================================
 
 FAILURE: inputs/integral/crab/high_level/spectra/Crab_rmf.fits.gz is not a Valid OGIP formatted file
-Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
+Please see OGIP/92-002, OGIP/92-002a: The Calibration Requirements for Spectral Analysis
 Available at
-   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
+   https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html

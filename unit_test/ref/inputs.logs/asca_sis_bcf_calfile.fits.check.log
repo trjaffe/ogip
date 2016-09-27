@@ -1,6 +1,6 @@
 Attempting to open file inputs/asca_sis_bcf_calfile.fits
 
-Checking file as type CALDB
+Checking file as type CALDB (match for this file's ECD_G0E0 and reference extension CALFILE)
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 

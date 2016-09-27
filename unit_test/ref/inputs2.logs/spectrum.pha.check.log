@@ -1,6 +1,6 @@
 Attempting to open file inputs/spectrum.pha
 
-Checking file as type SPECTRAL
+Checking file as type SPECTRAL (match for this file's SPECTRUM and reference extension SPECTRUM)
 
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
