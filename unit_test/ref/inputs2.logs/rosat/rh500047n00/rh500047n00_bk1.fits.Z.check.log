@@ -2,3 +2,6 @@ Attempting to open file inputs/rosat/rh500047n00/rh500047n00_bk1.fits.Z
 Failed to open as a FITS file.  Trying to unzip first.
 Trying to gunzip it.
 Trying now to open it again as FITS.
+File opened successfully.
+Running basic FITS verification with external call to ftverify.
+Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')

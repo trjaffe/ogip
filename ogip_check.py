@@ -125,7 +125,10 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
         ref_extn, otype =ogip_determine_ref(hdulist[xno])
 
         if ref_extn is not None and otype is not None:
-            print("\nChecking file as type %s (match for this file's %s and reference extension %s)" % (otype,hdulist[xno].header['EXTNAME'],ref_extn),file=logf)
+            if 'EXTNAME' in hdulist[xno].header:
+                print("\nChecking file as type %s (match for this file's %s and reference extension %s)" % (otype,hdulist[xno].header['EXTNAME'],ref_extn),file=logf)
+            else:
+                print("\nChecking file as type %s (match for this file's NAMELESS and reference extension %s)" % (otype,ref_extn),file=logf)
         elif otype is None:
             if dtype:
                 if dtype == 'none':

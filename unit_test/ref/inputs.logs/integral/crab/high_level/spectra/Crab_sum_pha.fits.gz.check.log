@@ -1,4 +1,6 @@
 Attempting to open file inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz
+File opened successfully.
+Running basic FITS verification with external call to ftverify.
 Ftverify:  *** Error:   Keyword #37, DATE-END: (from CFITSIO error stack:)
 Ftverify:               input date string has illegal format:
 Ftverify:               UTC_format

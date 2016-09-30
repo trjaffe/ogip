@@ -1,4 +1,7 @@
 Attempting to open file inputs/chandra/acisf07364N004_evt2.fits.gz
+File opened successfully.
+Running basic FITS verification with external call to ftverify.
+Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
 
 Checking file as type TIMING (match for this file's EVENTS and reference extension EVENTS)
 
