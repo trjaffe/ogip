@@ -156,9 +156,13 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
 
 
     # Goes through all contents of root directory
-    for dir, subdirs, files in os.walk(basedir, topdown=False):
+    for dir, subdirs, files in os.walk(basedir, topdown=False,followlinks=True):
         if dir in ignore['directories']:
             continue
+
+        print "\n\n************************************************"
+        print "TIMESTAMP:  Now on directory %s" % dir 
+        print "************************************************"
         for name in [x for x in files if not x.endswith(ignore['suffixes'])]:
             one=os.path.join(dir, name)
             print "\nTIMESTAMP:  " + datetime.now().strftime("%Y-%m-%d %X")

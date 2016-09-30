@@ -210,6 +210,8 @@ def robust_open(filename,logf,status):
     if os.path.islink(tmpname):  os.unlink(tmpname)
     if os.path.isfile(tmpname):  os.remove(tmpname)
 
+    print("File opened successfully.",file=logf)
+
     return hdulist
 
 
@@ -235,15 +237,6 @@ def ogip_fits_verify(hdulist,filename,logf,status):
 
     """
 
-    The report to STDERR of problems found by astropy.io.fits.verify() does 
-    not work for reasons unknown when run in the ogip_check_dir context
-    of looping over files.  The first file to fail verification gets 
-    logged but subsequent files, that information is not logged, no idea
-    why.  
-    
-
-    fits_err=0
-
     #  Temporarily redirect STDOUT and STDERR for pyfits verification:
     with stdouterr_redirector(logf):
         try:
@@ -264,8 +257,12 @@ def ogip_fits_verify(hdulist,filename,logf,status):
 
     """
 
+    fits_err=0
+
     #  I don't actually want to keep the STDOUT from ftverify, only
     #  STDERR that lists the errors.
+
+    print("Running basic FITS verification with external call to ftverify.",file=logf)
 
     try:
         ftv=subprocess.Popen("ftverify %s" % filename,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
@@ -289,10 +286,7 @@ def ogip_fits_verify(hdulist,filename,logf,status):
         #  function will return 2 if this happens.  Otherwise, we try
         #  to continue despite the possible issues (return value 1).
         #  Presume that if the verify() is satisfied, then we won't
-        #  run into actuall exceptions later.
-
-
-        #  This has the same problem as the above, cannot see what is fixed.  
+        #  run into exceptions later.
 
         with stdouterr_redirector(logf):
             try:
@@ -302,7 +296,24 @@ def ogip_fits_verify(hdulist,filename,logf,status):
                 fits_errs=2
 
     else:
-        fits_errs=0
+        #  Even if ftverify finds nothing, check the Python version
+        #  just in case.  
+
+        with stdouterr_redirector(logf):
+            try:
+                print("Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')",file=logf)
+                hdulist.verify(option='exception')
+            except:
+                #  Not yet had a case get into this block.  
+                fits_errs=1
+                #  Then try to fix it, which will thrown an exception if it cannot:
+                try: 
+                    print("Trying to fix simple errors with astropy.io.fits.verify(option='fix')",file=logf)
+                    hdulist.verify(option='fix')
+                except:
+                    fits_errs=2
+            else:
+                fits_errs=0
 
     return fits_errs
 
