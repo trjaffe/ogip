@@ -30,13 +30,14 @@ class ogip_collect:
 
     def __init__(self):
         # dictionary of directories containing lists of files that
-        # could not be checked.
+        # could not be checked for a number of reasons.
         self.bad={} 
         # dictionary of directories containing files that passed all checks
         self.good={} 
         # dictionary of directories containing files that had only warnings
         self.warned={} 
-        # dictionary of directories containing files that had errors
+        # dictionary of directories containing files that had STANDARDS errors,
+        #  either FITS standards or OGIP.  
         self.failed={} 
         # dictionary that just counts files found of each type
         self.count_types={}
@@ -87,14 +88,20 @@ class ogip_collect:
         return sum( sum([f.fopen for f in d.itervalues()]) for d in self.bad.itervalues() )
 
     def count_fver_bad(self):
-        #  These are either bad (couldn't be checked, fver==2) or
-        #  failed (could be checked but with errors, fver=1)
-        return sum( sum([f.fver/2 for f in d.itervalues()]) for d in self.bad.itervalues() )
+        #  These are always bad (couldn't be checked, fver==2).  (But not all bad have fver==2 so check.)  
+        return sum( sum([f.fver/2 for f in d.itervalues() if f.fver == 2]) for d in self.bad.itervalues() )
 
     def count_fver_fixed(self):
-        return sum( sum([f.fver for f in d.itervalues()]) for d in self.failed.itervalues() )
+        #  Want to count all those that were fixable fverify problems,
+        #  i.e., with fver==1, whether they were checked after (which
+        #  would put them in the "failed" category) or not ("bad"
+        #  category):
+        return sum( sum([f.fver for f in d.itervalues() if f.fver == 1]) for d in self.failed.itervalues() ) + \
+               sum( sum([f.fver for f in d.itervalues() if f.fver == 1]) for d in self.bad.itervalues() )
 
     def count_failed(self):
+        #  Were checked but failed in the sense of violating either
+        #  FITS or OGIP standards
         return sum(len(d) for d in self.failed.itervalues())
 
     def count_good(self):
@@ -197,7 +204,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
     print("The total number of files whose type could not be recognized:  %s" % summary.count_unrecognized() )
     print("The total number of files that could not be checked for other reasons:  %s" % int(summary.count_bad()-summary.count_fopen()-summary.count_unrecognized()) )
     print("The total number of files that failed FITS verify and could not be checked:  %s" % summary.count_fver_bad() )
-    print("The total number of files that failed FITS verify but 'fixed' and checked:  %s" % summary.count_fver_fixed() )
+    print("The total number of files that failed FITS verify but 'fixed':  %s" % summary.count_fver_fixed() )
     print("The total number of files checked:  %s" % summary.count_checked() )
     print("The total number of files with no warnings or errors:  %s" % summary.count_good() )
     print("The total number of files with only warnings:  %s" % summary.count_warned() )
