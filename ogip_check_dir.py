@@ -168,7 +168,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
             continue
 
         print "\n\n************************************************"
-        print "TIMESTAMP:  Now on directory %s" % dir 
+        print "Now on directory %s" % dir 
         print "************************************************"
         for name in [x for x in files if not x.endswith(ignore['suffixes'])]:
             one=os.path.join(dir, name)

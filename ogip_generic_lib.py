@@ -259,13 +259,10 @@ def ogip_fits_verify(hdulist,filename,logf,status):
 
     fits_err=0
 
-    #  I don't actually want to keep the STDOUT from ftverify, only
-    #  STDERR that lists the errors.
-
     print("Running basic FITS verification with external call to ftverify.",file=logf)
 
     try:
-        ftv=subprocess.Popen("ftverify %s" % filename,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        ftv=subprocess.Popen("ftverify %s" % filename,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE, close_fds=True)
         out, err = ftv.communicate()
         stat=ftv.returncode
         if stat != 0: raise OSError
@@ -305,6 +302,7 @@ def ogip_fits_verify(hdulist,filename,logf,status):
                 hdulist.verify(option='exception')
             except:
                 #  Not yet had a case get into this block.  
+                print("WARNING:  errors found by astropy.io.fits.verify() apparently not found by ftverify",file=logf)
                 fits_errs=1
                 #  Then try to fix it, which will thrown an exception if it cannot:
                 try: 
