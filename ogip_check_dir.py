@@ -138,6 +138,26 @@ class ogip_collect:
 
         return count
 
+    def count_missing_col(self,otype,extname,col):  
+        count=0
+        for d in self.warned.itervalues():
+            #  Now d is a dictionary of files for a directory.  Check
+            #  only those of the right type:
+            for fstat in (dd for dd in d.itervalues() if dd.otype == otype):
+                if extname not in fstat.extns:
+                    continue
+                if col in fstat.extns[extname].MISCOLS:  count+=1
+        for d in self.failed.itervalues():
+            for fstat in (dd for dd in d.itervalues() if dd.otype == otype):
+                if extname not in fstat.extns:
+                    continue
+                if col in fstat.extns[extname].MISCOLS:  count+=1
+
+        return count
+
+
+
+
 
 
 
@@ -159,7 +179,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
     """
     summary=ogip_collect()
 
-    print("\nRunning ogip_check_dir with:\n   directory %s\n    logdir %s\n    ignore %s\n" % (basedir,logdir,ignore) )
+    print("\nRunning ogip_check_dir with:\n   directory %s\n    logdir %s\n    ignore %s\n    default_type %s\n" % (basedir,logdir,ignore,default_type) )
 
 
     # Goes through all contents of root directory
@@ -170,7 +190,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
         print "\n\n************************************************"
         print "Now on directory %s" % dir 
         print "************************************************"
-        for name in [x for x in files if not x.endswith(ignore['suffixes'])]:
+        for name in [x for x in files if not (x.endswith(ignore['suffixes']) or x.endswith(tuple([y.upper() for y in ignore['suffixes'] ])) ) ]:
             one=os.path.join(dir, name)
             print "\nTIMESTAMP:  " + datetime.now().strftime("%Y-%m-%d %X")
 
@@ -202,9 +222,9 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
     print("The total number of files found: %s" % int(summary.count_bad()+summary.count_checked()) )
     print("The total number of files that could not be opened as FITS:  %s" % summary.count_fopen() )
     print("The total number of files whose type could not be recognized:  %s" % summary.count_unrecognized() )
-    print("The total number of files that could not be checked for other reasons:  %s" % int(summary.count_bad()-summary.count_fopen()-summary.count_unrecognized()) )
     print("The total number of files that failed FITS verify and could not be checked:  %s" % summary.count_fver_bad() )
     print("The total number of files that failed FITS verify but 'fixed':  %s" % summary.count_fver_fixed() )
+    print("The total number of files that could not be checked for other reasons:  %s" % int(summary.count_bad()-summary.count_fopen()-summary.count_unrecognized()-summary.count_fver_bad() ) )
     print("The total number of files checked:  %s" % summary.count_checked() )
     print("The total number of files with no warnings or errors:  %s" % summary.count_good() )
     print("The total number of files with only warnings:  %s" % summary.count_warned() )
@@ -224,7 +244,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
             #  Don't bother to summarize types for which no files were found
             print("Found no files of type %s" % t)
             continue 
-        print("Summary of missing required keywords for type %s:" % t)
+        print("Summary of missing required keywords and columns for type %s:" % t)
         dict=ogip_dictionary(t)
         if t == 'CALDB':
             #  CALDB types don't have required extnames.  Any files
@@ -237,7 +257,10 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
                 for k in dict[extn]['KEYWORDS']['REQUIRED']: 
                     if summary.count_missing_key(t,extn,k) > 0:
                         print("    Found %s (out of %s) files have at least one extension %s missing key %s." % (summary.count_missing_key(t,extn,k), summary.count_extnames[t][extn], extn, k) )
-
+                for c in dict[extn]['COLUMNS']['REQUIRED']:
+                    if summary.count_missing_col(t,extn,c) > 0:
+                        print("    Found %s (out of %s) files have at least one extension %s missing column %s." % (summary.count_missing_col(t,extn,c), summary.count_extnames[t][extn], extn, c) )
+                    
 
     print("\nDone\n")
 

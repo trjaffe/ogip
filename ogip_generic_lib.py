@@ -144,7 +144,6 @@ class retstat:
 
 
 
-
 def robust_open(filename,logf,status):
 
     tmpname=''
@@ -176,26 +175,28 @@ def robust_open(filename,logf,status):
             tmpname='./.ogip_check_tmp_'+os.path.basename(filename)
             #status.update(report="ERROR: cannot currently open zipped files; RETURNING", status=1)
             #raise IOError
-            subprocess.call("cp %s %s" % (filename,tmpname),shell=True)
+            if subprocess.call("cp %s %s" % (filename,tmpname),shell=True):
+                print("Failed to copy locally!",file=logf)
+                raise IOError
             try:
                 print("Trying to gunzip it.",file=logf)
-                subprocess.call("gunzip %s" % tmpname,shell=True)
+                if subprocess.call("gunzip %s" % tmpname,shell=True):
+                    print("gunzip command itself failed!",file=logf)
+                    raise IOError
+            except:
+                if os.path.isfile(tmpname):  os.remove(tmpname)
+                status.update(report="ERROR:  cannot unzip file %s" % os.path.basename(filename),status=1)
+                raise
+            else: 
                 try:
                     print("Trying now to open it again as FITS.",file=logf)
                     tmpname=tmpname[:-2]
                     hdulist=pyfits.open(tmpname,mmap=True)
-                except IOError:
+                except:
                     os.remove(tmpname)
-                    status.update(report="ERROR: Could not open %s as a FITS file (even unzipped); RETURNING" % os.path.basename(filename), status=1,fopen=1)
+                    print("Still cannot open it, quitting.",file=logf)
+                    status.update(report="ERROR: Could not open %s as a FITS file (after unzipped); RETURNING" % os.path.basename(filename), status=1,fopen=1)
                     raise IOError
-            except IOError:
-                if os.path.isfile(tmpname):  os.remove(tmpname)
-                raise IOError
-            except:
-                print("Failed to gunzip the file with Non-IOError.",file=logf)
-                if os.path.isfile(tmpname):  os.remove(tmpname)
-                status.update(report="ERROR:  cannot unzip file %s" % os.path.basename(filename),status=1)
-                raise IOError  # even though it might have been from the call to gunzip
 
         else:
 
@@ -213,6 +214,7 @@ def robust_open(filename,logf,status):
     print("File opened successfully.",file=logf)
 
     return hdulist
+
 
 
 
@@ -309,6 +311,7 @@ def ogip_fits_verify(hdulist,filename,logf,status):
                     print("Trying to fix simple errors with astropy.io.fits.verify(option='fix')",file=logf)
                     hdulist.verify(option='fix')
                 except:
+                    print("Unsuccessful, giving up",file=logf)
                     fits_errs=2
             else:
                 fits_errs=0

@@ -44,9 +44,10 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
 
 
     #  Even just trying to open it can lead to pyfits barfing errors
-    #  and warnings all over.  Leave stdout though, since
-    #  robust_open() logs what happens to stdout and we'll want to see
-    #  that.
+    #  and warnings all over (which we catch in the specific log, and
+    #  just don't want to stderr at this point).  Leave stdout though,
+    #  since robust_open() logs what happens to stdout and we'll want
+    #  to see that.
     if logf is not sys.stdout:
         with stdouterr_redirector(logf,redir_out=False):
             try:
@@ -77,7 +78,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
         except:
         #  For the unexpected, e.g., the system call to gunzip fails
         #  for some reason:
-            print("ERROR:  Non-IOError error raised.  Status is %s." % status.status)
+            print("ERROR:  Non-IOError error raised.  Error is %s, status is %s." % (sys.exc_info()[0],status.status) )
             sys.stdout.flush()
             return status
         else:
@@ -121,6 +122,9 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
         xno=1
         if 'EXTNAME' in hdulist[1].header:
             if hdulist[1].header['EXTNAME']=='GROUPING': xno=2
+            if xno+1 > len(hdulist):
+                status.update(report="ERROR:  File has only GROUPING extension.", status=1)
+                return status
 
         ref_extn, otype =ogip_determine_ref(hdulist[xno])
 
