@@ -126,8 +126,8 @@ def ogip_dictionary_spectral():
     Define Optional Columns
     """
     optcols = {
-        'DQF':"h.hasCol('DQF')", # combination of quality and grouping (not recommended)
-        'ROWID':"h.hasCol('ROWID')" # optionally used for type II files
+        'DQF':"(h.hasCol('QUALITY') and h.hasCol('GROUPING') ) or h.hasCol('DQF')", # combination of quality and grouping (not recommended)
+        'ROWID':"not h.hasCol('SPEC_NUM') or h.hasCol('ROWID')" # optionally used for type II files
     }
 
     pha = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}

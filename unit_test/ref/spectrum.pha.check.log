@@ -40,7 +40,6 @@ ERROR: Required column BACKSCAL incorrect in spectrum.pha[SPECTRUM]
 ERROR: Required column QUALITY incorrect in spectrum.pha[SPECTRUM]
 ERROR: Required column GROUPING incorrect in spectrum.pha[SPECTRUM]
 WARNING: Recommended column DQF incorrect in spectrum.pha[SPECTRUM]
-WARNING: Recommended column ROWID incorrect in spectrum.pha[SPECTRUM]
 
 =============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
@@ -49,7 +48,7 @@ WARNING: Key FILTER incorrect in spectrum.pha[STDGTI]
 WARNING: Key DETNAM incorrect in spectrum.pha[STDGTI]
 WARNING: Recommended column TIMEDEL incorrect in spectrum.pha[STDGTI]
 
-=============== 7 Errors and 28 Warnings Found in 2 extensions checked ===============
+=============== 7 Errors and 27 Warnings Found in 2 extensions checked ===============
 
 
 ===========================================================

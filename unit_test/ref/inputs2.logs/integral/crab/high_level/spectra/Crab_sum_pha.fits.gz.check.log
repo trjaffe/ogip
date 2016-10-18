@@ -52,10 +52,8 @@ WARNING: Key TIMVERSN incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key GROUPING incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 ERROR: Required column AREASCAL incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 ERROR: Required column BACKSCAL incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Recommended column DQF incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Recommended column ROWID incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 
-=============== 5 Errors and 30 Warnings Found in 1 extensions checked ===============
+=============== 5 Errors and 28 Warnings Found in 1 extensions checked ===============
 
 
 ===========================================================
