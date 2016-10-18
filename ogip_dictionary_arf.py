@@ -63,15 +63,16 @@ def ogip_dictionary_arf():
     """
     Define Required Columns
     """
-    reqcols = ['ENERG_LO'] # lower energy bound of bin (keV)
-    reqcols.append('ENERG_HI') # upper energy bound of bin (keV); generally ENERG_LO(J) = ENERG_HI(J-1)
-    reqcols.append('SPECRESP') # the "effective area"
-
+    reqcols = {
+        'ENERG_LO':"h.hasCol('ENERG_LO')", # lower energy bound of bin (keV)
+        'ENERG_HI':"h.hasCol('ENERG_HI')", # upper energy bound of bin (keV); generally ENERG_LO(J) = ENERG_HI(J-1)
+        'SPECRESP':"h.hasCol('SPECRESP')" # the "effective area"
+    }
 
     """
     Define Optional Columns
     """
-    optcols = [] # dispersion order for grating data
+    optcols = {} # dispersion order for grating data
 
     specresp = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 

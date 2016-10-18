@@ -394,7 +394,7 @@ def ogip_determine_ref(in_extn, intype=None):
         ogip_dict=ogip_dictionary(otype)
         all_extns=ogip_dict['EXTENSIONS']['REQUIRED']+ogip_dict['EXTENSIONS']['OPTIONAL']
         #  Object needed for eval() 
-        h=hdr_check(in_extn.header) 
+        h=hdr_check(in_extn.header,in_extn.columns) 
 
         for extn in all_extns:
 
@@ -440,8 +440,6 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
         
     extno=extlist.index(this_extn)  
 
-    hdr = hdu[extno].header
-
     #  DO NOT USE THIS!  For large files in memory, this somehow
     #  causes memory usage to climb to several times the size of the
     #  file.  No idea why.  Just accessing the data attribute of the
@@ -462,7 +460,7 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
 
     #  The hdr_check() object that holds the header as well as the
     #  functions in which the requirements are encoded.
-    h=hdr_check(hdr) 
+    h=hdr_check(hdu[extno].header,hdu[extno].columns) 
 
     #  Each req is a string containing code that can be evaluated that
     #  uses the methods of the hdr_check() object that must be called
@@ -479,15 +477,17 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
             status.update(extn=extna,report="WARNING: Key %s incorrect in %s[%s]" % (req,file, this_extn), warn=1,log=logf)
 
 
-    for col in ogip['COLUMNS']['REQUIRED']:
-        Foundcol = check_cols(col, colnames,logf,this_extn,status)
-        if not Foundcol:
-            status.update(extn=extna,report="ERROR: Required column %s missing from %s[%s]" % (col, file,  this_extn), err=1,log=logf, miscol=col)
+    for req in ogip['COLUMNS']['REQUIRED']:
+        if not eval(ogip['COLUMNS']['REQUIRED'][req]):
+        #Foundcol = check_cols(col, colnames,logf,this_extn,status)
+        #if not Foundcol:
+            status.update(extn=extna,report="ERROR: Required column %s incorrect in %s[%s]" % (req, file,  this_extn), err=1,log=logf, miscol=req)
 
-    for col in ogip['COLUMNS']['RECOMMENDED']:
-        Foundcol = check_cols(col, colnames,logf,this_extn,status)
-        if not Foundcol:
-            status.update(extn=extna,report= "WARNING: Recommended column %s missing from %s[%s]" % (col, file,  this_extn), warn=1,log=logf, miscol=col)
+    for req in ogip['COLUMNS']['RECOMMENDED']:
+        #Foundcol = check_cols(col, colnames,logf,this_extn,status)
+        #if not Foundcol:
+        if not eval(ogip['COLUMNS']['RECOMMENDED'][req]):
+            status.update(extn=extna,report= "WARNING: Recommended column %s incorrect in %s[%s]" % (req, file,  this_extn), warn=1,log=logf, miscol=req)
 
     return
 
@@ -603,8 +603,9 @@ req="h.Exists('KEY1') or ( h.Exists('KEY2') and h.hasVal('KEY3','VAL3') )"
 and that string will be called with eval() and returned.  
 """ 
 class hdr_check():
-    def __init__(self,hdr):
+    def __init__(self,hdr,columns):
         self.hdr=hdr
+        self.columns=columns
 
     #  Check function that checks for existence of a given keyword,
     #  and if a value is given, checks that it has that value.
@@ -646,80 +647,82 @@ class hdr_check():
         else:
             return ''
 
+    def hasCol(self,col):
+        return col in self.columns.names
+         
 
-
-
-
-
-def check_cols(col, colnames,logf, extn, status):
-    """
-    checks that the col appears in the list of column names
-    @param col:
-    @param header:
-    @return:
-    """
-
-
-    Foundcol = True
-    if "|" in col:  # this means that the column has an alternative definition (like COUNTS|RATE)
-        Foundcol = check_altcols(col, colnames,logf,status)
-    elif "+" in col:  # group column; all columns must be present if one column is
-        Foundcol = check_groupcols(col, colnames, extn, status)
-    else:
-        Foundcol = col in colnames
-    return Foundcol
-
-
-
-
-def check_altcols(col, colnames,logf,status):
-    """
-
-    @param col:
-    @param colnames:
-    @return:
-    """
-
-
-    altcols = col.split('|')
-    altcols = [x.upper().strip() for x in altcols]
-    count = 0
-    Foundcol = False
-    while (count < len(altcols)) and not Foundcol:
-        acol = altcols[count]
-        Foundcol = acol in colnames  # true if acol in colnames
-        count += 1
-    if count == len(altcols) and not Foundcol:
-        rpt = "Alternate Column %s not found in header" % col
-        print(rpt,file=logf)
-    else:
-        print("Alternate Column %s found in header" % acol,file=logf)
-    return Foundcol
-
-
-
-
-def check_groupcols(col, colnames, extn, status):
-    """
-    this function checks for grouped keywords of the form MJDREFI+MJDREFF, in which case both keywords need
-    to exist in the header; True if so, False otherwise
-    A more general case is a group like key =  A[a]+B[b]+C[c] where A, B & C all need to be present
-    and they all need to have the specified values a, b, c respectively; True if so, False otherwise
-    @param key:
-    @param header:
-    @return:
-    """
-    groupcols = col.split('+')
-    groupcols = [x.upper().strip() for x in groupcols]
-    colnames = [x.upper().strip() for x in colnames]
-    Foundcol = False
-    Foundcol = set(groupcols) < set(colnames)  # true if groupcolss a subset of column names
-    if not Foundcol:
-        status.update(extn=extn,report="Group columns %s not Found in Table" % col, log=logf)
-    else: # all columns are defined
-        print("Group columns %s found in Table",file=logf)
-    return Foundcol
-
+## 
+## 
+##  
+##  def check_cols(col, colnames,logf, extn, status):
+##      """
+##      checks that the col appears in the list of column names
+##      @param col:
+##      @param header:
+##      @return:
+##      """
+##  
+##  
+##      Foundcol = True
+##      if "|" in col:  # this means that the column has an alternative definition (like COUNTS|RATE)
+##          Foundcol = check_altcols(col, colnames,logf,status)
+##      elif "+" in col:  # group column; all columns must be present if one column is
+##          Foundcol = check_groupcols(col, colnames, extn, status)
+##      else:
+##          Foundcol = col in colnames
+##      return Foundcol
+##  
+##  
+##  
+##  
+##  def check_altcols(col, colnames,logf,status):
+##      """
+##  
+##      @param col:
+##      @param colnames:
+##      @return:
+##      """
+##  
+##  
+##      altcols = col.split('|')
+##      altcols = [x.upper().strip() for x in altcols]
+##      count = 0
+##      Foundcol = False
+##      while (count < len(altcols)) and not Foundcol:
+##          acol = altcols[count]
+##          Foundcol = acol in colnames  # true if acol in colnames
+##          count += 1
+##      if count == len(altcols) and not Foundcol:
+##          rpt = "Alternate Column %s not found in header" % col
+##          print(rpt,file=logf)
+##      else:
+##          print("Alternate Column %s found in header" % acol,file=logf)
+##      return Foundcol
+##  
+##  
+##  
+##  
+##  def check_groupcols(col, colnames, extn, status):
+##      """
+##      this function checks for grouped keywords of the form MJDREFI+MJDREFF, in which case both keywords need
+##      to exist in the header; True if so, False otherwise
+##      A more general case is a group like key =  A[a]+B[b]+C[c] where A, B & C all need to be present
+##      and they all need to have the specified values a, b, c respectively; True if so, False otherwise
+##      @param key:
+##      @param header:
+##      @return:
+##      """
+##      groupcols = col.split('+')
+##      groupcols = [x.upper().strip() for x in groupcols]
+##      colnames = [x.upper().strip() for x in colnames]
+##      Foundcol = False
+##      Foundcol = set(groupcols) < set(colnames)  # true if groupcolss a subset of column names
+##      if not Foundcol:
+##          status.update(extn=extn,report="Group columns %s not Found in Table" % col, log=logf)
+##      else: # all columns are defined
+##          print("Group columns %s found in Table",file=logf)
+##      return Foundcol
+##  
 
 
 

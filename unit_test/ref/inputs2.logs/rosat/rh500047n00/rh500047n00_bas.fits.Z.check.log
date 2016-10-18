@@ -21,7 +21,7 @@ WARNING: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[STDGTI]
 WARNING: Key DETNAM incorrect in rh500047n00_bas.fits.Z[STDGTI]
 WARNING: Key TSTART incorrect in rh500047n00_bas.fits.Z[STDGTI]
 WARNING: Key TIMEUNIT incorrect in rh500047n00_bas.fits.Z[STDGTI]
-WARNING: Recommended column TIMEDEL missing from rh500047n00_bas.fits.Z[STDGTI]
+WARNING: Recommended column TIMEDEL incorrect in rh500047n00_bas.fits.Z[STDGTI]
 
 =============== Checking 'STDEVT' extension against 'EVENTS' standard ===============
 
@@ -36,8 +36,8 @@ WARNING: Key DEADAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
 WARNING: Key TIERRELA incorrect in rh500047n00_bas.fits.Z[STDEVT]
 WARNING: Key DETNAM incorrect in rh500047n00_bas.fits.Z[STDEVT]
 WARNING: Key VIGNAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Recommended column DETX missing from rh500047n00_bas.fits.Z[STDEVT]
-WARNING: Recommended column DETY missing from rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Recommended column DETY incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING: Recommended column DETX incorrect in rh500047n00_bas.fits.Z[STDEVT]
 
 =============== Checking 'REJEVT' extension against 'EVENTS' standard ===============
 
@@ -61,8 +61,8 @@ WARNING: Key TASSIGN incorrect in rh500047n00_bas.fits.Z[REJEVT]
 WARNING: Key CLOCKCOR incorrect in rh500047n00_bas.fits.Z[REJEVT]
 WARNING: Key TIMVERSN incorrect in rh500047n00_bas.fits.Z[REJEVT]
 WARNING: Key VIGNAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Recommended column DETX missing from rh500047n00_bas.fits.Z[REJEVT]
-WARNING: Recommended column DETY missing from rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Recommended column DETY incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING: Recommended column DETX incorrect in rh500047n00_bas.fits.Z[REJEVT]
 
 Extension 'TSI' is not an OGIP defined extension for this type;  ignoring.
 

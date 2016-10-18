@@ -11,7 +11,7 @@ ERROR: Key CCLS0001 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
 WARNING: Key PHAFILE incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
 WARNING: Key HDUVERS1 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
 WARNING: Key HDUVERS2 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
-WARNING: Recommended column ORDER missing from specresp_matrix.rmf[SPECRESP MATRIX]
+WARNING: Recommended column ORDER incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
 
 =============== Checking 'EBOUNDS' extension against 'EBOUNDS' standard ===============
 

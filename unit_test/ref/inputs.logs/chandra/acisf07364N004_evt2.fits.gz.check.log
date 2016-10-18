@@ -19,6 +19,13 @@ WARNING: Key DEADAPP incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
 WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
 WARNING: Key CLOCKCOR incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
 WARNING: Key VIGNAPP incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+ERROR: Required column TIME incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Recommended column PHA incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Recommended column DETY incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Recommended column DETX incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Recommended column Y incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Recommended column X incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
+WARNING: Recommended column PI incorrect in acisf07364N004_evt2.fits.gz[EVENTS]
 
 =============== Checking 'GTI' extension against 'GTI' standard ===============
 
@@ -32,7 +39,7 @@ WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
-WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL incorrect in acisf07364N004_evt2.fits.gz[GTI]
 
 =============== Checking 'GTI' extension against 'GTI' standard ===============
 
@@ -46,7 +53,7 @@ WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
-WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL incorrect in acisf07364N004_evt2.fits.gz[GTI]
 
 =============== Checking 'GTI' extension against 'GTI' standard ===============
 
@@ -60,7 +67,7 @@ WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
-WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL incorrect in acisf07364N004_evt2.fits.gz[GTI]
 
 =============== Checking 'GTI' extension against 'GTI' standard ===============
 
@@ -74,7 +81,7 @@ WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
-WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL incorrect in acisf07364N004_evt2.fits.gz[GTI]
 
 =============== Checking 'GTI' extension against 'GTI' standard ===============
 
@@ -88,7 +95,7 @@ WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
-WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL incorrect in acisf07364N004_evt2.fits.gz[GTI]
 
 =============== Checking 'GTI' extension against 'GTI' standard ===============
 
@@ -102,14 +109,17 @@ WARNING: Key HDUCLASS incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key FILTER incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key DETNAM incorrect in acisf07364N004_evt2.fits.gz[GTI]
 WARNING: Key ONTIME incorrect in acisf07364N004_evt2.fits.gz[GTI]
-WARNING: Recommended column TIMEDEL missing from acisf07364N004_evt2.fits.gz[GTI]
+WARNING: Recommended column TIMEDEL incorrect in acisf07364N004_evt2.fits.gz[GTI]
 
 Extension 'REGION' is not an OGIP defined extension for this type;  ignoring.
 
 
-=============== 0 Errors and 75 Warnings Found in 7 extensions checked ===============
+=============== 1 Errors and 81 Warnings Found in 7 extensions checked ===============
 
 
 ===========================================================
 
-File inputs/chandra/acisf07364N004_evt2.fits.gz conforms to the OGIP Standards
+FAILURE: inputs/chandra/acisf07364N004_evt2.fits.gz is not a Valid OGIP formatted file
+Please see OGIP/93-003: The Proposed Timing FITS File Format for High Energy Astrophysics Data
+Available at
+   http://heasarc.gsfc.nasa.gov/FTP/caldb/docs/ogip/fits_formats/docs/rates/ogip_93_003/ogip_93_003.pdf

@@ -63,18 +63,18 @@ def ogip_dictionary_rmf():
     Define Required Columns
     """
     reqcols = {
-        'ENERG_LO':"h.Exits('ENERG_LO')",        # lower energy bound of bin (keV)
-        'ENERG_HI':"h.Exists('ENERG_HI')", # upper energy bound of bin (keV); generally ENERG_LO(J) = ENERG_HI(J-1)
-        'N_GRP':"h.Exists('N_GRP')", # number of channel subsets for each row in the matrix
-        'F_CHAN':"h.Exists('F_CHAN')", # first channel number of  subset
-        'N_CHAN':"h.Exists('N_CHAN')", # number of channels in each subset
-        'MATRIX':"h.Exists('MATRIX')"
+        'ENERG_LO':"h.hasCol('ENERG_LO')",        # lower energy bound of bin (keV)
+        'ENERG_HI':"h.hasCol('ENERG_HI')", # upper energy bound of bin (keV); generally ENERG_LO(J) = ENERG_HI(J-1)
+        'N_GRP':"h.hasCol('N_GRP')", # number of channel subsets for each row in the matrix
+        'F_CHAN':"h.hasCol('F_CHAN')", # first channel number of  subset
+        'N_CHAN':"h.hasCol('N_CHAN')", # number of channels in each subset
+        'MATRIX':"h.hasCol('MATRIX')"
     }
 
     """
     Define Optional Columns
     """
-    optcols = ['ORDER'] # dispersion order for grating data
+    optcols = {'ORDER':"h.hasCol('ORDER')"} # dispersion order for grating data
 
     specresp = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 
@@ -115,11 +115,15 @@ def ogip_dictionary_rmf():
     """
     Define Required Columns
     """
-    reqcols = ['CHANNEL','E_MIN', 'E_MAX']
+    reqcols = {
+        'CHANNEL':"h.hasCol('CHANNEL')",
+        'E_MIN':"h.hasCol('E_MIN')", 
+        'E_MAX':"h.hasCol('E_MAX')"
+    }
     """
     Define Optional Columns
     """
-    optcols = []
+    optcols = {}
 
     ebounds={'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 
              'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}

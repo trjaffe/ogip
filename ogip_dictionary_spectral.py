@@ -35,7 +35,7 @@ def ogip_dictionary_spectral():
         'HDUCLASS':"h.hasVal('HDUCLASS','OGIP')",  # OGIP is the allowed keyword value
         'HDUCLAS1':"h.hasVal('HDUCLAS1','SPECTRUM')",  # SPECTRUM is the allowed keyword value
         'HDUVERS':"h.hasVal('HDUVERS','1.2.1')",
-        'POISSERR':"h.Exists('POISSERR')",
+        'POISSERR':"h.Exists('POISSERR') or h.hasCol('STAT_ERR')", 
         'CHANTYPE':"h.hasVal('CHANTYPE','PHA') or h.hasVal('CHANTYPE','PI')",
         'DETCHANS':"h.Exists('DETCHANS')"}
 
@@ -43,12 +43,11 @@ def ogip_dictionary_spectral():
     Define recommended Keywords
     """
     optkeys = {
-        'DETNAM':"h.Exists('DETNAM')", 
-        'TLMIN*':"h.Exists('TLMIN*')", # required if channel numbering doesn't start at 1
-        'TLMAX*':"h.Exists('TLMAX*')", # required if channel numbering doesn't start at 1
+        'XFLT*':"h.Exists('XFLT*')", # xspec filter descriptor
+        'OBJECT':"h.Exists('OBJECT')",
         'RA-OBJ':"h.Exists('RA-OBJ')",
         'DEC-OBJ':"h.Exists('DEC-OBJ')",
-        'XFLT*':"h.Exists('XFLT*')", # xspec filter descriptor
+        'DEC-OBJ':"h.Exists('DEC-OBJ')",
         'DATE-OBS':"h.Exists('DATE-OBS')",
         'DATE-END':"h.Exists('DATE-END')",
         'TIME-OBS':"h.Exists('TIME-OBS')", # time-obs can be included in date-obs
@@ -59,6 +58,15 @@ def ogip_dictionary_spectral():
         "or (h.hasVal('HDUCLAS2','NET')   and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) "
         "or (h.hasVal('HDUCLAS2','BKG')   and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) "
         "or  h.hasVal('HDUCLAS2','DETECTOR')", 
+        'HDUCLAS4':
+        "(not h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:I') ) "
+        "or ( h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:II') )",
+#
+#  TO BE FIXED: aren't in the document?
+#
+        'DETNAM':"h.Exists('DETNAM')", 
+        'TLMIN*':"h.Exists('TLMIN*')", # required if channel numbering doesn't start at 1
+        'TLMAX*':"h.Exists('TLMAX*')", # required if channel numbering doesn't start at 1
         'ONTIME':"h.Exists('ONTIME')",
         'TIMEZERO':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )",  # can be given as single keyword or integer + fraction; either ok
         'TSTART':"h.Exists('TSTART') or (h.Exists('TSTARTI') and h.Exists('TSTARTF'))",  # can be given as single keyword or integer + fraction; either ok
@@ -71,7 +79,6 @@ def ogip_dictionary_spectral():
         'GROUPING':"h.hasVal('GROUPING','0')",
         'CLOCKCOR':"h.Exists('CLOCKCOR')",
         'TIMVERSN':"h.Exists('TIMVERSN')",
-        'OBJECT':"h.Exists('OBJECT')",
         'AUTHOR':"h.Exists('AUTHOR')",
         'TASSIGN':"h.Exists('TASSIGN')",
         'TIERRELA':"h.Exists('TIERRELA')",
@@ -94,32 +101,34 @@ def ogip_dictionary_spectral():
     """
     Define Required Columns
     """
-    reqcols = ['CHANNEL'] # should be sequential
-    reqcols.append('SPEC_NUM') # required for PHA type II files
-    reqcols.append('RATE|COUNTS')  # means need either RATE or COUNTS column
-    reqcols.append('STAT_ERR') # optional if data given in counts per channel
-    reqcols.append('SYS_ERR') # can give SYS_ERR= 0 as keyword if no systematic error
-    reqcols.append('QUALITY') # can give QUALITY = 0 keyword if all data are good
-    reqcols.append('GROUPING') # can give GROUPING = 0 keyword if data are ungrouped
-    reqcols.append('AREASCAL')
-    reqcols.append('BACKSCAL') # often a measure of the area of the image from which data were extracted
-    #
-    # required for pha type 2 files
-    #
-    reqcols.append('EXPOSURE') # record of the exposure for each row in the type II file
-    reqcols.append('BACKFILE') # background file for each row in the type II file
-    reqcols.append('CORRFILE') # correction file for each row in the type II file
-    reqcols.append('CORRSCAL') # scaling for correction file for each row in the type II file
-    reqcols.append('RESPFILE') # response file for each row in the type II file
-    reqcols.append('ANCRFILE') # ancillary file for each row in the type II file
-
+    reqcols = {
+        'CHANNEL':"h.hasCol('CHANNEL')", # should be sequential
+        'RATE|COUNTS':"h.hasCol('RATE') or h.hasCol('COUNTS')",  # means need either RATE or COUNTS column
+        'STAT_ERR':"h.hasCol('STAT_ERR')", # optional if data given in counts per channel
+        'SYS_ERR':"h.hasCol('SYS_ERR')", # can give SYS_ERR= 0 as keyword if no systematic error
+        'QUALITY':"h.hasCol('QUALITY')", # can give QUALITY = 0 keyword if all data are good
+        'GROUPING':"h.hasCol('GROUPING')", # can give GROUPING = 0 keyword if data are ungrouped
+        'AREASCAL':"h.hasCol('AREASCAL')",    
+        'BACKSCAL':"h.hasCol('BACKSCAL')", # often a measure of the area of the image from which data were extracted
+        #
+        # required for pha type 2 files, which we test for using SPEC_NUM column's existence
+        #
+        #'SPEC_NUM':"h.hasCol('SPEC_NUM')",
+        'EXPOSURE':"not h.hasCol('SPEC_NUM') or h.hasCol('EXPOSURE')", # record of the exposure for each row in the type II file
+        'BACKFILE':"not h.hasCol('SPEC_NUM') or h.hasCol('BACKFILE')", # background file for each row in the type II file
+        'CORRFILE':"not h.hasCol('SPEC_NUM') or h.hasCol('CORRFILE')", # correction file for each row in the type II file
+        'CORRSCAL':"not h.hasCol('SPEC_NUM') or h.hasCol('CORRSCAL')", # scaling for correction file for each row in the type II file
+        'RESPFILE':"not h.hasCol('SPEC_NUM') or h.hasCol('RESPFILE')", # response file for each row in the type II file
+        'ANCRFILE':"not h.hasCol('SPEC_NUM') or h.hasCol('ANCRFILE')" # ancillary file for each row in the type II file
+    }
 
     """
     Define Optional Columns
     """
-    optcols = ['DQF'] # combination of quality and grouping (not recommended)
-    optcols.append('ROWID') # optionally used for type II files
-
+    optcols = {
+        'DQF':"h.hasCol('DQF')", # combination of quality and grouping (not recommended)
+        'ROWID':"h.hasCol('ROWID')" # optionally used for type II files
+    }
 
     pha = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 
@@ -157,11 +166,14 @@ def ogip_dictionary_spectral():
     """
     Define Required Columns
     """
-    reqcols = ['START', 'STOP']
+    reqcols = {
+        'START':"h.hasCol('START')", 
+        'STOP':"h.hasCol('STOP')"
+    }
     """
     Define Optional Columns
     """
-    optcols = ['TIMEDEL']
+    optcols = {'TIMEDEL':"h.hasCol('TIMEDEL')"}
 
     gti={'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
     """

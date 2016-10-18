@@ -24,7 +24,7 @@ WARNING: Key PHAFILE incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
 WARNING: Key HDUVERS1 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
 WARNING: Key HDUVERS2 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
 WARNING: Key HDUCLAS3 incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
-WARNING: Recommended column ORDER missing from Crab_rmf.fits.gz[ISGR-RMF.-RSP]
+WARNING: Recommended column ORDER incorrect in Crab_rmf.fits.gz[ISGR-RMF.-RSP]
 
 =============== Checking 'ISGR-EBDS-MOD' extension against 'MATRIX' standard ===============
 
@@ -42,13 +42,13 @@ WARNING: Key HDUVERS1 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 WARNING: Key HDUVERS2 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 WARNING: Key LO_THRES incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 WARNING: Key HDUCLAS3 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-ERROR: Required column ENERG_HI missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-ERROR: Required column MATRIX missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-ERROR: Required column F_CHAN missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-ERROR: Required column ENERG_LO missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-ERROR: Required column N_CHAN missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-ERROR: Required column N_GRP missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-WARNING: Recommended column ORDER missing from Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Required column ENERG_HI incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Required column MATRIX incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Required column F_CHAN incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Required column ENERG_LO incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Required column N_CHAN incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+ERROR: Required column N_GRP incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+WARNING: Recommended column ORDER incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 
 =============== 22 Errors and 11 Warnings Found in 2 extensions checked ===============
 

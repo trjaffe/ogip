@@ -24,10 +24,9 @@ WARNING: Key FILTER incorrect in timing_passes.lc[RATE]
 WARNING: Key DETNAM incorrect in timing_passes.lc[RATE]
 WARNING: Key BACKE* incorrect in timing_passes.lc[RATE]
 WARNING: Key DEADC* incorrect in timing_passes.lc[RATE]
-Alternate Column RATE found in header
-WARNING: Recommended column BACKV missing from timing_passes.lc[RATE]
-WARNING: Recommended column BACKE missing from timing_passes.lc[RATE]
-WARNING: Recommended column DEADC missing from timing_passes.lc[RATE]
+WARNING: Recommended column BACKV incorrect in timing_passes.lc[RATE]
+WARNING: Recommended column DEADC incorrect in timing_passes.lc[RATE]
+WARNING: Recommended column BACKE incorrect in timing_passes.lc[RATE]
 
 =============== 0 Errors and 17 Warnings Found in 1 extensions checked ===============
 

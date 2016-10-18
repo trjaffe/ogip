@@ -25,7 +25,7 @@ WARNING: Key TIMEZERO incorrect in timing.evt[STDGTI]
 WARNING: Key DEC* incorrect in timing.evt[STDGTI]
 WARNING: Key FILTER incorrect in timing.evt[STDGTI]
 WARNING: Key DETNAM incorrect in timing.evt[STDGTI]
-WARNING: Recommended column TIMEDEL missing from timing.evt[STDGTI]
+WARNING: Recommended column TIMEDEL incorrect in timing.evt[STDGTI]
 
 =============== 0 Errors and 16 Warnings Found in 2 extensions checked ===============
 

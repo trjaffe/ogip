@@ -80,10 +80,9 @@ WARNING: Key FILTER incorrect in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
 WARNING: Key DETNAM incorrect in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
 WARNING: Key BACKE* incorrect in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
 WARNING: Key DEADC* incorrect in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
-Alternate Column RATE found in header
-WARNING: Recommended column BACKV missing from 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
-WARNING: Recommended column BACKE missing from 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
-WARNING: Recommended column DEADC missing from 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Recommended column BACKV incorrect in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Recommended column DEADC incorrect in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
+WARNING: Recommended column BACKE incorrect in 3FGL_J0534d5p2201i_lc.fits.gz[RATE]
 
 =============== 3 Errors and 26 Warnings Found in 1 extensions checked ===============
 

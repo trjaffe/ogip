@@ -19,7 +19,7 @@ WARNING: Key FILTER incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
 WARNING: Key DETNAM incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
 WARNING: Key ONTIME incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
 WARNING: Key TSTART incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Recommended column TIMEDEL missing from ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Recommended column TIMEDEL incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
 
 =============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
@@ -30,7 +30,7 @@ WARNING: Key FILTER incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
 WARNING: Key DETNAM incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
 WARNING: Key ONTIME incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
 WARNING: Key TSTART incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Recommended column TIMEDEL missing from ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING: Recommended column TIMEDEL incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
 
 =============== 1 Errors and 16 Warnings Found in 2 extensions checked ===============
 

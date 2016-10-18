@@ -71,15 +71,19 @@ def ogip_dictionary_timing():
     """
     Define Required Columns
     """
-    reqcols = ['TIME']
-    reqcols.append('RATE|COUNTS')  # means need either RATE or COUNTS column
+    reqcols = {
+        'TIME':"h.hasCol('TIME')",
+        'RATE|COUNTS':"h.hasCol('RATE') or h.hasCol('COUNTS')"
+    }
 
     """
     Define Optional Columns
     """
-    optcols = ['BACKV']
-    optcols.append('BACKE')
-    optcols.append('DEADC')
+    optcols = {
+        'BACKV':"h.hasCol('BACKV')",
+        'BACKE':"h.hasCol('BACKE')",
+        'DEADC':"h.hasCol('DEADC')"
+    }
 
     rate = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 
@@ -130,11 +134,18 @@ def ogip_dictionary_timing():
     """
     Define Required Columns
     """
-    reqcols = ['TIME']
+    reqcols = {'TIME':"h.hasCol('TIME')"}
     """
     Define Optional Columns
     """
-    optcols = ['X', 'Y', 'PHA', 'PI', 'DETX', 'DETY']
+    optcols = {
+        'X':"h.hasCol('X')", 
+        'Y':"h.hasCol('Y')", 
+        'PHA':"h.hasCol('PHA')", 
+        'PI':"h.hasCol('PI')", 
+        'DETX':"h.hasCol('DETX')", 
+        'DETY':"h.hasCol('DETY')"
+    }
 
     events = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
     """
@@ -170,11 +181,14 @@ def ogip_dictionary_timing():
     """
     Define Required Columns
     """
-    reqcols = ['START', 'STOP']
+    reqcols = {
+        'START':"h.hasCol('START')", 
+        'STOP':"h.hasCol('STOP')"
+}
     """
     Define Optional Columns
     """
-    optcols = ['TIMEDEL']
+    optcols = {'TIMEDEL':"h.hasCol('TIMEDEL')"}
 
     gti={'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
     """
@@ -198,11 +212,17 @@ def ogip_dictionary_timing():
     """
     Define Required Columns
     """
-    reqcols = ['E_MIN', 'E_MAX']
+    reqcols = {
+        'E_MIN':"h.hasCol('E_MIN')", 
+        'E_MAX':"h.hasCol('E_MAX')"
+    }
     """
     Define Optional Columns
     """
-    optcols = ['MINCHAN', 'MAXCHAN']
+    optcols = {
+        'MINCHAN':"h.hasCol('MINCHAN')", 
+        'MAXCHAN':"h.hasCol('MAXCHAN')"
+    }
 
     eneband={'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 
@@ -230,12 +250,14 @@ def ogip_dictionary_timing():
     """
     Define Required Columns
     """
-    reqcols = ['TIME']
-    reqcols.append('REFEARTH|REFSUN|REFBSOLS|BARYTIME')
+    reqcols = {
+        'TIME':"h.hasCol('TIME')",
+        'REFEARTH|REFSUN|REFBSOLS|BARYTIME':"h.hasCol('REFEARTH') or h.hasCol('REFSUN') or h.hasCol('REFBSOLS') or h.hasCol('BARYTIME')", 
+    }
     """
     Define Optional Columns
     """
-    optcols = []
+    optcols = {}
     timeref={'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
 
     #  Define which extensions must be present, and which are optional
