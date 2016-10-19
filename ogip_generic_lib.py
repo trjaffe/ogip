@@ -630,8 +630,12 @@ class hdr_check():
                 aval=self.hdr[k]
                 if aval==int(val):
                     Match = True
+            elif type(self.hdr[k]) is bool:
+                aval=self.hdr[k]
+                if aval==bool(val):
+                    Match = True
             else:
-                print("ERROR:  Check your requirements definition.  Cannot do exact comparison with anything except string and integer types.")
+                print("ERROR:  Check your requirements definition.  Cannot do exact comparison with anything except string, bool, and integer types.")
                 exit(1)
         return Match
 

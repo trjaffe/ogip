@@ -36,24 +36,19 @@ WARNING: Key TASSIGN incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key RA-OBJ incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key CLOCKCOR incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key XFLT* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key SYS_ERR incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key DEADAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key TIMEZERO incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key TIME-OBS incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key DEC-OBJ incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key NPIXSOU incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key DEADAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key EMAX* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key GEOAREA incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key NPIXBACK incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key VIGNAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key AUTHOR incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key QUALITY incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key TIMVERSN incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-WARNING: Key GROUPING incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-ERROR: Required column AREASCAL incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-ERROR: Required column BACKSCAL incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 
-=============== 5 Errors and 28 Warnings Found in 1 extensions checked ===============
+=============== 3 Errors and 25 Warnings Found in 1 extensions checked ===============
 
 
 ===========================================================

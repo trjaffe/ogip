@@ -18,6 +18,14 @@ def ogip_dictionary_spectral():
 
     """
     FOR SPECTRUM TABLE:
+
+    Note that this attempts to handle both type I and type II cases,
+    which means specifying requirements that involve both columns and
+    keywords.  Here, we tag requirements as keywords that may include
+    checking of a column, and likewise tag a column check that may
+    need to check a keyword.  Any subsequent errors/warnings will have
+    to be examined in detail.
+
     """
     """
     Define REQUIRED Keywords for SPECTRUM TABLE
@@ -26,16 +34,17 @@ def ogip_dictionary_spectral():
         'TELESCOPE':"h.Exists('TELESCOP')", 
         'INSTRUME':"h.Exists('INSTRUME')",
         'FILTER':"h.Exists('FILTER')",
-        'EXPOSURE':"h.Exists('EXPOSURE')",
-        'BACKFILE':"h.Exists('BACKFILE')",
-        'CORRFILE':"h.Exists('CORRFILE')",
-        'CORRSCAL':"h.Exists('CORRSCAL')",
-        'RESPFILE':"h.Exists('RESPFILE')",
-        'ANCRFILE':"h.Exists('ANCRFILE')",
+        'EXPOSURE':"h.Exists('EXPOSURE') or h.hasCol('EXPOSURE')",# record of the exposure for each row in the type II file
+        'BACKFILE':"h.Exists('BACKFILE') or h.hasCol('BACKFILE')", # background file for each row in the type II file
+        'CORRFILE':"h.Exists('CORRFILE') or h.hasCol('CORRFILE')", # correction file for each row in the type II file
+        'CORRSCAL':"h.Exists('CORRSCAL') or h.hasCol('CORRSCAL')", # scaling for correction file for each row in the type II file
+        'RESPFILE':"h.Exists('RESPFILE') or h.hasCol('RESPFILE')", # response file for each row in the type II file
+        'ANCRFILE':"h.Exists('ANCRFILE') or h.hasCol('ANCRFILE')", # ancillary file for each row in the type II file
         'HDUCLASS':"h.hasVal('HDUCLASS','OGIP')",  # OGIP is the allowed keyword value
         'HDUCLAS1':"h.hasVal('HDUCLAS1','SPECTRUM')",  # SPECTRUM is the allowed keyword value
         'HDUVERS':"h.hasVal('HDUVERS','1.2.1')",
-        'POISSERR':"h.Exists('POISSERR') or h.hasCol('STAT_ERR')", 
+        #  If there's a STAT_ERR column, POISSERR==F is only recommended.  Will be checked again below.  
+        'POISSERR':"( h.hasVal('POISSERR',True) and not h.hasCol('STAT_ERR') and h.hasCol('COUNTS') ) or ( h.hasCol('STAT_ERR') and not h.hasVal('POISSERR',True) )",
         'CHANTYPE':"h.hasVal('CHANTYPE','PHA') or h.hasVal('CHANTYPE','PI')",
         'DETCHANS':"h.Exists('DETCHANS')"}
 
@@ -61,6 +70,10 @@ def ogip_dictionary_spectral():
         'HDUCLAS4':
         "(not h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:I') ) "
         "or ( h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:II') )",
+        #  Above traps required case of POISSERR==T.  Here, warn if it
+        #  should be F but is missing but (not if it should be T):
+        'POISSERR':"(h.hasVal('POISSERR',False) and h.hasCol('STAT_ERR')) or not h.hasCol('STAT_ERR') ", 
+
 #
 #  TO BE FIXED: aren't in the document?
 #
@@ -74,9 +87,6 @@ def ogip_dictionary_spectral():
         'TIMESYS':"h.Exists('TIMESYS')",
         'TIMEUNIT':"h.Exists('TIMEUNIT')",
         'TIMEREF':"h.Exists('TIMEREF')",
-        'SYS_ERR':"h.hasVal('SYS_ERR','0')",
-        'QUALITY':"h.hasVal('QUALITY','0')",
-        'GROUPING':"h.hasVal('GROUPING','0')",
         'CLOCKCOR':"h.Exists('CLOCKCOR')",
         'TIMVERSN':"h.Exists('TIMVERSN')",
         'AUTHOR':"h.Exists('AUTHOR')",
@@ -104,29 +114,25 @@ def ogip_dictionary_spectral():
     reqcols = {
         'CHANNEL':"h.hasCol('CHANNEL')", # should be sequential
         'RATE|COUNTS':"h.hasCol('RATE') or h.hasCol('COUNTS')",  # means need either RATE or COUNTS column
-        'STAT_ERR':"h.hasCol('STAT_ERR')", # optional if data given in counts per channel
-        'SYS_ERR':"h.hasCol('SYS_ERR')", # can give SYS_ERR= 0 as keyword if no systematic error
-        'QUALITY':"h.hasCol('QUALITY')", # can give QUALITY = 0 keyword if all data are good
-        'GROUPING':"h.hasCol('GROUPING')", # can give GROUPING = 0 keyword if data are ungrouped
-        'AREASCAL':"h.hasCol('AREASCAL')",    
-        'BACKSCAL':"h.hasCol('BACKSCAL')", # often a measure of the area of the image from which data were extracted
+        'STAT_ERR':" h.hasCol('STAT_ERR') or h.hasCol('COUNTS')", # optional if data given in counts per channel
+        'SYS_ERR':"h.hasCol('SYS_ERR') or h.hasVal('SYS_ERR',0)", # can give SYS_ERR= 0 as keyword if no systematic error
+        'QUALITY':"(h.hasCol('QUALITY') and h.hasCol('GROUPING')) or h.hasCol('DQF') or h.hasVal('QUALITY',0)", # can give QUALITY = 0 keyword if all data are good
+        'GROUPING':"(h.hasCol('QUALITY') and h.hasCol('GROUPING')) or h.hasCol('DQF') or h.hasVal('GROUPING',0)", # can give GROUPING = 0 keyword if data are ungrouped
+        'AREASCAL':"h.hasCol('AREASCAL') or h.Exists('AREASCAL')",    
+        'BACKSCAL':"h.hasCol('BACKSCAL') or h.Exists('BACKSCAL')", # often a measure of the area of the image from which data were extracted
         #
-        # required for pha type 2 files, which we test for using SPEC_NUM column's existence
-        #
-        #'SPEC_NUM':"h.hasCol('SPEC_NUM')",
-        'EXPOSURE':"not h.hasCol('SPEC_NUM') or h.hasCol('EXPOSURE')", # record of the exposure for each row in the type II file
-        'BACKFILE':"not h.hasCol('SPEC_NUM') or h.hasCol('BACKFILE')", # background file for each row in the type II file
-        'CORRFILE':"not h.hasCol('SPEC_NUM') or h.hasCol('CORRFILE')", # correction file for each row in the type II file
-        'CORRSCAL':"not h.hasCol('SPEC_NUM') or h.hasCol('CORRSCAL')", # scaling for correction file for each row in the type II file
-        'RESPFILE':"not h.hasCol('SPEC_NUM') or h.hasCol('RESPFILE')", # response file for each row in the type II file
-        'ANCRFILE':"not h.hasCol('SPEC_NUM') or h.hasCol('ANCRFILE')" # ancillary file for each row in the type II file
+        # Check for odd case of columns suited to type II spectra but
+        # where there's no SPEC_NUM column, throw an error tagged
+        # SPEC_NUM:  
+        'SPEC_NUM':
+        "(not h.hasCol('SPEC_NUM') and not (h.hasCol('EXPOSURE') or h.hasCol('BACKFILE') or h.hasCol('CORRFILE') or h.hasCol('CORRSCAL') or h.hasCol('RESPFILE') or h.hasCol('ANCRFILE') ) )" 
+        "or ( h.hasCol('SPEC_NUM') and     (h.hasCol('EXPOSURE') or h.hasCol('BACKFILE') or h.hasCol('CORRFILE') or h.hasCol('CORRSCAL') or h.hasCol('RESPFILE') or h.hasCol('ANCRFILE') ) )" 
     }
 
     """
     Define Optional Columns
     """
     optcols = {
-        'DQF':"(h.hasCol('QUALITY') and h.hasCol('GROUPING') ) or h.hasCol('DQF')", # combination of quality and grouping (not recommended)
         'ROWID':"not h.hasCol('SPEC_NUM') or h.hasCol('ROWID')" # optionally used for type II files
     }
 

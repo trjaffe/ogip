@@ -184,7 +184,7 @@ def ogip_dictionary_timing():
     reqcols = {
         'START':"h.hasCol('START')", 
         'STOP':"h.hasCol('STOP')"
-}
+    }
     """
     Define Optional Columns
     """
