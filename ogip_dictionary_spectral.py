@@ -116,8 +116,8 @@ def ogip_dictionary_spectral():
         'RATE|COUNTS':"h.hasCol('RATE') or h.hasCol('COUNTS')",  # means need either RATE or COUNTS column
         'STAT_ERR':" h.hasCol('STAT_ERR') or h.hasCol('COUNTS')", # optional if data given in counts per channel
         'SYS_ERR':"h.hasCol('SYS_ERR') or h.hasVal('SYS_ERR',0)", # can give SYS_ERR= 0 as keyword if no systematic error
-        'QUALITY':"(h.hasCol('QUALITY') and h.hasCol('GROUPING')) or h.hasCol('DQF') or h.hasVal('QUALITY',0)", # can give QUALITY = 0 keyword if all data are good
-        'GROUPING':"(h.hasCol('QUALITY') and h.hasCol('GROUPING')) or h.hasCol('DQF') or h.hasVal('GROUPING',0)", # can give GROUPING = 0 keyword if data are ungrouped
+        'QUALITY':"h.hasCol('QUALITY') or h.hasCol('DQF') or h.hasVal('QUALITY',0)", # can give QUALITY = 0 keyword if all data are good
+        'GROUPING':"h.hasCol('GROUPING') or h.hasCol('DQF') or h.hasVal('GROUPING',0)", # can give GROUPING = 0 keyword if data are ungrouped
         'AREASCAL':"h.hasCol('AREASCAL') or h.Exists('AREASCAL')",    
         'BACKSCAL':"h.hasCol('BACKSCAL') or h.Exists('BACKSCAL')", # often a measure of the area of the image from which data were extracted
         #
@@ -126,7 +126,7 @@ def ogip_dictionary_spectral():
         # SPEC_NUM:  
         'SPEC_NUM':
         "(not h.hasCol('SPEC_NUM') and not (h.hasCol('EXPOSURE') or h.hasCol('BACKFILE') or h.hasCol('CORRFILE') or h.hasCol('CORRSCAL') or h.hasCol('RESPFILE') or h.hasCol('ANCRFILE') ) )" 
-        "or ( h.hasCol('SPEC_NUM') and     (h.hasCol('EXPOSURE') or h.hasCol('BACKFILE') or h.hasCol('CORRFILE') or h.hasCol('CORRSCAL') or h.hasCol('RESPFILE') or h.hasCol('ANCRFILE') ) )" 
+        "or h.hasCol('SPEC_NUM')" 
     }
 
     """

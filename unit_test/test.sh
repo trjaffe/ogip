@@ -117,6 +117,31 @@ else
     echo "No differences."
 fi
 echo ""
+
+# SPECTRAL
+echo ""
+file="spectrumII.pha"
+echo "Checking file ${file}"
+../ogip_check inputs/${file} -t SPECTRAL >& out/${file}.check.log2
+retval=$?
+echo "Return status was $retval"
+if [[ "$retval" != "0" ]]; then 
+    echo "ERROR:  ogip_check returned an error status!"
+    let errors+=1
+fi
+echo "Comparing output to reference.  "
+diffs=`diff ref/${file}.check.log2 out/${file}.check.log2`
+if [[ ${#diffs} != 0 ]]; then
+    echo "WARNING:  Differences appear in 'diff ref/${file}.check.log2 out/${file}.check.log2'"
+#    echo ${diffs[@]} | tail
+    let diffcnt+=1
+else
+    echo "No differences."
+fi
+echo ""
+
+
+
     
 # RMF
 echo ""
@@ -276,7 +301,7 @@ echo ""
 echo "##################################################################"
 echo "Checking entire contents of directory inputs"
 mkdir out/inputs.logs
-../ogip_check_dir inputs out/inputs.logs --default_type 'CALDB' >& out/inputs.check.log
+../ogip_check_dir inputs out/inputs.logs --default_type 'CALDB' -vv >& out/inputs.check.log
 retval=$?
 echo "Return status was $retval"
 if [[ "$retval" != "0" ]]; then 
@@ -293,7 +318,7 @@ else
 	echo "No differences in directory check log."
     fi
     echo "Comparing logs of individual files run this way with those run individually."
-    for file in asca_sis_bcf_calfile.fits fermi_lat_bcf_edisp_calfile.fits hexte.arf specresp_matrix.rmf spectrum.pha timing.evt timing_fails.lc timing_passes.lc ; do 
+    for file in asca_sis_bcf_calfile.fits fermi_lat_bcf_edisp_calfile.fits hexte.arf specresp_matrix.rmf spectrum.pha spectrumII.pha timing.evt timing_fails.lc timing_passes.lc ; do 
 	diffs=`diff -I TIMESTAMP out/${file}.check.log out/inputs.logs/${file}.check.log`
 	if [[ ${#diffs} != 0 ]]; then
 	    echo "WARNING:  Differences appear in 'diff -I TIMESTAMP out/${file}.check.log out/inputs.logs/${file}.check.log'"
@@ -319,7 +344,7 @@ echo ""
 echo ""
 echo "Checking without using CALDB as default for unknown types:"
 mkdir out/inputs2.logs
-../ogip_check_dir inputs out/inputs2.logs >& out/inputs.check2.log
+../ogip_check_dir inputs out/inputs2.logs -vv >& out/inputs.check2.log
 retval=$?
 echo "Return status was $retval"
 if [[ "$retval" != "0" ]]; then 

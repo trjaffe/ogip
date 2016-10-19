@@ -187,22 +187,23 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
         if dir in ignore['directories']:
             continue
 
-        print "\n\n************************************************"
-        print "Now on directory %s" % dir 
-        print "************************************************"
+        if (verbosity > 0): 
+            print "\n\n************************************************"
+            print "Now on directory %s" % dir 
+            print "************************************************"
         for name in [x for x in files if not (x.endswith(ignore['suffixes']) or x.endswith(tuple([y.upper() for y in ignore['suffixes'] ])) ) ]:
             one=os.path.join(dir, name)
-            print "\nTIMESTAMP:  " + datetime.now().strftime("%Y-%m-%d %X")
+            if (verbosity > 1): print "\nTIMESTAMP:  " + datetime.now().strftime("%Y-%m-%d %X")
 
             if logdir:
                 logpath= os.path.join(logdir,os.path.relpath(dir,basedir))
                 if not os.path.isdir(logpath):  os.makedirs(logpath)
                 logfile=os.path.join(logpath,name+".check.log")
-                print("CHECKING %s;  see log in %s" % (one, logfile) )
+                if (verbosity > 1): print("CHECKING %s;  see log in %s" % (one, logfile) )
                 sys.stdout.flush()
             else:
                 logfile=sys.stdout
-                print("CHECKING %s" % one)
+                if (verbosity > 1): print("CHECKING %s" % one)
                 sys.stdout.flush()
             #  Returns status that contains both the counts of errors,
             #  warnings, and the logged reports.  
@@ -211,7 +212,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
             #if status.status != 0:
                 #print("ERROR:  failed to check file %s;  see log in %s\nContinuing." % (one, logfile) )
             if status.status == 0:
-                print("Done.  Found file of type %s with %s errors and %s warnings." % (status.otype, status.tot_errors(),status.tot_warnings() ) )
+                if (verbosity > 1): print("Done.  Found file of type %s with %s errors and %s warnings." % (status.otype, status.tot_errors(),status.tot_warnings() ) )
                 sys.stdout.flush()
             # Store the retstat info for the file
             summary.update(dir=dir,file=name,statobj=status)
