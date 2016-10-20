@@ -88,7 +88,7 @@ class retstat:
     to calling codes without global variables.  
 
     """
-    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, warn=0,err=0,log=sys.stdout,otype=None,fver=0,fopen=0,unrec=0):
+    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, warn=0,err=0,log=sys.stdout,otype=None,fver=0,fopen=0,unrec=0,verbosity=2):
         #  Set an error status for the file if nonzero;  this will halt the checks.
         self.status+=status
         #  Flag problems opening the file as FITS specifically
@@ -100,7 +100,7 @@ class retstat:
         #  Set the file type
         if otype:  self.otype=otype
         #  Print the report for this update
-        print(report,file=log)
+        if (verbosity > 1):  print(report,file=log)
 
         #  If an extension is not given, nothing else to do, since the
         #  above are the only attributes that apply to the file as

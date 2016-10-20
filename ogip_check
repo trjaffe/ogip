@@ -17,7 +17,7 @@ if __name__== "__main__":
     parser.add_argument("input", type=str, help="Input file to test")
     parser.add_argument('-t','--type', type=str, help="Type:  one of TIMING, SPECTRAL, CALDB, ARF, RMF",default=None)
     parser.add_argument('-l', "--logfile", type=argparse.FileType('w'),default = sys.stdout)
-    parser.add_argument("-v", "--verbosity", action="count", default=0)
+    parser.add_argument("-v", "--verbosity", action="count", default=2)
     args = parser.parse_args()
     status= ogip_check(args.input,args.type,args.logfile,args.verbosity)
     exit(status.status)

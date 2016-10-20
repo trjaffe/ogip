@@ -43,7 +43,8 @@ class ogip_collect:
         self.count_types={}
         # dictionary that just counts extensions in files of each type
         self.count_extnames={}
-
+        # dictionary containing unrecognized extensions found
+        self.unrec_extnames={}
 
     def update(self,dir=None,file=None,statobj=None):
         # Store dictionaries of directories containing dictionaries of
@@ -73,7 +74,13 @@ class ogip_collect:
             if statobj.otype not in self.count_extnames: self.count_extnames[statobj.otype]={}
             for extn in statobj.extns:
                 dict_incr(self.count_extnames[statobj.otype],extn)
-
+        else:
+            # For unrecognized files, list and count unrecognized
+            # extensions.  Note that in this case, statobj.extns is a
+            # simple list instead of a dictionary pointing to the
+            # statinfo for that extn.
+            for extn in statobj.extns:
+                dict_incr(self.unrec_extnames,extn)
 
     def count_bad(self):
         return sum(len(d) for d in self.bad.itervalues())
@@ -207,7 +214,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
                 sys.stdout.flush()
             #  Returns status that contains both the counts of errors,
             #  warnings, and the logged reports.  
-            status=ogip_check(one,None,logfile,verbosity,dtype=default_type)
+            status=ogip_check(one,None,logfile,2,dtype=default_type)
 
             #if status.status != 0:
                 #print("ERROR:  failed to check file %s;  see log in %s\nContinuing." % (one, logfile) )
@@ -263,6 +270,13 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
                         print("    Found %s (out of %s) files have at least one extension %s missing column %s." % (summary.count_missing_col(t,extn,c), summary.count_extnames[t][extn], extn, c) )
                     
 
+    if len(summary.unrec_extnames.keys()) > 0:
+        print("\nUnrecognized extensions (with total number of files containing such):")
+        for k in sorted(summary.unrec_extnames):
+            print ("    %s (%s)" % (k,summary.unrec_extnames[k]) )
+        print("")
+    else:  print("\n(No unrecognized extensions.)")
+                        
     print("\nDone\n")
 
     return

@@ -33,11 +33,11 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
     if isinstance(logfile,(str,unicode)):
         try:  logf=open(logfile,'w')
         except:  
-            status.update(report="ERROR:  Cannot open output log file %s" % logfile, status=1)
+            status.update(report="ERROR:  Cannot open output log file %s" % logfile, status=1,verbosity=verbosity)
             return status
     else:
         if logfile is not sys.stdout:
-            status.update(report="ERROR:  Cannot write to log file %s" % logfile, status=1)
+            status.update(report="ERROR:  Cannot write to log file %s" % logfile, status=1,verbosity=verbosity)
             return status
         else:
             logf=logfile
@@ -93,15 +93,15 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
     #  Basic FITS verification:
     fits_errs=ogip_fits_verify(hdulist,filename,logf,status)
     if fits_errs == 1:
-        status.update(report="ERROR:  file does not pass FITS verification but able to continue.",fver=1)
+        status.update(report="ERROR:  file does not pass FITS verification but able to continue.",fver=1,verbosity=verbosity)
     if fits_errs == 2:  
-        status.update(report="ERROR:  file does not pass FITS verification;  giving up.",fver=2,status=1)
+        status.update(report="ERROR:  file does not pass FITS verification;  giving up.",fver=2,status=1,verbosity=verbosity)
         return status
 
 
     numext= len(hdulist)
     if numext <= 1:
-        status.update(report="ERROR: File needs at least 1 BINARY extension in addition to the PRIMARY; only found %i total" % numext, status=1)
+        status.update(report="ERROR: File needs at least 1 BINARY extension in addition to the PRIMARY; only found %i total" % numext, status=1,verbosity=verbosity)
         return status
 
     # Get a list of all the extnames (after the 0th, which is PRIMARY)
@@ -109,12 +109,12 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
     # Obviously, this needs to change if we do images. 
     extnames= [x.name for x in hdulist[1:] if x.header['XTENSION'].startswith('BINTABLE') ]
     if len(extnames) == 0:
-        status.update(report="ERROR:  file does not have BINTABLE extension.",status=1)
+        status.update(report="ERROR:  file does not have BINTABLE extension.",status=1,verbosity=verbosity)
         return status
 
     if extnames[0] == '':
         #  Let these continue for now and see if HDUCLS
-        status.update(report="WARNING:  file has BINTABLE extension with no name")
+        status.update(report="WARNING:  file has BINTABLE extension with no name",verbosity=verbosity)
 
     #  Try to determine the type from the first (not PRIMARY) extension:
     if otype is None:
@@ -123,7 +123,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
         if 'EXTNAME' in hdulist[1].header:
             if hdulist[1].header['EXTNAME']=='GROUPING': xno=2
             if xno+1 > len(hdulist):
-                status.update(report="ERROR:  File has only GROUPING extension.", status=1)
+                status.update(report="ERROR:  File has only GROUPING extension.", status=1,verbosity=verbosity)
                 return status
 
         ref_extn, otype =ogip_determine_ref(hdulist[xno])
@@ -136,13 +136,14 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
         elif otype is None:
             if dtype:
                 if dtype == 'none':
-                    status.update(report="ERROR:  do not recognize the file as any type (extnames "+", ".join(extnames)+")",status=1,unrec=1)
+                    status.update(report="ERROR:  do not recognize the file as any type (extnames "+", ".join(extnames)+")",status=1,unrec=1,verbosity=verbosity)
+                    status.extns=extnames
                     return status
                 else:
-                    status.update(report="ERROR:  failed to determine the file type;  trying %s" % dtype,err=1,log=logf)
+                    status.update(report="ERROR:  failed to determine the file type;  trying %s" % dtype,err=1,log=logf,verbosity=verbosity)
                     otype=dtype
             else:
-                status.update(report="ERROR:  failed to determine the file type;  trying CALDB",err=1,log=logf)
+                status.update(report="ERROR:  failed to determine the file type;  trying CALDB",err=1,log=logf,verbosity=verbosity)
                 otype='CALDB'
         print("\n(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.\n",file=logf)
 
@@ -153,7 +154,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
 
     ogip_dict=ogip_dictionary(otype)
     if ogip_dict==0:
-        status.update(report="ERROR:  do not recognize OGIP type %s" % otype, status=1)
+        status.update(report="ERROR:  do not recognize OGIP type %s" % otype, status=1,verbosity=verbosity)
         return status
 
     fname = filename
@@ -175,7 +176,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
             if ref in actual: check=True
             
     if not check:
-        status.update(report="ERROR: %s does not have any of the required extension names" % fname, log=logf,err=1,extn='none')
+        status.update(report="ERROR: %s does not have any of the required extension names" % fname, log=logf,err=1,extn='none',verbosity=verbosity)
 
     # We have the type, now simply loop over the extensions found in
     # the file and check whatever's there against what's expected for
@@ -211,7 +212,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
     if extns_checked > 0:
         print("\n=============== %i Errors and %i Warnings Found in %s extensions checked ===============\n" %(status.tot_errors(), status.tot_warnings(),extns_checked),file=logf)
     else:
-        status.update(report="\nERROR:  No extensions could be checked\n",log=logf,status=1)
+        status.update(report="\nERROR:  No extensions could be checked\n",log=logf,status=1,verbosity=verbosity)
 
 
     if status.tot_errors() > 0:
