@@ -324,7 +324,7 @@ def ogip_fits_verify(hdulist,filename,logf,status):
 
 #  Given an extension in a real file, see if there's a matche in a given dictionary.  It will
 #  - check the EXTNAME against the dict['EXTENSIONS']
-#  - check teh EXTNAME against the dict['ALT_EXTNS'] (which requires a loop over these)
+#  - check the EXTNAME against the dict['ALT_EXTNS'] (which requires a loop over these)
 #  - check the HDUCLAS1 and HDUCLAS2 keywords against those for each dict['EXTENSIONS']
 #  and return the first matching reference extension, or None.
 #
@@ -390,11 +390,17 @@ def ogip_determine_ref(in_extn, intype=None):
     #  checked.  
     #
 
+    if in_extn.header['XTENSION'] == 'BINTABLE':
+        #  Object needed for eval() 
+        h=hdr_check(in_extn.header,in_extn.columns) 
+    else:
+        #  No columns for an IMAGE table.
+        h=hdr_check(in_extn.header,None) 
+        
+
     for otype in types: 
         ogip_dict=ogip_dictionary(otype)
         all_extns=ogip_dict['EXTENSIONS']['REQUIRED']+ogip_dict['EXTENSIONS']['OPTIONAL']
-        #  Object needed for eval() 
-        h=hdr_check(in_extn.header,in_extn.columns) 
 
         for extn in all_extns:
 
@@ -652,6 +658,7 @@ class hdr_check():
             return ''
 
     def hasCol(self,col):
+        if self.columns is None:  return False
         return col in self.columns.names
          
 

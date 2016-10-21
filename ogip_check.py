@@ -93,23 +93,21 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
     #  Basic FITS verification:
     fits_errs=ogip_fits_verify(hdulist,filename,logf,status)
     if fits_errs == 1:
-        status.update(report="ERROR:  file does not pass FITS verification but able to continue.",fver=1,verbosity=verbosity)
+        status.update(report="ERROR:  file %s does not pass FITS verification but able to continue." % filename,fver=1,verbosity=verbosity)
     if fits_errs == 2:  
-        status.update(report="ERROR:  file does not pass FITS verification;  giving up.",fver=2,status=1,verbosity=verbosity)
+        status.update(report="ERROR:  file %s does not pass FITS verification;  giving up." % filename,fver=2,status=1,verbosity=verbosity)
         return status
 
 
     numext= len(hdulist)
     if numext <= 1:
-        status.update(report="ERROR: File needs at least 1 BINARY extension in addition to the PRIMARY; only found %i total" % numext, status=1,verbosity=verbosity)
+        status.update(report="ERROR: File needs at least 1 BINARY extension in addition to the PRIMARY; only found %i total in %s" % (numext,filename), status=1,verbosity=verbosity)
         return status
 
     # Get a list of all the extnames (after the 0th, which is PRIMARY)
-    # which are BINTABLE type in the file using a list comprehension.  
-    # Obviously, this needs to change if we do images. 
-    extnames= [x.name for x in hdulist[1:] if x.header['XTENSION'].startswith('BINTABLE') ]
+    extnames= [x.name for x in hdulist[1:]]
     if len(extnames) == 0:
-        status.update(report="ERROR:  file does not have BINTABLE extension.",status=1,verbosity=verbosity)
+        status.update(report="ERROR:  file %s does not have any extensions after the PRIMARY." % filename,status=1,verbosity=verbosity)
         return status
 
     if extnames[0] == '':
@@ -136,7 +134,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
         elif otype is None:
             if dtype:
                 if dtype == 'none':
-                    status.update(report="ERROR:  do not recognize the file as any type (extnames "+", ".join(extnames)+")",status=1,unrec=1,verbosity=verbosity)
+                    status.update(report="ERROR:  do not recognize the file %s" % filename+" as any type (extnames "+", ".join(extnames)+")",status=1,unrec=1,verbosity=verbosity)
                     status.extns=extnames
                     return status
                 else:

@@ -301,7 +301,7 @@ echo ""
 echo "##################################################################"
 echo "Checking entire contents of directory inputs"
 mkdir out/inputs.logs
-../ogip_check_dir inputs out/inputs.logs --default_type 'CALDB' -vv >& out/inputs.check.log
+../ogip_check_dir inputs out/inputs.logs --default_type 'CALDB' -v 2 >& out/inputs.check.log
 retval=$?
 echo "Return status was $retval"
 if [[ "$retval" != "0" ]]; then 
@@ -344,7 +344,7 @@ echo ""
 echo ""
 echo "Checking without using CALDB as default for unknown types:"
 mkdir out/inputs2.logs
-../ogip_check_dir inputs out/inputs2.logs -vv >& out/inputs.check2.log
+../ogip_check_dir inputs out/inputs2.logs -v 2 >& out/inputs.check2.log
 retval=$?
 echo "Return status was $retval"
 if [[ "$retval" != "0" ]]; then 

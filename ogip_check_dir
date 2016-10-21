@@ -15,7 +15,7 @@ if __name__== "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("basedir", type=str, help="Input base directory to test")
     parser.add_argument("logdir", type=str, help="Output directory to write logs to, one per tested file")
-    parser.add_argument("-v", "--verbosity", action="count", default=0)
+    parser.add_argument("-v", "--verbosity", type=int, default=2)
 
     parser.add_argument("--ignore_dir",type=str,help="Comma-separated list of directory names to ignore;  default none.",default='')
     parser.add_argument("--default_type",type=str,help="Default type to check for unrecognized files;  default 'none'.",default='none')
