@@ -365,6 +365,28 @@ fi
 
 
 
+#  Test the directory tool
+echo ""
+echo "##################################################################"
+echo "Checking entire contents of directory inputs/rxte with rxte ignores"
+mkdir out/rxte.logs
+../ogip_check_dir inputs/rxte out/rxte.logs --ignore_key rxte -v 2 >& out/rxte.check.log
+retval=$?
+echo "Return status was $retval"
+if [[ "$retval" != "0" ]]; then 
+    echo "ERROR:  ogip_check_dir returned an error status!"
+    let errors+=1
+else
+    echo "Comparing output to reference.  "
+    diffs=`diff  -I TIMESTAMP ref/rxte.check.log out/rxte.check.log`
+    if [[ ${#diffs} != 0 ]]; then
+	echo "WARNING:  Differences appear in 'diff -I TIMESTAMP ref/rxte.check.log out/rxte.check.log'"
+	#    echo ${diffs[@]} | tail
+	let diffcnt+=1
+    else
+	echo "No differences in directory check log."
+    fi
+fi
 
 
 

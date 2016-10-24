@@ -10,24 +10,29 @@
 from ogip_check_dir import ogip_check_dir
 
 if __name__== "__main__":
+    import json
+    import os
     import argparse
     import sys
     parser = argparse.ArgumentParser()
     parser.add_argument("basedir", type=str, help="Input base directory to test")
     parser.add_argument("logdir", type=str, help="Output directory to write logs to, one per tested file")
     parser.add_argument("-v", "--verbosity", type=int, default=2)
-
-    parser.add_argument("--ignore_dir",type=str,help="Comma-separated list of directory names to ignore;  default none.",default='')
+    parser.add_argument("--ignore_key",type=str,help="Key that defines what to ignore for each, e.g., mission.  By default, only a set of suffixes:  .jpg,.txt,.gif,.dat,.ps,.html,.par,.png,.pdf,.htm (or with .gz).  Alternatively, specify 'rxte', ",default="default")
     parser.add_argument("--default_type",type=str,help="Default type to check for unrecognized files;  default 'none'.",default='none')
-    parser.add_argument("--ignore_suffix",type=str,help="Comma-separated list of file suffixes to ignore;  default=.jpg,.txt,.gif,.dat,.ps,.html,.par,.png,.pdf,.htm",default='.jpg,.txt,.gif,.dat,.ps,.html,.par,.png,.pdf,.htm,.log')
-
     args = parser.parse_args()
 
-    slist= args.ignore_suffix.split(',') 
+    ignores=json.load( open(os.path.join(os.path.dirname(__file__),"IGNORE_dictionary.json")) )
+
+    if args.ignore_key not in ignores:
+        print("ERROR:  the ignore_key %s is not in the JSON dictionary %s." % (args.ignore_key,os.path.join(os.path.dirname(__file__),"IGNORE_dictionary.json")) )
+        exit(-1)
+    slist=ignores[args.ignore_key]["ignore"]["suffixes"]
     slist=slist+[x+'.gz' for x in slist]
     ignore={
         'suffixes':tuple(slist),
-        'directories':tuple(args.ignore_dir.split(',')),
+        'directories':tuple(ignores[args.ignore_key]["ignore"]["directories"]),
     }
+
     status=ogip_check_dir(args.basedir,args.logdir,ignore,args.default_type,args.verbosity)
     exit(status)
