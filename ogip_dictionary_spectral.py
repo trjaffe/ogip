@@ -42,10 +42,10 @@ def ogip_dictionary_spectral():
         'ANCRFILE':"h.Exists('ANCRFILE') or h.hasCol('ANCRFILE')", # ancillary file for each row in the type II file
         'HDUCLASS':"h.hasVal('HDUCLASS','OGIP')",  # OGIP is the allowed keyword value
         'HDUCLAS1':"h.hasVal('HDUCLAS1','SPECTRUM')",  # SPECTRUM is the allowed keyword value
-        'HDUVERS':"h.hasVal('HDUVERS','1.2.1')",
+        'HDUVERS':"h.Exists('HDUVERS')",
         #  If there's a STAT_ERR column, POISSERR==F is only recommended.  Will be checked again below.  
         'POISSERR':"( h.hasVal('POISSERR',True) and not h.hasCol('STAT_ERR') and h.hasCol('COUNTS') ) or ( h.hasCol('STAT_ERR') and not h.hasVal('POISSERR',True) )",
-        'CHANTYPE':"h.hasVal('CHANTYPE','PHA') or h.hasVal('CHANTYPE','PI')",
+        'CHANTYPE':"h.hasVal('CHANTYPE','PHA',part=True) or h.hasVal('CHANTYPE','PI',part=True)",
         'DETCHANS':"h.Exists('DETCHANS')"}
 
     """
@@ -62,6 +62,7 @@ def ogip_dictionary_spectral():
         'TIME-OBS':"h.Exists('TIME-OBS')", # time-obs can be included in date-obs
         'TIME-END':"h.Exists('TIME-END')", # time-end can be included in date-end
         'CREATOR':"h.Exists('CREATOR')",
+        'HDUVERS':"h.hasVal('HDUVERS','1.2.1')", # warn if another version
         'HDUCLAS2':
         "   (h.hasVal('HDUCLAS2','TOTAL') and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) "
         "or (h.hasVal('HDUCLAS2','NET')   and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) "

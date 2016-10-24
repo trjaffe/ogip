@@ -1,0 +1,55 @@
+Attempting to open file inputs/spectrumII.pha
+File opened successfully.
+Running basic FITS verification with external call to ftverify.
+Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
+
+Checking file as type SPECTRAL
+
+=============== Checking 'SPECTRUM' extension against 'SPECTRUM' standard ===============
+
+ERROR: Key HDUVERS incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key BACKE* incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key EMIN* incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key VIGNET incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key HDUCLAS4 incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key BACKV* incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key BACKAPP incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key HDUCLAS2 incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key TIERRELA incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key TIERABSO incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key TASSIGN incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key RA-OBJ incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key CLOCKCOR incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key HDUVERS incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key DEADAPP incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key DEADC* incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key TIMEZERO incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key ONTIME incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key DEC-OBJ incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key TIMEREF incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key NPIXSOU incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key EMAX* incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key DETNAM incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key GEOAREA incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key NPIXBACK incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key VIGNAPP incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key AUTHOR incorrect in spectrumII.pha[SPECTRUM]
+WARNING: Key TIMVERSN incorrect in spectrumII.pha[SPECTRUM]
+
+=============== Checking 'STDGTI' extension against 'GTI' standard ===============
+
+ERROR: Key TELESCOP incorrect in spectrumII.pha[STDGTI]
+WARNING: Key TIMEZERO incorrect in spectrumII.pha[STDGTI]
+WARNING: Key FILTER incorrect in spectrumII.pha[STDGTI]
+WARNING: Key DETNAM incorrect in spectrumII.pha[STDGTI]
+WARNING: Recommended column TIMEDEL incorrect in spectrumII.pha[STDGTI]
+
+=============== 2 Errors and 31 Warnings Found in 2 extensions checked ===============
+
+
+===========================================================
+
+FAILURE: inputs/spectrumII.pha is not a Valid OGIP formatted file
+Please see OGIP/92-007: The OGIP Spectral File Format
+Available at
+   https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/summary/ogip_92_007_summary.html

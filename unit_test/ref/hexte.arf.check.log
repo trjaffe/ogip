@@ -18,9 +18,9 @@ ERROR: Key NUMGRP incorrect in hexte.arf[SPECRESP]
 ERROR: Key CHANTYPE incorrect in hexte.arf[SPECRESP]
 WARNING: Key RMFVERSN incorrect in hexte.arf[SPECRESP]
 WARNING: Key HDUVERS1 incorrect in hexte.arf[SPECRESP]
-WARNING: Key HDUVERS2 incorrect in hexte.arf[SPECRESP]
-WARNING: Key LO_THRES incorrect in hexte.arf[SPECRESP]
 WARNING: Key HDUCLAS3 incorrect in hexte.arf[SPECRESP]
+WARNING: Key LO_THRES incorrect in hexte.arf[SPECRESP]
+WARNING: Key HDUVERS2 incorrect in hexte.arf[SPECRESP]
 
 =============== 6 Errors and 5 Warnings Found in 1 extensions checked ===============
 

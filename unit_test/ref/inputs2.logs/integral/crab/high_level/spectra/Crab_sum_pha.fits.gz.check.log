@@ -20,7 +20,6 @@ ERROR: Crab_sum_pha.fits.gz does not have any of the required extension names
 
 =============== Checking 'ISGR-PHA1-SPE' extension against 'SPECTRUM' standard ===============
 
-ERROR: Key HDUVERS incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 ERROR: Key FILTER incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key TIME-END incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key BACKE* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
@@ -36,6 +35,7 @@ WARNING: Key TASSIGN incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key RA-OBJ incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key CLOCKCOR incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key XFLT* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING: Key HDUVERS incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key DEADAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key TIMEZERO incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key TIME-OBS incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
@@ -48,7 +48,7 @@ WARNING: Key VIGNAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key AUTHOR incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 WARNING: Key TIMVERSN incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 
-=============== 3 Errors and 25 Warnings Found in 1 extensions checked ===============
+=============== 2 Errors and 26 Warnings Found in 1 extensions checked ===============
 
 
 ===========================================================

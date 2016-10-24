@@ -22,7 +22,7 @@ def ogip_dictionary_timing():
     """
     reqkeys = {
         'TELESCOP':"h.Exists('TELESCOP')",
-         'INSTRUME':"h.Exists('INSTRUME')",
+        'INSTRUME':"h.Exists('INSTRUME')",
         'DATE-OBS':"h.Exists('DATE-OBS')",
         'DATE-END':"h.Exists('DATE-END')",
         'ONTIME':"h.Exists('ONTIME')",
@@ -99,9 +99,9 @@ def ogip_dictionary_timing():
         'DATE-OBS':"h.Exists('DATE-OBS')",
         'DATE-END':"h.Exists('DATE-END')",
         'ONTIME':"h.Exists('ONTIME')",
-        'TIMEZER*':"h.Exists('TIMEZER*')",  # can be given as single keyword or integer + fraction; either ok
-        'TSTART*':"h.Exists('TSTART*')",  # can be given as single keyword or integer + fraction; either ok
-        'TSTOP*':"h.Exists('TSTOP*')",  # can be given as single keyword or integer + fraction; either ok
+        'TIMEZERO':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )",  # can be given as single keyword or integer + fraction; either ok
+        'TSTART':"h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )",  # can be given as single keyword or integer + fraction; either ok
+        'TSTOP':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists('TSTOPF') )",  # can be given as single keyword or integer + fraction; either ok
         'TIMESYS':"h.Exists('TIMESYS')",
         'TIMEUNIT':"h.Exists('TIMEUNIT')",
         'HDUCLASS':"h.hasVal('HDUCLASS','OGIP')",

@@ -611,26 +611,29 @@ and that string will be called with eval() and returned.
 class hdr_check():
     def __init__(self,hdr,columns):
         self.hdr=hdr
-        self.columns=columns
+        #  Columns is a astropy.io.fits ColDefs type
+        self.columns=[c.upper().strip() for c in columns.names]
 
     #  Check function that checks for existence of a given keyword,
     #  and if a value is given, checks that it has that value.
     #  Returns boolean.
     def Exists(self,key):
-        #  Check keys with wildcard first, which cannot have a value as well:
+        #  Check keys with wildcard first
         if "*" in key:
             return len(self.hdr[key]) > 0
         #  Otherwise, just check if the key exists
         else: return key in self.hdr
 
 
-    def hasVal(self,k,val):  
-        # checks if a keyword with a specific value exists in the file header
+    def hasVal(self,k,val,part=False):  
+        # checks if a keyword with a specific value exists in the file
+        #  header.  If part==Trueq, checks for the reference val to be
+        #  a substring of the actual keyword.
         Match = False
         if k in self.hdr:
             if type(self.hdr[k]) is str:
                 aval=self.hdr[k].strip().upper()
-                if aval == val:
+                if (part==False and aval == val) or (part==True and val in aval):
                     Match = True
             elif type(self.hdr[k]) is int:
                 aval=self.hdr[k]
@@ -659,7 +662,7 @@ class hdr_check():
 
     def hasCol(self,col):
         if self.columns is None:  return False
-        return col in self.columns.names
+        return col in self.columns
          
 
 ## 

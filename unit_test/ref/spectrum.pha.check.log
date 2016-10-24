@@ -22,6 +22,7 @@ WARNING: Key TIERABSO incorrect in spectrum.pha[SPECTRUM]
 WARNING: Key TASSIGN incorrect in spectrum.pha[SPECTRUM]
 WARNING: Key RA-OBJ incorrect in spectrum.pha[SPECTRUM]
 WARNING: Key CLOCKCOR incorrect in spectrum.pha[SPECTRUM]
+WARNING: Key HDUVERS incorrect in spectrum.pha[SPECTRUM]
 WARNING: Key DEADC* incorrect in spectrum.pha[SPECTRUM]
 WARNING: Key TIMEZERO incorrect in spectrum.pha[SPECTRUM]
 WARNING: Key ONTIME incorrect in spectrum.pha[SPECTRUM]
@@ -42,7 +43,7 @@ WARNING: Key FILTER incorrect in spectrum.pha[STDGTI]
 WARNING: Key DETNAM incorrect in spectrum.pha[STDGTI]
 WARNING: Recommended column TIMEDEL incorrect in spectrum.pha[STDGTI]
 
-=============== 2 Errors and 26 Warnings Found in 2 extensions checked ===============
+=============== 2 Errors and 27 Warnings Found in 2 extensions checked ===============
 
 
 ===========================================================

@@ -1,0 +1,63 @@
+{
+    "rxte": {
+        "ignore": {
+            "directories": [
+                "ASMProducts/realtime_current",
+                "ASMProducts/definitive_1dwell/supplemental/pointings",
+                "Cal/asm"
+            ],
+            "suffixes": [
+                ".jpg",
+                ".txt",
+                ".gif",
+                ".dat",
+                ".ps",
+                ".html",
+                ".par",
+                ".png",
+                ".pdf",
+                ".htm",
+                ".log"
+            ]
+        },
+        "root_data_directory": "/FTP/rxte/data/archive"
+    },
+    "asca": {
+        "ignore": {
+            "directories": [],
+            "suffixes": [
+                ".jpg",
+                ".txt",
+                ".gif",
+                ".dat",
+                ".ps",
+                ".html",
+                ".par",
+                ".png",
+                ".pdf",
+                ".htm",
+                ".log"
+            ]
+        },
+        "root_data_directory": "/FTP/asca/data/rev2"
+    },
+    "default":{
+        "ignore": {
+            "directories": [],
+            "suffixes": [
+                ".jpg",
+                ".txt",
+                ".gif",
+                ".dat",
+                ".ps",
+                ".html",
+                ".par",
+                ".png",
+                ".pdf",
+                ".htm",
+                ".log"
+            ]
+        },
+        "root_data_directory": ""
+    }
+}

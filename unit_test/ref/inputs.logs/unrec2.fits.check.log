@@ -1,0 +1,49 @@
+Attempting to open file inputs/unrec2.fits
+File opened successfully.
+Running basic FITS verification with external call to ftverify.
+Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
+ERROR:  failed to determine the file type;  trying CALDB
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+
+=============== Checking 'FOOBAR' extension against 'CALFILE' standard ===============
+
+ERROR: Key CBD* incorrect in unrec2.fits[FOOBAR]
+ERROR: Key CVSD0001 incorrect in unrec2.fits[FOOBAR]
+ERROR: Key CDTP0001 incorrect in unrec2.fits[FOOBAR]
+ERROR: Key CVST0001 incorrect in unrec2.fits[FOOBAR]
+ERROR: Key CCLS0001 incorrect in unrec2.fits[FOOBAR]
+ERROR: Key CDES* incorrect in unrec2.fits[FOOBAR]
+ERROR: Key CCNM0001 incorrect in unrec2.fits[FOOBAR]
+WARNING: Key CTEL* incorrect in unrec2.fits[FOOBAR]
+WARNING: Key CFI* incorrect in unrec2.fits[FOOBAR]
+WARNING: Key CINS* incorrect in unrec2.fits[FOOBAR]
+WARNING: Key CDT* incorrect in unrec2.fits[FOOBAR]
+
+=============== Checking 'STDGTI' extension against 'CALFILE' standard ===============
+
+ERROR: Key CBD* incorrect in unrec2.fits[STDGTI]
+ERROR: Key CVSD0001 incorrect in unrec2.fits[STDGTI]
+ERROR: Key CDTP0001 incorrect in unrec2.fits[STDGTI]
+ERROR: Key CVST0001 incorrect in unrec2.fits[STDGTI]
+ERROR: Key CCLS0001 incorrect in unrec2.fits[STDGTI]
+ERROR: Key CDES* incorrect in unrec2.fits[STDGTI]
+ERROR: Key CCNM0001 incorrect in unrec2.fits[STDGTI]
+ERROR: Key TELESCOP incorrect in unrec2.fits[STDGTI]
+ERROR: Key FILTER incorrect in unrec2.fits[STDGTI]
+ERROR: Key DETNAM incorrect in unrec2.fits[STDGTI]
+WARNING: Key CTEL* incorrect in unrec2.fits[STDGTI]
+WARNING: Key CFI* incorrect in unrec2.fits[STDGTI]
+WARNING: Key CINS* incorrect in unrec2.fits[STDGTI]
+WARNING: Key CDT* incorrect in unrec2.fits[STDGTI]
+
+=============== 17 Errors and 8 Warnings Found in 2 extensions checked ===============
+
+
+===========================================================
+
+FAILURE: inputs/unrec2.fits is not a Valid OGIP formatted file
+Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
+Available at
+   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html

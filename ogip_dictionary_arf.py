@@ -36,7 +36,7 @@ def ogip_dictionary_arf():
         'HDUCLASS':"h.hasVal('HDUCLASS','OGIP')",
         'HDUCLAS1':"h.hasVal('HDUCLAS1','RESPONSE')",
         'HDUCLAS2':"h.hasVal('HDUCLAS2','SPECRESP')",
-        'HDUVERS':"h.hasVal('HDUVERS','1.1.0')",
+        'HDUVERS':"h.Exists('HDUVERS')",
         'TLMIN*':"h.Exists('TLMIN*')",
         'NUMGRP':"h.Exists('NUMGRP')",
         'NUMELT':"h.Exists('NUMELT')",
@@ -56,6 +56,7 @@ def ogip_dictionary_arf():
         'LO_THRES':"h.Exists('LO_THRES')", # minimum probability threshold in matrix (values < this are set to 0)
         'HDUCLAS3':"h.hasVal('HDUCLAS3','REDIST') or h.hasVal('HDUCLAS3','DETECTOR') or h.hasVal('HDUCLAS3','FULL')", # required if channel numbering doesn't start at 1
         'RMFVERSN':"h.hasVal('RMFVERSN','1992A')",
+        'HDUVERS':"h.hasVal('HDUVERS','1.1.0')",
         'HDUVERS1':"h.hasVal('HDUVERS1','1.1.0')",
         'HDUVERS2':"h.hasVal('HDUVERS2','1.2.0')",
     }
