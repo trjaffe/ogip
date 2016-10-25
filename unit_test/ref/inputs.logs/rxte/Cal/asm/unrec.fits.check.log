@@ -10,35 +10,35 @@ ERROR:  failed to determine the file type;  trying CALDB
 =============== Checking 'FOOBAR' extension against 'CALFILE' standard ===============
 
 ERROR: Key CBD* incorrect in unrec.fits[FOOBAR]
-ERROR: Key CVSD0001 incorrect in unrec.fits[FOOBAR]
-ERROR: Key CDTP0001 incorrect in unrec.fits[FOOBAR]
-ERROR: Key CVST0001 incorrect in unrec.fits[FOOBAR]
 ERROR: Key CCLS0001 incorrect in unrec.fits[FOOBAR]
-ERROR: Key CDES* incorrect in unrec.fits[FOOBAR]
 ERROR: Key CCNM0001 incorrect in unrec.fits[FOOBAR]
-WARNING: Key CTEL* incorrect in unrec.fits[FOOBAR]
-WARNING: Key CFI* incorrect in unrec.fits[FOOBAR]
-WARNING: Key CINS* incorrect in unrec.fits[FOOBAR]
-WARNING: Key CDT* incorrect in unrec.fits[FOOBAR]
+ERROR: Key CDES* incorrect in unrec.fits[FOOBAR]
+ERROR: Key CDTP0001 incorrect in unrec.fits[FOOBAR]
+ERROR: Key CVSD0001 incorrect in unrec.fits[FOOBAR]
+ERROR: Key CVST0001 incorrect in unrec.fits[FOOBAR]
+WARNING2: Key CDT* incorrect in unrec.fits[FOOBAR]
+WARNING2: Key CFI* incorrect in unrec.fits[FOOBAR]
+WARNING2: Key CINS* incorrect in unrec.fits[FOOBAR]
+WARNING2: Key CTEL* incorrect in unrec.fits[FOOBAR]
 
 =============== Checking 'STDGTI' extension against 'CALFILE' standard ===============
 
 ERROR: Key CBD* incorrect in unrec.fits[STDGTI]
-ERROR: Key CVSD0001 incorrect in unrec.fits[STDGTI]
-ERROR: Key CDTP0001 incorrect in unrec.fits[STDGTI]
-ERROR: Key CVST0001 incorrect in unrec.fits[STDGTI]
 ERROR: Key CCLS0001 incorrect in unrec.fits[STDGTI]
-ERROR: Key CDES* incorrect in unrec.fits[STDGTI]
 ERROR: Key CCNM0001 incorrect in unrec.fits[STDGTI]
-ERROR: Key TELESCOP incorrect in unrec.fits[STDGTI]
-ERROR: Key FILTER incorrect in unrec.fits[STDGTI]
+ERROR: Key CDES* incorrect in unrec.fits[STDGTI]
+ERROR: Key CDTP0001 incorrect in unrec.fits[STDGTI]
+ERROR: Key CVSD0001 incorrect in unrec.fits[STDGTI]
+ERROR: Key CVST0001 incorrect in unrec.fits[STDGTI]
 ERROR: Key DETNAM incorrect in unrec.fits[STDGTI]
-WARNING: Key CTEL* incorrect in unrec.fits[STDGTI]
-WARNING: Key CFI* incorrect in unrec.fits[STDGTI]
-WARNING: Key CINS* incorrect in unrec.fits[STDGTI]
-WARNING: Key CDT* incorrect in unrec.fits[STDGTI]
+ERROR: Key FILTER incorrect in unrec.fits[STDGTI]
+ERROR: Key TELESCOP incorrect in unrec.fits[STDGTI]
+WARNING2: Key CDT* incorrect in unrec.fits[STDGTI]
+WARNING2: Key CFI* incorrect in unrec.fits[STDGTI]
+WARNING2: Key CINS* incorrect in unrec.fits[STDGTI]
+WARNING2: Key CTEL* incorrect in unrec.fits[STDGTI]
 
-=============== 17 Errors and 8 Warnings Found in 2 extensions checked ===============
+=============== 18 Errors and 8 Warnings Found in 2 extensions checked ===============
 
 
 ===========================================================

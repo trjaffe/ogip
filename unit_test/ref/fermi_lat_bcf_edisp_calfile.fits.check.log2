@@ -8,15 +8,15 @@ Checking file as type CALDB
 =============== Checking 'ENERGY DISPERSION' extension against 'CALFILE' standard ===============
 
 ERROR: Key FILTER incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
-WARNING: Key CTEL* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
-WARNING: Key CFI* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
-WARNING: Key CINS* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING2: Key CFI* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING2: Key CINS* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING2: Key CTEL* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
 
 =============== Checking 'EDISP_SCALING_PARAMS' extension against 'CALFILE' standard ===============
 
-WARNING: Key CTEL* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
-WARNING: Key CFI* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
-WARNING: Key CINS* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING2: Key CFI* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING2: Key CINS* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING2: Key CTEL* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
 
 =============== 1 Errors and 6 Warnings Found in 2 extensions checked ===============
 

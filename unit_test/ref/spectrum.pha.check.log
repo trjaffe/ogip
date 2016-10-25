@@ -10,40 +10,39 @@ Checking file as type SPECTRAL (match for this file's SPECTRUM and reference ext
 
 =============== Checking 'SPECTRUM' extension against 'SPECTRUM' standard ===============
 
-ERROR: Key HDUVERS incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key BACKE* incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key EMIN* incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key VIGNET incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key HDUCLAS4 incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key BACKV* incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key BACKAPP incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key TIERRELA incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key TIERABSO incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key TASSIGN incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key RA-OBJ incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key CLOCKCOR incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key HDUVERS incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key DEADC* incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key TIMEZERO incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key ONTIME incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key DEC-OBJ incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key TIMEREF incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key NPIXSOU incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key EMAX* incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key GEOAREA incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key NPIXBACK incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key VIGNAPP incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key AUTHOR incorrect in spectrum.pha[SPECTRUM]
-WARNING: Key TIMVERSN incorrect in spectrum.pha[SPECTRUM]
+WARNING2: Key DEC-OBJ incorrect in spectrum.pha[SPECTRUM]
+WARNING2: Key HDUCLAS4 incorrect in spectrum.pha[SPECTRUM]
+WARNING2: Key HDUVERS incorrect in spectrum.pha[SPECTRUM]
+WARNING2: Key RA-OBJ incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key AUTHOR incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key BACKAPP incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key BACKE* incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key BACKV* incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key CLOCKCOR incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key DEADC* incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key EMAX* incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key EMIN* incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key GEOAREA incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key NPIXBACK incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key NPIXSOU incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key ONTIME incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key TASSIGN incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key TIERABSO incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key TIERRELA incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key TIMEREF incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key TIMEZERO incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key TIMVERSN incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key VIGNAPP incorrect in spectrum.pha[SPECTRUM]
+WARNING1: Key VIGNET incorrect in spectrum.pha[SPECTRUM]
 
 =============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
 ERROR: Key TELESCOP incorrect in spectrum.pha[STDGTI]
-WARNING: Key FILTER incorrect in spectrum.pha[STDGTI]
-WARNING: Key DETNAM incorrect in spectrum.pha[STDGTI]
-WARNING: Recommended column TIMEDEL incorrect in spectrum.pha[STDGTI]
+WARNING2: Key DETNAM incorrect in spectrum.pha[STDGTI]
+WARNING2: Key FILTER incorrect in spectrum.pha[STDGTI]
+WARNING2: column TIMEDEL incorrect in spectrum.pha[STDGTI]
 
-=============== 2 Errors and 27 Warnings Found in 2 extensions checked ===============
+=============== 1 Errors and 27 Warnings Found in 2 extensions checked ===============
 
 
 ===========================================================

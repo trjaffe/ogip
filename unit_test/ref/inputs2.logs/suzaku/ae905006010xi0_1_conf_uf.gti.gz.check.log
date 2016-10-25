@@ -12,25 +12,25 @@ ERROR: ae905006010xi0_1_conf_uf.gti.gz does not have any of the required extensi
 
 =============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
-WARNING: Key RA* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Key TSTOP incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Key DEC* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Key FILTER incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Key DETNAM incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Key ONTIME incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Key TSTART incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Recommended column TIMEDEL incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key DEC* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key DETNAM incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key FILTER incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key ONTIME incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key RA* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key TSTART incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key TSTOP incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: column TIMEDEL incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
 
 =============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
-WARNING: Key RA* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Key TSTOP incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Key DEC* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Key FILTER incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Key DETNAM incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Key ONTIME incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Key TSTART incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
-WARNING: Recommended column TIMEDEL incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key DEC* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key DETNAM incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key FILTER incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key ONTIME incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key RA* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key TSTART incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: Key TSTOP incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+WARNING2: column TIMEDEL incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
 
 =============== 1 Errors and 16 Warnings Found in 2 extensions checked ===============
 

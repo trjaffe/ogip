@@ -6,11 +6,14 @@ def ogip_dictionary_spectral():
     the entry is required (1) or recommended (0), and the specific
     values for the entry, if any.
 
-    All logic is possible, as the requirement is given as a string that will be passed to eval() in a context where the object h will contain a class instance that contains the header and the functions 
+    All logic is possible, as the requirement is given as a string
+    that will be passed to eval() in a context where the object h will
+    contain a class instance that contains the header and the
+    functions
 
     h.Exists('KEY')
     h.hasVal('KEY','VAL')
-    etc.  
+    etc.
 
     """
     global status
@@ -28,161 +31,178 @@ def ogip_dictionary_spectral():
 
     """
     """
-    Define REQUIRED Keywords for SPECTRUM TABLE
+    Define requirements for Keywords for SPECTRUM TABLE
     """
     reqkeys = {
-        'TELESCOPE':"h.Exists('TELESCOP')", 
-        'INSTRUME':"h.Exists('INSTRUME')",
-        'FILTER':"h.Exists('FILTER')",
-        'EXPOSURE':"h.Exists('EXPOSURE') or h.hasCol('EXPOSURE')",# record of the exposure for each row in the type II file
-        'BACKFILE':"h.Exists('BACKFILE') or h.hasCol('BACKFILE')", # background file for each row in the type II file
-        'CORRFILE':"h.Exists('CORRFILE') or h.hasCol('CORRFILE')", # correction file for each row in the type II file
-        'CORRSCAL':"h.Exists('CORRSCAL') or h.hasCol('CORRSCAL')", # scaling for correction file for each row in the type II file
-        'RESPFILE':"h.Exists('RESPFILE') or h.hasCol('RESPFILE')", # response file for each row in the type II file
-        'ANCRFILE':"h.Exists('ANCRFILE') or h.hasCol('ANCRFILE')", # ancillary file for each row in the type II file
-        'HDUCLASS':"h.hasVal('HDUCLASS','OGIP')",  # OGIP is the allowed keyword value
-        'HDUCLAS1':"h.hasVal('HDUCLAS1','SPECTRUM')",  # SPECTRUM is the allowed keyword value
-        'HDUVERS':"h.Exists('HDUVERS')",
+        'TELESCOPE':{'level':3,'req':"h.Exists('TELESCOP')"},
+        'INSTRUME': {'level':3,'req':"h.Exists('INSTRUME')"},
+        'FILTER':   {'level':3,'req':"h.Exists('FILTER')"},
+        # record of the exposure for each row in the type II file
+        'EXPOSURE': {'level':3,'req':"h.Exists('EXPOSURE') or h.hasCol('EXPOSURE')"}, 
+        # background file for each row in the type II file
+        'BACKFILE': {'level':3,'req':"h.Exists('BACKFILE') or h.hasCol('BACKFILE')"},  
+        # correction file for each row in the type II file
+        'CORRFILE': {'level':3,'req':"h.Exists('CORRFILE') or h.hasCol('CORRFILE')"},  
+        # scaling for correction file for each row in the type II file
+        'CORRSCAL': {'level':3,'req':"h.Exists('CORRSCAL') or h.hasCol('CORRSCAL')"},  
+        # response file for each row in the type II file
+        'RESPFILE': {'level':3,'req':"h.Exists('RESPFILE') or h.hasCol('RESPFILE')"},  
+        # ancillary file for each row in the type II file
+        'ANCRFILE': {'level':3,'req':"h.Exists('ANCRFILE') or h.hasCol('ANCRFILE')"},  
+        # OGIP is the allowed keyword value
+        'HDUCLASS': {'level':3,'req':"h.hasVal('HDUCLASS','OGIP')"},   
+        # SPECTRUM is the allowed keyword value
+        'HDUCLAS1': {'level':3,'req':"h.hasVal('HDUCLAS1','SPECTRUM')"},   
+        'HDUVERS':  {'level':3,'req':"h.Exists('HDUVERS')"}, 
         #  If there's a STAT_ERR column, POISSERR==F is only recommended.  Will be checked again below.  
-        'POISSERR':"( h.hasVal('POISSERR',True) and not h.hasCol('STAT_ERR') and h.hasCol('COUNTS') ) or ( h.hasCol('STAT_ERR') and not h.hasVal('POISSERR',True) )",
-        'CHANTYPE':"h.hasVal('CHANTYPE','PHA',part=True) or h.hasVal('CHANTYPE','PI',part=True)",
-        'DETCHANS':"h.Exists('DETCHANS')"}
-
-    """
-    Define recommended Keywords
-    """
-    optkeys = {
-        'XFLT*':"h.Exists('XFLT*')", # xspec filter descriptor
-        'OBJECT':"h.Exists('OBJECT')",
-        'RA-OBJ':"h.Exists('RA-OBJ')",
-        'DEC-OBJ':"h.Exists('DEC-OBJ')",
-        'DEC-OBJ':"h.Exists('DEC-OBJ')",
-        'DATE-OBS':"h.Exists('DATE-OBS')",
-        'DATE-END':"h.Exists('DATE-END')",
-        'TIME-OBS':"h.Exists('TIME-OBS')", # time-obs can be included in date-obs
-        'TIME-END':"h.Exists('TIME-END')", # time-end can be included in date-end
-        'CREATOR':"h.Exists('CREATOR')",
-        'HDUVERS':"h.hasVal('HDUVERS','1.2.1')", # warn if another version
-        'HDUCLAS2':
+        'POISSERR': {'level':3,'req':"( h.hasVal('POISSERR',True) and not h.hasCol('STAT_ERR') and h.hasCol('COUNTS') )"
+                     " or ( h.hasCol('STAT_ERR') and not h.hasVal('POISSERR',True) )"}, 
+        'CHANTYPE': {'level':3,'req':"h.hasVal('CHANTYPE','PHA',part=True) or h.hasVal('CHANTYPE','PI',part=True)"}, 
+        'DETCHANS': {'level':3,'req':"h.Exists('DETCHANS')"}, 
+        #
+        #  Optional
+        #
+        # xspec filter descriptor
+        'XFLT*':    {'level':2,'req':"h.Exists('XFLT*')"},  
+        'OBJECT':   {'level':2,'req':"h.Exists('OBJECT')"}, 
+        'RA-OBJ':   {'level':2,'req':"h.Exists('RA-OBJ')"}, 
+        'DEC-OBJ':  {'level':2,'req':"h.Exists('DEC-OBJ')"}, 
+        'DEC-OBJ':  {'level':2,'req':"h.Exists('DEC-OBJ')"}, 
+        'DATE-OBS': {'level':2,'req':"h.Exists('DATE-OBS')"}, 
+        'DATE-END': {'level':2,'req':"h.Exists('DATE-END')"}, 
+        # time-obs can be included in date-obs
+        'TIME-OBS': {'level':2,'req':"h.Exists('TIME-OBS')"},  
+        # time-end can be included in date-end
+        'TIME-END': {'level':2,'req':"h.Exists('TIME-END')"},  
+        'CREATOR':  {'level':2,'req':"h.Exists('CREATOR')"}, 
+        # warn if another version
+        'HDUVERS':  {'level':2,'req':"h.hasVal('HDUVERS','1.2.1')"},  
+        'HDUCLAS2': { 'level':2,'req':
         "   (h.hasVal('HDUCLAS2','TOTAL') and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) "
-        "or (h.hasVal('HDUCLAS2','NET')   and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) "
+         "or (h.hasVal('HDUCLAS2','NET')   and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) "
         "or (h.hasVal('HDUCLAS2','BKG')   and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) "
-        "or  h.hasVal('HDUCLAS2','DETECTOR')", 
-        'HDUCLAS4':
+        "or  h.hasVal('HDUCLAS2','DETECTOR')"},
+        'HDUCLAS4': {'level':2,'req':
         "(not h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:I') ) "
-        "or ( h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:II') )",
+        "or ( h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:II') )"},
         #  Above traps required case of POISSERR==T.  Here, warn if it
         #  should be F but is missing but (not if it should be T):
-        'POISSERR':"(h.hasVal('POISSERR',False) and h.hasCol('STAT_ERR')) or not h.hasCol('STAT_ERR') ", 
-
-#
-#  TO BE FIXED: aren't in the document?
-#
-        'DETNAM':"h.Exists('DETNAM')", 
-        'TLMIN*':"h.Exists('TLMIN*')", # required if channel numbering doesn't start at 1
-        'TLMAX*':"h.Exists('TLMAX*')", # required if channel numbering doesn't start at 1
-        'ONTIME':"h.Exists('ONTIME')",
-        'TIMEZERO':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )",  # can be given as single keyword or integer + fraction; either ok
-        'TSTART':"h.Exists('TSTART') or (h.Exists('TSTARTI') and h.Exists('TSTARTF'))",  # can be given as single keyword or integer + fraction; either ok
-        'TSTOP':"h.Exists('TSTOP') or (h.Exists('TSTOPI') and h.Exists('TSTOPF'))",  # can be given as single keyword or integer + fraction; either ok
-        'TIMESYS':"h.Exists('TIMESYS')",
-        'TIMEUNIT':"h.Exists('TIMEUNIT')",
-        'TIMEREF':"h.Exists('TIMEREF')",
-        'CLOCKCOR':"h.Exists('CLOCKCOR')",
-        'TIMVERSN':"h.Exists('TIMVERSN')",
-        'AUTHOR':"h.Exists('AUTHOR')",
-        'TASSIGN':"h.Exists('TASSIGN')",
-        'TIERRELA':"h.Exists('TIERRELA')",
-        'TIERABSO':"h.Exists('TIERABSO')",
-        'ONTIME':"h.Exists('ONTIME')",
-        'BACKAPP':"h.Exists('BACKAPP')",
-        'VIGNAPP':"h.Exists('VIGNAPP')",
-        'DEADAPP':"h.Exists('DEADAPP')",
-        'EMIN*':"h.Exists('EMIN*')",
-        'EMAX*':"h.Exists('EMAX*')",
-        'BACKV*':"h.Exists('BACKV*')",
-        'BACKE*':"h.Exists('BACKE*')",
-        'DEADC*':"h.Exists('DEADC*')",
-        'GEOAREA':"h.Exists('GEOAREA')",
-        'VIGNET':"h.Exists('VIGNET')",
-        'NPIXSOU':"h.Exists('NPIXSOU')",
-        'NPIXBACK':"h.Exists('NPIXBACK')"
+        'POISSERR': {'level':2,'req':"(h.hasVal('POISSERR',False) and h.hasCol('STAT_ERR')) or not h.hasCol('STAT_ERR') "},  
+        #
+        #  TO BE FIXED: aren't in the document?
+        #
+        'DETNAM':  {'level':1,'req':"h.Exists('DETNAM')"},  
+        # required if channel numbering doesn't start at 1
+        'TLMIN*':  {'level':1,'req':"h.Exists('TLMIN*')"},  
+        # required if channel numbering doesn't start at 1
+        'TLMAX*':  {'level':1,'req':"h.Exists('TLMAX*')"},  
+        'ONTIME':  {'level':1,'req':"h.Exists('ONTIME')"}, 
+        # can be given as single keyword or integer + fraction; either ok
+        'TIMEZERO':{'level':1,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"},   
+        'TSTART':  {'level':1,'req':"h.Exists('TSTART') or (h.Exists('TSTARTI') and h.Exists('TSTARTF'))"},   
+        'TSTOP':   {'level':1,'req':"h.Exists('TSTOP') or (h.Exists('TSTOPI') and h.Exists('TSTOPF'))"},   
+        'TIMESYS': {'level':1,'req':"h.Exists('TIMESYS')"}, 
+        'TIMEUNIT':{'level':1,'req':"h.Exists('TIMEUNIT')"}, 
+        'TIMEREF': {'level':1,'req':"h.Exists('TIMEREF')"}, 
+        'CLOCKCOR':{'level':1,'req':"h.Exists('CLOCKCOR')"}, 
+        'TIMVERSN':{'level':1,'req':"h.Exists('TIMVERSN')"}, 
+        'AUTHOR':  {'level':1,'req':"h.Exists('AUTHOR')"}, 
+        'TASSIGN': {'level':1,'req':"h.Exists('TASSIGN')"}, 
+        'TIERRELA':{'level':1,'req':"h.Exists('TIERRELA')"}, 
+        'TIERABSO':{'level':1,'req':"h.Exists('TIERABSO')"}, 
+        'ONTIME':  {'level':1,'req':"h.Exists('ONTIME')"}, 
+        'BACKAPP': {'level':1,'req':"h.Exists('BACKAPP')"}, 
+        'VIGNAPP': {'level':1,'req':"h.Exists('VIGNAPP')"}, 
+        'DEADAPP': {'level':1,'req':"h.Exists('DEADAPP')"}, 
+        'EMIN*':   {'level':1,'req':"h.Exists('EMIN*')"}, 
+        'EMAX*':   {'level':1,'req':"h.Exists('EMAX*')"}, 
+        'BACKV*':  {'level':1,'req':"h.Exists('BACKV*')"}, 
+        'BACKE*':  {'level':1,'req':"h.Exists('BACKE*')"}, 
+        'DEADC*':  {'level':1,'req':"h.Exists('DEADC*')"}, 
+        'GEOAREA': {'level':1,'req':"h.Exists('GEOAREA')"}, 
+        'VIGNET':  {'level':1,'req':"h.Exists('VIGNET')"}, 
+        'NPIXSOU': {'level':1,'req':"h.Exists('NPIXSOU')"}, 
+        'NPIXBACK':{'level':1,'req':"h.Exists('NPIXBACK')"},     
     }
 
     """
-    Define Required Columns
+    Define requirements for columns
     """
     reqcols = {
-        'CHANNEL':"h.hasCol('CHANNEL')", # should be sequential
-        'RATE|COUNTS':"h.hasCol('RATE') or h.hasCol('COUNTS')",  # means need either RATE or COUNTS column
-        'STAT_ERR':" h.hasCol('STAT_ERR') or h.hasCol('COUNTS')", # optional if data given in counts per channel
-        'SYS_ERR':"h.hasCol('SYS_ERR') or h.hasVal('SYS_ERR',0)", # can give SYS_ERR= 0 as keyword if no systematic error
-        'QUALITY':"h.hasCol('QUALITY') or h.hasCol('DQF') or h.hasVal('QUALITY',0)", # can give QUALITY = 0 keyword if all data are good
-        'GROUPING':"h.hasCol('GROUPING') or h.hasCol('DQF') or h.hasVal('GROUPING',0)", # can give GROUPING = 0 keyword if data are ungrouped
-        'AREASCAL':"h.hasCol('AREASCAL') or h.Exists('AREASCAL')",    
-        'BACKSCAL':"h.hasCol('BACKSCAL') or h.Exists('BACKSCAL')", # often a measure of the area of the image from which data were extracted
+        # should be sequential
+        'CHANNEL':    {'level':3,'req':"h.hasCol('CHANNEL')"},  
+        # means need either RATE or COUNTS column
+        'RATE|COUNTS':{'level':3,'req':"h.hasCol('RATE') or h.hasCol('COUNTS')"},   
+        # optional if data given in counts per channel
+        'STAT_ERR':   {'level':3,'req':" h.hasCol('STAT_ERR') or h.hasCol('COUNTS')"},  
+        # can give SYS_ERR= 0 as keyword if no systematic error
+        'SYS_ERR':    {'level':3,'req':"h.hasCol('SYS_ERR') or h.hasVal('SYS_ERR',0)"},  
+        # can give QUALITY = 0 keyword if all data are good
+        'QUALITY':    {'level':3,'req':"h.hasCol('QUALITY') or h.hasCol('DQF') or h.hasVal('QUALITY',0)"},  
+        # can give GROUPING = 0 keyword if data are ungrouped
+        'GROUPING':   {'level':3,'req':"h.hasCol('GROUPING') or h.hasCol('DQF') or h.hasVal('GROUPING',0)"},  
+        'AREASCAL':   {'level':3,'req':"h.hasCol('AREASCAL') or h.Exists('AREASCAL')"},     
+        # often a measure of the area of the image from which data were extracted
+        'BACKSCAL':   {'level':3,'req':"h.hasCol('BACKSCAL') or h.Exists('BACKSCAL')"},  
         #
         # Check for odd case of columns suited to type II spectra but
         # where there's no SPEC_NUM column, throw an error tagged
         # SPEC_NUM:  
-        'SPEC_NUM':
-        "(not h.hasCol('SPEC_NUM') and not (h.hasCol('EXPOSURE') or h.hasCol('BACKFILE') or h.hasCol('CORRFILE') or h.hasCol('CORRSCAL') or h.hasCol('RESPFILE') or h.hasCol('ANCRFILE') ) )" 
-        "or h.hasCol('SPEC_NUM')" 
+        'SPEC_NUM':   {'level':3,'req':
+        "(not h.hasCol('SPEC_NUM') and not ("
+                       "   h.hasCol('EXPOSURE') or h.hasCol('BACKFILE') or h.hasCol('CORRFILE') "
+                       "or h.hasCol('CORRSCAL') or h.hasCol('RESPFILE') or h.hasCol('ANCRFILE') "
+                       ") )"
+        "or h.hasCol('SPEC_NUM')"  }, 
+        #
+        #  Optional
+        #
+        # optionally used for type II files
+        'ROWID':      {'level':2,'req':"not h.hasCol('SPEC_NUM') or h.hasCol('ROWID')"}, 
     }
 
-    """
-    Define Optional Columns
-    """
-    optcols = {
-        'ROWID':"not h.hasCol('SPEC_NUM') or h.hasCol('ROWID')" # optionally used for type II files
-    }
 
-    pha = {'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
+    pha = {'KEYWORDS':reqkeys, 'COLUMNS':reqcols}
 
     """
     FOR GTI TABLE (OPTIONAL)
     """
     """
-    Define Required Keywords FOR GTI TABLE
+    Define requirements for keywords FOR GTI TABLE
     """
     reqkeys = {
-        'TELESCOP':"h.Exists('TELESCOP')", 
-        'INSTRUME':"h.Exists('INSTRUME')"
-    }
-    """
-    Define optional Keywords
-    """
-    optkeys = {
-        'DETNAM':"h.Exists('DETNAM')", 
-        'FILTER':"h.Exists('FILTER')",
-        'FILTER':"h.Exists('FILTER')",
-        'RA*':"h.Exists('RA*')",
-        'DEC*':"h.Exists('DEC*')",
-        'TIMEZERO':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )",  # can be given as single keyword or integer + fraction; either ok
-        'TSTART':"h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )",  # can be given as single keyword or integer + fraction; either ok
-        'TSTOP':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and  h.Exists('TSTARTF') )",  # can be given as single keyword or integer + fraction; either ok
-        'TIMESYS':"h.Exists('TIMESYS')",
-        'TIMEUNIT':"h.Exists('TIMEUNIT')",
-        'DATE-OBS':"h.Exists('DATE-OBS')",
-        'DATE-END':"h.Exists('DATE-END')",
-        'ONTIME':"h.Exists('ONTIME')",
-        'HDUCLASS':"h.hasVal('HDUCLASS','OGIP')",
-        'HDUCLAS1':"h.hasVal('HDUCLAS1','GTI')"
+        'TELESCOP':{'level':3,'req':"h.Exists('TELESCOP')"},  
+        'INSTRUME':{'level':3,'req':"h.Exists('INSTRUME')"},  
+        'DETNAM':  {'level':2,'req':"h.Exists('DETNAM')"},  
+        'FILTER':  {'level':2,'req':"h.Exists('FILTER')"}, 
+        'FILTER':  {'level':2,'req':"h.Exists('FILTER')"}, 
+        'RA*':     {'level':2,'req':"h.Exists('RA*')"}, 
+        'DEC*':    {'level':2,'req':"h.Exists('DEC*')"}, 
+        # can be given as single keyword or integer + fraction; either ok
+        'TIMEZERO':{'level':2,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"},   
+        # can be given as single keyword or integer + fraction; either ok
+        'TSTART':  {'level':2,'req':"h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )"},   
+        # can be given as single keyword or integer + fraction; either ok
+        'TSTOP':   {'level':2,'req':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and  h.Exists('TSTARTF') )"},   
+        'TIMESYS': {'level':2,'req':"h.Exists('TIMESYS')"}, 
+        'TIMEUNIT':{'level':2,'req':"h.Exists('TIMEUNIT')"}, 
+        'DATE-OBS':{'level':2,'req':"h.Exists('DATE-OBS')"}, 
+        'DATE-END':{'level':2,'req':"h.Exists('DATE-END')"}, 
+        'ONTIME':  {'level':2,'req':"h.Exists('ONTIME')"}, 
+        'HDUCLASS':{'level':2,'req':"h.hasVal('HDUCLASS','OGIP')"}, 
+        'HDUCLAS1':{'level':2,'req':"h.hasVal('HDUCLAS1','GTI')"},     
     }
 
     """
     Define Required Columns
     """
     reqcols = {
-        'START':"h.hasCol('START')", 
-        'STOP':"h.hasCol('STOP')"
+        'START':  {'level':3,'req':"h.hasCol('START')"},  
+        'STOP':   {'level':3,'req':"h.hasCol('STOP')"},     
+        'TIMEDEL':{'level':2,'req':"h.hasCol('TIMEDEL')"},     
     }
-    """
-    Define Optional Columns
-    """
-    optcols = {'TIMEDEL':"h.hasCol('TIMEDEL')"}
 
-    gti={'KEYWORDS':{'REQUIRED':reqkeys,'RECOMMENDED':optkeys}, 'COLUMNS':{'REQUIRED':reqcols,'RECOMMENDED':optcols}}
+    gti={'KEYWORDS':reqkeys,'COLUMNS':reqcols}
     """
     FOR DETECTOR TABLE (optional)
     """
@@ -205,7 +225,7 @@ def ogip_dictionary_spectral():
     """
     FOR HISTORY TABLE: (optional)
     """
-    history={'KEYWORDS':{'REQUIRED':{},'RECOMMENDED':{}}, 'COLUMNS':{'REQUIRED':[],'RECOMMENDED':[]} }
+    history={'KEYWORDS':{},'COLUMNS':{} }
     """
     Define Required keywords
     """

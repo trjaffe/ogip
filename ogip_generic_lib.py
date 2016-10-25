@@ -64,16 +64,14 @@ class statinfo:
     Status information stored for each extension
 
     REPORT contains the logged reports to print
-    WARNINGS counts the number of warning messages (i.e. RECOMMENDED properties that fail)
-    ERRORS counts the number of error messages (i.e. REQUIRED properties that fail)
+    LEVELS counts the number of warning messages for each level, 0 to 3
     status counts running errors such as missing files, unrecognized formats, etc.
 
 
     """
     def __init__(self):
         self.REPORT=[]
-        self.WARNINGS=0
-        self.ERRORS=0
+        self.WARNINGS={0:0,1:0,2:0,3:0}
         self.MISKEYS=[]
         self.MISCOLS=[]
 
@@ -88,7 +86,7 @@ class retstat:
     to calling codes without global variables.  
 
     """
-    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, warn=0,err=0,log=sys.stdout,otype=None,fver=0,fopen=0,unrec=0,verbosity=2):
+    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, level=0,log=sys.stdout,otype=None,fver=0,fopen=0,unrec=0,verbosity=2,unrec_extn=None):
         #  Set an error status for the file if nonzero;  this will halt the checks.
         self.status+=status
         #  Flag problems opening the file as FITS specifically
@@ -102,11 +100,13 @@ class retstat:
         #  Print the report for this update
         if (verbosity > 1):  print(report,file=log)
 
-        #  If an extension is not given, nothing else to do, since the
-        #  above are the only attributes that apply to the file as
-        #  a whole.  (Note that the report isn't saved in this case.)
-        if not extn:
+        if unrec_extn is not None:  
+            self.unrec_extns.append(unrec_extn)
             return
+
+        #  Just in case
+        if not extn:
+            extn="none"
 
         #  Create the entry for the extension name (an object of
         #  statinfo type) if it doesn't already exist
@@ -117,8 +117,8 @@ class retstat:
         if miskey:  self.extns[extn].MISKEYS.append(miskey)
         if miscol:  self.extns[extn].MISCOLS.append(miscol)
 
-        self.extns[extn].WARNINGS+=warn
-        self.extns[extn].ERRORS+=err
+        self.extns[extn].WARNINGS[level]+=1
+
 
 
     def __init__(self,otype='unknown'):
@@ -128,17 +128,18 @@ class retstat:
         self.unrec=0
         self.otype=otype
         self.extns={}
+        self.unrec_extns=[]
 
     def tot_errors(self):
         errs=0
         for extn in self.extns.itervalues():
-            errs+= extn.ERRORS
+            errs+= extn.WARNINGS[3]
         return errs
 
     def tot_warnings(self):
         warns=0
         for extn in self.extns.itervalues():
-            warns+= extn.WARNINGS
+            warns+=extn.WARNINGS[1]+extn.WARNINGS[2]
         return warns
 
 
@@ -276,7 +277,7 @@ def ogip_fits_verify(hdulist,filename,logf,status):
     #  STDERR that lists the errors.
     result=err.split('\n')
     if result != ['']:
-        [status.update(report="Ftverify:  %s" % x,err=1,log=logf) for x in result]
+        [status.update(report="Ftverify:  %s" % x,log=logf) for x in result]
         fits_errs=1
 
         #  See if we can continue.  Use
@@ -404,14 +405,14 @@ def ogip_determine_ref(in_extn, intype=None):
 
         for extn in all_extns:
 
-            if 'HDUCLAS2' in in_extn.header and 'HDUCLAS2' in ogip_dict[extn]['KEYWORDS']['REQUIRED']:
-                if eval(ogip_dict[extn]['KEYWORDS']['REQUIRED']['HDUCLAS2']):
+            if 'HDUCLAS2' in in_extn.header and 'HDUCLAS2' in ogip_dict[extn]['KEYWORDS']:
+                if eval(ogip_dict[extn]['KEYWORDS']['HDUCLAS2']["req"]):
                     return extn, otype
 
             #  Check less-specific HDUCLAS1, but not for ARF or RMF,
             #  because both have value RESPONSE. 
-            if 'HDUCLAS1' in in_extn.header and 'HDUCLAS1' in ogip_dict[extn]['KEYWORDS']['REQUIRED']:
-                if eval(ogip_dict[extn]['KEYWORDS']['REQUIRED']['HDUCLAS1']):
+            if 'HDUCLAS1' in in_extn.header and 'HDUCLAS1' in ogip_dict[extn]['KEYWORDS']:
+                if eval(ogip_dict[extn]['KEYWORDS']['HDUCLAS1']["req"]):
                     return extn, otype
 
 
@@ -472,114 +473,18 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
     #  uses the methods of the hdr_check() object that must be called
     #  h and whatever logic is needed to express the requirement.
     #  
-    #  Check mandatory keyword requirements. 
-    for req in ogip['KEYWORDS']['REQUIRED']:
-        if not eval(ogip['KEYWORDS']['REQUIRED'][req]):  
-            status.update(extn=extna,report="ERROR: Key %s incorrect in %s[%s]" % (req,file, this_extn), err=1,log=logf,miskey=req)
+    #  Check mandatory keyword requirements.   (Sort by decending level and then alphabetically.)
+    for key,req in sorted(ogip['KEYWORDS'].iteritems(), key=lambda(k,v): (-v['level'], k)):
+        if not eval(req["req"]):  
+            if req["level"] == 3:  status.update(extn=extna,report="ERROR: Key %s incorrect in %s[%s]" % (key,file, this_extn), level=req["level"],log=logf,miskey=key)
+            else:  status.update(extn=extna,report="WARNING%s: Key %s incorrect in %s[%s]" % (req["level"],key,file, this_extn), level=req["level"],log=logf)
 
-    #  Check recommended keyword requirements. 
-    for req in ogip['KEYWORDS']['RECOMMENDED']:
-        if not eval(ogip['KEYWORDS']['RECOMMENDED'][req]):
-            status.update(extn=extna,report="WARNING: Key %s incorrect in %s[%s]" % (req,file, this_extn), warn=1,log=logf)
-
-
-    for req in ogip['COLUMNS']['REQUIRED']:
-        if not eval(ogip['COLUMNS']['REQUIRED'][req]):
-        #Foundcol = check_cols(col, colnames,logf,this_extn,status)
-        #if not Foundcol:
-            status.update(extn=extna,report="ERROR: Required column %s incorrect in %s[%s]" % (req, file,  this_extn), err=1,log=logf, miscol=req)
-
-    for req in ogip['COLUMNS']['RECOMMENDED']:
-        #Foundcol = check_cols(col, colnames,logf,this_extn,status)
-        #if not Foundcol:
-        if not eval(ogip['COLUMNS']['RECOMMENDED'][req]):
-            status.update(extn=extna,report= "WARNING: Recommended column %s incorrect in %s[%s]" % (req, file,  this_extn), warn=1,log=logf, miscol=req)
+    for col,req in sorted(ogip['COLUMNS'].iteritems(),key=lambda(k,v):(v['level'],k)):
+        if not eval(req['req']):
+            if req["level"] == 3:  status.update(extn=extna,report="ERROR: column %s incorrect in %s[%s]" % (col, file,  this_extn), level=req["level"],log=logf, miscol=col)
+            else:  status.update(extn=extna,report="WARNING%s: column %s incorrect in %s[%s]" % (req["level"],col, file,  this_extn), level=req["level"],log=logf)
 
     return
-
-##  
-##  def check_relkeys(key, ref_extn, filename, header, this_extn, logf, status, required=True):
-##      """
-##      Checks keys that may depend on other keys.  Case for which it is designed:
-##  
-##      'HDUCLAS2[TOTAL(HDUCLAS3[RATE|COUNT])|NET(HDUCLAS3[RATE|COUNT])|BKG(HDUCLAS3[RATE|COUNT])|DETECTOR]'
-##  
-##      Note that this does not allow alternate keywords.  So you cannot have 'KEY1[VAL1()|VAL2()]|ANYKEY[]' 
-##      and expect this to work.  Likewise, groups of keys, i.e. 'KEY1[VAL1()|VAL2()]+KEY2[]'.  
-##  
-##      which means:
-##  
-##  	HDUCLAS2 = 'TOTAL' | 'NET' | 'BKG' | 'DETECTOR'
-##  	HDUCLAS 3 = 'RATE' | 'COUNT' (only if HDUCLAS2 =  'TOTAL' | 'NET' | 'BKG')
-##  
-##  
-##      """
-##      top_key=re.split('\[',key)[0]  #  E.g., HDUCLAS2
-##  
-##      #  If the key isn't in the given header, nothing to do but report 
-##      if top_key not in header:
-##          if required:  status.update(extn=ref_extn,report="ERROR:  Key %s not found in %s[%s]" %  (key,filename, this_extn), err=1,log=logf,miskey=key)
-##          else:   status.update(extn=ref_extn,report="WARNING:  Key %s not found in %s[%s]" %  (key,filename, this_extn), warn=1,log=logf)
-##          return
-##  
-##      else:
-##          this_key_value=header[top_key] # the value of HDUCLAS2 in the given header
-##  
-##      # Now parse the reference value that contains a conditional on another key
-##  
-##      #  First, get the expression inside the brackets:
-##      val_expr=re.search('^\w+\[(.*)\]$',key).group(1) 
-##  
-##      #  Split it into possible options, 
-##      #  e.g., 'TOTAL(HDUCLAS3[RATE|COUNT]' ... 'DETECTOR':
-##      options=re.split('\)\|',val_expr) 
-##  
-##  
-##      #  For each of the options, see if the current key matches, then
-##      #  parse the condition for that option:
-##      for opt in options:
-##  
-##          #  Get the optional value of the main keyword:
-##          if re.search('^(.*)\(',opt):
-##              opt_val=re.search('^(.*)\(',opt).group(1)  # E.g., 'TOTAL' ... 'BKG'
-##          else:
-##              #  There is no conditional, so the whole thing should just
-##              #  be the value for the top_key:
-##              opt_val=opt # 'DETECTOR'
-##  
-##          #  See if this is the option found:
-##          if this_key_value != opt_val:
-##              continue 
-##  
-##          #  If the actual key is the current option, check the condition.
-##          if not re.search('\(',opt):
-##              #  No condition.  Return, having found the one key with a correct value, e.g., HDUCLAS2=='DETECTOR'
-##              return 
-##  
-##          #  
-##          opt_cond=re.search('^(.*)\((.*?)$',opt).group(2) # 'HDUCLAS3[RATE|COUNT]' etc.
-##          cond_key=re.search('(.*)\[',opt_cond).group(1)
-##  
-##          if cond_key not in header:
-##              if required:  status.update(extn=ref_extn,report='ERROR:  Key %s found in %s[%s] with value %s, but dependent key %s not found' % (key, filename, this_extn, cond_key), err=1,log=logf,miskey=cond_key)
-##              else:  status.update(extn=ref_extn,report='WARNING:  Key %s found in %s[%s] with value %s, but dependent key %s not found' % (key, filename, this_extn, cond_key), warn=1,log=logf)
-##              return 
-##  
-##          #  Now have conditional key and it's two possible values.  Simply use existing function
-##          if check_altkey(opt_cond, header,logf,status):
-##              return
-##          else:
-##              if required:  status.update(extn=ref_extn,report='ERROR:  Key %s is not as expected given key %s[%s] in %s[%s]' % (cond_key,top_key,this_key_value,filename,this_extn),err=1,log=logf,miskey=cond_key)
-##              else:  status.update(extn=ref_extn,report='WARNING:  Key %s is not as expected given key %s[%s] in %s[%s]' % (cond_key,top_key,this_key_value,filename,this_extn),warn=1,log=logf)
-##              return
-##  
-##      #  If you get here without returning, the key didn't have any of
-##      #  the recognized values:
-##      if required:  status.update(extn=ref_extn,report="ERROR:  Key %s found in %s[%s] but does not have any recognized value" %  (key,filename, this_extn), err=1,log=logf,miskey=key)
-##      else:   status.update(extn=ref_extn,report="WARNING:  Key %s found in %s[%s] but does not have any recognized value" %  (key,filename, this_extn), warn=1,log=logf)
-##  
-##      return
-##      
 
 
 
@@ -664,80 +569,6 @@ class hdr_check():
         if self.columns is None:  return False
         return col in self.columns
          
-
-## 
-## 
-##  
-##  def check_cols(col, colnames,logf, extn, status):
-##      """
-##      checks that the col appears in the list of column names
-##      @param col:
-##      @param header:
-##      @return:
-##      """
-##  
-##  
-##      Foundcol = True
-##      if "|" in col:  # this means that the column has an alternative definition (like COUNTS|RATE)
-##          Foundcol = check_altcols(col, colnames,logf,status)
-##      elif "+" in col:  # group column; all columns must be present if one column is
-##          Foundcol = check_groupcols(col, colnames, extn, status)
-##      else:
-##          Foundcol = col in colnames
-##      return Foundcol
-##  
-##  
-##  
-##  
-##  def check_altcols(col, colnames,logf,status):
-##      """
-##  
-##      @param col:
-##      @param colnames:
-##      @return:
-##      """
-##  
-##  
-##      altcols = col.split('|')
-##      altcols = [x.upper().strip() for x in altcols]
-##      count = 0
-##      Foundcol = False
-##      while (count < len(altcols)) and not Foundcol:
-##          acol = altcols[count]
-##          Foundcol = acol in colnames  # true if acol in colnames
-##          count += 1
-##      if count == len(altcols) and not Foundcol:
-##          rpt = "Alternate Column %s not found in header" % col
-##          print(rpt,file=logf)
-##      else:
-##          print("Alternate Column %s found in header" % acol,file=logf)
-##      return Foundcol
-##  
-##  
-##  
-##  
-##  def check_groupcols(col, colnames, extn, status):
-##      """
-##      this function checks for grouped keywords of the form MJDREFI+MJDREFF, in which case both keywords need
-##      to exist in the header; True if so, False otherwise
-##      A more general case is a group like key =  A[a]+B[b]+C[c] where A, B & C all need to be present
-##      and they all need to have the specified values a, b, c respectively; True if so, False otherwise
-##      @param key:
-##      @param header:
-##      @return:
-##      """
-##      groupcols = col.split('+')
-##      groupcols = [x.upper().strip() for x in groupcols]
-##      colnames = [x.upper().strip() for x in colnames]
-##      Foundcol = False
-##      Foundcol = set(groupcols) < set(colnames)  # true if groupcolss a subset of column names
-##      if not Foundcol:
-##          status.update(extn=extn,report="Group columns %s not Found in Table" % col, log=logf)
-##      else: # all columns are defined
-##          print("Group columns %s found in Table",file=logf)
-##      return Foundcol
-##  
-
 
 
 def ogip_fail(filename,ogip_dict,logf):

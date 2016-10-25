@@ -138,10 +138,10 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
                     status.extns=extnames
                     return status
                 else:
-                    status.update(report="ERROR:  failed to determine the file type;  trying %s" % dtype,err=1,log=logf,verbosity=verbosity)
+                    status.update(report="ERROR:  failed to determine the file type;  trying %s" % dtype,level=3,log=logf,verbosity=verbosity)
                     otype=dtype
             else:
-                status.update(report="ERROR:  failed to determine the file type;  trying CALDB",err=1,log=logf,verbosity=verbosity)
+                status.update(report="ERROR:  failed to determine the file type;  trying CALDB",level=3,log=logf,verbosity=verbosity)
                 otype='CALDB'
         print("\n(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.\n",file=logf)
 
@@ -174,7 +174,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
             if ref in actual: check=True
             
     if not check:
-        status.update(report="ERROR: %s does not have any of the required extension names" % fname, log=logf,err=1,extn='none',verbosity=verbosity)
+        status.update(report="ERROR: %s does not have any of the required extension names" % fname, log=logf,level=3,extn='none',verbosity=verbosity)
 
     # We have the type, now simply loop over the extensions found in
     # the file and check whatever's there against what's expected for
@@ -204,7 +204,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
             cmp_keys_cols(hdulist,filename,this_extn,ref_extn,ogip_dict,logf,status)
             extns_checked+=1
         else:
-            print("\nExtension '%s' is not an OGIP defined extension for this type;  ignoring.\n" % this_extn,file=logf)
+            status.update(report="Extension '%s' is not an OGIP defined extension for this type;  ignoring.\n" % this_extn,log=logf,unrec_extn=this_extn,verbosity=verbosity)
 
 
     if extns_checked > 0:

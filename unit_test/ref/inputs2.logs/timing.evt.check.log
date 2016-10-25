@@ -10,25 +10,25 @@ Checking file as type TIMING (match for this file's EVENTS and reference extensi
 
 =============== Checking 'EVENTS' extension against 'EVENTS' standard ===============
 
-WARNING: Key NUMBAND incorrect in timing.evt[EVENTS]
-WARNING: Key TIME-END incorrect in timing.evt[EVENTS]
-WARNING: Key AUTHOR incorrect in timing.evt[EVENTS]
-WARNING: Key TIME-OBS incorrect in timing.evt[EVENTS]
-WARNING: Key BACKAPP incorrect in timing.evt[EVENTS]
-WARNING: Key DEADAPP incorrect in timing.evt[EVENTS]
-WARNING: Key FILTER incorrect in timing.evt[EVENTS]
-WARNING: Key DETNAM incorrect in timing.evt[EVENTS]
-WARNING: Key CLOCKCOR incorrect in timing.evt[EVENTS]
-WARNING: Key TIMVERSN incorrect in timing.evt[EVENTS]
-WARNING: Key VIGNAPP incorrect in timing.evt[EVENTS]
+WARNING2: Key AUTHOR incorrect in timing.evt[EVENTS]
+WARNING2: Key BACKAPP incorrect in timing.evt[EVENTS]
+WARNING2: Key CLOCKCOR incorrect in timing.evt[EVENTS]
+WARNING2: Key DEADAPP incorrect in timing.evt[EVENTS]
+WARNING2: Key DETNAM incorrect in timing.evt[EVENTS]
+WARNING2: Key FILTER incorrect in timing.evt[EVENTS]
+WARNING2: Key NUMBAND incorrect in timing.evt[EVENTS]
+WARNING2: Key TIME-END incorrect in timing.evt[EVENTS]
+WARNING2: Key TIME-OBS incorrect in timing.evt[EVENTS]
+WARNING2: Key TIMVERSN incorrect in timing.evt[EVENTS]
+WARNING2: Key VIGNAPP incorrect in timing.evt[EVENTS]
 
 =============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
-WARNING: Key TIMEZERO incorrect in timing.evt[STDGTI]
-WARNING: Key DEC* incorrect in timing.evt[STDGTI]
-WARNING: Key FILTER incorrect in timing.evt[STDGTI]
-WARNING: Key DETNAM incorrect in timing.evt[STDGTI]
-WARNING: Recommended column TIMEDEL incorrect in timing.evt[STDGTI]
+WARNING2: Key DEC* incorrect in timing.evt[STDGTI]
+WARNING2: Key DETNAM incorrect in timing.evt[STDGTI]
+WARNING2: Key FILTER incorrect in timing.evt[STDGTI]
+WARNING2: Key TIMEZERO incorrect in timing.evt[STDGTI]
+WARNING2: column TIMEDEL incorrect in timing.evt[STDGTI]
 
 =============== 0 Errors and 16 Warnings Found in 2 extensions checked ===============
 

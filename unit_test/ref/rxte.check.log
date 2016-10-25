@@ -16,7 +16,7 @@ Now on directory inputs/rxte/Cal
 Now on directory inputs/rxte/test1
 ************************************************
 
-TIMESTAMP:  2016-10-24 13:52:49
+TIMESTAMP:  2016-10-25 14:21:40
 CHECKING inputs/rxte/test1/hexte.arf;  see log in out/rxte.logs/test1/hexte.arf.check.log
 Done.  Found file of type ARF with 6 errors and 5 warnings.
 
@@ -50,10 +50,10 @@ Found no files of type RMF
 
 Summary of missing required keywords and columns for type ARF:
     Found 1 (out of 1) files have at least one extension SPECRESP missing key TLMIN*.
-    Found 1 (out of 1) files have at least one extension SPECRESP missing key NUMELT.
-    Found 1 (out of 1) files have at least one extension SPECRESP missing key CCNM0001.
     Found 1 (out of 1) files have at least one extension SPECRESP missing key DETCHANS.
+    Found 1 (out of 1) files have at least one extension SPECRESP missing key NUMELT.
     Found 1 (out of 1) files have at least one extension SPECRESP missing key NUMGRP.
+    Found 1 (out of 1) files have at least one extension SPECRESP missing key CCNM0001.
     Found 1 (out of 1) files have at least one extension SPECRESP missing key CHANTYPE.
 
 Found no files of type CALDB
