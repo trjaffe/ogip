@@ -370,7 +370,7 @@ echo ""
 echo "##################################################################"
 echo "Checking entire contents of directory inputs/rxte with rxte ignores"
 mkdir out/rxte.logs
-../ogip_check_dir inputs/rxte out/rxte.logs --ignore_key rxte -v 2 >& out/rxte.check.log
+../ogip_check_dir inputs/rxte out/rxte.logs --meta_key rxte -v 2 >& out/rxte.check.log
 retval=$?
 echo "Return status was $retval"
 if [[ "$retval" != "0" ]]; then 

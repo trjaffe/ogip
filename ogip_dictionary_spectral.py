@@ -136,7 +136,8 @@ def ogip_dictionary_spectral():
         # optional if data given in counts per channel
         'STAT_ERR':   {'level':3,'req':" h.hasCol('STAT_ERR') or h.hasCol('COUNTS')"},  
         # can give SYS_ERR= 0 as keyword if no systematic error
-        'SYS_ERR':    {'level':3,'req':"h.hasCol('SYS_ERR') or h.hasVal('SYS_ERR',0)"},  
+        'SYS_ERR':    {'level':3,'req':"h.hasCol('SYS_ERR',part=True) or h.hasVal('SYS_ERR',0)"},  
+        'SYS_ERR':    {'level':2,'req':"h.hasCol('SYS_ERR') or h.hasVal('SYS_ERR',0)"},  
         # can give QUALITY = 0 keyword if all data are good
         'QUALITY':    {'level':3,'req':"h.hasCol('QUALITY') or h.hasCol('DQF') or h.hasVal('QUALITY',0)"},  
         # can give GROUPING = 0 keyword if data are ungrouped

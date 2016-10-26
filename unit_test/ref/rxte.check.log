@@ -2,28 +2,20 @@
 Running ogip_check_dir with:
    directory inputs/rxte
     logdir out/rxte.logs
-    ignore {'directories': (u'ASMProducts/realtime_current', u'ASMProducts/definitive_1dwell/supplemental/pointings', u'Cal/asm'), 'suffixes': (u'.jpg', u'.txt', u'.gif', u'.dat', u'.ps', u'.html', u'.par', u'.png', u'.pdf', u'.htm', u'.log', u'.jpg.gz', u'.txt.gz', u'.gif.gz', u'.dat.gz', u'.ps.gz', u'.html.gz', u'.par.gz', u'.png.gz', u'.pdf.gz', u'.htm.gz', u'.log.gz')}
+    meta_key rxte
     default_type none
 
-
-
-************************************************
-Now on directory inputs/rxte/Cal
-************************************************
 
 
 ************************************************
 Now on directory inputs/rxte/test1
 ************************************************
 
-TIMESTAMP:  2016-10-25 14:21:40
+TIMESTAMP:  2016-10-26 15:45:20
 CHECKING inputs/rxte/test1/hexte.arf;  see log in out/rxte.logs/test1/hexte.arf.check.log
 Done.  Found file of type ARF with 6 errors and 5 warnings.
 
-
-************************************************
-Now on directory inputs/rxte
-************************************************
+Found 1 files in this directory that could be checked out of 1 that were examined and 3 that were ignored due to their suffix (for 4 total in the directory).
 
 ***************************************************
 Done checking.  Now to summarize:

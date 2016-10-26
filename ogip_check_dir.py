@@ -5,6 +5,7 @@ from itertools import chain
 from ogip_dictionary import ogip_dictionary
 from datetime import datetime
 import gc
+import json
 
 def dict_add(dict,dir,file,statobj):
     #  If an entry for this directory exists, add an entry for the
@@ -178,7 +179,7 @@ class ogip_collect:
 
 
 
-def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
+def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
     """
 
     Traverses the given base directory and for all files found beneath:
@@ -194,17 +195,31 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
     - writes a set of reports.
 
     """
+
+    #  Get from meta data lists of suffixes and directories to ignore:
+    igfile=os.path.join(os.path.dirname(__file__),("meta_%s.json"%meta_key))
+    try:
+        meta=json.load( open(igfile) )
+    except:
+        print("ERROR:  the meta data key %s does not correspond to a known meta-data JSON dictionary in %s." % (meta_key,os.path.dirname(__file__)) )
+        raise
+    ignore={
+        'suffixes':tuple(meta["ignore"]["suffixes"]),
+        'directories':tuple(meta["ignore"]["directories"]),
+    }
+
+    #  Object that holds summary data and methods.  
     summary=ogip_collect()
 
-    print("\nRunning ogip_check_dir with:\n   directory %s\n    logdir %s\n    ignore %s\n    default_type %s\n" % (basedir,logdir,ignore,default_type) )
+    print("\nRunning ogip_check_dir with:\n   directory %s\n    logdir %s\n    meta_key %s\n    default_type %s\n" % (basedir,logdir,meta_key,default_type) )
 
 
     # Goes through all contents of root directory
     for dir, subdirs, files in os.walk(basedir, topdown=False,followlinks=True):
-        if os.path.relpath(dir,basedir) in ignore['directories']:
+        if dir.endswith(tuple(ignore['directories'])):
             continue
-
-        if (verbosity > 0): 
+        cnt_check=cnt_tot=0
+        if (verbosity > 0 and len(files) > 0): 
             print "\n\n************************************************"
             print "Now on directory %s" % dir 
             print "************************************************"
@@ -214,7 +229,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
                       or x.endswith(tuple([y.upper() for y in ignore['suffixes'] ])) 
                       or x.endswith(tuple([(y+".gz").upper() for y in ignore['suffixes'] ])) 
                      ) ]:
-
+            cnt_tot+=1
             one=os.path.join(dir, name)
             if (verbosity > 1): print "\nTIMESTAMP:  " + datetime.now().strftime("%Y-%m-%d %X")
 
@@ -237,9 +252,13 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
             if status.status == 0:
                 if (verbosity > 1): print("Done.  Found file of type %s with %s errors and %s warnings." % (status.otype, status.tot_errors(),status.tot_warnings() ) )
                 sys.stdout.flush()
+                cnt_check+=1
+
             # Store the retstat info for the file
             summary.update(dir=dir,file=name,statobj=status)
             gc.collect() # Should be unnecessary but just in case.
+        if (verbosity > 1 and len(files) > 0):  print("\nFound %s files in this directory that could be checked out of %s that were examined and %s that were ignored due to their suffix (for %s total in the directory)." % (cnt_check,cnt_tot,len(files)-cnt_tot,len(files)) )
+
 
     print("\n***************************************************")
     print("Done checking.  Now to summarize:\n")
@@ -269,6 +288,7 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
             print("Found no files of type %s" % t)
             continue 
         print("Summary of missing required keywords and columns for type %s:" % t)
+        cnt=0
         dict=ogip_dictionary(t)
         if t == 'CALDB':
             #  CALDB types don't have required extnames.  Any files
@@ -281,15 +301,17 @@ def ogip_check_dir(basedir,logdir,ignore,default_type,verbosity):
                 for k in dict[extn]['KEYWORDS']: 
                     if dict[extn]['KEYWORDS'][k]['level']!=3:  continue
                     if summary.count_missing_key(t,extn,k) > 0:
+                        cnt+=1
                         print("    Found %s (out of %s) files have at least one extension %s missing key %s." % (summary.count_missing_key(t,extn,k), summary.count_extnames[t][extn], extn, k) )
                 for c in dict[extn]['COLUMNS']:
                     if dict[extn]['COLUMNS'][c]['level']!=3: continue
                     if summary.count_missing_col(t,extn,c) > 0:
+                        cnt+=1
                         print("    Found %s (out of %s) files have at least one extension %s missing column %s." % (summary.count_missing_col(t,extn,c), summary.count_extnames[t][extn], extn, c) )
-                    
+        if cnt==0:  print("     None of the errors are missing required keywords or columns.")
 
     if len(summary.unrec_extnames.keys()) > 0:
-        print("\nFound the following extensions (with total number of each):")
+        print("\nFound the following unrecognized extensions (with total number of each):")
         for k in sorted(summary.unrec_extnames):
             print ("    %s (%s)" % (k,summary.unrec_extnames[k]) )
         print("")

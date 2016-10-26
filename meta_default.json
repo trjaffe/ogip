@@ -1,0 +1,20 @@
+{
+    "ignore": {
+        "directories": [],
+        "suffixes": [
+            ".jpg",
+            ".txt",
+            ".gif",
+            ".dat",
+            ".ps",
+            ".html",
+            ".par",
+            ".png",
+            ".pdf",
+            ".htm",
+            ".log"
+        ]
+    },
+    "root_data_directory": ""
+}
+
