@@ -199,6 +199,10 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
             #  The type is already set.  Throw away it's return val here.
             ref_extn, t = ogip_determine_ref( hdulist[extnames.index(this_extn)+1], otype )
 
+        if ref_extn == 'IMAGE':
+            print("\n============== IMAGE extensions not currently handled\n",file=logf)
+            continue
+
         if ref_extn:
             print("\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,ref_extn),file=logf)
             cmp_keys_cols(hdulist,filename,this_extn,ref_extn,ogip_dict,logf,status)

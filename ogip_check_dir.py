@@ -257,7 +257,7 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
             # Store the retstat info for the file
             summary.update(dir=dir,file=name,statobj=status)
             gc.collect() # Should be unnecessary but just in case.
-        if (verbosity > 1 and len(files) > 0):  print("\nFound %s files in this directory that could be checked out of %s that were examined and %s that were ignored due to their suffix (for %s total in the directory)." % (cnt_check,cnt_tot,len(files)-cnt_tot,len(files)) )
+        if (verbosity > 1 and len(files) > 0):  print("\n********\nFound %s files in this directory that could be checked out of %s that were examined and %s that were ignored due to their suffix (for %s total in the directory)." % (cnt_check,cnt_tot,len(files)-cnt_tot,len(files)) )
 
 
     print("\n***************************************************")
@@ -308,7 +308,7 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
                     if summary.count_missing_col(t,extn,c) > 0:
                         cnt+=1
                         print("    Found %s (out of %s) files have at least one extension %s missing column %s." % (summary.count_missing_col(t,extn,c), summary.count_extnames[t][extn], extn, c) )
-        if cnt==0:  print("     None of the errors are missing required keywords or columns.")
+        if cnt==0:  print("     None of these are missing required keywords or columns.")
 
     if len(summary.unrec_extnames.keys()) > 0:
         print("\nFound the following unrecognized extensions (with total number of each):")

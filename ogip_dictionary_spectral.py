@@ -3,7 +3,7 @@ def ogip_dictionary_spectral():
 
     For a given OGIP file type, returns a dictionary giving the
     extnames, the keywords and columns for that extension, and whether
-    the entry is required (1) or recommended (0), and the specific
+    the entry is required (level==3) or recommended (level!=3), and the specific
     values for the entry, if any.
 
     All logic is possible, as the requirement is given as a string
@@ -86,8 +86,8 @@ def ogip_dictionary_spectral():
         "(not h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:I') ) "
         "or ( h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:II') )"},
         #  Above traps required case of POISSERR==T.  Here, warn if it
-        #  should be F but is missing but (not if it should be T):
-        'POISSERR': {'level':2,'req':"(h.hasVal('POISSERR',False) and h.hasCol('STAT_ERR')) or not h.hasCol('STAT_ERR') "},  
+        #  should be F but is missing (but not if it should be T):
+        'POISSERR2': {'level':2,'req':"(h.hasVal('POISSERR',False) and h.hasCol('STAT_ERR')) or not h.hasCol('STAT_ERR') "},  
         #
         #  TO BE FIXED: aren't in the document?
         #
@@ -137,7 +137,7 @@ def ogip_dictionary_spectral():
         'STAT_ERR':   {'level':3,'req':" h.hasCol('STAT_ERR') or h.hasCol('COUNTS')"},  
         # can give SYS_ERR= 0 as keyword if no systematic error
         'SYS_ERR':    {'level':3,'req':"h.hasCol('SYS_ERR',part=True) or h.hasVal('SYS_ERR',0)"},  
-        'SYS_ERR':    {'level':2,'req':"h.hasCol('SYS_ERR') or h.hasVal('SYS_ERR',0)"},  
+        'SYS_ERR2':    {'level':2,'req':"h.hasCol('SYS_ERR') or h.hasVal('SYS_ERR',0)"},  
         # can give QUALITY = 0 keyword if all data are good
         'QUALITY':    {'level':3,'req':"h.hasCol('QUALITY') or h.hasCol('DQF') or h.hasVal('QUALITY',0)"},  
         # can give GROUPING = 0 keyword if data are ungrouped

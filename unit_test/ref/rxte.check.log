@@ -11,10 +11,11 @@ Running ogip_check_dir with:
 Now on directory inputs/rxte/test1
 ************************************************
 
-TIMESTAMP:  2016-10-26 15:45:20
+TIMESTAMP:  2016-10-31 12:46:18
 CHECKING inputs/rxte/test1/hexte.arf;  see log in out/rxte.logs/test1/hexte.arf.check.log
 Done.  Found file of type ARF with 6 errors and 5 warnings.
 
+********
 Found 1 files in this directory that could be checked out of 1 that were examined and 3 that were ignored due to their suffix (for 4 total in the directory).
 
 ***************************************************

@@ -323,7 +323,10 @@ def ogip_fits_verify(hdulist,filename,logf,status):
 
 
 
-#  Given an extension in a real file, see if there's a matche in a given dictionary.  It will
+#  Given an extension in a real file, see if there's a match in a
+#  given dictionary.  If no type is given, it checks them all to find
+#  the right one, otherwise checks only the extensions of the
+#  specified type.  It will
 #  - check the EXTNAME against the dict['EXTENSIONS']
 #  - check the EXTNAME against the dict['ALT_EXTNS'] (which requires a loop over these)
 #  - check the HDUCLAS1 and HDUCLAS2 keywords against those for each dict['EXTENSIONS']
@@ -394,9 +397,13 @@ def ogip_determine_ref(in_extn, intype=None):
     if in_extn.header['XTENSION'] == 'BINTABLE':
         #  Object needed for eval() 
         h=hdr_check(in_extn.header,in_extn.columns) 
-    else:
+    elif in_extn.header['XTENSION'] == 'IMAGE':
         #  No columns for an IMAGE table.
         h=hdr_check(in_extn.header,None) 
+        #  Eventually, may need to check for other associated extensions?
+        return 'IMAGE','IMAGING'
+    else:
+        return None, None
         
 
     for otype in types: 
@@ -479,7 +486,7 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
             if req["level"] == 3:  status.update(extn=extna,report="ERROR: Key %s incorrect in %s[%s]" % (key,file, this_extn), level=req["level"],log=logf,miskey=key)
             else:  status.update(extn=extna,report="WARNING%s: Key %s incorrect in %s[%s]" % (req["level"],key,file, this_extn), level=req["level"],log=logf)
 
-    for col,req in sorted(ogip['COLUMNS'].iteritems(),key=lambda(k,v):(v['level'],k)):
+    for col,req in sorted(ogip['COLUMNS'].iteritems(),key=lambda(k,v):(-v['level'],k)):
         if not eval(req['req']):
             if req["level"] == 3:  status.update(extn=extna,report="ERROR: column %s incorrect in %s[%s]" % (col, file,  this_extn), level=req["level"],log=logf, miscol=col)
             else:  status.update(extn=extna,report="WARNING%s: column %s incorrect in %s[%s]" % (req["level"],col, file,  this_extn), level=req["level"],log=logf)
@@ -517,7 +524,7 @@ class hdr_check():
     def __init__(self,hdr,columns):
         self.hdr=hdr
         #  Columns is a astropy.io.fits ColDefs type
-        self.columns=[c.upper().strip() for c in columns.names]
+        if columns is not None:  self.columns=[c.upper().strip() for c in columns.names]
 
     #  Check function that checks for existence of a given keyword,
     #  and if a value is given, checks that it has that value.
@@ -565,9 +572,13 @@ class hdr_check():
         else:
             return ''
 
-    def hasCol(self,col):
+    def hasCol(self,col,part=False):
         if self.columns is None:  return False
-        return col in self.columns
+        if part:
+            for c in self.columns:
+                if col in c:  return True
+        else:
+            return col in self.columns
          
 
 

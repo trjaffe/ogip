@@ -27,11 +27,11 @@ WARNING2: Key HDUVERS2 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISP
 WARNING2: Key LO_THRES incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
 WARNING2: Key PHAFILE incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
 WARNING2: Key RMFVERSN incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
-WARNING2: column ORDER incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
 ERROR: column F_CHAN incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
 ERROR: column MATRIX incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
 ERROR: column N_CHAN incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
 ERROR: column N_GRP incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING2: column ORDER incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
 
 =============== Checking 'EDISP_SCALING_PARAMS' extension against 'MATRIX' standard ===============
 
@@ -50,13 +50,13 @@ WARNING2: Key HDUVERS2 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALI
 WARNING2: Key LO_THRES incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
 WARNING2: Key PHAFILE incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
 WARNING2: Key RMFVERSN incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
-WARNING2: column ORDER incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
 ERROR: column ENERG_HI incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
 ERROR: column ENERG_LO incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
 ERROR: column F_CHAN incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
 ERROR: column MATRIX incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
 ERROR: column N_CHAN incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
 ERROR: column N_GRP incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING2: column ORDER incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
 
 =============== 28 Errors and 16 Warnings Found in 2 extensions checked ===============
 

@@ -41,13 +41,13 @@ WARNING2: Key HDUVERS1 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 WARNING2: Key HDUVERS2 incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 WARNING2: Key LO_THRES incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 WARNING2: Key PHAFILE incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
-WARNING2: column ORDER incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 ERROR: column ENERG_HI incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 ERROR: column ENERG_LO incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 ERROR: column F_CHAN incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 ERROR: column MATRIX incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 ERROR: column N_CHAN incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 ERROR: column N_GRP incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
+WARNING2: column ORDER incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 
 =============== 22 Errors and 11 Warnings Found in 2 extensions checked ===============
 
