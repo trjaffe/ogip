@@ -1,0 +1,80 @@
+Attempting to open file inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z
+Failed to open as a FITS file.  Trying to unzip first.
+Trying to gunzip it.
+Trying now to open it again as FITS.
+File opened successfully.
+Running basic FITS verification with external call to ftverify.
+Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
+
+Checking file as type TIMING (match for this file's STDGTI and reference extension GTI)
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+ERROR: rh500047n00_bas.fits.Z does not have any of the required extension names
+
+=============== Checking 'STDGTI' extension against 'GTI' standard ===============
+
+WARNING2: Key DATE-END incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING2: Key DETNAM incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING2: Key TIMESYS incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING2: Key TIMEUNIT incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING2: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING2: Key TSTART incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING2: Key TSTOP incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING2: column TIMEDEL incorrect in rh500047n00_bas.fits.Z[STDGTI]
+
+=============== Checking 'STDEVT' extension against 'EVENTS' standard ===============
+
+ERROR: Key DATE-END incorrect in rh500047n00_bas.fits.Z[STDEVT]
+ERROR: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING2: Key AUTHOR incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING2: Key BACKAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING2: Key DEADAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING2: Key DETNAM incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING2: Key NUMBAND incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING2: Key TIERABSO incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING2: Key TIERRELA incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING2: Key TIME-END incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING2: Key VIGNAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING2: column DETX incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING2: column DETY incorrect in rh500047n00_bas.fits.Z[STDEVT]
+
+=============== Checking 'REJEVT' extension against 'EVENTS' standard ===============
+
+ERROR: Key DATE-END incorrect in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key TIMESYS incorrect in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key TIMEUNIT incorrect in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key TSTART incorrect in rh500047n00_bas.fits.Z[REJEVT]
+ERROR: Key TSTOP incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key AUTHOR incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key BACKAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key CLOCKCOR incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key DEADAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key DETNAM incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key NUMBAND incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key ONTIME incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key TASSIGN incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key TIERABSO incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key TIERRELA incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key TIME-END incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key TIMVERSN incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: Key VIGNAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: column DETX incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING2: column DETY incorrect in rh500047n00_bas.fits.Z[REJEVT]
+Extension 'TSI' is not an OGIP defined extension for this type;  ignoring.
+
+Extension 'STDQLM' is not an OGIP defined extension for this type;  ignoring.
+
+Extension 'ALLQLM' is not an OGIP defined extension for this type;  ignoring.
+
+
+=============== 9 Errors and 34 Warnings Found in 3 extensions checked ===============
+
+
+===========================================================
+
+FAILURE: inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z is not a Valid OGIP formatted file
+Please see OGIP/93-003: The Proposed Timing FITS File Format for High Energy Astrophysics Data
+Available at
+   http://heasarc.gsfc.nasa.gov/FTP/caldb/docs/ogip/fits_formats/docs/rates/ogip_93_003/ogip_93_003.pdf

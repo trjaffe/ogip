@@ -344,7 +344,7 @@ echo ""
 echo ""
 echo "Checking without using CALDB as default for unknown types:"
 mkdir out/inputs2.logs
-../ogip_check_dir inputs out/inputs2.logs -v 2 >& out/inputs.check2.log
+../ogip_check_dir inputs out/inputs2.logs -v 2 >& out/inputs2.check.log
 retval=$?
 echo "Return status was $retval"
 if [[ "$retval" != "0" ]]; then 
@@ -354,7 +354,7 @@ else
     echo "Comparing output to reference.  "
     diffs=`diff -I TIMESTAMP ref/inputs.check2.log out/inputs.check2.log`
     if [[ ${#diffs} != 0 ]]; then
-	echo "WARNING:  Differences appear in 'diff -I TIMESTAMP ref/inputs.check2.log out/inputs.check2.log'"
+	echo "WARNING:  Differences appear in 'diff -I TIMESTAMP ref/inputs2.check.log out/inputs2.check.log'"
 	#    echo ${diffs[@]} | tail
 	let diffcnt+=1
     else
@@ -368,9 +368,8 @@ fi
 #  Test the directory tool
 echo ""
 echo "##################################################################"
-echo "Checking entire contents of directory inputs/rxte with rxte ignores"
-mkdir out/rxte.logs
-../ogip_check_dir inputs/rxte out/rxte.logs --meta_key rxte -v 2 >& out/rxte.check.log
+echo "Checking entire contents of directory inputs with rxte ignores"
+../ogip_check_dir inputs out/inputs3.logs --meta_key rxte -v 2 >& out/inputs3.check.log
 retval=$?
 echo "Return status was $retval"
 if [[ "$retval" != "0" ]]; then 
@@ -378,9 +377,9 @@ if [[ "$retval" != "0" ]]; then
     let errors+=1
 else
     echo "Comparing output to reference.  "
-    diffs=`diff  -I TIMESTAMP ref/rxte.check.log out/rxte.check.log`
+    diffs=`diff  -I TIMESTAMP ref/inputs3.check.log out/inputs3.check.log`
     if [[ ${#diffs} != 0 ]]; then
-	echo "WARNING:  Differences appear in 'diff -I TIMESTAMP ref/rxte.check.log out/rxte.check.log'"
+	echo "WARNING:  Differences appear in 'diff -I TIMESTAMP ref/inputs3.check.log out/inputs3.check.log'"
 	#    echo ${diffs[@]} | tail
 	let diffcnt+=1
     else

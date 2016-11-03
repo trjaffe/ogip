@@ -86,7 +86,7 @@ class retstat:
     to calling codes without global variables.  
 
     """
-    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, level=0,log=sys.stdout,otype=None,fver=0,fopen=0,unrec=0,verbosity=2,unrec_extn=None):
+    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, level=0,log=sys.stdout,otype=None,fver=0,fopen=0,unrec=0,verbosity=2,unrec_extn=None,vonly=False):
         #  Set an error status for the file if nonzero;  this will halt the checks.
         self.status+=status
         #  Flag problems opening the file as FITS specifically
@@ -95,10 +95,13 @@ class retstat:
         self.unrec+=unrec
         #  Flag FITS verification errors specifically
         self.fver+=fver
+        #  Flag whether OGIP checks were performed or only FITS verification:
+        self.vonly=vonly
         #  Set the file type
         if otype:  self.otype=otype
         #  Print the report for this update
         if (verbosity > 1):  print(report,file=log)
+        if vonly: return
 
         if unrec_extn is not None:  
             self.unrec_extns.append(unrec_extn)
@@ -126,6 +129,7 @@ class retstat:
         self.fver=0
         self.fopen=0
         self.unrec=0
+        self.vonly=False
         self.otype=otype
         self.extns={}
         self.unrec_extns=[]

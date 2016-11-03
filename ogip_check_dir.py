@@ -120,16 +120,24 @@ class ogip_collect:
     def count_failed(self):
         #  Were checked but failed in the sense of violating either
         #  FITS or OGIP standards
-        return sum(len(d) for d in self.failed.itervalues())
+        return sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.failed.itervalues())
 
     def count_good(self):
-        return sum(len(d) for d in self.good.itervalues())
+        return sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.good.itervalues())
 
     def count_warned(self):
-        return sum(len(d) for d in self.warned.itervalues())
+        return sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.warned.itervalues())
 
     def count_checked(self):
-        return sum(len(d) for d in self.good.itervalues()) + sum(len(d) for d in self.warned.itervalues()) + sum(len(d) for d in self.failed.itervalues())
+        return (  sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.good.itervalues()) 
+                + sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.warned.itervalues()) 
+                + sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.failed.itervalues())
+        )
+    def count_verified(self):
+        return (  sum(len([f for f in d.itervalues() if f.vonly==True]) for d in self.good.itervalues()) 
+                + sum(len([f for f in d.itervalues() if f.vonly==True]) for d in self.warned.itervalues()) 
+                + sum(len([f for f in d.itervalues() if f.vonly==True]) for d in self.failed.itervalues())
+        )
 
     def count_missing_key(self,otype,extname,key):
         #  Count how many files of a given type are missing a given
@@ -216,8 +224,7 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
 
     # Goes through all contents of root directory
     for dir, subdirs, files in os.walk(basedir, topdown=False,followlinks=True):
-        if dir.endswith(tuple(ignore['directories'])):
-            continue
+        verify_only=True if dir.endswith(tuple(ignore['directories'])) else False
         cnt_check=cnt_tot=0
         if (verbosity > 0 and len(files) > 0): 
             print "\n\n************************************************"
@@ -237,41 +244,46 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
                 logpath= os.path.join(logdir,os.path.relpath(dir,basedir))
                 if not os.path.isdir(logpath):  os.makedirs(logpath)
                 logfile=os.path.join(logpath,name+".check.log")
-                if (verbosity > 1): print("CHECKING %s;  see log in %s" % (one, logfile) )
+                if (verbosity > 1 and verify_only==False): print("CHECKING %s;  see log in %s" % (one, logfile) )
+                elif (verbosity > 1 and verify_only==True): print("Verifying %s;  see log in %s" % (one, logfile) )
                 sys.stdout.flush()
             else:
                 logfile=sys.stdout
-                if (verbosity > 1): print("CHECKING %s" % one)
+                if (verbosity > 1 and verify_only==False): print("CHECKING %s" % one)
+                elif (verbosity > 1 and verify_only==True): print("Verifying %s" % one)
                 sys.stdout.flush()
             #  Returns status that contains both the counts of errors,
             #  warnings, and the logged reports.  
-            status=ogip_check(one,None,logfile,2,dtype=default_type)
+            status=ogip_check(one,None,logfile,2,dtype=default_type,vonly=verify_only)
 
             #if status.status != 0:
                 #print("ERROR:  failed to check file %s;  see log in %s\nContinuing." % (one, logfile) )
             if status.status == 0:
-                if (verbosity > 1): print("Done.  Found file of type %s with %s errors and %s warnings." % (status.otype, status.tot_errors(),status.tot_warnings() ) )
+                if (verbosity > 1 and verify_only==False): 
+                    print("Done.  Found file of type %s with %s errors and %s warnings." % (status.otype, status.tot_errors(),status.tot_warnings() ) )
+                    cnt_check+=1
+                elif (verbosity > 1 and verify_only==True): print("File is in an ignored directory, skipping check.")
                 sys.stdout.flush()
-                cnt_check+=1
 
             # Store the retstat info for the file
             summary.update(dir=dir,file=name,statobj=status)
             gc.collect() # Should be unnecessary but just in case.
-        if (verbosity > 1 and len(files) > 0):  print("\n********\nFound %s files in this directory that could be checked out of %s that were examined and %s that were ignored due to their suffix (for %s total in the directory)." % (cnt_check,cnt_tot,len(files)-cnt_tot,len(files)) )
+        if (verbosity > 1 and len(files) > 0 and verify_only==False):  print("\n********\nFound %s files in this directory that could be checked out of %s that were examined and %s that were ignored due to their suffix (for %s total in the directory)." % (cnt_check,cnt_tot,len(files)-cnt_tot,len(files)) )
 
 
     print("\n***************************************************")
     print("Done checking.  Now to summarize:\n")
-    print("The total number of files found: %s" % int(summary.count_bad()+summary.count_checked()) )
+    print("The total number of files found: %s" % int(summary.count_bad()+summary.count_verified()+summary.count_checked()) )
     print("The total number of files that could not be opened as FITS:  %s" % summary.count_fopen() )
     print("The total number of files whose type could not be recognized:  %s" % summary.count_unrecognized() )
-    print("The total number of files that failed FITS verify and could not be checked:  %s" % summary.count_fver_bad() )
+    print("The total number of files that failed FITS verify and could NOT be 'fixed':  %s" % summary.count_fver_bad() )
     print("The total number of files that failed FITS verify but 'fixed':  %s" % summary.count_fver_fixed() )
     print("The total number of files that could not be checked for other reasons:  %s" % int(summary.count_bad()-summary.count_fopen()-summary.count_unrecognized()-summary.count_fver_bad() ) )
+    print("The total number of files verified only:  %s" % summary.count_verified() )
     print("The total number of files checked:  %s" % summary.count_checked() )
-    print("The total number of files with no warnings or errors:  %s" % summary.count_good() )
-    print("The total number of files with only warnings:  %s" % summary.count_warned() )
-    print("The total number of files with errors:  %s" % summary.count_failed() )
+    print("The total number of files with no OGIP warnings or errors:  %s" % summary.count_good() )
+    print("The total number of files with only OGIP warnings:  %s" % summary.count_warned() )
+    print("The total number of files with OGIP errors:  %s" % summary.count_failed() )
 
     print("")
     for k in summary.count_types:

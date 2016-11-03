@@ -4,7 +4,7 @@ from ogip_dictionary import ogip_dictionary
 from ogip_generic_lib import *
 import os.path
 
-def ogip_check(input,otype,logfile,verbosity,dtype=None):
+def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
     """
     Checks for the existence of OGIP required keywords and columns 
     for FITS files based on the Standards doccumented here:  
@@ -97,7 +97,9 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None):
     if fits_errs == 2:  
         status.update(report="ERROR:  file %s does not pass FITS verification;  giving up." % filename,fver=2,status=1,verbosity=verbosity)
         return status
-
+    if vonly:  
+        status.update(vonly=True)
+        return status
 
     numext= len(hdulist)
     if numext <= 1:

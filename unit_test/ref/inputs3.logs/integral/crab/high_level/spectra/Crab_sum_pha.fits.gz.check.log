@@ -1,0 +1,59 @@
+Attempting to open file inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz
+File opened successfully.
+Running basic FITS verification with external call to ftverify.
+Ftverify:  *** Error:   Keyword #37, DATE-END: (from CFITSIO error stack:)
+Ftverify:               input date string has illegal format:
+Ftverify:               UTC_format
+Ftverify:               
+Ftverify:  *** Error:   Keyword #36, DATE-OBS: (from CFITSIO error stack:)
+Ftverify:               input date string has illegal format:
+Ftverify:               UTC_format
+Ftverify:               
+Ftverify:  
+Trying to fix simple errors with astropy.io.fits.verify(option='fix')
+
+Checking file as type SPECTRAL (match for this file's ISGR-PHA1-SPE and reference extension SPECTRUM)
+
+(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
+
+ERROR: Crab_sum_pha.fits.gz does not have any of the required extension names
+
+=============== Checking 'ISGR-PHA1-SPE' extension against 'SPECTRUM' standard ===============
+
+ERROR: Key FILTER incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING2: Key DEC-OBJ incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING2: Key HDUCLAS4 incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING2: Key HDUVERS incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING2: Key OBJECT incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING2: Key RA-OBJ incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING2: Key TIME-END incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING2: Key TIME-OBS incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING2: Key XFLT* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key AUTHOR incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key BACKAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key BACKE* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key BACKV* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key CLOCKCOR incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key DEADAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key EMAX* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key EMIN* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key GEOAREA incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key NPIXBACK incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key NPIXSOU incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key TASSIGN incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key TIERABSO incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key TIERRELA incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key TIMEZERO incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key TIMVERSN incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key VIGNAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+WARNING1: Key VIGNET incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+
+=============== 2 Errors and 26 Warnings Found in 1 extensions checked ===============
+
+
+===========================================================
+
+FAILURE: inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz is not a Valid OGIP formatted file
+Please see OGIP/92-007: The OGIP Spectral File Format
+Available at
+   https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/summary/ogip_92_007_summary.html
