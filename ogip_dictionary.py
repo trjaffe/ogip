@@ -3,6 +3,7 @@ from ogip_dictionary_spectral import ogip_dictionary_spectral
 from ogip_dictionary_caldb import ogip_dictionary_caldb
 from ogip_dictionary_arf import ogip_dictionary_arf
 from ogip_dictionary_rmf import ogip_dictionary_rmf
+from ogip_dictionary_image import ogip_dictionary_image
 
 def ogip_dictionary(type):
     """
@@ -36,9 +37,11 @@ def ogip_dictionary(type):
         return ogip_dictionary_arf()
     elif type.strip().upper() == 'RMF':
         return ogip_dictionary_rmf()
+    elif type.strip().upper() == 'IMAGE':
+        return ogip_dictionary_image()
     else:
         print "Currently defined for"
-        print "Type = TIMING, SPECTRAL, CALDB, ARF, or RMF."
+        print "Type = TIMING, SPECTRAL, CALDB, ARF, RMF, or IMAGE."
         ogip = 0
     return ogip
 

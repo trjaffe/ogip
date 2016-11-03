@@ -26,7 +26,6 @@ WARNING2: column TIMEDEL incorrect in rh500047n00_bas.fits.Z[STDGTI]
 =============== Checking 'STDEVT' extension against 'EVENTS' standard ===============
 
 ERROR: Key DATE-END incorrect in rh500047n00_bas.fits.Z[STDEVT]
-ERROR: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[STDEVT]
 WARNING2: Key AUTHOR incorrect in rh500047n00_bas.fits.Z[STDEVT]
 WARNING2: Key BACKAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
 WARNING2: Key DEADAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
@@ -36,6 +35,7 @@ WARNING2: Key TIERABSO incorrect in rh500047n00_bas.fits.Z[STDEVT]
 WARNING2: Key TIERRELA incorrect in rh500047n00_bas.fits.Z[STDEVT]
 WARNING2: Key TIME-END incorrect in rh500047n00_bas.fits.Z[STDEVT]
 WARNING2: Key VIGNAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING3: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[STDEVT]
 WARNING2: column DETX incorrect in rh500047n00_bas.fits.Z[STDEVT]
 WARNING2: column DETY incorrect in rh500047n00_bas.fits.Z[STDEVT]
 
@@ -44,7 +44,6 @@ WARNING2: column DETY incorrect in rh500047n00_bas.fits.Z[STDEVT]
 ERROR: Key DATE-END incorrect in rh500047n00_bas.fits.Z[REJEVT]
 ERROR: Key TIMESYS incorrect in rh500047n00_bas.fits.Z[REJEVT]
 ERROR: Key TIMEUNIT incorrect in rh500047n00_bas.fits.Z[REJEVT]
-ERROR: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[REJEVT]
 ERROR: Key TSTART incorrect in rh500047n00_bas.fits.Z[REJEVT]
 ERROR: Key TSTOP incorrect in rh500047n00_bas.fits.Z[REJEVT]
 WARNING2: Key AUTHOR incorrect in rh500047n00_bas.fits.Z[REJEVT]
@@ -60,6 +59,7 @@ WARNING2: Key TIERRELA incorrect in rh500047n00_bas.fits.Z[REJEVT]
 WARNING2: Key TIME-END incorrect in rh500047n00_bas.fits.Z[REJEVT]
 WARNING2: Key TIMVERSN incorrect in rh500047n00_bas.fits.Z[REJEVT]
 WARNING2: Key VIGNAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[REJEVT]
 WARNING2: column DETX incorrect in rh500047n00_bas.fits.Z[REJEVT]
 WARNING2: column DETY incorrect in rh500047n00_bas.fits.Z[REJEVT]
 Extension 'TSI' is not an OGIP defined extension for this type;  ignoring.
@@ -69,7 +69,7 @@ Extension 'STDQLM' is not an OGIP defined extension for this type;  ignoring.
 Extension 'ALLQLM' is not an OGIP defined extension for this type;  ignoring.
 
 
-=============== 9 Errors and 34 Warnings Found in 3 extensions checked ===============
+=============== 7 Errors and 36 Warnings Found in 3 extensions checked ===============
 
 
 ===========================================================

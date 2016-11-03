@@ -29,8 +29,6 @@ def ogip_dictionary_timing():
         'DATE-OBS':{"level":1,'req':"h.Exists('DATE-OBS')"},
         'DATE-END':{"level":1,'req':"h.Exists('DATE-END')"},
         # can be given as single keyword or integer + fraction; either ok
-        'TIMEZERO':{"level":1,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"},  
-        # can be given as single keyword or integer + fraction; either ok
         'TSTART':  {"level":1,'req':"h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )"},  
         # can be given as single keyword or integer + fraction; either ok
         'TSTOP':   {"level":1,'req':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists('TSTOPF') )"},  
@@ -72,7 +70,9 @@ def ogip_dictionary_timing():
         'GEOAREA':  {"level":2,'req':"h.Exists('GEOAREA')"},
         'VIGNET':   {"level":2,'req':"h.Exists('VIGNET')"},
         'NPIXSOU':  {"level":2,'req':"h.Exists('NPIXSOU')"},
-        'NPIXBACK': {"level":2,'req':"h.Exists('NPIXBACK')"}
+        'NPIXBACK': {"level":2,'req':"h.Exists('NPIXBACK')"},
+        # can be given as single keyword or integer + fraction; either ok
+        'TIMEZERO':{"level":3,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"}
     }
 
     """
@@ -105,8 +105,6 @@ def ogip_dictionary_timing():
         'DATE-OBS':{"level":1,'req':"h.Exists('DATE-OBS')"},
         'DATE-END':{"level":1,'req':"h.Exists('DATE-END')"},
         # can be given as single keyword or integer + fraction; either ok
-        'TIMEZERO':{"level":1,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"},  
-        # can be given as single keyword or integer + fraction; either ok
         'TSTART':  {"level":1,'req':"h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )"},  
         # can be given as single keyword or integer + fraction; either ok
         'TSTOP':   {"level":1,'req':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists('TSTOPF') )"},  
@@ -136,7 +134,10 @@ def ogip_dictionary_timing():
         'TIERABSO':{"level":2,'req':"h.Exists('TIERABSO')"},
         'BACKAPP': {"level":2,'req':"h.Exists('BACKAPP')"},
         'VIGNAPP': {"level":2,'req':"h.Exists('VIGNAPP')"},
-        'DEADAPP': {"level":2,'req':"h.Exists('DEADAPP')"}
+        'DEADAPP': {"level":2,'req':"h.Exists('DEADAPP')"},
+        # can be given as single keyword or integer + fraction; either ok
+        'TIMEZERO':{"level":3,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"},  
+
     }
     """
     Define requirements for  columns
@@ -254,13 +255,13 @@ def ogip_dictionary_timing():
         'INSTRUME':{"level":1,'req':"h.Exists('INSTRUME')"},
         'TSTART':  {"level":1,'req':"h.Exists('TSTART') or (h.Exists('TSTARTI') and h.Exists('TSTARTF') )"},
         'TSTOP':   {"level":1,'req':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists(('TSTARTF') )"},
-        'TIMEZERO':{"level":1,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"},
         'TIMEUNIT':{"level":1,'req':"h.Exists('TIMEUNIT')"},
         #
         #  Optional
         # 
         'DETNAM':{"level":2,'req':"h.Exists('DETNAM')"},
-        'FILTER':{"level":2,'req':"h.Exists('FILTER')"}
+        'FILTER':{"level":2,'req':"h.Exists('FILTER')"},
+        'TIMEZERO':{"level":3,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"}
     }
     """
     Define requirements for columns

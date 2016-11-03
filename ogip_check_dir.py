@@ -286,14 +286,14 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
     print("The total number of files with OGIP errors:  %s" % summary.count_failed() )
 
     print("")
-    for k in summary.count_types:
+    for k in sorted(summary.count_types):
         print("Checked %s files of type %s" % (summary.count_types[k],k) )
 
     print("")
     #  Summarize required keywords for each type:
-    types=[ 'TIMING', 'SPECTRAL', 'RMF', 'ARF', 'CALDB' ]
+    types=[ 'TIMING', 'SPECTRAL', 'RMF', 'ARF', 'CALDB', 'IMAGE' ]
 
-    for t in types:
+    for t in sorted(types):
         print("")
         if t not in summary.count_types:
             #  Don't bother to summarize types for which no files were found

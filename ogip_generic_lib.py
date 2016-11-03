@@ -326,6 +326,68 @@ def ogip_fits_verify(hdulist,filename,logf,status):
 
 
 
+#  Try to determine the type from the PRIMARY or first extension:
+#
+def ogip_determine_ref_type(filename,hdulist,status,logf,dtype=None,verbosity=3):
+
+    #  Easy if there's nothing but a primary extension; that has to be
+    #  an image.  (But that's not the only extension that can be an
+    #  imaging extension!)
+    if len(hdulist) == 1:
+        if hdulist[0].header['NAXIS']==0:
+            status.update(report="ERROR:  PRIMARY extension has NAXIS==0 but there are no further extensions.", status=1,verbosity=verbosity)
+            return None
+        else:
+            print("Found a file with only a PRIMARY extension.  Testing as an IMAGE.", file=logf)
+            return 'IMAGE'
+    #  Second easiest case:  if there's an image in the PRIMARY or first extension, then it's an IMAGE type.  
+    elif hdulist[0].header['NAXIS']!=0:
+        print("Found a file with only a PRIMARY extension.  Testing as an IMAGE.", file=logf)
+        return 'IMAGE'
+    elif 'XTENSION' in hdulist[1].header and 'IMAGE' in hdulist[1].header['XTENSION']:
+        if hdulist[1].header['XTENSION']!='IMAGE':  status.update(report="ERROR:  Extension has XTNAME=%s, which should be 'IMAGE'." % hdulist[1].header['XTENSION'],level=1,extn='IMAGE',log=logf,verbosity=verbosity)
+        print("Found a file with an IMAGE extension.  Testing as an IMAGE.", file=logf)
+        return 'IMAGE'
+
+    types=['TIMING','SPECTRAL','RMF','ARF','CALDB','IMAGE']
+    # Get a list of all the extnames (after the 0th, which is PRIMARY)
+    extnames= [x.name for x in hdulist[1:]]
+    if extnames[0] == '':
+        #  Let these continue for now and see if HDUCLS
+        status.update(report="WARNING:  file has an extension with no name",verbosity=verbosity,extn='',level=2)
+
+    #  Integral files sometimes start with indexing;  skip this
+    xno=1
+    if 'EXTNAME' in hdulist[1].header:
+        if hdulist[1].header['EXTNAME']=='GROUPING': xno=2
+        if xno+1 > len(hdulist):
+            status.update(report="ERROR:  File has only GROUPING extension.", status=1,verbosity=verbosity)
+            return None
+
+    ref_extn, otype =ogip_determine_ref_extn(hdulist[xno])
+
+    if ref_extn is not None:
+        if 'EXTNAME' in hdulist[xno].header:
+            print("\nChecking file as type %s (match for this file's %s and reference extension %s)" % (otype,hdulist[xno].header['EXTNAME'],ref_extn),file=logf)
+        else:
+            print("\nChecking file as type %s (match for this file's NAMELESS and reference extension %s)" % (otype,ref_extn),file=logf)
+    else:
+        if dtype:
+            if dtype == 'none':
+                status.update(report="ERROR:  do not recognize the file %s" % filename+" as any type (extnames "+", ".join(extnames)+")",status=1,unrec=1,verbosity=verbosity)
+                status.extns=extnames
+                return None
+            else:
+                status.update(report="ERROR:  failed to determine the file type;  trying %s" % dtype,level=1,log=logf,verbosity=verbosity)
+                otype=dtype
+        else:
+            status.update(report="ERROR:  failed to determine the file type;  trying CALDB",level=1,log=logf,verbosity=verbosity)
+            otype='CALDB'
+    print("\n(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.\n",file=logf)
+    return otype
+
+
+
 
 #  Given an extension in a real file, see if there's a match in a
 #  given dictionary.  If no type is given, it checks them all to find
@@ -336,8 +398,7 @@ def ogip_fits_verify(hdulist,filename,logf,status):
 #  - check the HDUCLAS1 and HDUCLAS2 keywords against those for each dict['EXTENSIONS']
 #  and return the first matching reference extension, or None.
 #
-def ogip_determine_ref(in_extn, intype=None):
-
+def ogip_determine_ref_extn(in_extn,intype=None):
     if intype is not None:
         types=[intype]
     else:
@@ -345,16 +406,24 @@ def ogip_determine_ref(in_extn, intype=None):
 
     #  Look for a matching extension based on the EXTNAME or its HDUCLAS* keywords.  
     #
-    #  Since a GTI extension can be spectral or timing, cannot use
-    #  it to determine the type.
+    #  Since a GTI extension can be found in a spectral, timing, or
+    #  image file, cannot use it to determine the type.  (And this
+    #  function will be called within ogip_determine_ref_type().)
     #
     #  Likewise, HDUCLAS1==RESPONSE can be either RMF or ARF or
     #  possibly CALDB, so check HDUCLAS2.
 
+    if in_extn.header['XTENSION'] == 'IMAGE':
+        return 'IMAGE', 'IMAGE'
+    elif in_extn.header['XTENSION'] == 'BINTABLE':
+        #  Object needed for eval() 
+        h=hdr_check(in_extn.header,in_extn.columns) 
+    else:
+        return None, None
+        
 
     #  First, check the extensions.  
-
-    for otype in types: 
+    for otype in types:
         ogip_dict=ogip_dictionary(otype)
         all_extns=ogip_dict['EXTENSIONS']['REQUIRED']+ogip_dict['EXTENSIONS']['OPTIONAL']
 
@@ -363,7 +432,7 @@ def ogip_determine_ref(in_extn, intype=None):
         if 'EXTNAME' in in_extn.header:
 
             if in_extn.header['EXTNAME'] in all_extns:  
-                return in_extn.header['EXTNAME'], otype 
+                return in_extn.header['EXTNAME'], otype
 
             #  Second easiest case: for each reference extension, 
             #  see if the ref extname is a substring of the
@@ -379,8 +448,7 @@ def ogip_determine_ref(in_extn, intype=None):
             for extn in [x for x in all_extns if x in ogip_dict['ALT_EXTNS'] ] :
                 for aextn in ogip_dict['ALT_EXTNS'][extn]:
                     if aextn in  in_extn.header['EXTNAME']:
-                        return extn, otype 
-
+                        return extn, otype
 
     #  If that didn't find a match, then compare the required HDUCLAS1
     #  and HDUCLAS2 keywords.
@@ -397,20 +465,7 @@ def ogip_determine_ref(in_extn, intype=None):
     #  incorrect.  If so, it might still then match when HDUCLAS1 is
     #  checked.  
     #
-
-    if in_extn.header['XTENSION'] == 'BINTABLE':
-        #  Object needed for eval() 
-        h=hdr_check(in_extn.header,in_extn.columns) 
-    elif in_extn.header['XTENSION'] == 'IMAGE':
-        #  No columns for an IMAGE table.
-        h=hdr_check(in_extn.header,None) 
-        #  Eventually, may need to check for other associated extensions?
-        return 'IMAGE','IMAGING'
-    else:
-        return None, None
-        
-
-    for otype in types: 
+    for otype in types:
         ogip_dict=ogip_dictionary(otype)
         all_extns=ogip_dict['EXTENSIONS']['REQUIRED']+ogip_dict['EXTENSIONS']['OPTIONAL']
 
@@ -426,9 +481,8 @@ def ogip_determine_ref(in_extn, intype=None):
                 if eval(ogip_dict[extn]['KEYWORDS']['HDUCLAS1']["req"]):
                     return extn, otype
 
-
     #  Lastly, since there's no other way to recognize a CALDB type:
-    if (intype is None and 'CCLS0001' in in_extn.header) or intype == 'CALDB':
+    if (intype is None and 'CCLS0001' in in_extn.header) or intype=='CALDB':
         return 'CALFILE', 'CALDB'
 
     #  If you get here, no match, return Nones
@@ -458,27 +512,17 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
         
     extno=extlist.index(this_extn)  
 
-    #  DO NOT USE THIS!  For large files in memory, this somehow
-    #  causes memory usage to climb to several times the size of the
-    #  file.  No idea why.  Just accessing the data attribute of the
-    #  file that's gunzipped in memory?  Whatever.  Don't use the
-    #  .data
-    #  
-    #colnames = hdu[extno].data.names
-    #colnames = [x.upper().strip() for x in colnames] # convert to uppercase, remove whitespace
-
-    colnames=[hdu[extno].header[key].upper().strip() for key in hdu[extno].header if 'TTYPE' in key]
-
-
     missing_keywords = []
-    missing_columns = []
     extna=ref_extn.upper().strip()
 
     ogip=ogip_dict[extna]
 
     #  The hdr_check() object that holds the header as well as the
     #  functions in which the requirements are encoded.
-    h=hdr_check(hdu[extno].header,hdu[extno].columns) 
+    if ref_extn=='IMAGE':
+        h=hdr_check(hdu[extno].header,None)
+    else:
+        h=hdr_check(hdu[extno].header,hdu[extno].columns) 
 
     #  Each req is a string containing code that can be evaluated that
     #  uses the methods of the hdr_check() object that must be called
@@ -489,6 +533,22 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
         if not eval(req["req"]):  
             if req["level"] == 1:  status.update(extn=extna,report="ERROR: Key %s incorrect in %s[%s]" % (key,file, this_extn), level=req["level"],log=logf,miskey=key)
             else:  status.update(extn=extna,report="WARNING%s: Key %s incorrect in %s[%s]" % (req["level"],key,file, this_extn), level=req["level"],log=logf)
+
+    if ref_extn=='IMAGE':
+        return
+
+
+    #  DO NOT USE THIS!  For large files in memory, this somehow
+    #  causes memory usage to climb to several times the size of the
+    #  file.  No idea why.  Just accessing the data attribute of the
+    #  file that's gunzipped in memory?  Whatever.  Don't use the
+    #  .data
+    #  
+    #colnames = hdu[extno].data.names
+    #colnames = [x.upper().strip() for x in colnames] # convert to uppercase, remove whitespace
+    colnames=[hdu[extno].header[key].upper().strip() for key in hdu[extno].header if 'TTYPE' in key]
+    missing_columns = []
+
 
     for col,req in sorted(ogip['COLUMNS'].iteritems(),key=lambda(k,v):(v['level'],k)):
         if not eval(req['req']):
@@ -600,3 +660,26 @@ def ogip_fail(filename,ogip_dict,logf):
     print("Available at",file=logf)
     print("   %s" % ogip_dict["REFURL"],file=logf)
     return
+
+
+
+
+
+
+
+def init_log(logfile,status):
+   #  Should be given either sys.stdout for the logfile, or a string
+    #  filename to open:
+    if isinstance(logfile,(str,unicode)):
+        try:  logf=open(logfile,'w')
+        except:  
+            status.update(report="ERROR:  Cannot open output log file %s" % logfile, status=1,verbosity=verbosity)
+            raise
+    else:
+        if logfile is not sys.stdout:
+            status.update(report="ERROR:  Cannot write to log file %s" % logfile, status=1,verbosity=verbosity)
+            raise
+        else:
+            logf=logfile
+
+    return logf

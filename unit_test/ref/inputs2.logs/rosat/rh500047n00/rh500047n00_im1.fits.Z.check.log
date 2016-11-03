@@ -5,3 +5,14 @@ Trying now to open it again as FITS.
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
 Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
+Found a file with only a PRIMARY extension.  Testing as an IMAGE.
+
+=============== Checking 'PRIMARY' extension against 'IMAGE' standard ===============
+
+
+=============== 0 Errors and 0 Warnings Found in 1 extensions checked ===============
+
+
+===========================================================
+
+File inputs/rosat/rh500047n00/rh500047n00_im1.fits.Z conforms to the OGIP Standards

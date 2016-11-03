@@ -28,20 +28,12 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
     filename=input
     status=retstat()
 
-    #  Should be given either sys.stdout for the logfile, or a string
-    #  filename to open:
-    if isinstance(logfile,(str,unicode)):
-        try:  logf=open(logfile,'w')
-        except:  
-            status.update(report="ERROR:  Cannot open output log file %s" % logfile, status=1,verbosity=verbosity)
-            return status
-    else:
-        if logfile is not sys.stdout:
-            status.update(report="ERROR:  Cannot write to log file %s" % logfile, status=1,verbosity=verbosity)
-            return status
-        else:
-            logf=logfile
+    try:
+        logf=init_log(logfile,status)
+    except:
+        return status
 
+ 
 
     #  Even just trying to open it can lead to pyfits barfing errors
     #  and warnings all over (which we catch in the specific log, and
@@ -101,56 +93,15 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
         status.update(vonly=True)
         return status
 
-    numext= len(hdulist)
-    if numext <= 1:
-        status.update(report="ERROR: File needs at least 1 BINARY extension in addition to the PRIMARY; only found %i total in %s" % (numext,filename), status=1,verbosity=verbosity)
-        return status
-
-    # Get a list of all the extnames (after the 0th, which is PRIMARY)
-    extnames= [x.name for x in hdulist[1:]]
-    if len(extnames) == 0:
-        status.update(report="ERROR:  file %s does not have any extensions after the PRIMARY." % filename,status=1,verbosity=verbosity)
-        return status
-
-    if extnames[0] == '':
-        #  Let these continue for now and see if HDUCLS
-        status.update(report="WARNING:  file has BINTABLE extension with no name",verbosity=verbosity)
-
-    #  Try to determine the type from the first (not PRIMARY) extension:
+    #  Determine the file type from extensions, keywords, or the
+    #  default type. 
     if otype is None:
-        #  Integral files sometimes start with indexing;  skip this
-        xno=1
-        if 'EXTNAME' in hdulist[1].header:
-            if hdulist[1].header['EXTNAME']=='GROUPING': xno=2
-            if xno+1 > len(hdulist):
-                status.update(report="ERROR:  File has only GROUPING extension.", status=1,verbosity=verbosity)
-                return status
-
-        ref_extn, otype =ogip_determine_ref(hdulist[xno])
-
-        if ref_extn is not None and otype is not None:
-            if 'EXTNAME' in hdulist[xno].header:
-                print("\nChecking file as type %s (match for this file's %s and reference extension %s)" % (otype,hdulist[xno].header['EXTNAME'],ref_extn),file=logf)
-            else:
-                print("\nChecking file as type %s (match for this file's NAMELESS and reference extension %s)" % (otype,ref_extn),file=logf)
-        elif otype is None:
-            if dtype:
-                if dtype == 'none':
-                    status.update(report="ERROR:  do not recognize the file %s" % filename+" as any type (extnames "+", ".join(extnames)+")",status=1,unrec=1,verbosity=verbosity)
-                    status.extns=extnames
-                    return status
-                else:
-                    status.update(report="ERROR:  failed to determine the file type;  trying %s" % dtype,level=1,log=logf,verbosity=verbosity)
-                    otype=dtype
-            else:
-                status.update(report="ERROR:  failed to determine the file type;  trying CALDB",level=1,log=logf,verbosity=verbosity)
-                otype='CALDB'
-        print("\n(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.\n",file=logf)
-
+        otype=ogip_determine_ref_type(filename, hdulist,status,logf,dtype,verbosity)
+        if otype is None:
+            return status
+        status.otype=otype
     else:
         print("\nChecking file as type %s" % otype,file=logf)
-
-    status.otype=otype
 
     ogip_dict=ogip_dictionary(otype)
     if ogip_dict==0:
@@ -171,11 +122,12 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
     # If there are multiple entries in the required set, only one must
     # be in the file to be tested for it to pass.  This code will have
     # to change if there is a requirement for multiple extensions.
+    extnames= [x.name for x in hdulist[1:]]
     for ref in ereq:
         for actual in extnames:
             if ref in actual: check=True
             
-    if not check:
+    if not check and not otype=='IMAGE':
         status.update(report="ERROR: %s does not have any of the required extension names" % fname, log=logf,level=1,extn='none',verbosity=verbosity)
 
     # We have the type, now simply loop over the extensions found in
@@ -190,6 +142,11 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
 
     extns_checked=0
 
+
+    if otype=='IMAGE' and hdulist[0].header['NAXIS']!=0:
+        #  There's a primary image to check, but cannot assume it's the only one!
+        extnames.insert(0,'PRIMARY')
+
     for this_extn in extnames:  
         
         #  Determines which reference extension to check this one
@@ -197,13 +154,10 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
         #  want to check.
         if otype == 'CALDB':
             ref_extn='CALFILE'
+        elif this_extn=='PRIMARY':
+            ref_extn='IMAGE'
         else:
-            #  The type is already set.  Throw away it's return val here.
-            ref_extn, t = ogip_determine_ref( hdulist[extnames.index(this_extn)+1], otype )
-
-        if ref_extn == 'IMAGE':
-            print("\n============== IMAGE extensions not currently handled\n",file=logf)
-            continue
+            ref_extn, t = ogip_determine_ref_extn( hdulist[extnames.index(this_extn)+1], otype )
 
         if ref_extn:
             print("\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,ref_extn),file=logf)
