@@ -24,23 +24,23 @@ def ogip_dictionary_timing():
     Define requirements for  Keywords for RATE table
     """
     reqkeys = {
-        'TELESCOP':{"level":3,'req':"h.Exists('TELESCOP')"},
-        'INSTRUME':{"level":3,'req':"h.Exists('INSTRUME')"},
-        'DATE-OBS':{"level":3,'req':"h.Exists('DATE-OBS')"},
-        'DATE-END':{"level":3,'req':"h.Exists('DATE-END')"},
+        'TELESCOP':{"level":1,'req':"h.Exists('TELESCOP')"},
+        'INSTRUME':{"level":1,'req':"h.Exists('INSTRUME')"},
+        'DATE-OBS':{"level":1,'req':"h.Exists('DATE-OBS')"},
+        'DATE-END':{"level":1,'req':"h.Exists('DATE-END')"},
         # can be given as single keyword or integer + fraction; either ok
-        'TIMEZERO':{"level":3,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"},  
+        'TIMEZERO':{"level":1,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"},  
         # can be given as single keyword or integer + fraction; either ok
-        'TSTART':  {"level":3,'req':"h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )"},  
+        'TSTART':  {"level":1,'req':"h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )"},  
         # can be given as single keyword or integer + fraction; either ok
-        'TSTOP':   {"level":3,'req':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists('TSTOPF') )"},  
-        'TIMESYS': {"level":3,'req':"h.Exists('TIMESYS')"},
-        'TIMEUNIT':{"level":3,'req':"h.Exists('TIMEUNIT')"},
-        'TIMEREF': {"level":3,'req':"h.Exists('TIMEREF')"},
+        'TSTOP':   {"level":1,'req':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists('TSTOPF') )"},  
+        'TIMESYS': {"level":1,'req':"h.Exists('TIMESYS')"},
+        'TIMEUNIT':{"level":1,'req':"h.Exists('TIMEUNIT')"},
+        'TIMEREF': {"level":1,'req':"h.Exists('TIMEREF')"},
         # OGIP is the allowed keyword value
-        'HDUCLASS':{"level":3,'req':"h.hasVal('HDUCLASS','OGIP')"},  
+        'HDUCLASS':{"level":1,'req':"h.hasVal('HDUCLASS','OGIP')"},  
         # LIGHTCURVE is the allowed keyword value
-        'HDUCLAS1':{"level":3,'req':"h.hasVal('HDUCLAS1','LIGHTCURVE')"},
+        'HDUCLAS1':{"level":1,'req':"h.hasVal('HDUCLAS1','LIGHTCURVE')"},
         #
         #  Optional
         #
@@ -79,8 +79,8 @@ def ogip_dictionary_timing():
     Define requirements for columns
     """
     reqcols = {
-        'TIME':       {"level":3,'req':"h.hasCol('TIME')"},
-        'RATE|COUNTS':{"level":3,'req':"h.hasCol('RATE') or h.hasCol('COUNTS')"},
+        'TIME':       {"level":1,'req':"h.hasCol('TIME')"},
+        'RATE|COUNTS':{"level":1,'req':"h.hasCol('RATE') or h.hasCol('COUNTS')"},
         'BACKV':      {"level":2,'req':"h.hasCol('BACKV')"},
         'BACKE':      {"level":2,'req':"h.hasCol('BACKE')"},
         'DEADC':      {"level":2,'req':"h.hasCol('DEADC')"}
@@ -100,20 +100,20 @@ def ogip_dictionary_timing():
     Define requirements for keywords for EVENTS table
     """
     reqkeys = {
-        'TELESCOP':{"level":3,'req':"h.Exists('TELESCOP')"},
-        'INSTRUME':{"level":3,'req':"h.Exists('INSTRUME')"},
-        'DATE-OBS':{"level":3,'req':"h.Exists('DATE-OBS')"},
-        'DATE-END':{"level":3,'req':"h.Exists('DATE-END')"},
+        'TELESCOP':{"level":1,'req':"h.Exists('TELESCOP')"},
+        'INSTRUME':{"level":1,'req':"h.Exists('INSTRUME')"},
+        'DATE-OBS':{"level":1,'req':"h.Exists('DATE-OBS')"},
+        'DATE-END':{"level":1,'req':"h.Exists('DATE-END')"},
         # can be given as single keyword or integer + fraction; either ok
-        'TIMEZERO':{"level":3,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"},  
+        'TIMEZERO':{"level":1,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"},  
         # can be given as single keyword or integer + fraction; either ok
-        'TSTART':  {"level":3,'req':"h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )"},  
+        'TSTART':  {"level":1,'req':"h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )"},  
         # can be given as single keyword or integer + fraction; either ok
-        'TSTOP':   {"level":3,'req':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists('TSTOPF') )"},  
-        'TIMESYS': {"level":3,'req':"h.Exists('TIMESYS')"},
-        'TIMEUNIT':{"level":3,'req':"h.Exists('TIMEUNIT')"},
-        'HDUCLASS':{"level":3,'req':"h.hasVal('HDUCLASS','OGIP')"},
-        'HDUCLAS1':{"level":3,'req':"h.hasVal('HDUCLAS1','EVENTS')"},
+        'TSTOP':   {"level":1,'req':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists('TSTOPF') )"},  
+        'TIMESYS': {"level":1,'req':"h.Exists('TIMESYS')"},
+        'TIMEUNIT':{"level":1,'req':"h.Exists('TIMEUNIT')"},
+        'HDUCLASS':{"level":1,'req':"h.hasVal('HDUCLASS','OGIP')"},
+        'HDUCLAS1':{"level":1,'req':"h.hasVal('HDUCLAS1','EVENTS')"},
         #
         #  Optional
         #
@@ -142,7 +142,7 @@ def ogip_dictionary_timing():
     Define requirements for  columns
     """
     reqcols = {
-        'TIME':{"level":3,'req':"h.hasCol('TIME')"},
+        'TIME':{"level":1,'req':"h.hasCol('TIME')"},
         #
         #   Optional
         #
@@ -167,8 +167,8 @@ def ogip_dictionary_timing():
     Define requirements for  keywords for GTI table
     """
     reqkeys = {
-        'TELESCOP':{"level":3,'req':"h.Exists('TELESCOP')"},
-        'INSTRUME':{"level":3,'req':"h.Exists('INSTRUME')"},
+        'TELESCOP':{"level":1,'req':"h.Exists('TELESCOP')"},
+        'INSTRUME':{"level":1,'req':"h.Exists('INSTRUME')"},
         #
         #  Optional
         #
@@ -195,8 +195,8 @@ def ogip_dictionary_timing():
     Define requirements for  columns
     """
     reqcols = {
-        'START':{"level":3,'req':"h.hasCol('START')"}, 
-        'STOP': {"level":3,'req':"h.hasCol('STOP')"},
+        'START':{"level":1,'req':"h.hasCol('START')"}, 
+        'STOP': {"level":1,'req':"h.hasCol('STOP')"},
         # 
         #  Optional
         # 
@@ -215,8 +215,8 @@ def ogip_dictionary_timing():
     Define requirements for keywords
     """
     reqkeys = {
-        'TELESCOP':{"level":3,'req':"h.Exists('TELESCOP')"},
-        'INSTRUME':{"level":3,'req':"h.Exists('INSTRUME')"}, 
+        'TELESCOP':{"level":1,'req':"h.Exists('TELESCOP')"},
+        'INSTRUME':{"level":1,'req':"h.Exists('INSTRUME')"}, 
         #
         #  Optional
         #
@@ -227,8 +227,8 @@ def ogip_dictionary_timing():
     Define requirements for columns
     """
     reqcols = {
-        'E_MIN':{"level":3,'req':"h.hasCol('E_MIN')"}, 
-        'E_MAX':{"level":3,'req':"h.hasCol('E_MAX')"},
+        'E_MIN':{"level":1,'req':"h.hasCol('E_MIN')"}, 
+        'E_MAX':{"level":1,'req':"h.hasCol('E_MAX')"},
         #
         #  Optional
         #
@@ -250,12 +250,12 @@ def ogip_dictionary_timing():
     Define requirements for keywords
     """
     reqkeys = {
-        'TELESCOP':{"level":3,'req':"h.Exists('TELESCOP')"},
-        'INSTRUME':{"level":3,'req':"h.Exists('INSTRUME')"},
-        'TSTART':  {"level":3,'req':"h.Exists('TSTART') or (h.Exists('TSTARTI') and h.Exists('TSTARTF') )"},
-        'TSTOP':   {"level":3,'req':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists(('TSTARTF') )"},
-        'TIMEZERO':{"level":3,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"},
-        'TIMEUNIT':{"level":3,'req':"h.Exists('TIMEUNIT')"},
+        'TELESCOP':{"level":1,'req':"h.Exists('TELESCOP')"},
+        'INSTRUME':{"level":1,'req':"h.Exists('INSTRUME')"},
+        'TSTART':  {"level":1,'req':"h.Exists('TSTART') or (h.Exists('TSTARTI') and h.Exists('TSTARTF') )"},
+        'TSTOP':   {"level":1,'req':"h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists(('TSTARTF') )"},
+        'TIMEZERO':{"level":1,'req':"h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"},
+        'TIMEUNIT':{"level":1,'req':"h.Exists('TIMEUNIT')"},
         #
         #  Optional
         # 
@@ -266,8 +266,8 @@ def ogip_dictionary_timing():
     Define requirements for columns
     """
     reqcols = {
-        'TIME':{"level":3,'req':"h.hasCol('TIME')"},
-        'REFEARTH|REFSUN|REFBSOLS|BARYTIME':{"level":3,'req':"h.hasCol('REFEARTH') or h.hasCol('REFSUN') or h.hasCol('REFBSOLS') or h.hasCol('BARYTIME')"}, 
+        'TIME':{"level":1,'req':"h.hasCol('TIME')"},
+        'REFEARTH|REFSUN|REFBSOLS|BARYTIME':{"level":1,'req':"h.hasCol('REFEARTH') or h.hasCol('REFSUN') or h.hasCol('REFBSOLS') or h.hasCol('BARYTIME')"}, 
     }
     timeref={'KEYWORDS':reqkeys, 'COLUMNS':reqcols}
 

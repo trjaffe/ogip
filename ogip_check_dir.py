@@ -311,12 +311,12 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
         for extn in check_extns:
             if extn in summary.count_extnames[t]:
                 for k in dict[extn]['KEYWORDS']: 
-                    if dict[extn]['KEYWORDS'][k]['level']!=3:  continue
+                    if dict[extn]['KEYWORDS'][k]['level']!=1:  continue
                     if summary.count_missing_key(t,extn,k) > 0:
                         cnt+=1
                         print("    Found %s (out of %s) files have at least one extension %s missing key %s." % (summary.count_missing_key(t,extn,k), summary.count_extnames[t][extn], extn, k) )
                 for c in dict[extn]['COLUMNS']:
-                    if dict[extn]['COLUMNS'][c]['level']!=3: continue
+                    if dict[extn]['COLUMNS'][c]['level']!=1: continue
                     if summary.count_missing_col(t,extn,c) > 0:
                         cnt+=1
                         print("    Found %s (out of %s) files have at least one extension %s missing column %s." % (summary.count_missing_col(t,extn,c), summary.count_extnames[t][extn], extn, c) )

@@ -352,7 +352,7 @@ if [[ "$retval" != "0" ]]; then
     let errors+=1
 else
     echo "Comparing output to reference.  "
-    diffs=`diff -I TIMESTAMP ref/inputs.check2.log out/inputs.check2.log`
+    diffs=`diff -I TIMESTAMP ref/inputs2.check.log out/inputs2.check.log`
     if [[ ${#diffs} != 0 ]]; then
 	echo "WARNING:  Differences appear in 'diff -I TIMESTAMP ref/inputs2.check.log out/inputs2.check.log'"
 	#    echo ${diffs[@]} | tail

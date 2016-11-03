@@ -137,13 +137,13 @@ class retstat:
     def tot_errors(self):
         errs=0
         for extn in self.extns.itervalues():
-            errs+= extn.WARNINGS[3]
+            errs+= extn.WARNINGS[1]
         return errs
 
     def tot_warnings(self):
         warns=0
         for extn in self.extns.itervalues():
-            warns+=extn.WARNINGS[1]+extn.WARNINGS[2]
+            warns+=extn.WARNINGS[3]+extn.WARNINGS[2]
         return warns
 
 
@@ -485,14 +485,14 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
     #  h and whatever logic is needed to express the requirement.
     #  
     #  Check mandatory keyword requirements.   (Sort by decending level and then alphabetically.)
-    for key,req in sorted(ogip['KEYWORDS'].iteritems(), key=lambda(k,v): (-v['level'], k)):
+    for key,req in sorted(ogip['KEYWORDS'].iteritems(), key=lambda(k,v): (v['level'], k)):
         if not eval(req["req"]):  
-            if req["level"] == 3:  status.update(extn=extna,report="ERROR: Key %s incorrect in %s[%s]" % (key,file, this_extn), level=req["level"],log=logf,miskey=key)
+            if req["level"] == 1:  status.update(extn=extna,report="ERROR: Key %s incorrect in %s[%s]" % (key,file, this_extn), level=req["level"],log=logf,miskey=key)
             else:  status.update(extn=extna,report="WARNING%s: Key %s incorrect in %s[%s]" % (req["level"],key,file, this_extn), level=req["level"],log=logf)
 
-    for col,req in sorted(ogip['COLUMNS'].iteritems(),key=lambda(k,v):(-v['level'],k)):
+    for col,req in sorted(ogip['COLUMNS'].iteritems(),key=lambda(k,v):(v['level'],k)):
         if not eval(req['req']):
-            if req["level"] == 3:  status.update(extn=extna,report="ERROR: column %s incorrect in %s[%s]" % (col, file,  this_extn), level=req["level"],log=logf, miscol=col)
+            if req["level"] == 1:  status.update(extn=extna,report="ERROR: column %s incorrect in %s[%s]" % (col, file,  this_extn), level=req["level"],log=logf, miscol=col)
             else:  status.update(extn=extna,report="WARNING%s: column %s incorrect in %s[%s]" % (req["level"],col, file,  this_extn), level=req["level"],log=logf)
 
     return

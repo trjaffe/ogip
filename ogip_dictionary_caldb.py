@@ -28,17 +28,17 @@ def ogip_dictionary_caldb():
     # Define REQUIRED Keywords for CALDB file
     #
     reqkeys = {
-        'TELESCOP':{"level":3,"req":"h.Exists('TELESCOP')"},
-        'INSTRUME':{"level":3,"req":"h.Exists('INSTRUME')"},
-        'DETNAM':  {"level":3,"req":"h.Exists('DETNAM')"},
-        'FILTER':  {"level":3,"req":"h.Exists('FILTER')"},
-        'CCLS0001':{"level":3,"req":"h.Exists('CCLS0001')"},
-        'CDTP0001':{"level":3,"req":"h.Exists('CDTP0001')"},
-        'CCNM0001':{"level":3,"req":"h.Exists('CCNM0001')"},
-        'CBD*':    {"level":3,"req":"h.Exists('CBD*')"},  # BOUNDARY KEYWORD
-        'CVSD0001':{"level":3,"req":"h.Exists('CVSD0001')"},
-        'CVST0001':{"level":3,"req":"h.Exists('CVST0001')"},
-        'CDES*' :  {"level":3,"req":"h.Exists('CDES*')"}, # can be given as single keyword or integer + fraction; either ok
+        'TELESCOP':{"level":1,"req":"h.Exists('TELESCOP')"},
+        'INSTRUME':{"level":1,"req":"h.Exists('INSTRUME')"},
+        'DETNAM':  {"level":1,"req":"h.Exists('DETNAM')"},
+        'FILTER':  {"level":1,"req":"h.Exists('FILTER')"},
+        'CCLS0001':{"level":1,"req":"h.Exists('CCLS0001')"},
+        'CDTP0001':{"level":1,"req":"h.Exists('CDTP0001')"},
+        'CCNM0001':{"level":1,"req":"h.Exists('CCNM0001')"},
+        'CBD*':    {"level":1,"req":"h.Exists('CBD*')"},  # BOUNDARY KEYWORD
+        'CVSD0001':{"level":1,"req":"h.Exists('CVSD0001')"},
+        'CVST0001':{"level":1,"req":"h.Exists('CVST0001')"},
+        'CDES*' :  {"level":1,"req":"h.Exists('CDES*')"}, # can be given as single keyword or integer + fraction; either ok
         #
         #  Optional
         #
