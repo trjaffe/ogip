@@ -36,8 +36,11 @@ def stdouterr_redirector(stream,redir_out=True,redir_err=True):
 """
 
 class stdouterr_redirector():
-    def __init__(self, stream,redir_out=True,redir_err=True):
-        self.stream = stream
+    def __init__(self, stream=None,redir_out=True,redir_err=True):
+        if stream is not None:
+            self.stream = stream
+        else:
+            self.stream=open(os.devnull,"w")
         self.redir_out=redir_out
         self.redir_err=redir_err
         self.reverse=False
@@ -56,7 +59,6 @@ class stdouterr_redirector():
                 sys.stdout = self.old_stdout
             if self.redir_err:
                 sys.stderr = self.old_stderr
-
   
 class statinfo:
     """
@@ -413,7 +415,10 @@ def ogip_determine_ref_extn(in_extn,intype=None):
     #  Likewise, HDUCLAS1==RESPONSE can be either RMF or ARF or
     #  possibly CALDB, so check HDUCLAS2.
 
-    if in_extn.header['XTENSION'] == 'IMAGE':
+    if 'XTENSION' not in in_extn.header:
+        #  Only PRIMARY doesn't have this
+        return 'IMAGE','IMAGE'
+    elif in_extn.header['XTENSION'] == 'IMAGE':
         return 'IMAGE', 'IMAGE'
     elif in_extn.header['XTENSION'] == 'BINTABLE':
         #  Object needed for eval() 

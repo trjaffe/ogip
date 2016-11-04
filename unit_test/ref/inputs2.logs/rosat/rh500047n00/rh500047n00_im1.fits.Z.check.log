@@ -9,8 +9,10 @@ Found a file with only a PRIMARY extension.  Testing as an IMAGE.
 
 =============== Checking 'PRIMARY' extension against 'IMAGE' standard ===============
 
+WARNING2:  WCS.validate[key=' ']:  RADECSYS= 'FK5 ' / WCS for this file the RADECSYS keyword is deprecated, use RADESYSa.
+WARNING2:  WCS.validate[key=' ']:  'datfix' made the change 'Invalid parameter value: inconsistent date '1991-03-20''.
 
-=============== 0 Errors and 0 Warnings Found in 1 extensions checked ===============
+=============== 0 Errors and 2 Warnings Found in 1 extensions checked ===============
 
 
 ===========================================================

@@ -1,7 +1,4 @@
-Attempting to open file inputs/rosat/rh500047n00/rh500047n00_bk1.fits.Z
-Failed to open as a FITS file.  Trying to unzip first.
-Trying to gunzip it.
-Trying now to open it again as FITS.
+Attempting to open file inputs/two_images.fits
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
 Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
@@ -13,9 +10,19 @@ WARNING2:  WCS.validate[key=' ']:  RADECSYS= 'FK5 ' / WCS for this file the RADE
 WARNING2:  WCS.validate[key=' ']:  'datfix' made the change 'Invalid parameter value: inconsistent date '1991-03-20''.
 WARNING2:  WCS.validate[key=' ']:  'celfix' made the change 'Unrecognized projection code (-TA in CTYPE2)'.
 
-=============== 0 Errors and 3 Warnings Found in 1 extensions checked ===============
+=============== Checking '' extension against 'IMAGE' standard ===============
+
+ERROR: Key FILTER incorrect in two_images.fits[]
+ERROR: Key HDUCLASS incorrect in two_images.fits[]
+ERROR: Key INSTRUME incorrect in two_images.fits[]
+ERROR: Key TELESCOP incorrect in two_images.fits[]
+
+=============== 4 Errors and 3 Warnings Found in 2 extensions checked ===============
 
 
 ===========================================================
 
-File inputs/rosat/rh500047n00/rh500047n00_bk1.fits.Z conforms to the OGIP Standards
+FAILURE: inputs/two_images.fits is not a Valid OGIP formatted file
+Please see TBD: 
+Available at
+   TBD

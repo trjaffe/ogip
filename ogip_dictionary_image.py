@@ -76,8 +76,8 @@ def ogip_dictionary_image():
             'ALT_EXTNS':alt_extns,
             'IMAGE':image,
             'GTI':gti,
-            'REFERENCE':'',
-            'REFURL':'',
+            'REFERENCE':'TBD',
+            'REFURL':'TBD',
             'REFTITLE':''}
 
     return ogip

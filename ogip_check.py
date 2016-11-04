@@ -3,6 +3,7 @@ import astropy.io.fits as pyfits
 from ogip_dictionary import ogip_dictionary
 from ogip_generic_lib import *
 import os.path
+import astropy.wcs as wcs
 
 def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
     """
@@ -122,7 +123,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
     # If there are multiple entries in the required set, only one must
     # be in the file to be tested for it to pass.  This code will have
     # to change if there is a requirement for multiple extensions.
-    extnames= [x.name for x in hdulist[1:]]
+    extnames= [x.name for x in hdulist]
     for ref in ereq:
         for actual in extnames:
             if ref in actual: check=True
@@ -143,24 +144,32 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
     extns_checked=0
 
 
-    if otype=='IMAGE' and hdulist[0].header['NAXIS']!=0:
-        #  There's a primary image to check, but cannot assume it's the only one!
-        extnames.insert(0,'PRIMARY')
+
+    if otype=='IMAGE':
+        #  Does all extensions, wants the whole FITS file.  Run now
+        #  but print output below in loop over extensions.
+        wcs_out=wcs.validate(hdulist)
+
+
 
     for this_extn in extnames:  
-        
-        #  Determines which reference extension to check this one
-        #  against.  Sometimes not named correctly, but we'd still
-        #  want to check.
+        extno=extnames.index(this_extn)
+
+        if this_extn=='PRIMARY' and otype=='IMAGE':
+            ref_extn='IMAGE'
+        elif this_extn=='PRIMARY' and otype!='IMAGE':
+            continue
         if otype == 'CALDB':
             ref_extn='CALFILE'
-        elif this_extn=='PRIMARY':
-            ref_extn='IMAGE'
         else:
-            ref_extn, t = ogip_determine_ref_extn( hdulist[extnames.index(this_extn)+1], otype )
+            ref_extn, t = ogip_determine_ref_extn( hdulist[extno], otype )
 
         if ref_extn:
             print("\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,ref_extn),file=logf)
+
+            if ref_extn=='IMAGE':
+                [status.update(report="WARNING2:  WCS.validate[key='%s']:  %s" % (k._key,line.replace('\n','')),log=logf,level=2,extn=this_extn,verbosity=verbosity) for k in wcs_out[extno] for line in k if "No issues" not in line ]
+
             cmp_keys_cols(hdulist,filename,this_extn,ref_extn,ogip_dict,logf,status)
             extns_checked+=1
         else:
