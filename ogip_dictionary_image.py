@@ -34,9 +34,8 @@ def ogip_dictionary_image():
     reqkeys = {
         'TELESCOP':{"level":1,"req":"h.Exists('TELESCOP')"},
         'INSTRUME':{"level":1,"req":"h.Exists('INSTRUME')"},
-        'FILTER':  {"level":1,"req":"h.Exists('FILTER')"},
         'HDUCLASS':{"level":1,"req":"h.hasVal('HDUCLASS','OGIP')"},
- 
+        'FILTER':  {"level":1,"req":"h.Exists('FILTER')"}, 
     }
 
     """
@@ -51,9 +50,11 @@ def ogip_dictionary_image():
     For GTI extension
     """
     """
-    Define requirements for keywords for EBOUNDS table
+    Define requirements for keywords for GTI table
     """
     reqkeys = {
+        'TELESCOP':{"level":1,'req':"h.Exists('TELESCOP')"},
+        'INSTRUME':{"level":1,'req':"h.Exists('INSTRUME')"},
     }
 
     """

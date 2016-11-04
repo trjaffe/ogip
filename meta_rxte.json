@@ -16,7 +16,8 @@
             ".png",
             ".pdf",
             ".htm",
-            ".log"
+            ".log",
+	    "readme"
         ]
     },
     "root_data_directory": "/FTP/rxte/data/archive"

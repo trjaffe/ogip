@@ -344,7 +344,7 @@ def ogip_determine_ref_type(filename,hdulist,status,logf,dtype=None,verbosity=3)
             return 'IMAGE'
     #  Second easiest case:  if there's an image in the PRIMARY or first extension, then it's an IMAGE type.  
     elif hdulist[0].header['NAXIS']!=0:
-        print("Found a file with only a PRIMARY extension.  Testing as an IMAGE.", file=logf)
+        print("Found a file with an image in the PRIMARY extension.  Testing as an IMAGE.", file=logf)
         return 'IMAGE'
     elif 'XTENSION' in hdulist[1].header and 'IMAGE' in hdulist[1].header['XTENSION']:
         if hdulist[1].header['XTENSION']!='IMAGE':  status.update(report="ERROR:  Extension has XTNAME=%s, which should be 'IMAGE'." % hdulist[1].header['XTENSION'],level=1,extn='IMAGE',log=logf,verbosity=verbosity)
@@ -363,7 +363,7 @@ def ogip_determine_ref_type(filename,hdulist,status,logf,dtype=None,verbosity=3)
     if 'EXTNAME' in hdulist[1].header:
         if hdulist[1].header['EXTNAME']=='GROUPING': xno=2
         if xno+1 > len(hdulist):
-            status.update(report="ERROR:  File has only GROUPING extension.", status=1,verbosity=verbosity)
+            status.update(report="WARNING:  File has only GROUPING extension.", status=1,verbosity=verbosity)
             return None
 
     ref_extn, otype =ogip_determine_ref_extn(hdulist[xno])
@@ -376,7 +376,7 @@ def ogip_determine_ref_type(filename,hdulist,status,logf,dtype=None,verbosity=3)
     else:
         if dtype:
             if dtype == 'none':
-                status.update(report="ERROR:  do not recognize the file %s" % filename+" as any type (extnames "+", ".join(extnames)+")",status=1,unrec=1,verbosity=verbosity)
+                status.update(report="WARNING:  do not recognize the file %s" % filename+" as any type (extnames "+", ".join(extnames)+")",status=1,unrec=1,verbosity=verbosity)
                 status.extns=extnames
                 return None
             else:
@@ -534,6 +534,7 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
     #  h and whatever logic is needed to express the requirement.
     #  
     #  Check mandatory keyword requirements.   (Sort by decending level and then alphabetically.)
+    print("Checking keywords:\n")
     for key,req in sorted(ogip['KEYWORDS'].iteritems(), key=lambda(k,v): (v['level'], k)):
         if not eval(req["req"]):  
             if req["level"] == 1:  status.update(extn=extna,report="ERROR: Key %s incorrect in %s[%s]" % (key,file, this_extn), level=req["level"],log=logf,miskey=key)
@@ -554,7 +555,7 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
     colnames=[hdu[extno].header[key].upper().strip() for key in hdu[extno].header if 'TTYPE' in key]
     missing_columns = []
 
-
+    print("\nChecking columns:\n")
     for col,req in sorted(ogip['COLUMNS'].iteritems(),key=lambda(k,v):(v['level'],k)):
         if not eval(req['req']):
             if req["level"] == 1:  status.update(extn=extna,report="ERROR: column %s incorrect in %s[%s]" % (col, file,  this_extn), level=req["level"],log=logf, miscol=col)

@@ -306,6 +306,8 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
             #  CALDB types don't have required extnames.  Any files
             #  checked as CALDB types will store the extn as CALFILE.
             check_extns=['CALFILE']
+        elif t == 'IMAGE':
+            check_extns=['IMAGE']
         else:
             check_extns=dict['EXTENSIONS']['REQUIRED']+ dict['EXTENSIONS']['OPTIONAL']
         for extn in check_extns:

@@ -106,7 +106,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
 
     ogip_dict=ogip_dictionary(otype)
     if ogip_dict==0:
-        status.update(report="ERROR:  do not recognize OGIP type %s" % otype, status=1,verbosity=verbosity)
+        status.update(report="WARNING:  do not recognize OGIP type %s" % otype, status=1,verbosity=verbosity)
         return status
 
     fname = filename
@@ -173,7 +173,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
             cmp_keys_cols(hdulist,filename,this_extn,ref_extn,ogip_dict,logf,status)
             extns_checked+=1
         else:
-            status.update(report="Extension '%s' is not an OGIP defined extension for this type;  ignoring.\n" % this_extn,log=logf,unrec_extn=this_extn,verbosity=verbosity)
+            status.update(report="\nExtension '%s' is not an OGIP defined extension for this type;  ignoring.\n" % this_extn,log=logf,unrec_extn=this_extn,verbosity=verbosity)
 
 
     if extns_checked > 0:
