@@ -12,25 +12,63 @@ ERROR: ae905006010xi0_1_conf_uf.gti.gz does not have any of the required extensi
 
 =============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
+Checking keywords:
+
 WARNING2: Key DEC* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Eval(h.Exists('DEC*'))==False
 WARNING2: Key DETNAM incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key FILTER incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Eval(h.Exists('FILTER'))==False
 WARNING2: Key ONTIME incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Eval(h.Exists('ONTIME'))==False
 WARNING2: Key RA* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Eval(h.Exists('RA*'))==False
 WARNING2: Key TSTART incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Full requirement is:  "h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )"
+        Eval(h.Exists('TSTART'))==False
+        Eval(h.Exists('TSTARTI'))==False
+        Eval(h.Exists('TSTARTF'))==False
 WARNING2: Key TSTOP incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Full requirement is:  "h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists('TSTARTF') )"
+        Eval(h.Exists('TSTOP'))==False
+        Eval(h.Exists('TSTOPI'))==False
+        Eval(h.Exists('TSTARTF'))==False
+
+Checking columns:
+
 WARNING2: column TIMEDEL incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Eval(h.hasCol('TIMEDEL'))==False
 
 =============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
+Checking keywords:
+
 WARNING2: Key DEC* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Eval(h.Exists('DEC*'))==False
 WARNING2: Key DETNAM incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key FILTER incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Eval(h.Exists('FILTER'))==False
 WARNING2: Key ONTIME incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Eval(h.Exists('ONTIME'))==False
 WARNING2: Key RA* incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Eval(h.Exists('RA*'))==False
 WARNING2: Key TSTART incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Full requirement is:  "h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )"
+        Eval(h.Exists('TSTART'))==False
+        Eval(h.Exists('TSTARTI'))==False
+        Eval(h.Exists('TSTARTF'))==False
 WARNING2: Key TSTOP incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Full requirement is:  "h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists('TSTARTF') )"
+        Eval(h.Exists('TSTOP'))==False
+        Eval(h.Exists('TSTOPI'))==False
+        Eval(h.Exists('TSTARTF'))==False
+
+Checking columns:
+
 WARNING2: column TIMEDEL incorrect in ae905006010xi0_1_conf_uf.gti.gz[STDGTI]
+        Eval(h.hasCol('TIMEDEL'))==False
 
 =============== 1 Errors and 16 Warnings Found in 2 extensions checked ===============
 

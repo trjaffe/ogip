@@ -11,52 +11,115 @@ ERROR: fermi_lat_bcf_edisp_calfile.fits does not have any of the required extens
 
 =============== Checking 'ENERGY DISPERSION' extension against 'MATRIX' standard ===============
 
+Checking keywords:
+
 ERROR: Key CCLS0001 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.hasVal('CCLS0001','CPF'))==False
 ERROR: Key CCNM0001 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.hasVal('CCNM0001','MATRIX'))==False
 ERROR: Key CHANTYPE incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Full requirement is:  "h.hasVal('CHANTYPE','PHA') or h.hasVal('CHANTYPE','PI')"
+        Eval(h.hasVal('CHANTYPE','PHA'))==False
+        Eval(h.hasVal('CHANTYPE','PI'))==False
 ERROR: Key DETCHANS incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.Exists('DETCHANS'))==False
 ERROR: Key FILTER incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.Exists('FILTER'))==False
 ERROR: Key HDUCLAS2 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.hasVal('HDUCLAS2','RSP_MATRIX'))==False
 ERROR: Key NUMELT incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.Exists('NUMELT'))==False
 ERROR: Key NUMGRP incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.Exists('NUMGRP'))==False
 ERROR: Key TLMIN* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.Exists('TLMIN*'))==False
 WARNING2: Key HDUCLAS3 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Full requirement is:  "h.hasVal('HDUCLAS3','REDIST') or h.hasVal('HDUCLAS3','DETECTOR') or h.hasVal('HDUCLAS3','FULL')"
+        Eval(h.hasVal('HDUCLAS3','REDIST'))==False
+        Eval(h.hasVal('HDUCLAS3','DETECTOR'))==False
+        Eval(h.hasVal('HDUCLAS3','FULL'))==False
 WARNING2: Key HDUVERS incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.hasVal('HDUVERS','1.3.0'))==False
 WARNING2: Key HDUVERS1 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.hasVal('HDUVERS1','1.1.0'))==False
 WARNING2: Key HDUVERS2 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.hasVal('HDUVERS2','1.2.0'))==False
 WARNING2: Key LO_THRES incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.Exists('LO_THRES'))==False
 WARNING2: Key PHAFILE incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.Exists('PHAFILE'))==False
 WARNING2: Key RMFVERSN incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.hasVal('RMFVERSN','1992A'))==False
+
+Checking columns:
+
 ERROR: column F_CHAN incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.hasCol('F_CHAN'))==False
 ERROR: column MATRIX incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.hasCol('MATRIX'))==False
 ERROR: column N_CHAN incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.hasCol('N_CHAN'))==False
 ERROR: column N_GRP incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.hasCol('N_GRP'))==False
 WARNING2: column ORDER incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.hasCol('ORDER'))==False
 
 =============== Checking 'EDISP_SCALING_PARAMS' extension against 'MATRIX' standard ===============
 
+Checking keywords:
+
 ERROR: Key CCLS0001 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasVal('CCLS0001','CPF'))==False
 ERROR: Key CCNM0001 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasVal('CCNM0001','MATRIX'))==False
 ERROR: Key CHANTYPE incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Full requirement is:  "h.hasVal('CHANTYPE','PHA') or h.hasVal('CHANTYPE','PI')"
+        Eval(h.hasVal('CHANTYPE','PHA'))==False
+        Eval(h.hasVal('CHANTYPE','PI'))==False
 ERROR: Key DETCHANS incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.Exists('DETCHANS'))==False
 ERROR: Key HDUCLAS2 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasVal('HDUCLAS2','RSP_MATRIX'))==False
 ERROR: Key NUMELT incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.Exists('NUMELT'))==False
 ERROR: Key NUMGRP incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.Exists('NUMGRP'))==False
 ERROR: Key TLMIN* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.Exists('TLMIN*'))==False
 WARNING2: Key HDUCLAS3 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Full requirement is:  "h.hasVal('HDUCLAS3','REDIST') or h.hasVal('HDUCLAS3','DETECTOR') or h.hasVal('HDUCLAS3','FULL')"
+        Eval(h.hasVal('HDUCLAS3','REDIST'))==False
+        Eval(h.hasVal('HDUCLAS3','DETECTOR'))==False
+        Eval(h.hasVal('HDUCLAS3','FULL'))==False
 WARNING2: Key HDUVERS incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasVal('HDUVERS','1.3.0'))==False
 WARNING2: Key HDUVERS1 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasVal('HDUVERS1','1.1.0'))==False
 WARNING2: Key HDUVERS2 incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasVal('HDUVERS2','1.2.0'))==False
 WARNING2: Key LO_THRES incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.Exists('LO_THRES'))==False
 WARNING2: Key PHAFILE incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.Exists('PHAFILE'))==False
 WARNING2: Key RMFVERSN incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasVal('RMFVERSN','1992A'))==False
+
+Checking columns:
+
 ERROR: column ENERG_HI incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasCol('ENERG_HI'))==False
 ERROR: column ENERG_LO incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasCol('ENERG_LO'))==False
 ERROR: column F_CHAN incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasCol('F_CHAN'))==False
 ERROR: column MATRIX incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasCol('MATRIX'))==False
 ERROR: column N_CHAN incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasCol('N_CHAN'))==False
 ERROR: column N_GRP incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasCol('N_GRP'))==False
 WARNING2: column ORDER incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+        Eval(h.hasCol('ORDER'))==False
 
 =============== 28 Errors and 16 Warnings Found in 2 extensions checked ===============
 

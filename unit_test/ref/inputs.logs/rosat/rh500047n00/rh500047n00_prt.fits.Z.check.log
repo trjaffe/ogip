@@ -61,213 +61,451 @@ ERROR:  failed to determine the file type;  trying CALDB
 
 =============== Checking 'SUMPG.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'OUTPUT.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'SKYLST.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'FLDPLT.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'SRCPLT.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'SKYMAP.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'SMBPLT.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'SMBLST.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'CORLST.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'CORPS.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'STRPLT.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'HIMAGE.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'SMBID.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'SMBPS.trl' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== 113 Errors and 56 Warnings Found in 14 extensions checked ===============
 

@@ -11,25 +11,54 @@ ERROR: Crab_sum_arf.fits.gz does not have any of the required extension names
 
 =============== Checking 'ISGR-ARF.-RSP' extension against 'SPECRESP' standard ===============
 
+Checking keywords:
+
 ERROR: Key CCLS0001 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.hasVal('CCLS0001','CPF'))==False
 ERROR: Key CCNM0001 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.hasVal('CCNM0001','SPECRESP'))==False
 ERROR: Key CDES0001 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.Exists('CDES0001'))==False
 ERROR: Key CDTP0001 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.hasVal('CDTP0001','DATA'))==False
 ERROR: Key CHANTYPE incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Full requirement is:  "h.hasVal('CHANTYPE','PHA') or h.hasVal('CHANTYPE','PI')"
+        Eval(h.hasVal('CHANTYPE','PHA'))==False
+        Eval(h.hasVal('CHANTYPE','PI'))==False
 ERROR: Key CVSD0001 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETCHANS incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.Exists('DETCHANS'))==False
 ERROR: Key FILTER incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.Exists('FILTER'))==False
 ERROR: Key NUMELT incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.Exists('NUMELT'))==False
 ERROR: Key NUMGRP incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.Exists('NUMGRP'))==False
 ERROR: Key TLMIN* incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.Exists('TLMIN*'))==False
 WARNING2: Key HDUCLAS3 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Full requirement is:  "h.hasVal('HDUCLAS3','REDIST') or h.hasVal('HDUCLAS3','DETECTOR') or h.hasVal('HDUCLAS3','FULL')"
+        Eval(h.hasVal('HDUCLAS3','REDIST'))==False
+        Eval(h.hasVal('HDUCLAS3','DETECTOR'))==False
+        Eval(h.hasVal('HDUCLAS3','FULL'))==False
 WARNING2: Key HDUVERS incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.hasVal('HDUVERS','1.1.0'))==False
 WARNING2: Key HDUVERS1 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.hasVal('HDUVERS1','1.1.0'))==False
 WARNING2: Key HDUVERS2 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.hasVal('HDUVERS2','1.2.0'))==False
 WARNING2: Key LO_THRES incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.Exists('LO_THRES'))==False
 WARNING2: Key PHAFILE incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.Exists('PHAFILE'))==False
 WARNING2: Key RMFVERSN incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+        Eval(h.hasVal('RMFVERSN','1992A'))==False
+
+Checking columns:
+
 
 =============== 13 Errors and 7 Warnings Found in 1 extensions checked ===============
 

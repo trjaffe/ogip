@@ -12,6 +12,8 @@ Found a file with only a PRIMARY extension.  Testing as an IMAGE.
 WARNING2:  WCS.validate[key=' ']:  RADECSYS= 'FK5 ' / WCS for this file the RADECSYS keyword is deprecated, use RADESYSa.
 WARNING2:  WCS.validate[key=' ']:  'datfix' made the change 'Invalid parameter value: inconsistent date '1991-03-20''.
 WARNING2:  WCS.validate[key=' ']:  'celfix' made the change 'Unrecognized projection code (-TA in CTYPE2)'.
+Checking keywords:
+
 
 =============== 0 Errors and 3 Warnings Found in 1 extensions checked ===============
 

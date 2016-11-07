@@ -9,34 +9,69 @@ ERROR:  failed to determine the file type;  trying CALDB
 
 =============== Checking 'FOOBAR' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in unrec2.fits[FOOBAR]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in unrec2.fits[FOOBAR]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in unrec2.fits[FOOBAR]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in unrec2.fits[FOOBAR]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in unrec2.fits[FOOBAR]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in unrec2.fits[FOOBAR]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in unrec2.fits[FOOBAR]
+        Eval(h.Exists('CVST0001'))==False
 WARNING2: Key CDT* incorrect in unrec2.fits[FOOBAR]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in unrec2.fits[FOOBAR]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in unrec2.fits[FOOBAR]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in unrec2.fits[FOOBAR]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== Checking 'STDGTI' extension against 'CALFILE' standard ===============
 
+Checking keywords:
+
 ERROR: Key CBD* incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('CBD*'))==False
 ERROR: Key CCLS0001 incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('CCLS0001'))==False
 ERROR: Key CCNM0001 incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('CCNM0001'))==False
 ERROR: Key CDES* incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('CDES*'))==False
 ERROR: Key CDTP0001 incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('CDTP0001'))==False
 ERROR: Key CVSD0001 incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('CVSD0001'))==False
 ERROR: Key CVST0001 incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('DETNAM'))==False
 ERROR: Key FILTER incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('FILTER'))==False
 ERROR: Key TELESCOP incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('TELESCOP'))==False
 WARNING2: Key CDT* incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('CDT*'))==False
 WARNING2: Key CFI* incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('CFI*'))==False
 WARNING2: Key CINS* incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('CINS*'))==False
 WARNING2: Key CTEL* incorrect in unrec2.fits[STDGTI]
+        Eval(h.Exists('CTEL*'))==False
+
+Checking columns:
+
 
 =============== 18 Errors and 8 Warnings Found in 2 extensions checked ===============
 

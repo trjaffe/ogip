@@ -7,37 +7,82 @@ Checking file as type SPECTRAL
 
 =============== Checking 'SPECTRUM' extension against 'SPECTRUM' standard ===============
 
+Checking keywords:
+
 WARNING2: Key DEC-OBJ incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('DEC-OBJ'))==False
 WARNING2: Key HDUCLAS4 incorrect in spectrum.pha[SPECTRUM]
+        Full requirement is:  "(not h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:I') ) or ( h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:II') )"
+        Eval(h.hasCol('SPEC_NUM'))==False
+        Eval(h.hasVal('HDUCLAS4','TYPE:I'))==False
+        Eval(h.hasCol('SPEC_NUM'))==False
+        Eval(h.hasVal('HDUCLAS4','TYPE:II'))==False
 WARNING2: Key HDUVERS incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.hasVal('HDUVERS','1.2.1'))==False
 WARNING2: Key RA-OBJ incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('RA-OBJ'))==False
 WARNING3: Key AUTHOR incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('AUTHOR'))==False
 WARNING3: Key BACKAPP incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('BACKAPP'))==False
 WARNING3: Key BACKE* incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('BACKE*'))==False
 WARNING3: Key BACKV* incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('BACKV*'))==False
 WARNING3: Key CLOCKCOR incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('CLOCKCOR'))==False
 WARNING3: Key DEADC* incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('DEADC*'))==False
 WARNING3: Key EMAX* incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('EMAX*'))==False
 WARNING3: Key EMIN* incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('EMIN*'))==False
 WARNING3: Key GEOAREA incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('GEOAREA'))==False
 WARNING3: Key NPIXBACK incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('NPIXBACK'))==False
 WARNING3: Key NPIXSOU incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('NPIXSOU'))==False
 WARNING3: Key ONTIME incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('ONTIME'))==False
 WARNING3: Key TASSIGN incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('TASSIGN'))==False
 WARNING3: Key TIERABSO incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('TIERABSO'))==False
 WARNING3: Key TIERRELA incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('TIERRELA'))==False
 WARNING3: Key TIMEREF incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('TIMEREF'))==False
 WARNING3: Key TIMEZERO incorrect in spectrum.pha[SPECTRUM]
+        Full requirement is:  "h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"
+        Eval(h.Exists('TIMEZERO'))==False
+        Eval(h.Exists('TIMEZERI'))==False
+        Eval(h.Exists('TIMEZERF'))==False
 WARNING3: Key TIMVERSN incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('TIMVERSN'))==False
 WARNING3: Key VIGNAPP incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('VIGNAPP'))==False
 WARNING3: Key VIGNET incorrect in spectrum.pha[SPECTRUM]
+        Eval(h.Exists('VIGNET'))==False
+
+Checking columns:
+
 
 =============== Checking 'STDGTI' extension against 'GTI' standard ===============
 
+Checking keywords:
+
 ERROR: Key TELESCOP incorrect in spectrum.pha[STDGTI]
+        Eval(h.Exists('TELESCOP'))==False
 WARNING2: Key DETNAM incorrect in spectrum.pha[STDGTI]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key FILTER incorrect in spectrum.pha[STDGTI]
+        Eval(h.Exists('FILTER'))==False
+
+Checking columns:
+
 WARNING2: column TIMEDEL incorrect in spectrum.pha[STDGTI]
+        Eval(h.hasCol('TIMEDEL'))==False
 
 =============== 1 Errors and 27 Warnings Found in 2 extensions checked ===============
 

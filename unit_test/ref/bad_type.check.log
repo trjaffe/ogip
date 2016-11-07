@@ -6,4 +6,4 @@ Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
 Checking file as type BLAH
 Currently defined for
 Type = TIMING, SPECTRAL, CALDB, ARF, RMF, or IMAGE.
-ERROR:  do not recognize OGIP type BLAH
+WARNING:  do not recognize OGIP type BLAH

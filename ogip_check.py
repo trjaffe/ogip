@@ -170,7 +170,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
             if ref_extn=='IMAGE':
                 [status.update(report="WARNING2:  WCS.validate[key='%s']:  %s" % (k._key,line.replace('\n','')),log=logf,level=2,extn=this_extn,verbosity=verbosity) for k in wcs_out[extno] for line in k if "No issues" not in line ]
 
-            cmp_keys_cols(hdulist,filename,this_extn,ref_extn,ogip_dict,logf,status)
+            cmp_keys_cols(hdulist,filename,this_extn,ref_extn,ogip_dict,logf,status,verbosity=verbosity)
             extns_checked+=1
         else:
             status.update(report="\nExtension '%s' is not an OGIP defined extension for this type;  ignoring.\n" % this_extn,log=logf,unrec_extn=this_extn,verbosity=verbosity)

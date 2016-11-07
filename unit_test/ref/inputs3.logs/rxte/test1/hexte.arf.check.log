@@ -10,17 +10,38 @@ Checking file as type ARF (match for this file's SPECRESP and reference extensio
 
 =============== Checking 'SPECRESP' extension against 'SPECRESP' standard ===============
 
+Checking keywords:
+
 ERROR: Key CCNM0001 incorrect in hexte.arf[SPECRESP]
+        Eval(h.hasVal('CCNM0001','SPECRESP'))==False
 ERROR: Key CHANTYPE incorrect in hexte.arf[SPECRESP]
+        Full requirement is:  "h.hasVal('CHANTYPE','PHA') or h.hasVal('CHANTYPE','PI')"
+        Eval(h.hasVal('CHANTYPE','PHA'))==False
+        Eval(h.hasVal('CHANTYPE','PI'))==False
 ERROR: Key DETCHANS incorrect in hexte.arf[SPECRESP]
+        Eval(h.Exists('DETCHANS'))==False
 ERROR: Key NUMELT incorrect in hexte.arf[SPECRESP]
+        Eval(h.Exists('NUMELT'))==False
 ERROR: Key NUMGRP incorrect in hexte.arf[SPECRESP]
+        Eval(h.Exists('NUMGRP'))==False
 ERROR: Key TLMIN* incorrect in hexte.arf[SPECRESP]
+        Eval(h.Exists('TLMIN*'))==False
 WARNING2: Key HDUCLAS3 incorrect in hexte.arf[SPECRESP]
+        Full requirement is:  "h.hasVal('HDUCLAS3','REDIST') or h.hasVal('HDUCLAS3','DETECTOR') or h.hasVal('HDUCLAS3','FULL')"
+        Eval(h.hasVal('HDUCLAS3','REDIST'))==False
+        Eval(h.hasVal('HDUCLAS3','DETECTOR'))==False
+        Eval(h.hasVal('HDUCLAS3','FULL'))==False
 WARNING2: Key HDUVERS1 incorrect in hexte.arf[SPECRESP]
+        Eval(h.hasVal('HDUVERS1','1.1.0'))==False
 WARNING2: Key HDUVERS2 incorrect in hexte.arf[SPECRESP]
+        Eval(h.hasVal('HDUVERS2','1.2.0'))==False
 WARNING2: Key LO_THRES incorrect in hexte.arf[SPECRESP]
+        Eval(h.Exists('LO_THRES'))==False
 WARNING2: Key RMFVERSN incorrect in hexte.arf[SPECRESP]
+        Eval(h.hasVal('RMFVERSN','1992A'))==False
+
+Checking columns:
+
 
 =============== 6 Errors and 5 Warnings Found in 1 extensions checked ===============
 

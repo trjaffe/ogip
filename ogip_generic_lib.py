@@ -496,7 +496,7 @@ def ogip_determine_ref_extn(in_extn,intype=None):
 
 
 
-def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
+def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status, verbosity=2):
     """
     for a given filename from a fits file, get the required and optional keywords and columns
     then check that the given hdu has all the required elements
@@ -534,12 +534,12 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
     #  h and whatever logic is needed to express the requirement.
     #  
     #  Check mandatory keyword requirements.   (Sort by decending level and then alphabetically.)
-    print("Checking keywords:\n")
+    print("Checking keywords:\n",file=logf)
     for key,req in sorted(ogip['KEYWORDS'].iteritems(), key=lambda(k,v): (v['level'], k)):
         if not eval(req["req"]):  
             if req["level"] == 1:  status.update(extn=extna,report="ERROR: Key %s incorrect in %s[%s]" % (key,file, this_extn), level=req["level"],log=logf,miskey=key)
             else:  status.update(extn=extna,report="WARNING%s: Key %s incorrect in %s[%s]" % (req["level"],key,file, this_extn), level=req["level"],log=logf)
-
+            if verbosity > 1:  detailed_eval(req["req"],h,logf)
     if ref_extn=='IMAGE':
         return
 
@@ -555,11 +555,12 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status):
     colnames=[hdu[extno].header[key].upper().strip() for key in hdu[extno].header if 'TTYPE' in key]
     missing_columns = []
 
-    print("\nChecking columns:\n")
+    print("\nChecking columns:\n",file=logf)
     for col,req in sorted(ogip['COLUMNS'].iteritems(),key=lambda(k,v):(v['level'],k)):
         if not eval(req['req']):
             if req["level"] == 1:  status.update(extn=extna,report="ERROR: column %s incorrect in %s[%s]" % (col, file,  this_extn), level=req["level"],log=logf, miscol=col)
             else:  status.update(extn=extna,report="WARNING%s: column %s incorrect in %s[%s]" % (req["level"],col, file,  this_extn), level=req["level"],log=logf)
+            if verbosity > 1:  detailed_eval(req["req"],h,logf)
 
     return
 
@@ -689,3 +690,16 @@ def init_log(logfile,status):
             logf=logfile
 
     return logf
+
+
+
+
+def detailed_eval(req,h,logf):
+    if len(re.findall('h\.',req)) > 1:  print("        Full requirement is:  \"%s\"" % req,file=logf)
+    for expr in re.findall('h\.\w+\(.*?\)',req):
+        if (expr == '' or re.match('^(\(|\))',expr) ):  continue
+        print("        Eval(%s)==%s" % (expr, eval(expr)), file=logf)
+
+
+
+

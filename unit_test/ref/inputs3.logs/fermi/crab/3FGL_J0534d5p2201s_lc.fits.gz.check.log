@@ -33,34 +33,70 @@ Checking file as type TIMING (match for this file's RATE and reference extension
 
 =============== Checking 'RATE' extension against 'RATE' standard ===============
 
+Checking keywords:
+
 ERROR: Key TIMEREF incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('TIMEREF'))==False
 WARNING2: Key AUTHOR incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('AUTHOR'))==False
 WARNING2: Key BACKAPP incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('BACKAPP'))==False
 WARNING2: Key BACKE* incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('BACKE*'))==False
 WARNING2: Key BACKV* incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('BACKV*'))==False
 WARNING2: Key CLOCKCOR incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('CLOCKCOR'))==False
 WARNING2: Key DEADAPP incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('DEADAPP'))==False
 WARNING2: Key DEADC* incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('DEADC*'))==False
 WARNING2: Key DETNAM incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('DETNAM'))==False
 WARNING2: Key FILTER incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('FILTER'))==False
 WARNING2: Key GEOAREA incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('GEOAREA'))==False
 WARNING2: Key NPIXBACK incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('NPIXBACK'))==False
 WARNING2: Key NPIXSOU incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('NPIXSOU'))==False
 WARNING2: Key NUMBAND incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('NUMBAND'))==False
 WARNING2: Key OBJECT incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('OBJECT'))==False
 WARNING2: Key ONTIME incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('ONTIME'))==False
 WARNING2: Key TASSIGN incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('TASSIGN'))==False
 WARNING2: Key TIERABSO incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('TIERABSO'))==False
 WARNING2: Key TIERRELA incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('TIERRELA'))==False
 WARNING2: Key TIME-END incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('TIME-END'))==False
 WARNING2: Key TIME-OBS incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('TIME-OBS'))==False
 WARNING2: Key TIMVERSN incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('TIMVERSN'))==False
 WARNING2: Key VIGNAPP incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('VIGNAPP'))==False
 WARNING2: Key VIGNET incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.Exists('VIGNET'))==False
 WARNING3: Key TIMEZERO incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Full requirement is:  "h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"
+        Eval(h.Exists('TIMEZERO'))==False
+        Eval(h.Exists('TIMEZERI'))==False
+        Eval(h.Exists('TIMEZERF'))==False
+
+Checking columns:
+
 WARNING2: column BACKE incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.hasCol('BACKE'))==False
 WARNING2: column BACKV incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.hasCol('BACKV'))==False
 WARNING2: column DEADC incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
+        Eval(h.hasCol('DEADC'))==False
 
 =============== 1 Errors and 27 Warnings Found in 1 extensions checked ===============
 

@@ -5,7 +5,9 @@ Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
 
 Checking file as type TIMING
 ERROR: fermi_lat_bcf_edisp_calfile.fits does not have any of the required extension names
+
 Extension 'ENERGY DISPERSION' is not an OGIP defined extension for this type;  ignoring.
+
 
 Extension 'EDISP_SCALING_PARAMS' is not an OGIP defined extension for this type;  ignoring.
 
