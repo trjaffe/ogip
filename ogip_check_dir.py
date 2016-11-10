@@ -262,7 +262,7 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
                 if (verbosity > 1 and verify_only==False): 
                     print("Done.  Found file of type %s with %s errors and %s warnings." % (status.otype, status.tot_errors(),status.tot_warnings() ) )
                     cnt_check+=1
-                elif (verbosity > 1 and verify_only==True): print("File is in an ignored directory, skipping check.")
+                elif (verbosity > 1 and verify_only==True): print("File is in an ignored directory, skipping OGIP standards check.")
                 sys.stdout.flush()
 
             # Store the retstat info for the file

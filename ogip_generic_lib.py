@@ -342,8 +342,10 @@ def ogip_determine_ref_type(filename,hdulist,status,logf,dtype=None,verbosity=3)
         else:
             print("Found a file with only a PRIMARY extension.  Testing as an IMAGE.", file=logf)
             return 'IMAGE'
-    #  Second easiest case:  if there's an image in the PRIMARY or first extension, then it's an IMAGE type.  
-    elif hdulist[0].header['NAXIS']!=0:
+    #  Second easiest case: if there's an image in the PRIMARY or
+    #  first extension, then it's an IMAGE type.  Unless the HDUCLAS2
+    #  keyword says WMAP for a "weighted map".
+    elif hdulist[0].header['NAXIS']!=0 and ( 'HDUCLAS2' not in hdulist[0].header or 'WMAP' not in hdulist[0].header['HDUCLAS2'] ):
         print("Found a file with an image in the PRIMARY extension.  Testing as an IMAGE.", file=logf)
         return 'IMAGE'
     elif 'XTENSION' in hdulist[1].header and 'IMAGE' in hdulist[1].header['XTENSION']:
