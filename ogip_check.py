@@ -169,7 +169,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False,meta_key=Non
             print("\n=============== Checking '%s' extension against '%s' standard ===============\n" % (this_extn,ref_extn),file=logf)
 
             if ref_extn=='IMAGE':
-                [status.update(report="WARNING2:  WCS.validate[key='%s']:  %s" % (k._key,line.replace('\n','')),log=logf,level=2,extn=this_extn,verbosity=verbosity) for k in wcs_out[extno] for line in k if "No issues" not in line ]
+                [status.update(report="WARNING3:  WCS.validate[key='%s']:  %s" % (k._key,line.replace('\n','')),log=logf,level=3,extn=this_extn,verbosity=verbosity) for k in wcs_out[extno] for line in k if "No issues" not in line ]
 
             cmp_keys_cols(hdulist,filename,this_extn,ref_extn,ogip_dict,logf,status,verbosity=verbosity)
             extns_checked+=1
@@ -178,7 +178,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False,meta_key=Non
 
 
     if extns_checked > 0:
-        print("\n=============== %i Errors and %i Warnings Found in %s extensions checked ===============\n" %(status.tot_errors(), status.tot_warnings(),extns_checked),file=logf)
+        print("\n=============== %i Errors; %i (level==2) warnings;  %i (level==3) warnings found in %s extensions checked ===============\n" %(status.tot_errors(), status.tot_warnings(2),status.tot_warnings(3),extns_checked),file=logf)
     else:
         status.update(report="\nERROR:  No extensions could be checked\n",log=logf,status=1,verbosity=verbosity)
 

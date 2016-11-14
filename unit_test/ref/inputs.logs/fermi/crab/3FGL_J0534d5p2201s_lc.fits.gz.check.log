@@ -98,7 +98,7 @@ WARNING3: column BACKV incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
 WARNING3: column DEADC incorrect in 3FGL_J0534d5p2201s_lc.fits.gz[RATE]
         Eval(h.hasCol('DEADC'))==False
 
-=============== 1 Errors and 27 Warnings Found in 1 extensions checked ===============
+=============== 1 Errors; 0 (level==2) warnings;  27 (level==3) warnings found in 1 extensions checked ===============
 
 
 ===========================================================

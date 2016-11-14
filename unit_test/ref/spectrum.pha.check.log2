@@ -84,7 +84,7 @@ Checking columns:
 WARNING3: column TIMEDEL incorrect in spectrum.pha[STDGTI]
         Eval(h.hasCol('TIMEDEL'))==False
 
-=============== 1 Errors and 27 Warnings Found in 2 extensions checked ===============
+=============== 1 Errors; 0 (level==2) warnings;  27 (level==3) warnings found in 2 extensions checked ===============
 
 
 ===========================================================

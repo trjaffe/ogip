@@ -60,7 +60,7 @@ WARNING3: Key RMFVERSN incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
 Checking columns:
 
 
-=============== 13 Errors and 7 Warnings Found in 1 extensions checked ===============
+=============== 13 Errors; 0 (level==2) warnings;  7 (level==3) warnings found in 1 extensions checked ===============
 
 
 ===========================================================

@@ -142,10 +142,11 @@ class retstat:
             errs+= extn.WARNINGS[1]
         return errs
 
-    def tot_warnings(self):
+    def tot_warnings(self,level=None):
         warns=0
         for extn in self.extns.itervalues():
-            warns+=extn.WARNINGS[3]+extn.WARNINGS[2]
+            if level is None:  warns+=extn.WARNINGS[3]+extn.WARNINGS[2]
+            else: warns+=extn.WARNINGS[level]
         return warns
 
 
@@ -358,7 +359,7 @@ def ogip_determine_ref_type(filename,hdulist,status,logf,dtype=None,verbosity=3)
     extnames= [x.name for x in hdulist[1:]]
     if extnames[0] == '':
         #  Let these continue for now and see if HDUCLS
-        status.update(report="WARNING:  file has an extension with no name",verbosity=verbosity,extn='',level=2)
+        status.update(report="WARNING:  file has an extension with no name",verbosity=verbosity,extn='',level=3)
 
     #  Integral files sometimes start with indexing;  skip this
     xno=1
@@ -519,7 +520,6 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status, v
         
     extno=extlist.index(this_extn)  
 
-    missing_keywords = []
     extna=ref_extn.upper().strip()
 
     ogip=ogip_dict[extna]
@@ -555,7 +555,6 @@ def cmp_keys_cols(hdu, filename, this_extn, ref_extn, ogip_dict, logf, status, v
     #colnames = hdu[extno].data.names
     #colnames = [x.upper().strip() for x in colnames] # convert to uppercase, remove whitespace
     colnames=[hdu[extno].header[key].upper().strip() for key in hdu[extno].header if 'TTYPE' in key]
-    missing_columns = []
 
     print("\nChecking columns:\n",file=logf)
     for col,req in sorted(ogip['COLUMNS'].iteritems(),key=lambda(k,v):(v['level'],k)):

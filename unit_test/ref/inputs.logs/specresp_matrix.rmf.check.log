@@ -44,7 +44,7 @@ WARNING3: Key PHAFILE incorrect in specresp_matrix.rmf[EBOUNDS]
 Checking columns:
 
 
-=============== 2 Errors and 8 Warnings Found in 2 extensions checked ===============
+=============== 2 Errors; 0 (level==2) warnings;  8 (level==3) warnings found in 2 extensions checked ===============
 
 
 ===========================================================

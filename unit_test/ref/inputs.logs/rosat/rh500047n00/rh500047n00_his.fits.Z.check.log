@@ -45,13 +45,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[SEQPAR.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[SEQPAR.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[SEQPAR.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[SEQPAR.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[SEQPAR.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[SEQPAR.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[SEQPAR.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[SEQPAR.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[SEQPAR.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[SEQPAR.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -83,13 +83,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[SEQLOG.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[SEQLOG.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[SEQLOG.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[SEQLOG.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[SEQLOG.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[SEQLOG.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[SEQLOG.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[SEQLOG.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[SEQLOG.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[SEQLOG.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -121,13 +121,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBP001.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBP001.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP001.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP001.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP001.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP001.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP001.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP001.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP001.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP001.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -159,13 +159,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBP002.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBP002.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP002.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP002.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP002.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP002.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP002.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP002.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP002.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP002.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -197,13 +197,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBP003.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBP003.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP003.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP003.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP003.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP003.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP003.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP003.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP003.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP003.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -235,13 +235,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBP004.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBP004.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP004.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP004.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP004.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP004.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP004.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP004.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP004.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP004.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -273,13 +273,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBP005.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBP005.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP005.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP005.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP005.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP005.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP005.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP005.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP005.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP005.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -311,13 +311,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBP006.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBP006.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP006.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP006.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP006.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP006.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP006.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP006.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP006.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP006.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -349,13 +349,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBP007.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBP007.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP007.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP007.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP007.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP007.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP007.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP007.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP007.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP007.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -387,13 +387,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBP008.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBP008.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP008.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP008.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP008.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP008.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP008.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP008.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP008.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP008.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -425,13 +425,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBP009.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBP009.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP009.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP009.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP009.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP009.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP009.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP009.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP009.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP009.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -463,13 +463,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBP010.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBP010.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP010.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP010.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP010.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP010.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP010.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP010.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP010.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP010.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -501,13 +501,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBP011.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBP011.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP011.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBP011.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP011.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBP011.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP011.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBP011.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP011.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBP011.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -539,13 +539,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBL001.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBL001.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL001.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL001.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL001.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL001.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL001.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL001.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL001.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL001.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -577,13 +577,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBL002.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBL002.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL002.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL002.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL002.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL002.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL002.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL002.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL002.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL002.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -615,13 +615,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBL003.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBL003.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL003.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL003.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL003.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL003.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL003.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL003.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL003.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL003.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -653,13 +653,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBL004.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBL004.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL004.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL004.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL004.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL004.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL004.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL004.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL004.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL004.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -691,13 +691,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBL005.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBL005.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL005.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL005.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL005.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL005.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL005.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL005.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL005.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL005.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -729,13 +729,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBL006.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBL006.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL006.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL006.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL006.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL006.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL006.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL006.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL006.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL006.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -767,13 +767,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBL007.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBL007.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL007.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL007.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL007.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL007.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL007.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL007.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL007.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL007.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -805,13 +805,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBL008.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBL008.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL008.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL008.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL008.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL008.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL008.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL008.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL008.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL008.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -843,13 +843,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBL009.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBL009.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL009.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL009.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL009.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL009.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL009.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL009.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL009.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL009.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -881,13 +881,13 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBL010.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBL010.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL010.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL010.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL010.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL010.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL010.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL010.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL010.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL010.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -919,19 +919,19 @@ ERROR: Key INSTRUME incorrect in rh500047n00_his.fits.Z[OBL011.trl]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in rh500047n00_his.fits.Z[OBL011.trl]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL011.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_his.fits.Z[OBL011.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL011.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_his.fits.Z[OBL011.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL011.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_his.fits.Z[OBL011.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL011.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_his.fits.Z[OBL011.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
 
 
-=============== 265 Errors and 96 Warnings Found in 24 extensions checked ===============
+=============== 265 Errors; 0 (level==2) warnings;  96 (level==3) warnings found in 24 extensions checked ===============
 
 
 ===========================================================

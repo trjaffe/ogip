@@ -30,13 +30,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_anc.fits.Z[OBSTABLE]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_anc.fits.Z[OBSTABLE]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_anc.fits.Z[OBSTABLE]
+WARNING3: Key CDT* incorrect in rh500047n00_anc.fits.Z[OBSTABLE]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_anc.fits.Z[OBSTABLE]
+WARNING3: Key CFI* incorrect in rh500047n00_anc.fits.Z[OBSTABLE]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_anc.fits.Z[OBSTABLE]
+WARNING3: Key CINS* incorrect in rh500047n00_anc.fits.Z[OBSTABLE]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_anc.fits.Z[OBSTABLE]
+WARNING3: Key CTEL* incorrect in rh500047n00_anc.fits.Z[OBSTABLE]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -62,13 +62,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_anc.fits.Z[EPHEM]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_anc.fits.Z[EPHEM]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_anc.fits.Z[EPHEM]
+WARNING3: Key CDT* incorrect in rh500047n00_anc.fits.Z[EPHEM]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_anc.fits.Z[EPHEM]
+WARNING3: Key CFI* incorrect in rh500047n00_anc.fits.Z[EPHEM]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_anc.fits.Z[EPHEM]
+WARNING3: Key CINS* incorrect in rh500047n00_anc.fits.Z[EPHEM]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_anc.fits.Z[EPHEM]
+WARNING3: Key CTEL* incorrect in rh500047n00_anc.fits.Z[EPHEM]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -94,13 +94,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_anc.fits.Z[ASPECT]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_anc.fits.Z[ASPECT]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_anc.fits.Z[ASPECT]
+WARNING3: Key CDT* incorrect in rh500047n00_anc.fits.Z[ASPECT]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_anc.fits.Z[ASPECT]
+WARNING3: Key CFI* incorrect in rh500047n00_anc.fits.Z[ASPECT]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_anc.fits.Z[ASPECT]
+WARNING3: Key CINS* incorrect in rh500047n00_anc.fits.Z[ASPECT]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_anc.fits.Z[ASPECT]
+WARNING3: Key CTEL* incorrect in rh500047n00_anc.fits.Z[ASPECT]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -126,13 +126,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_anc.fits.Z[HKP]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_anc.fits.Z[HKP]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_anc.fits.Z[HKP]
+WARNING3: Key CDT* incorrect in rh500047n00_anc.fits.Z[HKP]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_anc.fits.Z[HKP]
+WARNING3: Key CFI* incorrect in rh500047n00_anc.fits.Z[HKP]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_anc.fits.Z[HKP]
+WARNING3: Key CINS* incorrect in rh500047n00_anc.fits.Z[HKP]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_anc.fits.Z[HKP]
+WARNING3: Key CTEL* incorrect in rh500047n00_anc.fits.Z[HKP]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -158,13 +158,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_anc.fits.Z[EVRATE]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_anc.fits.Z[EVRATE]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_anc.fits.Z[EVRATE]
+WARNING3: Key CDT* incorrect in rh500047n00_anc.fits.Z[EVRATE]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_anc.fits.Z[EVRATE]
+WARNING3: Key CFI* incorrect in rh500047n00_anc.fits.Z[EVRATE]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_anc.fits.Z[EVRATE]
+WARNING3: Key CINS* incorrect in rh500047n00_anc.fits.Z[EVRATE]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_anc.fits.Z[EVRATE]
+WARNING3: Key CTEL* incorrect in rh500047n00_anc.fits.Z[EVRATE]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -190,19 +190,19 @@ ERROR: Key CVST0001 incorrect in rh500047n00_anc.fits.Z[GSTAR]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_anc.fits.Z[GSTAR]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_anc.fits.Z[GSTAR]
+WARNING3: Key CDT* incorrect in rh500047n00_anc.fits.Z[GSTAR]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_anc.fits.Z[GSTAR]
+WARNING3: Key CFI* incorrect in rh500047n00_anc.fits.Z[GSTAR]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_anc.fits.Z[GSTAR]
+WARNING3: Key CINS* incorrect in rh500047n00_anc.fits.Z[GSTAR]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_anc.fits.Z[GSTAR]
+WARNING3: Key CTEL* incorrect in rh500047n00_anc.fits.Z[GSTAR]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
 
 
-=============== 49 Errors and 24 Warnings Found in 6 extensions checked ===============
+=============== 49 Errors; 0 (level==2) warnings;  24 (level==3) warnings found in 6 extensions checked ===============
 
 
 ===========================================================

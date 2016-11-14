@@ -121,7 +121,7 @@ ERROR: column N_GRP incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_
 WARNING3: column ORDER incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
         Eval(h.hasCol('ORDER'))==False
 
-=============== 28 Errors and 16 Warnings Found in 2 extensions checked ===============
+=============== 28 Errors; 0 (level==2) warnings;  16 (level==3) warnings found in 2 extensions checked ===============
 
 
 ===========================================================

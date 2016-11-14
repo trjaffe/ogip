@@ -87,7 +87,7 @@ WARNING3: Key XFLT* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
 Checking columns:
 
 
-=============== 2 Errors and 26 Warnings Found in 1 extensions checked ===============
+=============== 2 Errors; 0 (level==2) warnings;  26 (level==3) warnings found in 1 extensions checked ===============
 
 
 ===========================================================

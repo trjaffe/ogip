@@ -79,13 +79,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SUMPG.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -111,13 +111,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[OUTPUT.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -143,13 +143,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SKYLST.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -175,13 +175,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[FLDPLT.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -207,13 +207,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SRCPLT.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -239,13 +239,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SKYMAP.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -271,13 +271,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SMBPLT.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -303,13 +303,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SMBLST.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -335,13 +335,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[CORLST.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -367,13 +367,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[CORPS.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -399,13 +399,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[STRPLT.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -431,13 +431,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[HIMAGE.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -463,13 +463,13 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SMBID.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -495,19 +495,19 @@ ERROR: Key CVST0001 incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key CDT* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+WARNING3: Key CDT* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
         Eval(h.Exists('CDT*'))==False
-WARNING2: Key CFI* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+WARNING3: Key CFI* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+WARNING3: Key CINS* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
+WARNING3: Key CTEL* incorrect in rh500047n00_prt.fits.Z[SMBPS.trl]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
 
 
-=============== 113 Errors and 56 Warnings Found in 14 extensions checked ===============
+=============== 113 Errors; 0 (level==2) warnings;  56 (level==3) warnings found in 14 extensions checked ===============
 
 
 ===========================================================

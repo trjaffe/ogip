@@ -98,7 +98,7 @@ ERROR: column N_GRP incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
 WARNING3: column ORDER incorrect in Crab_rmf.fits.gz[ISGR-EBDS-MOD]
         Eval(h.hasCol('ORDER'))==False
 
-=============== 22 Errors and 11 Warnings Found in 2 extensions checked ===============
+=============== 22 Errors; 0 (level==2) warnings;  11 (level==3) warnings found in 2 extensions checked ===============
 
 
 ===========================================================

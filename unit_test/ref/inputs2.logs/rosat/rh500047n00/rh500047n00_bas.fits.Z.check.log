@@ -150,7 +150,7 @@ Extension 'STDQLM' is not an OGIP defined extension for this type;  ignoring.
 Extension 'ALLQLM' is not an OGIP defined extension for this type;  ignoring.
 
 
-=============== 7 Errors and 36 Warnings Found in 3 extensions checked ===============
+=============== 7 Errors; 0 (level==2) warnings;  36 (level==3) warnings found in 3 extensions checked ===============
 
 
 ===========================================================

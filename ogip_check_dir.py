@@ -125,8 +125,17 @@ class ogip_collect:
     def count_good(self):
         return sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.good.itervalues())
 
-    def count_warned(self):
-        return sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.warned.itervalues())
+    def count_warned(self,level=None):
+        # 
+        count=0
+        for d in self.warned.itervalues():
+            for f in d.itervalues():
+                for e in f.extns.itervalues():
+                    if e.WARNINGS[level]>0:
+                        count+=1
+                        break # Only count once for the file even if multiple extensions have level=level warnings.
+        return count
+        
 
     def count_checked(self):
         return (  sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.good.itervalues()) 
@@ -144,24 +153,16 @@ class ogip_collect:
         #  keyword.
         #
         #  Don't see a clever pythonic way, so just look through the
-        #  whole set of files with either warnings or failures (a
-        #  missing keyword could be either) separately.  (Cannot
-        #  chain() them, since the same dir key may appear in both
-        #  dicts with different lists of files.):
+        #  whole set of files with failures (a missing keyword is an
+        #  error case):
         count=0
-        for d in self.warned.itervalues():
+        for d in self.failed.itervalues():
             #  Now d is a dictionary of files for a directory.  Check
             #  only those of the right type:
             for fstat in (dd for dd in d.itervalues() if dd.otype == otype):
                 if extname not in fstat.extns:
                     continue
                 if key in fstat.extns[extname].MISKEYS:  count+=1
-        for d in self.failed.itervalues():
-            for fstat in (dd for dd in d.itervalues() if dd.otype == otype):
-                if extname not in fstat.extns:
-                    continue
-                if key in fstat.extns[extname].MISKEYS:  count+=1
-
         return count
 
     def count_missing_col(self,otype,extname,col):  
@@ -282,7 +283,8 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
     print("The total number of files verified only:  %s" % summary.count_verified() )
     print("The total number of files checked:  %s" % summary.count_checked() )
     print("The total number of files with no OGIP warnings or errors:  %s" % summary.count_good() )
-    print("The total number of files with only OGIP warnings:  %s" % summary.count_warned() )
+    print("The total number of files with no errors but with OGIP level 3 warnings:  %s" % summary.count_warned(3) )
+    print("The total number of files with no errors but with OGIP level 2 warnings:  %s" % summary.count_warned(2) )
     print("The total number of files with OGIP errors:  %s" % summary.count_failed() )
 
     print("")

@@ -11,11 +11,11 @@ Checking keywords:
 
 ERROR: Key FILTER incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
         Eval(h.Exists('FILTER'))==False
-WARNING2: Key CFI* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING3: Key CFI* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING3: Key CINS* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+WARNING3: Key CTEL* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
@@ -25,17 +25,17 @@ Checking columns:
 
 Checking keywords:
 
-WARNING2: Key CFI* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING3: Key CFI* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
         Eval(h.Exists('CFI*'))==False
-WARNING2: Key CINS* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING3: Key CINS* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
         Eval(h.Exists('CINS*'))==False
-WARNING2: Key CTEL* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
+WARNING3: Key CTEL* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
         Eval(h.Exists('CTEL*'))==False
 
 Checking columns:
 
 
-=============== 1 Errors and 6 Warnings Found in 2 extensions checked ===============
+=============== 1 Errors; 0 (level==2) warnings;  6 (level==3) warnings found in 2 extensions checked ===============
 
 
 ===========================================================

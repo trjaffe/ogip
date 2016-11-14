@@ -73,7 +73,7 @@ WARNING3: column SYS_ERR2 incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
 Extension 'REGION' is not an OGIP defined extension for this type;  ignoring.
 
 
-=============== 2 Errors and 22 Warnings Found in 1 extensions checked ===============
+=============== 2 Errors; 0 (level==2) warnings;  22 (level==3) warnings found in 1 extensions checked ===============
 
 
 ===========================================================

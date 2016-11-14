@@ -56,7 +56,7 @@ Checking columns:
 WARNING3: column TIMEDEL incorrect in timing.evt[STDGTI]
         Eval(h.hasCol('TIMEDEL'))==False
 
-=============== 0 Errors and 16 Warnings Found in 2 extensions checked ===============
+=============== 0 Errors; 0 (level==2) warnings;  16 (level==3) warnings found in 2 extensions checked ===============
 
 
 ===========================================================

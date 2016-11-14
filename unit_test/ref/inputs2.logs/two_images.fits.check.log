@@ -6,9 +6,9 @@ Found a file with an image in the PRIMARY extension.  Testing as an IMAGE.
 
 =============== Checking 'PRIMARY' extension against 'IMAGE' standard ===============
 
-WARNING2:  WCS.validate[key=' ']:  RADECSYS= 'FK5 ' / WCS for this file the RADECSYS keyword is deprecated, use RADESYSa.
-WARNING2:  WCS.validate[key=' ']:  'datfix' made the change 'Invalid parameter value: inconsistent date '1991-03-20''.
-WARNING2:  WCS.validate[key=' ']:  'celfix' made the change 'Unrecognized projection code (-TA in CTYPE2)'.
+WARNING3:  WCS.validate[key=' ']:  RADECSYS= 'FK5 ' / WCS for this file the RADECSYS keyword is deprecated, use RADESYSa.
+WARNING3:  WCS.validate[key=' ']:  'datfix' made the change 'Invalid parameter value: inconsistent date '1991-03-20''.
+WARNING3:  WCS.validate[key=' ']:  'celfix' made the change 'Unrecognized projection code (-TA in CTYPE2)'.
 Checking keywords:
 
 
@@ -25,7 +25,7 @@ ERROR: Key INSTRUME incorrect in two_images.fits[]
 ERROR: Key TELESCOP incorrect in two_images.fits[]
         Eval(h.Exists('TELESCOP'))==False
 
-=============== 4 Errors and 3 Warnings Found in 2 extensions checked ===============
+=============== 4 Errors; 0 (level==2) warnings;  3 (level==3) warnings found in 2 extensions checked ===============
 
 
 ===========================================================

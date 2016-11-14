@@ -235,7 +235,7 @@ WARNING3: column TIMEDEL incorrect in acisf07364N004_evt2.fits.gz[GTI]
 Extension 'REGION' is not an OGIP defined extension for this type;  ignoring.
 
 
-=============== 0 Errors and 75 Warnings Found in 7 extensions checked ===============
+=============== 0 Errors; 0 (level==2) warnings;  75 (level==3) warnings found in 7 extensions checked ===============
 
 
 ===========================================================
