@@ -39,22 +39,22 @@ ERROR: Key NUMGRP incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
         Eval(h.Exists('NUMGRP'))==False
 ERROR: Key TLMIN* incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
         Eval(h.Exists('TLMIN*'))==False
-WARNING2: Key HDUCLAS3 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+WARNING3: Key HDUCLAS3 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
         Full requirement is:  "h.hasVal('HDUCLAS3','REDIST') or h.hasVal('HDUCLAS3','DETECTOR') or h.hasVal('HDUCLAS3','FULL')"
         Eval(h.hasVal('HDUCLAS3','REDIST'))==False
         Eval(h.hasVal('HDUCLAS3','DETECTOR'))==False
         Eval(h.hasVal('HDUCLAS3','FULL'))==False
-WARNING2: Key HDUVERS incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+WARNING3: Key HDUVERS incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
         Eval(h.hasVal('HDUVERS','1.1.0'))==False
-WARNING2: Key HDUVERS1 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+WARNING3: Key HDUVERS1 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
         Eval(h.hasVal('HDUVERS1','1.1.0'))==False
-WARNING2: Key HDUVERS2 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+WARNING3: Key HDUVERS2 incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
         Eval(h.hasVal('HDUVERS2','1.2.0'))==False
-WARNING2: Key LO_THRES incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+WARNING3: Key LO_THRES incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
         Eval(h.Exists('LO_THRES'))==False
-WARNING2: Key PHAFILE incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+WARNING3: Key PHAFILE incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
         Eval(h.Exists('PHAFILE'))==False
-WARNING2: Key RMFVERSN incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
+WARNING3: Key RMFVERSN incorrect in Crab_sum_arf.fits.gz[ISGR-ARF.-RSP]
         Eval(h.hasVal('RMFVERSN','1992A'))==False
 
 Checking columns:

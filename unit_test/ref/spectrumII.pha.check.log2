@@ -9,30 +9,6 @@ Checking file as type SPECTRAL
 
 Checking keywords:
 
-WARNING2: Key DEC-OBJ incorrect in spectrumII.pha[SPECTRUM]
-        Eval(h.Exists('DEC-OBJ'))==False
-WARNING2: Key HDUCLAS2 incorrect in spectrumII.pha[SPECTRUM]
-        Full requirement is:  "   (h.hasVal('HDUCLAS2','TOTAL') and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) or (h.hasVal('HDUCLAS2','NET')   and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) or (h.hasVal('HDUCLAS2','BKG')   and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) or  h.hasVal('HDUCLAS2','DETECTOR')"
-        Eval(h.hasVal('HDUCLAS2','TOTAL'))==True
-        Eval(h.hasVal('HDUCLAS3','RATE'))==False
-        Eval(h.hasVal('HDUCLAS3','COUNT'))==False
-        Eval(h.hasVal('HDUCLAS2','NET'))==False
-        Eval(h.hasVal('HDUCLAS3','RATE'))==False
-        Eval(h.hasVal('HDUCLAS3','COUNT'))==False
-        Eval(h.hasVal('HDUCLAS2','BKG'))==False
-        Eval(h.hasVal('HDUCLAS3','RATE'))==False
-        Eval(h.hasVal('HDUCLAS3','COUNT'))==False
-        Eval(h.hasVal('HDUCLAS2','DETECTOR'))==False
-WARNING2: Key HDUCLAS4 incorrect in spectrumII.pha[SPECTRUM]
-        Full requirement is:  "(not h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:I') ) or ( h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:II') )"
-        Eval(h.hasCol('SPEC_NUM'))==True
-        Eval(h.hasVal('HDUCLAS4','TYPE:I'))==False
-        Eval(h.hasCol('SPEC_NUM'))==True
-        Eval(h.hasVal('HDUCLAS4','TYPE:II'))==False
-WARNING2: Key HDUVERS incorrect in spectrumII.pha[SPECTRUM]
-        Eval(h.hasVal('HDUVERS','1.2.1'))==False
-WARNING2: Key RA-OBJ incorrect in spectrumII.pha[SPECTRUM]
-        Eval(h.Exists('RA-OBJ'))==False
 WARNING3: Key AUTHOR incorrect in spectrumII.pha[SPECTRUM]
         Eval(h.Exists('AUTHOR'))==False
 WARNING3: Key BACKAPP incorrect in spectrumII.pha[SPECTRUM]
@@ -47,6 +23,8 @@ WARNING3: Key DEADAPP incorrect in spectrumII.pha[SPECTRUM]
         Eval(h.Exists('DEADAPP'))==False
 WARNING3: Key DEADC* incorrect in spectrumII.pha[SPECTRUM]
         Eval(h.Exists('DEADC*'))==False
+WARNING3: Key DEC-OBJ incorrect in spectrumII.pha[SPECTRUM]
+        Eval(h.Exists('DEC-OBJ'))==False
 WARNING3: Key DETNAM incorrect in spectrumII.pha[SPECTRUM]
         Eval(h.Exists('DETNAM'))==False
 WARNING3: Key EMAX* incorrect in spectrumII.pha[SPECTRUM]
@@ -55,12 +33,34 @@ WARNING3: Key EMIN* incorrect in spectrumII.pha[SPECTRUM]
         Eval(h.Exists('EMIN*'))==False
 WARNING3: Key GEOAREA incorrect in spectrumII.pha[SPECTRUM]
         Eval(h.Exists('GEOAREA'))==False
+WARNING3: Key HDUCLAS2 incorrect in spectrumII.pha[SPECTRUM]
+        Full requirement is:  "   (h.hasVal('HDUCLAS2','TOTAL') and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) or (h.hasVal('HDUCLAS2','NET')   and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) or (h.hasVal('HDUCLAS2','BKG')   and (h.hasVal('HDUCLAS3','RATE') or h.hasVal('HDUCLAS3','COUNT')) ) or  h.hasVal('HDUCLAS2','DETECTOR')"
+        Eval(h.hasVal('HDUCLAS2','TOTAL'))==True
+        Eval(h.hasVal('HDUCLAS3','RATE'))==False
+        Eval(h.hasVal('HDUCLAS3','COUNT'))==False
+        Eval(h.hasVal('HDUCLAS2','NET'))==False
+        Eval(h.hasVal('HDUCLAS3','RATE'))==False
+        Eval(h.hasVal('HDUCLAS3','COUNT'))==False
+        Eval(h.hasVal('HDUCLAS2','BKG'))==False
+        Eval(h.hasVal('HDUCLAS3','RATE'))==False
+        Eval(h.hasVal('HDUCLAS3','COUNT'))==False
+        Eval(h.hasVal('HDUCLAS2','DETECTOR'))==False
+WARNING3: Key HDUCLAS4 incorrect in spectrumII.pha[SPECTRUM]
+        Full requirement is:  "(not h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:I') ) or ( h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:II') )"
+        Eval(h.hasCol('SPEC_NUM'))==True
+        Eval(h.hasVal('HDUCLAS4','TYPE:I'))==False
+        Eval(h.hasCol('SPEC_NUM'))==True
+        Eval(h.hasVal('HDUCLAS4','TYPE:II'))==False
+WARNING3: Key HDUVERS incorrect in spectrumII.pha[SPECTRUM]
+        Eval(h.hasVal('HDUVERS','1.2.1'))==False
 WARNING3: Key NPIXBACK incorrect in spectrumII.pha[SPECTRUM]
         Eval(h.Exists('NPIXBACK'))==False
 WARNING3: Key NPIXSOU incorrect in spectrumII.pha[SPECTRUM]
         Eval(h.Exists('NPIXSOU'))==False
 WARNING3: Key ONTIME incorrect in spectrumII.pha[SPECTRUM]
         Eval(h.Exists('ONTIME'))==False
+WARNING3: Key RA-OBJ incorrect in spectrumII.pha[SPECTRUM]
+        Eval(h.Exists('RA-OBJ'))==False
 WARNING3: Key TASSIGN incorrect in spectrumII.pha[SPECTRUM]
         Eval(h.Exists('TASSIGN'))==False
 WARNING3: Key TIERABSO incorrect in spectrumII.pha[SPECTRUM]
@@ -90,11 +90,11 @@ Checking keywords:
 
 ERROR: Key TELESCOP incorrect in spectrumII.pha[STDGTI]
         Eval(h.Exists('TELESCOP'))==False
-WARNING2: Key DETNAM incorrect in spectrumII.pha[STDGTI]
+WARNING3: Key DETNAM incorrect in spectrumII.pha[STDGTI]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key FILTER incorrect in spectrumII.pha[STDGTI]
+WARNING3: Key FILTER incorrect in spectrumII.pha[STDGTI]
         Eval(h.Exists('FILTER'))==False
-WARNING2: Key TIMEZERO incorrect in spectrumII.pha[STDGTI]
+WARNING3: Key TIMEZERO incorrect in spectrumII.pha[STDGTI]
         Full requirement is:  "h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"
         Eval(h.Exists('TIMEZERO'))==False
         Eval(h.Exists('TIMEZERI'))==False
@@ -102,7 +102,7 @@ WARNING2: Key TIMEZERO incorrect in spectrumII.pha[STDGTI]
 
 Checking columns:
 
-WARNING2: column TIMEDEL incorrect in spectrumII.pha[STDGTI]
+WARNING3: column TIMEDEL incorrect in spectrumII.pha[STDGTI]
         Eval(h.hasCol('TIMEDEL'))==False
 
 =============== 1 Errors and 31 Warnings Found in 2 extensions checked ===============

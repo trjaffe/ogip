@@ -32,36 +32,36 @@ def ogip_dictionary_arf():
     Define requirements for  keywords for SPECRESP extension (note: EXTNAME is SPECRESP)
     """
     reqkeys = {
-        'TELESCOP':{"level":1,"req":"h.Exists('TELESCOP')"}, 
-        'INSTRUME':{"level":1,"req":"h.Exists('INSTRUME')"}, 
-        'FILTER':  {"level":1,"req":"h.Exists('FILTER')"},
-        'CHANTYPE':{"level":1,"req":"h.hasVal('CHANTYPE','PHA') or h.hasVal('CHANTYPE','PI')"},
-        'DETCHANS':{"level":1,"req":"h.Exists('DETCHANS')"},
-        'HDUCLASS':{"level":1,"req":"h.hasVal('HDUCLASS','OGIP')"},
-        'HDUCLAS1':{"level":1,"req":"h.hasVal('HDUCLAS1','RESPONSE')"},
-        'HDUCLAS2':{"level":1,"req":"h.hasVal('HDUCLAS2','SPECRESP')"},
-        'HDUVERS': {"level":1,"req":"h.Exists('HDUVERS')"},
-        'TLMIN*':  {"level":1,"req":"h.Exists('TLMIN*')"},
-        'NUMGRP':  {"level":1,"req":"h.Exists('NUMGRP')"},
-        'NUMELT':  {"level":1,"req":"h.Exists('NUMELT')"},
-        'CCLS0001':{"level":1,"req":"h.hasVal('CCLS0001','CPF')"},
-        'CCNM0001':{"level":1,"req":"h.hasVal('CCNM0001','SPECRESP')"},
-        'CDTP0001':{"level":1,"req":"h.hasVal('CDTP0001','DATA')"},
-        'CVSD0001':{"level":1,"req":"h.Exists('CVSD0001')"},
-        'CVST0001':{"level":1,"req":"h.Exists('CVST0001')"},
-        'CDES0001':{"level":1,"req":"h.Exists('CDES0001')"},
+        "TELESCOP":{"level":1,"req":"h.Exists('TELESCOP')"}, 
+        "INSTRUME":{"level":1,"req":"h.Exists('INSTRUME')"}, 
+        "FILTER":  {"level":1,"req":"h.Exists('FILTER')"},
+        "CHANTYPE":{"level":1,"req":"h.hasVal('CHANTYPE','PHA') or h.hasVal('CHANTYPE','PI')"},
+        "DETCHANS":{"level":1,"req":"h.Exists('DETCHANS')"},
+        "HDUCLASS":{"level":1,"req":"h.hasVal('HDUCLASS','OGIP')"},
+        "HDUCLAS1":{"level":1,"req":"h.hasVal('HDUCLAS1','RESPONSE')"},
+        "HDUCLAS2":{"level":1,"req":"h.hasVal('HDUCLAS2','SPECRESP')"},
+        "HDUVERS": {"level":1,"req":"h.Exists('HDUVERS')"},
+        "TLMIN*":  {"level":1,"req":"h.Exists('TLMIN*')"},
+        "NUMGRP":  {"level":1,"req":"h.Exists('NUMGRP')"},
+        "NUMELT":  {"level":1,"req":"h.Exists('NUMELT')"},
+        "CCLS0001":{"level":1,"req":"h.hasVal('CCLS0001','CPF')"},
+        "CCNM0001":{"level":1,"req":"h.hasVal('CCNM0001','SPECRESP')"},
+        "CDTP0001":{"level":1,"req":"h.hasVal('CDTP0001','DATA')"},
+        "CVSD0001":{"level":1,"req":"h.Exists('CVSD0001')"},
+        "CVST0001":{"level":1,"req":"h.Exists('CVST0001')"},
+        "CDES0001":{"level":1,"req":"h.Exists('CDES0001')"},
         #
         #  Optional
         #
-        'PHAFILE': {"level":2,"req":"h.Exists('PHAFILE')"},
+        "PHAFILE": {"level":3,"req":"h.Exists('PHAFILE')"},
         # minimum probability threshold in matrix (values < this are set to 0)
-        'LO_THRES':{"level":2,"req":"h.Exists('LO_THRES')"}, 
-        # required if channel numbering doesn't start at 1
-        'HDUCLAS3':{"level":2,"req":"h.hasVal('HDUCLAS3','REDIST') or h.hasVal('HDUCLAS3','DETECTOR') or h.hasVal('HDUCLAS3','FULL')"}, 
-        'RMFVERSN':{"level":2,"req":"h.hasVal('RMFVERSN','1992A')"},
-        'HDUVERS': {"level":2,"req":"h.hasVal('HDUVERS','1.1.0')"},
-        'HDUVERS1':{"level":2,"req":"h.hasVal('HDUVERS1','1.1.0')"},
-        'HDUVERS2':{"level":2,"req":"h.hasVal('HDUVERS2','1.2.0')"},
+        "LO_THRES":{"level":3,"req":"h.Exists('LO_THRES')"}, 
+        # required if channel numbering doesn"t start at 1
+        "HDUCLAS3":{"level":3,"req":"h.hasVal('HDUCLAS3','REDIST') or h.hasVal('HDUCLAS3','DETECTOR') or h.hasVal('HDUCLAS3','FULL')"}, 
+        "RMFVERSN":{"level":3,"req":"h.hasVal('RMFVERSN','1992A')"},
+        "HDUVERS": {"level":3,"req":"h.hasVal('HDUVERS','1.1.0')"},
+        "HDUVERS1":{"level":3,"req":"h.hasVal('HDUVERS1','1.1.0')"},
+        "HDUVERS2":{"level":3,"req":"h.hasVal('HDUVERS2','1.2.0')"},
     }
 
     """
@@ -69,11 +69,11 @@ def ogip_dictionary_arf():
     """
     reqcols = {
         # lower energy bound of bin (keV)
-        'ENERG_LO':{"level":1,"req":"h.hasCol('ENERG_LO')"}, 
+        "ENERG_LO":{"level":1,"req":"h.hasCol('ENERG_LO')"}, 
         # upper energy bound of bin (keV); generally ENERG_LO(J) = ENERG_HI(J-1)
-        'ENERG_HI':{"level":1,"req":"h.hasCol('ENERG_HI')"}, 
+        "ENERG_HI":{"level":1,"req":"h.hasCol('ENERG_HI')"}, 
         # the "effective area"
-        'SPECRESP':{"level":1,"req":"h.hasCol('SPECRESP')"} 
+        "SPECRESP":{"level":1,"req":"h.hasCol('SPECRESP')"} 
     }
 
     specresp = {'KEYWORDS':reqkeys, 'COLUMNS':reqcols}

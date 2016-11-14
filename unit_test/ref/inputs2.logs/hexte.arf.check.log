@@ -26,18 +26,18 @@ ERROR: Key NUMGRP incorrect in hexte.arf[SPECRESP]
         Eval(h.Exists('NUMGRP'))==False
 ERROR: Key TLMIN* incorrect in hexte.arf[SPECRESP]
         Eval(h.Exists('TLMIN*'))==False
-WARNING2: Key HDUCLAS3 incorrect in hexte.arf[SPECRESP]
+WARNING3: Key HDUCLAS3 incorrect in hexte.arf[SPECRESP]
         Full requirement is:  "h.hasVal('HDUCLAS3','REDIST') or h.hasVal('HDUCLAS3','DETECTOR') or h.hasVal('HDUCLAS3','FULL')"
         Eval(h.hasVal('HDUCLAS3','REDIST'))==False
         Eval(h.hasVal('HDUCLAS3','DETECTOR'))==False
         Eval(h.hasVal('HDUCLAS3','FULL'))==False
-WARNING2: Key HDUVERS1 incorrect in hexte.arf[SPECRESP]
+WARNING3: Key HDUVERS1 incorrect in hexte.arf[SPECRESP]
         Eval(h.hasVal('HDUVERS1','1.1.0'))==False
-WARNING2: Key HDUVERS2 incorrect in hexte.arf[SPECRESP]
+WARNING3: Key HDUVERS2 incorrect in hexte.arf[SPECRESP]
         Eval(h.hasVal('HDUVERS2','1.2.0'))==False
-WARNING2: Key LO_THRES incorrect in hexte.arf[SPECRESP]
+WARNING3: Key LO_THRES incorrect in hexte.arf[SPECRESP]
         Eval(h.Exists('LO_THRES'))==False
-WARNING2: Key RMFVERSN incorrect in hexte.arf[SPECRESP]
+WARNING3: Key RMFVERSN incorrect in hexte.arf[SPECRESP]
         Eval(h.hasVal('RMFVERSN','1992A'))==False
 
 Checking columns:

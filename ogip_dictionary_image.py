@@ -3,7 +3,7 @@ def ogip_dictionary_image():
 
     For a given OGIP file type, returns a dictionary giving the
     extnames, the keywords and columns for that extension, and whether
-    the entry is required (1) or recommended (0), and the specific
+    the entry is required (level=1) or not, and the specific
     values for the entry, if any.
 
     All logic is possible, as the requirement is given as a string

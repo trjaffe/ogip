@@ -24,26 +24,6 @@ Checking keywords:
 
 ERROR: Key FILTER incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('FILTER'))==False
-WARNING2: Key DEC-OBJ incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-        Eval(h.Exists('DEC-OBJ'))==False
-WARNING2: Key HDUCLAS4 incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-        Full requirement is:  "(not h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:I') ) or ( h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:II') )"
-        Eval(h.hasCol('SPEC_NUM'))==False
-        Eval(h.hasVal('HDUCLAS4','TYPE:I'))==False
-        Eval(h.hasCol('SPEC_NUM'))==False
-        Eval(h.hasVal('HDUCLAS4','TYPE:II'))==False
-WARNING2: Key HDUVERS incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-        Eval(h.hasVal('HDUVERS','1.2.1'))==False
-WARNING2: Key OBJECT incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-        Eval(h.Exists('OBJECT'))==False
-WARNING2: Key RA-OBJ incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-        Eval(h.Exists('RA-OBJ'))==False
-WARNING2: Key TIME-END incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-        Eval(h.Exists('TIME-END'))==False
-WARNING2: Key TIME-OBS incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-        Eval(h.Exists('TIME-OBS'))==False
-WARNING2: Key XFLT* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
-        Eval(h.Exists('XFLT*'))==False
 WARNING3: Key AUTHOR incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('AUTHOR'))==False
 WARNING3: Key BACKAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
@@ -56,22 +36,40 @@ WARNING3: Key CLOCKCOR incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('CLOCKCOR'))==False
 WARNING3: Key DEADAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('DEADAPP'))==False
+WARNING3: Key DEC-OBJ incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+        Eval(h.Exists('DEC-OBJ'))==False
 WARNING3: Key EMAX* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('EMAX*'))==False
 WARNING3: Key EMIN* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('EMIN*'))==False
 WARNING3: Key GEOAREA incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('GEOAREA'))==False
+WARNING3: Key HDUCLAS4 incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+        Full requirement is:  "(not h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:I') ) or ( h.hasCol('SPEC_NUM') and h.hasVal('HDUCLAS4','TYPE:II') )"
+        Eval(h.hasCol('SPEC_NUM'))==False
+        Eval(h.hasVal('HDUCLAS4','TYPE:I'))==False
+        Eval(h.hasCol('SPEC_NUM'))==False
+        Eval(h.hasVal('HDUCLAS4','TYPE:II'))==False
+WARNING3: Key HDUVERS incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+        Eval(h.hasVal('HDUVERS','1.2.1'))==False
 WARNING3: Key NPIXBACK incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('NPIXBACK'))==False
 WARNING3: Key NPIXSOU incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('NPIXSOU'))==False
+WARNING3: Key OBJECT incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+        Eval(h.Exists('OBJECT'))==False
+WARNING3: Key RA-OBJ incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+        Eval(h.Exists('RA-OBJ'))==False
 WARNING3: Key TASSIGN incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('TASSIGN'))==False
 WARNING3: Key TIERABSO incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('TIERABSO'))==False
 WARNING3: Key TIERRELA incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('TIERRELA'))==False
+WARNING3: Key TIME-END incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+        Eval(h.Exists('TIME-END'))==False
+WARNING3: Key TIME-OBS incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+        Eval(h.Exists('TIME-OBS'))==False
 WARNING3: Key TIMEZERO incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Full requirement is:  "h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"
         Eval(h.Exists('TIMEZERO'))==False
@@ -83,6 +81,8 @@ WARNING3: Key VIGNAPP incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('VIGNAPP'))==False
 WARNING3: Key VIGNET incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
         Eval(h.Exists('VIGNET'))==False
+WARNING3: Key XFLT* incorrect in Crab_sum_pha.fits.gz[ISGR-PHA1-SPE]
+        Eval(h.Exists('XFLT*'))==False
 
 Checking columns:
 

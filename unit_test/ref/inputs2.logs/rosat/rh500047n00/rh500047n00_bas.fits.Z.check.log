@@ -16,25 +16,25 @@ ERROR: rh500047n00_bas.fits.Z does not have any of the required extension names
 
 Checking keywords:
 
-WARNING2: Key DATE-END incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING3: Key DATE-END incorrect in rh500047n00_bas.fits.Z[STDGTI]
         Eval(h.Exists('DATE-END'))==False
-WARNING2: Key DETNAM incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING3: Key DETNAM incorrect in rh500047n00_bas.fits.Z[STDGTI]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key TIMESYS incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING3: Key TIMESYS incorrect in rh500047n00_bas.fits.Z[STDGTI]
         Eval(h.Exists('TIMESYS'))==False
-WARNING2: Key TIMEUNIT incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING3: Key TIMEUNIT incorrect in rh500047n00_bas.fits.Z[STDGTI]
         Eval(h.Exists('TIMEUNIT'))==False
-WARNING2: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING3: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[STDGTI]
         Full requirement is:  "h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"
         Eval(h.Exists('TIMEZERO'))==False
         Eval(h.Exists('TIMEZERI'))==False
         Eval(h.Exists('TIMEZERF'))==False
-WARNING2: Key TSTART incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING3: Key TSTART incorrect in rh500047n00_bas.fits.Z[STDGTI]
         Full requirement is:  "h.Exists('TSTART') or ( h.Exists('TSTARTI') and h.Exists('TSTARTF') )"
         Eval(h.Exists('TSTART'))==False
         Eval(h.Exists('TSTARTI'))==False
         Eval(h.Exists('TSTARTF'))==False
-WARNING2: Key TSTOP incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING3: Key TSTOP incorrect in rh500047n00_bas.fits.Z[STDGTI]
         Full requirement is:  "h.Exists('TSTOP') or ( h.Exists('TSTOPI') and h.Exists('TSTARTF') )"
         Eval(h.Exists('TSTOP'))==False
         Eval(h.Exists('TSTOPI'))==False
@@ -42,7 +42,7 @@ WARNING2: Key TSTOP incorrect in rh500047n00_bas.fits.Z[STDGTI]
 
 Checking columns:
 
-WARNING2: column TIMEDEL incorrect in rh500047n00_bas.fits.Z[STDGTI]
+WARNING3: column TIMEDEL incorrect in rh500047n00_bas.fits.Z[STDGTI]
         Eval(h.hasCol('TIMEDEL'))==False
 
 =============== Checking 'STDEVT' extension against 'EVENTS' standard ===============
@@ -51,35 +51,35 @@ Checking keywords:
 
 ERROR: Key DATE-END incorrect in rh500047n00_bas.fits.Z[STDEVT]
         Eval(h.Exists('DATE-END'))==False
-WARNING2: Key AUTHOR incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING3: Key AUTHOR incorrect in rh500047n00_bas.fits.Z[STDEVT]
         Eval(h.Exists('AUTHOR'))==False
-WARNING2: Key BACKAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING3: Key BACKAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
         Eval(h.Exists('BACKAPP'))==False
-WARNING2: Key DEADAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING3: Key DEADAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
         Eval(h.Exists('DEADAPP'))==False
-WARNING2: Key DETNAM incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING3: Key DETNAM incorrect in rh500047n00_bas.fits.Z[STDEVT]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key NUMBAND incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING3: Key NUMBAND incorrect in rh500047n00_bas.fits.Z[STDEVT]
         Eval(h.Exists('NUMBAND'))==False
-WARNING2: Key TIERABSO incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING3: Key TIERABSO incorrect in rh500047n00_bas.fits.Z[STDEVT]
         Eval(h.Exists('TIERABSO'))==False
-WARNING2: Key TIERRELA incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING3: Key TIERRELA incorrect in rh500047n00_bas.fits.Z[STDEVT]
         Eval(h.Exists('TIERRELA'))==False
-WARNING2: Key TIME-END incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING3: Key TIME-END incorrect in rh500047n00_bas.fits.Z[STDEVT]
         Eval(h.Exists('TIME-END'))==False
-WARNING2: Key VIGNAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
-        Eval(h.Exists('VIGNAPP'))==False
 WARNING3: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[STDEVT]
         Full requirement is:  "h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"
         Eval(h.Exists('TIMEZERO'))==False
         Eval(h.Exists('TIMEZERI'))==False
         Eval(h.Exists('TIMEZERF'))==False
+WARNING3: Key VIGNAPP incorrect in rh500047n00_bas.fits.Z[STDEVT]
+        Eval(h.Exists('VIGNAPP'))==False
 
 Checking columns:
 
-WARNING2: column DETX incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING3: column DETX incorrect in rh500047n00_bas.fits.Z[STDEVT]
         Eval(h.hasCol('DETX'))==False
-WARNING2: column DETY incorrect in rh500047n00_bas.fits.Z[STDEVT]
+WARNING3: column DETY incorrect in rh500047n00_bas.fits.Z[STDEVT]
         Eval(h.hasCol('DETY'))==False
 
 =============== Checking 'REJEVT' extension against 'EVENTS' standard ===============
@@ -102,43 +102,43 @@ ERROR: Key TSTOP incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.Exists('TSTOP'))==False
         Eval(h.Exists('TSTOPI'))==False
         Eval(h.Exists('TSTOPF'))==False
-WARNING2: Key AUTHOR incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: Key AUTHOR incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.Exists('AUTHOR'))==False
-WARNING2: Key BACKAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: Key BACKAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.Exists('BACKAPP'))==False
-WARNING2: Key CLOCKCOR incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: Key CLOCKCOR incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.Exists('CLOCKCOR'))==False
-WARNING2: Key DEADAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: Key DEADAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.Exists('DEADAPP'))==False
-WARNING2: Key DETNAM incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: Key DETNAM incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.Exists('DETNAM'))==False
-WARNING2: Key NUMBAND incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: Key NUMBAND incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.Exists('NUMBAND'))==False
-WARNING2: Key ONTIME incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: Key ONTIME incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.Exists('ONTIME'))==False
-WARNING2: Key TASSIGN incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: Key TASSIGN incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.Exists('TASSIGN'))==False
-WARNING2: Key TIERABSO incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: Key TIERABSO incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.Exists('TIERABSO'))==False
-WARNING2: Key TIERRELA incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: Key TIERRELA incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.Exists('TIERRELA'))==False
-WARNING2: Key TIME-END incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: Key TIME-END incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.Exists('TIME-END'))==False
-WARNING2: Key TIMVERSN incorrect in rh500047n00_bas.fits.Z[REJEVT]
-        Eval(h.Exists('TIMVERSN'))==False
-WARNING2: Key VIGNAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
-        Eval(h.Exists('VIGNAPP'))==False
 WARNING3: Key TIMEZERO incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Full requirement is:  "h.Exists('TIMEZERO') or ( h.Exists('TIMEZERI') and h.Exists('TIMEZERF') )"
         Eval(h.Exists('TIMEZERO'))==False
         Eval(h.Exists('TIMEZERI'))==False
         Eval(h.Exists('TIMEZERF'))==False
+WARNING3: Key TIMVERSN incorrect in rh500047n00_bas.fits.Z[REJEVT]
+        Eval(h.Exists('TIMVERSN'))==False
+WARNING3: Key VIGNAPP incorrect in rh500047n00_bas.fits.Z[REJEVT]
+        Eval(h.Exists('VIGNAPP'))==False
 
 Checking columns:
 
-WARNING2: column DETX incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: column DETX incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.hasCol('DETX'))==False
-WARNING2: column DETY incorrect in rh500047n00_bas.fits.Z[REJEVT]
+WARNING3: column DETY incorrect in rh500047n00_bas.fits.Z[REJEVT]
         Eval(h.hasCol('DETY'))==False
 
 Extension 'TSI' is not an OGIP defined extension for this type;  ignoring.

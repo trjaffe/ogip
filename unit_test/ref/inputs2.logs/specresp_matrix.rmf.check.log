@@ -14,16 +14,16 @@ Checking keywords:
 
 ERROR: Key CCLS0001 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
         Eval(h.hasVal('CCLS0001','CPF'))==False
-WARNING2: Key HDUVERS1 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
+WARNING3: Key HDUVERS1 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
         Eval(h.hasVal('HDUVERS1','1.1.0'))==False
-WARNING2: Key HDUVERS2 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
+WARNING3: Key HDUVERS2 incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
         Eval(h.hasVal('HDUVERS2','1.2.0'))==False
-WARNING2: Key PHAFILE incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
+WARNING3: Key PHAFILE incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
         Eval(h.Exists('PHAFILE'))==False
 
 Checking columns:
 
-WARNING2: column ORDER incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
+WARNING3: column ORDER incorrect in specresp_matrix.rmf[SPECRESP MATRIX]
         Eval(h.hasCol('ORDER'))==False
 
 =============== Checking 'EBOUNDS' extension against 'EBOUNDS' standard ===============
@@ -32,13 +32,13 @@ Checking keywords:
 
 ERROR: Key CCLS0001 incorrect in specresp_matrix.rmf[EBOUNDS]
         Eval(h.hasVal('CCLS0001','CPF'))==False
-WARNING2: Key HDUVERS incorrect in specresp_matrix.rmf[EBOUNDS]
+WARNING3: Key HDUVERS incorrect in specresp_matrix.rmf[EBOUNDS]
         Eval(h.hasVal('HDUVERS','1.2.0]'))==False
-WARNING2: Key HDUVERS1 incorrect in specresp_matrix.rmf[EBOUNDS]
+WARNING3: Key HDUVERS1 incorrect in specresp_matrix.rmf[EBOUNDS]
         Eval(h.hasVal('HDUVERS1','1.1.0]'))==False
-WARNING2: Key HDUVERS2 incorrect in specresp_matrix.rmf[EBOUNDS]
+WARNING3: Key HDUVERS2 incorrect in specresp_matrix.rmf[EBOUNDS]
         Eval(h.hasVal('HDUVERS2','1.2.0]'))==False
-WARNING2: Key PHAFILE incorrect in specresp_matrix.rmf[EBOUNDS]
+WARNING3: Key PHAFILE incorrect in specresp_matrix.rmf[EBOUNDS]
         Eval(h.Exists('PHAFILE'))==False
 
 Checking columns:

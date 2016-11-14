@@ -14,18 +14,6 @@ Checking keywords:
 
 ERROR: Key FILTER incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Eval(h.Exists('FILTER'))==False
-WARNING2: Key DEC-OBJ incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
-        Eval(h.Exists('DEC-OBJ'))==False
-WARNING2: Key HDUVERS incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
-        Eval(h.hasVal('HDUVERS','1.2.1'))==False
-WARNING2: Key RA-OBJ incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
-        Eval(h.Exists('RA-OBJ'))==False
-WARNING2: Key TIME-END incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
-        Eval(h.Exists('TIME-END'))==False
-WARNING2: Key TIME-OBS incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
-        Eval(h.Exists('TIME-OBS'))==False
-WARNING2: Key XFLT* incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
-        Eval(h.Exists('XFLT*'))==False
 WARNING3: Key AUTHOR incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Eval(h.Exists('AUTHOR'))==False
 WARNING3: Key BACKAPP incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
@@ -40,20 +28,32 @@ WARNING3: Key DEADAPP incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Eval(h.Exists('DEADAPP'))==False
 WARNING3: Key DEADC* incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Eval(h.Exists('DEADC*'))==False
+WARNING3: Key DEC-OBJ incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
+        Eval(h.Exists('DEC-OBJ'))==False
 WARNING3: Key EMAX* incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Eval(h.Exists('EMAX*'))==False
 WARNING3: Key EMIN* incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Eval(h.Exists('EMIN*'))==False
 WARNING3: Key GEOAREA incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Eval(h.Exists('GEOAREA'))==False
+WARNING3: Key HDUVERS incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
+        Eval(h.hasVal('HDUVERS','1.2.1'))==False
 WARNING3: Key NPIXBACK incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Eval(h.Exists('NPIXBACK'))==False
 WARNING3: Key NPIXSOU incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Eval(h.Exists('NPIXSOU'))==False
+WARNING3: Key RA-OBJ incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
+        Eval(h.Exists('RA-OBJ'))==False
+WARNING3: Key TIME-END incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
+        Eval(h.Exists('TIME-END'))==False
+WARNING3: Key TIME-OBS incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
+        Eval(h.Exists('TIME-OBS'))==False
 WARNING3: Key VIGNAPP incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Eval(h.Exists('VIGNAPP'))==False
 WARNING3: Key VIGNET incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Eval(h.Exists('VIGNET'))==False
+WARNING3: Key XFLT* incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
+        Eval(h.Exists('XFLT*'))==False
 
 Checking columns:
 
@@ -61,11 +61,11 @@ ERROR: column SYS_ERR incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Full requirement is:  "h.hasCol('SYS_ERR',part=True) or h.hasVal('SYS_ERR',0)"
         Eval(h.hasCol('SYS_ERR',part=True))==None
         Eval(h.hasVal('SYS_ERR',0))==False
-WARNING2: column ROWID incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
+WARNING3: column ROWID incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Full requirement is:  "not h.hasCol('SPEC_NUM') or h.hasCol('ROWID')"
         Eval(h.hasCol('SPEC_NUM'))==True
         Eval(h.hasCol('ROWID'))==False
-WARNING2: column SYS_ERR2 incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
+WARNING3: column SYS_ERR2 incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Full requirement is:  "h.hasCol('SYS_ERR') or h.hasVal('SYS_ERR',0)"
         Eval(h.hasCol('SYS_ERR'))==False
         Eval(h.hasVal('SYS_ERR',0))==False
