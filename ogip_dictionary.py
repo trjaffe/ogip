@@ -4,8 +4,11 @@ from ogip_dictionary_caldb import ogip_dictionary_caldb
 from ogip_dictionary_arf import ogip_dictionary_arf
 from ogip_dictionary_rmf import ogip_dictionary_rmf
 from ogip_dictionary_image import ogip_dictionary_image
+import os
+import json
 
-def ogip_dictionary(type):
+
+def ogip_dictionary(type,meta_key=None):
     """
     for a given OGIP file type (timing, etc),
     returns a dictionary giving the extnames, the keywords and columns for that extension, and whether the
@@ -28,21 +31,49 @@ def ogip_dictionary(type):
     """
 
     if type.strip().upper() == 'TIMING':
-        return ogip_dictionary_timing()
+        ogip=ogip_dictionary_timing()
     elif type.strip().upper() == 'SPECTRAL':
-        return ogip_dictionary_spectral()
+        ogip=ogip_dictionary_spectral()
     elif type.strip().upper() == 'CALDB':
-        return ogip_dictionary_caldb()
+        ogip=ogip_dictionary_caldb()
     elif type.strip().upper() == 'ARF':
-        return ogip_dictionary_arf()
+        ogip=ogip_dictionary_arf()
     elif type.strip().upper() == 'RMF':
-        return ogip_dictionary_rmf()
+        ogip=ogip_dictionary_rmf()
     elif type.strip().upper() == 'IMAGE':
-        return ogip_dictionary_image()
+        ogip=ogip_dictionary_image()
     else:
         print "Currently defined for"
         print "Type = TIMING, SPECTRAL, CALDB, ARF, RMF, or IMAGE."
         ogip = 0
+
+    #  Replace items in dictionary if found in the given meta data file.
+    if meta_key is not None:
+        metafile=os.path.join(os.path.dirname(__file__),("meta_%s.json"%meta_key))
+        try:
+            meta=json.load( open(metafile) )
+        except:
+            print("ERROR:  the meta data key %s does not correspond to a known meta-data JSON dictionary in %s." % (meta_key,os.path.dirname(__file__)) )
+            raise
+
+        #  The meta table is minimal, so things are only there if
+        #  needed.  Check each of the keys that have either a single
+        #  string value or an array value.  Then loop over keyword and
+        #  column requirements for each extension defined.
+        if "dicts" in meta and type in meta["dicts"]:
+            for k in ('EXTENSIONS','ALT_EXTNS','REFERENCE','REFURL','REFTITLE'):
+                if k in meta["dicts"]:  ogip[k]=meta["dicts"][k] 
+
+            for extn in meta["dicts"][type]:
+                if 'KEYWORDS' in meta["dicts"][type][extn]:  
+                    for key,req in meta["dicts"][type][extn]['KEYWORDS'].iteritems():
+                        ogip[extn]['KEYWORDS'][key]=req
+                if 'COLUMNS' in meta["dicts"][type][extn]:  
+                    for key,req in meta["dicts"][type][extn]['COLUMNS'].iteritems():
+                        ogip[extn]['COLUMNS'][key]=req
+
+
+
     return ogip
 
 

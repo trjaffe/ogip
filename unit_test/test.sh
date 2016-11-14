@@ -390,6 +390,36 @@ fi
 
 
 
+
+echo ""
+echo "##################################################################"
+echo "#  Re-checking a single file with meta-data to supercede certain requirements:"
+echo ""
+file="chandra/hrcf00025N005_pha2.fits.gz"
+echo "Checking file ${file}"
+../ogip_check inputs/${file} --meta_key=chandra >& out/inputs.logs/${file}.check.log2
+retval=$?
+echo "Return status was $retval"
+if [[ "$retval" != "0" ]]; then 
+    echo "ERROR:  ogip_check returned an error status!"
+    let errors+=1
+fi
+echo "Comparing output to reference.  "
+diffs=`diff ref/inputs.logs/${file}.check.log2 out/inputs.logs/${file}.check.log2`
+if [[ ${#diffs} != 0 ]]; then
+    echo "WARNING:  Differences appear in 'diff ref/inputs.logs/${file}.check.log2 out/inputs.logs/${file}.check.log2'"
+#    echo ${diffs[@]} | tail
+    let diffcnt+=1
+else
+    echo "No differences."
+fi
+echo ""
+
+
+
+
+
+
 #  Summarize test results
 echo ""
 echo "##################################################################"

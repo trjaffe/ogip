@@ -18,7 +18,9 @@ if __name__== "__main__":
     parser.add_argument('-t','--type', type=str, help="Type:  one of TIMING, SPECTRAL, CALDB, ARF, RMF",default=None)
     parser.add_argument('-l', "--logfile", type=argparse.FileType('w'),default = sys.stdout)
     parser.add_argument("-v", "--verbosity", type=int, default=2)
+    parser.add_argument("--vonly", type=bool, default=False, help="FITS verification only, no OGIP standards check.")
+    parser.add_argument("--meta_key",type=str,help="Key that defines meta data that replaces standard OGIP dictionaries.  Specify, e.g., 'rxte', ",default="default")
     args = parser.parse_args()
-    status= ogip_check(args.input,args.type,args.logfile,args.verbosity)
+    status= ogip_check(args.input,args.type,args.logfile,args.verbosity,dtype=None,vonly=args.vonly,meta_key=args.meta_key)
     exit(status.status)
 

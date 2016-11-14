@@ -5,7 +5,7 @@ from ogip_generic_lib import *
 import os.path
 import astropy.wcs as wcs
 
-def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
+def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False,meta_key=None):
     """
     Checks for the existence of OGIP required keywords and columns 
     for FITS files based on the Standards doccumented here:  
@@ -104,7 +104,8 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
     else:
         print("\nChecking file as type %s" % otype,file=logf)
 
-    ogip_dict=ogip_dictionary(otype)
+    ogip_dict=ogip_dictionary(otype,meta_key)
+
     if ogip_dict==0:
         status.update(report="WARNING:  do not recognize OGIP type %s" % otype, status=1,verbosity=verbosity)
         return status
@@ -186,7 +187,10 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False):
         ogip_fail(filename,ogip_dict,logf)
     else:
         print("\n===========================================================",file=logf)
-        print("\nFile %s conforms to the OGIP Standards" % filename,file=logf)
+        if meta_key is None or meta_key == "default":  
+            print("\nFile %s conforms to the OGIP Standards" % filename,file=logf)
+        else:
+            print("\nFile %s conforms to the OGIP Standards with exceptions defined for meta_key=%s" % (filename,meta_key),file=logf)
 
 
     return status
