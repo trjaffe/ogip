@@ -393,7 +393,7 @@ fi
 
 echo ""
 echo "##################################################################"
-echo "#  Re-checking a single file with meta-data to supercede certain requirements:"
+echo "#  Re-checking a single file with meta-data to supersede certain requirements:"
 echo ""
 file="chandra/hrcf00025N005_pha2.fits.gz"
 echo "Checking file ${file}"

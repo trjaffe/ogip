@@ -225,6 +225,7 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
 
     # Goes through all contents of root directory
     for dir, subdirs, files in os.walk(basedir, topdown=False,followlinks=True):
+        if os.path.split(dir)[1].startswith('.'):  continue
         verify_only=True if dir.endswith(tuple(ignore['directories'])) else False
         cnt_check=cnt_tot=0
         if (verbosity > 0 and len(files) > 0): 
@@ -235,7 +236,8 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
                      (   x.endswith(ignore['suffixes']) 
                       or x.endswith(tuple([y+".gz" for y in ignore['suffixes'] ])) 
                       or x.endswith(tuple([y.upper() for y in ignore['suffixes'] ])) 
-                      or x.endswith(tuple([(y+".gz").upper() for y in ignore['suffixes'] ])) 
+                      or x.endswith(tuple([(y+".gz").upper() for y in ignore['suffixes'] ]))
+                      or x.startswith('.')
                      ) ]:
             cnt_tot+=1
             one=os.path.join(dir, name)
@@ -269,7 +271,7 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
             # Store the retstat info for the file
             summary.update(dir=dir,file=name,statobj=status)
             gc.collect() # Should be unnecessary but just in case.
-        if (verbosity > 1 and len(files) > 0 and verify_only==False):  print("\n********\nFound %s files in this directory that could be checked out of %s that were examined and %s that were ignored due to their suffix (for %s total in the directory)." % (cnt_check,cnt_tot,len(files)-cnt_tot,len(files)) )
+        if (verbosity > 1 and len(files) > 0 and verify_only==False):  print("\n********\nFound %s files in this directory that could be checked out of %s that were examined and %s that were ignored (for %s total in the directory)." % (cnt_check,cnt_tot,len(files)-cnt_tot,len(files)) )
 
 
     print("\n***************************************************")
