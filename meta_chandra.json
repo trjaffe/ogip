@@ -1,9 +1,8 @@
 {
     "ignore": {
         "directories": [
-            "ASMProducts/realtime_current",
-            "ASMProducts/definitive_1dwell/supplemental/pointings",
-            "Cal/asm"
+	    "secondary/aspect",
+	    "secondary/ephem"
         ],
         "suffixes": [
             ".jpg",

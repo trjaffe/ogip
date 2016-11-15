@@ -38,7 +38,6 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False,meta_key=Non
     print("Running %s with" % inspect.getframeinfo(frame)[2],file=logf)
     for i in args:
         print("    %s = %s" % (i, values[i]),file=logf)
-
  
 
     #  Even just trying to open it can lead to pyfits barfing errors
@@ -96,7 +95,7 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False,meta_key=Non
         status.update(report="ERROR:  file %s does not pass FITS verification;  giving up." % filename,fver=2,status=1,verbosity=verbosity)
         return status
     if vonly:  
-        status.update(vonly=True)
+        status.update(vonly=True,report='Skipping OGIP standards check.')
         return status
 
     #  Determine the file type from extensions, keywords, or the

@@ -1,0 +1,25 @@
+{
+    "ignore": {
+        "directories": [
+            "event_uf",
+            "hk",
+            "auxil",
+            "log"
+        ],
+        "suffixes": [
+            ".com",
+            ".jpg",
+            ".txt",
+            ".gif",
+            ".dat",
+            ".ps",
+            ".html",
+            ".par",
+            ".png",
+            ".pdf",
+            ".htm",
+            ".log"
+        ]
+    },
+    "root_data_directory": "/FTP/suzaku/data/obs"
+}

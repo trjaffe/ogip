@@ -1,7 +1,7 @@
 Running ogip_check with
     input = inputs/asca_sis_bcf_calfile.fits
     otype = None
-    logfile = <open file '<stdout>', mode 'w' at 0x10063e150>
+    logfile = <open file '<stdout>', mode 'w' at 0x102164150>
     verbosity = 2
     dtype = None
     vonly = False

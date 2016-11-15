@@ -234,7 +234,8 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
         cnt_check=cnt_tot=0
         if (verbosity > 0 and len(files) > 0): 
             print "\n\n************************************************"
-            print "Now on directory %s" % dir 
+            if (verify_only):  print "Now on directory %s for FITS verification ONLY." % dir
+            else:              print "Now on directory %s" % dir 
             print "************************************************"
         for name in [x for x in files if not 
                      (   x.endswith(ignore['suffixes']) 
@@ -269,7 +270,7 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
                 if (verbosity > 1 and verify_only==False): 
                     print("Done.  Found file of type %s with %s errors and %s (level=2) and %s (level=3) warnings." % (status.otype, status.tot_errors(),status.tot_warnings(2),status.tot_warnings(3) ) )
                     cnt_check+=1
-                elif (verbosity > 1 and verify_only==True): print("File is in an ignored directory, skipping OGIP standards check.")
+                #elif (verbosity > 1 and verify_only==True): print("File is in an ignored directory, skipping OGIP standards check.")
                 sys.stdout.flush()
 
             # Store the retstat info for the file

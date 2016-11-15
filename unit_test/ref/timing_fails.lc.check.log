@@ -1,7 +1,7 @@
 Running ogip_check with
     input = inputs/timing_fails.lc
     otype = None
-    logfile = <open file '<stdout>', mode 'w' at 0x10c932150>
+    logfile = <open file '<stdout>', mode 'w' at 0x101f23150>
     verbosity = 2
     dtype = None
     vonly = False
