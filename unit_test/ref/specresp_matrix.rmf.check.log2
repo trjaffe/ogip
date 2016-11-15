@@ -1,7 +1,7 @@
 Running ogip_check with
     input = inputs/specresp_matrix.rmf
     otype = RMF
-    logfile = <open file '<stdout>', mode 'w' at 0x10d998150>
+    logfile = <open file '<stdout>', mode 'w' at 0x106e61150>
     verbosity = 2
     dtype = None
     vonly = False

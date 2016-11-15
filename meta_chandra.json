@@ -24,19 +24,19 @@
 	"IMAGE" : { 
 	    "IMAGE":  {
 		"KEYWORDS":{ 
-		    "HDUCLASS": {"level":2,"req":"h.hasVal('HDUCLASS','OGIP')"},
-		    "FILTER":  {"level":2,"req":"h.Exists('FILTER')"}
+		    "HDUCLASS": {"level":2},
+		    "FILTER":  {"level":2}
 		}
 	    }
 	},
 	"SPECTRAL" : {
 	    "SPECTRUM": {
 		"KEYWORDS":{ 
-		    "FILTER":   {"level":2,"req":"h.Exists('FILTER')"},
-		    "HDUCLASS":    {"level":2,"req":"h.hasVal('HDUCLASS','OGIP')"}
+		    "FILTER":   {"level":2},
+		    "HDUCLASS":    {"level":2}
 		},
 		"COLUMNS":{
-		    "SYS_ERR":    {"level":2,"req":"h.hasCol('SYS_ERR') or h.hasVal('SYS_ERR',0)"}  
+		    "SYS_ERR":    {"level":2}
 		}
 	    }
 	}

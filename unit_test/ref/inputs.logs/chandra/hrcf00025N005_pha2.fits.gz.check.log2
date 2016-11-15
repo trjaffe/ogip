@@ -1,7 +1,7 @@
 Running ogip_check with
     input = inputs/chandra/hrcf00025N005_pha2.fits.gz
     otype = None
-    logfile = <open file '<stdout>', mode 'w' at 0x106891150>
+    logfile = <open file '<stdout>', mode 'w' at 0x110210150>
     verbosity = 2
     dtype = None
     vonly = False
@@ -66,8 +66,8 @@ WARNING3: Key XFLT* incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
 Checking columns:
 
 WARNING2: column SYS_ERR incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
-        Full requirement is:  "h.hasCol('SYS_ERR') or h.hasVal('SYS_ERR',0)"
-        Eval(h.hasCol('SYS_ERR'))==False
+        Full requirement is:  "h.hasCol('SYS_ERR',part=True) or h.hasVal('SYS_ERR',0)"
+        Eval(h.hasCol('SYS_ERR',part=True))==None
         Eval(h.hasVal('SYS_ERR',0))==False
 WARNING3: column ROWID incorrect in hrcf00025N005_pha2.fits.gz[SPECTRUM]
         Full requirement is:  "not h.hasCol('SPEC_NUM') or h.hasCol('ROWID')"

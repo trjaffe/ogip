@@ -57,20 +57,36 @@ def ogip_dictionary(type,meta_key=None):
             raise
 
         #  The meta table is minimal, so things are only there if
-        #  needed.  Check each of the keys that have either a single
-        #  string value or an array value.  Then loop over keyword and
-        #  column requirements for each extension defined.
+        #  needed.  First check each of the keys that have a single
+        #  string value.  Then check the EXTN and ALT_EXTNS, which are
+        #  dictionary types.  Then loop over keyword and column
+        #  requirements for each extension defined.  If the meta data
+        #  includes the full requirement ("level" and "req") for each
+        #  "key", then replace the whole thing.  But if it is only the
+        #  level, then don't touch the original requirement.
         if "dicts" in meta and type in meta["dicts"]:
-            for k in ('EXTENSIONS','ALT_EXTNS','REFERENCE','REFURL','REFTITLE'):
-                if k in meta["dicts"]:  ogip[k]=meta["dicts"][k] 
+            for k in ('REFERENCE','REFURL','REFTITLE'):
+                if k in meta["dicts"][type]:  ogip[k]=meta["dicts"][type][k] 
+
+            for list in ('EXTENSIONS','ALT_EXTNS'):
+                if list in meta["dicts"][type]:  
+                    for k in ogip[list]:
+                        if k in meta['dicts'][type][list]:  ogip[list][k]=meta['dicts'][type][list][k]
 
             for extn in meta["dicts"][type]:
                 if 'KEYWORDS' in meta["dicts"][type][extn]:  
                     for key,req in meta["dicts"][type][extn]['KEYWORDS'].iteritems():
-                        ogip[extn]['KEYWORDS'][key]=req
+                        if "req" in req:
+                            ogip[extn]['KEYWORDS'][key]=req
+                        else:
+                            ogip[extn]['KEYWORDS'][key]["level"]=req["level"]
+
                 if 'COLUMNS' in meta["dicts"][type][extn]:  
                     for key,req in meta["dicts"][type][extn]['COLUMNS'].iteritems():
-                        ogip[extn]['COLUMNS'][key]=req
+                        if "req" in req:
+                            ogip[extn]['COLUMNS'][key]=req
+                        else:
+                            ogip[extn]['COLUMNS'][key]["level"]=req["level"]
 
 
 

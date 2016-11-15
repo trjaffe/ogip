@@ -34,13 +34,10 @@ class ogip_collect:
         # dictionary of directories containing lists of files that
         # could not be checked for a number of reasons.
         self.bad={} 
-        # dictionary of directories containing files that passed all checks
-        self.good={} 
-        # dictionary of directories containing files that had only warnings
-        self.warned={} 
-        # dictionary of directories containing files that had STANDARDS errors,
-        #  either FITS standards or OGIP.  
-        self.failed={} 
+        # dictionary of directories containing files that were only verified
+        self.verified={} 
+        # dictionary of directories containing files that were OGIP checked
+        self.checked={} 
         # dictionary that just counts files found of each type
         self.count_types={}
         # dictionary that just counts extensions in files of each type
@@ -55,20 +52,15 @@ class ogip_collect:
         # count of types and extensions checked.
 
         if statobj.status != 0:
-            #  Those that cannot be checked:
+            #  Those that cannot be checked, either because they could
+            #  not be opened or could not be recognized:
             dict_add(self.bad, dir, file, statobj)
-
-        elif statobj.tot_errors() == 0 and statobj.tot_warnings() == 0 and statobj.fver == 0:
-            #  Those that pass with no warnings even:
-            dict_add(self.good, dir, file, statobj)
-
-        elif statobj.tot_errors() == 0 and statobj.fver == 0:
-            #  Those that pass with no errors (but maybe warnings):
-            dict_add(self.warned, dir, file, statobj)
-
-        else:
-            #  Those that have errors, either FITS (verify) or OGIP standards:
-           dict_add(self.failed, dir, file, statobj)
+        elif statobj.vonly == True:
+            #  Files where only fverify was even attempted:  
+            dict_add(self.verified, dir, file, statobj)
+        else:  
+            #  Where the check was attempted:  
+            dict_add(self.checked, dir, file, statobj)
 
         if statobj.otype != 'unknown':  
             #  Add one to the corresponding type
@@ -100,7 +92,6 @@ class ogip_collect:
     def count_unrecognized(self):
         return sum( sum([f.unrec for f in d.itervalues()]) for d in self.bad.itervalues() )
 
-
     def count_fopen(self):
         #  Inner list comprehension returns a list of files and counts fopen errors,
         #  then iterated and summed over all the directories
@@ -112,25 +103,25 @@ class ogip_collect:
 
     def count_fver_fixed(self):
         #  Want to count all those that were fixable fverify problems,
-        #  i.e., with fver==1, whether they were checked after (which
-        #  would put them in the "failed" category) or not ("bad"
-        #  category):
-        return sum( sum([f.fver for f in d.itervalues() if f.fver == 1]) for d in self.failed.itervalues() ) + \
+        #  i.e., with fver==1 (as opposed to 0==no problem, or 2==not
+        #  fixable) , whether they were checked after or not ("bad").
+        return sum( sum([f.fver for f in d.itervalues() if f.fver == 1]) for d in self.checked.itervalues() ) + \
                sum( sum([f.fver for f in d.itervalues() if f.fver == 1]) for d in self.bad.itervalues() )
 
     def count_failed(self):
         #  Were checked but failed in the sense of violating either
         #  FITS or OGIP standards
-        return sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.failed.itervalues())
+        return sum(len([f for f in d.itervalues() if f.vonly==False and f.tot_errors() > 0]) for d in self.checked.itervalues())
 
     def count_good(self):
-        return sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.good.itervalues())
+        return sum(len([f for f in d.itervalues() if f.vonly==False and f.tot_errors() == 0  and f.tot_warnings() == 0]) for d in self.checked.itervalues())
+
 
     def count_warned(self,level=None):
         # 
         count=0
-        for d in self.warned.itervalues():
-            for f in d.itervalues():
+        for d in self.checked.itervalues():
+            for f in [ff for ff in d.itervalues() if ff.tot_errors()==0]:
                 for e in f.extns.itervalues():
                     if e.WARNINGS[level]>0:
                         count+=1
@@ -139,15 +130,10 @@ class ogip_collect:
         
 
     def count_checked(self):
-        return (  sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.good.itervalues()) 
-                + sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.warned.itervalues()) 
-                + sum(len([f for f in d.itervalues() if f.vonly==False]) for d in self.failed.itervalues())
-        )
+        return  sum(len([f for f in d.itervalues()]) for d in self.checked.itervalues())  
+
     def count_verified(self):
-        return (  sum(len([f for f in d.itervalues() if f.vonly==True]) for d in self.good.itervalues()) 
-                + sum(len([f for f in d.itervalues() if f.vonly==True]) for d in self.warned.itervalues()) 
-                + sum(len([f for f in d.itervalues() if f.vonly==True]) for d in self.failed.itervalues())
-        )
+        return sum(len([f for f in d.itervalues()]) for d in self.verified.itervalues()) 
 
     def count_missing_key(self,otype,extname,key):
         #  Count how many files of a given type are missing a given
@@ -157,10 +143,10 @@ class ogip_collect:
         #  whole set of files with failures (a missing keyword is an
         #  error case):
         count=0
-        for d in self.failed.itervalues():
+        for d in self.checked.itervalues():
             #  Now d is a dictionary of files for a directory.  Check
             #  only those of the right type:
-            for fstat in (dd for dd in d.itervalues() if dd.otype == otype):
+            for fstat in (f for f in d.itervalues() if f.otype == otype):
                 if extname not in fstat.extns:
                     continue
                 if key in fstat.extns[extname].MISKEYS:  count+=1
@@ -168,15 +154,10 @@ class ogip_collect:
 
     def count_missing_col(self,otype,extname,col):  
         count=0
-        for d in self.warned.itervalues():
+        for d in self.checked.itervalues():
             #  Now d is a dictionary of files for a directory.  Check
             #  only those of the right type:
-            for fstat in (dd for dd in d.itervalues() if dd.otype == otype):
-                if extname not in fstat.extns:
-                    continue
-                if col in fstat.extns[extname].MISCOLS:  count+=1
-        for d in self.failed.itervalues():
-            for fstat in (dd for dd in d.itervalues() if dd.otype == otype):
+            for fstat in (f for f in d.itervalues() if f.otype == otype):
                 if extname not in fstat.extns:
                     continue
                 if col in fstat.extns[extname].MISCOLS:  count+=1
@@ -194,7 +175,7 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
 
     Traverses the given base directory and for all files found beneath:
 
-    - checks if FITS type, and if so
+    - checks if FITS type (simply by trying to open it as a FITS file), and if FITS, then
 
     - runs FITS verify (pyfits), then 
 
@@ -203,6 +184,10 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
     - collects statistics on the results, and
 
     - writes a set of reports.
+
+    USAGE:  
+
+ 
 
     """
 
@@ -262,7 +247,7 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
                 sys.stdout.flush()
             #  Returns status that contains both the counts of errors,
             #  warnings, and the logged reports.  
-            status=ogip_check(one,None,logfile,2,dtype=default_type,vonly=verify_only,meta_key=meta_key)
+            status=ogip_check(one,None,logfile,verbosity=verbosity,dtype=default_type,vonly=verify_only,meta_key=meta_key)
 
             #if status.status != 0:
                 #print("ERROR:  failed to check file %s;  see log in %s\nContinuing." % (one, logfile) )

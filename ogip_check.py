@@ -6,7 +6,7 @@ import os.path
 import astropy.wcs as wcs
 import inspect
 
-def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False,meta_key=None):
+def ogip_check(input,otype,logfile,verbosity=2,dtype=None,vonly=False,meta_key=None):
     """
     Checks for the existence of OGIP required keywords and columns 
     for FITS files based on the Standards doccumented here:  

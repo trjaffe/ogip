@@ -1,7 +1,7 @@
 Running ogip_check with
     input = inputs/unrec.fits
     otype = None
-    logfile = <open file '<stdout>', mode 'w' at 0x10bd1b150>
+    logfile = <open file '<stdout>', mode 'w' at 0x103bee150>
     verbosity = 2
     dtype = None
     vonly = False

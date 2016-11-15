@@ -14,10 +14,10 @@ if __name__== "__main__":
     import argparse
     import sys
     parser = argparse.ArgumentParser()
-    parser.add_argument("basedir", type=str, help="Input base directory to test")
-    parser.add_argument("logdir", type=str, help="Output directory to write logs to, one per tested file")
-    parser.add_argument("-v", "--verbosity", type=int, default=2)
-    parser.add_argument("--meta_key",type=str,help="Key that defines meta data such as what to ignore for each, e.g., mission.  By default, only a set of suffixes:  .jpg,.txt,.gif,.dat,.ps,.html,.par,.png,.pdf,.htm (or with .gz).  Alternatively, specify, e.g., 'rxte', ",default="default")
+    parser.add_argument("basedir", type=str, help="Input base directory to test.  By default, all contents will be tested except for:  files and directories beginning with a dot;  files ending with a suffix defined in the meta data file (see below);  directory paths ending in a relative path defined in the meta data file.  ")
+    parser.add_argument("logdir", type=str, help="Output directory to write logs to, one per tested file.  The directory hierarchy of the given basedir will be mirrored under logdir.")
+    parser.add_argument("-v", "--verbosity", type=int, default=2,help="Default is 2, which reports briefly for each file to STDOUT.  A value of 1 does not report to STDOUT on individual files.  A value of zero only prints the summary.  In all cases, errors are still reported.  In the file-specific logs, a value of less than 2 suppresses the detailed evaluation of failed requirements.")
+    parser.add_argument("--meta_key",type=str,help="Key that defines a set of meta data that specifies what requirements to modify (e.g., for a given mission) or what directories or file suffixes to ignore.  The file is in JSON format and expected to be located with the code and named meta_<key>.json.  The default meta data only includes a set of suffixes to ignore:  .jpg,.txt,.gif,.dat,.ps,.html,.par,.png,.pdf,.htm (or with .gz).  Alternatively, specify, e.g., 'rxte'.  For requirements, this meta data follows the structure of the dictionaries.  A new requirement can be specified to replace the OGIP standard, or if none is specified, only the failure level is changed to the reserved value of 2.  (A level of 1 is reported as an error, 3 is reported as a warning, so 2 is specifically for such cases.)",default="default")
     parser.add_argument("--default_type",type=str,help="Default type to check for unrecognized files;  default 'none'.",default='none')
     args = parser.parse_args()
 
