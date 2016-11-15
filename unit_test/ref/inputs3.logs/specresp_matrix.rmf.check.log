@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/specresp_matrix.rmf
+    otype = None
+    logfile = out/inputs3.logs/./specresp_matrix.rmf.check.log
+    verbosity = 2
+    dtype = none
+    vonly = False
+    meta_key = rxte
 Attempting to open file inputs/specresp_matrix.rmf
 File opened successfully.
 Running basic FITS verification with external call to ftverify.

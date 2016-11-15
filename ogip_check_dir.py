@@ -6,6 +6,7 @@ from ogip_dictionary import ogip_dictionary
 from datetime import datetime
 import gc
 import json
+import inspect
 
 def dict_add(dict,dir,file,statobj):
     #  If an entry for this directory exists, add an entry for the
@@ -220,8 +221,11 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
     #  Object that holds summary data and methods.  
     summary=ogip_collect()
 
-    print("\nRunning ogip_check_dir with:\n   directory %s\n    logdir %s\n    meta_key %s\n    default_type %s\n" % (basedir,logdir,meta_key,default_type) )
-
+    frame = inspect.currentframe()
+    args, _, _, values = inspect.getargvalues(frame)
+    print("Running %s with" % inspect.getframeinfo(frame)[2])
+    for i in args:
+        print("    %s = %s" % (i, values[i]))
 
     # Goes through all contents of root directory
     for dir, subdirs, files in os.walk(basedir, topdown=False,followlinks=True):
@@ -257,13 +261,13 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
                 sys.stdout.flush()
             #  Returns status that contains both the counts of errors,
             #  warnings, and the logged reports.  
-            status=ogip_check(one,None,logfile,2,dtype=default_type,vonly=verify_only)
+            status=ogip_check(one,None,logfile,2,dtype=default_type,vonly=verify_only,meta_key=meta_key)
 
             #if status.status != 0:
                 #print("ERROR:  failed to check file %s;  see log in %s\nContinuing." % (one, logfile) )
             if status.status == 0:
                 if (verbosity > 1 and verify_only==False): 
-                    print("Done.  Found file of type %s with %s errors and %s warnings." % (status.otype, status.tot_errors(),status.tot_warnings() ) )
+                    print("Done.  Found file of type %s with %s errors and %s (level=2) and %s (level=3) warnings." % (status.otype, status.tot_errors(),status.tot_warnings(2),status.tot_warnings(3) ) )
                     cnt_check+=1
                 elif (verbosity > 1 and verify_only==True): print("File is in an ignored directory, skipping OGIP standards check.")
                 sys.stdout.flush()

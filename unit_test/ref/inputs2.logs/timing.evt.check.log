@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/timing.evt
+    otype = None
+    logfile = out/inputs2.logs/./timing.evt.check.log
+    verbosity = 2
+    dtype = none
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/timing.evt
 File opened successfully.
 Running basic FITS verification with external call to ftverify.

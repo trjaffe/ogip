@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/timing_passes.lc
+    otype = None
+    logfile = out/inputs3.logs/./timing_passes.lc.check.log
+    verbosity = 2
+    dtype = none
+    vonly = False
+    meta_key = rxte
 Attempting to open file inputs/timing_passes.lc
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
@@ -55,4 +63,4 @@ WARNING3: column DEADC incorrect in timing_passes.lc[RATE]
 
 ===========================================================
 
-File inputs/timing_passes.lc conforms to the OGIP Standards
+File inputs/timing_passes.lc conforms to the OGIP Standards with exceptions defined for meta_key=rxte

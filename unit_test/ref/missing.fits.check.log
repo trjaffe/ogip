@@ -1,2 +1,10 @@
+Running ogip_check with
+    input = inputs/missing.fits
+    otype = None
+    logfile = <open file '<stdout>', mode 'w' at 0x101eab150>
+    verbosity = 2
+    dtype = None
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/missing.fits
 ERROR: could not open inputs/missing.fits as a FITS file; RETURNING

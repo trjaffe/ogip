@@ -1,1 +1,9 @@
+Running ogip_check with
+    input = inputs/rosat/rh500047n00/raa
+    otype = None
+    logfile = out/inputs2.logs/rosat/rh500047n00/raa.check.log
+    verbosity = 2
+    dtype = none
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/rosat/rh500047n00/raa

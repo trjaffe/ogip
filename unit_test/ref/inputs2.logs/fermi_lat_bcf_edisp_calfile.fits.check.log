@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/fermi_lat_bcf_edisp_calfile.fits
+    otype = None
+    logfile = out/inputs2.logs/./fermi_lat_bcf_edisp_calfile.fits.check.log
+    verbosity = 2
+    dtype = none
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/fermi_lat_bcf_edisp_calfile.fits
 File opened successfully.
 Running basic FITS verification with external call to ftverify.

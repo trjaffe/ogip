@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201i_lc.fits.gz
+    otype = None
+    logfile = out/inputs.logs/fermi/crab/lightcurves/3FGL_J0534d5p2201i_lc.fits.gz.check.log
+    verbosity = 2
+    dtype = CALDB
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201i_lc.fits.gz
 File opened successfully.
 Running basic FITS verification with external call to ftverify.

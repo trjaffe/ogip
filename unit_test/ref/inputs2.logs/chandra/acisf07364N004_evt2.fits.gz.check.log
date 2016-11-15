@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/chandra/acisf07364N004_evt2.fits.gz
+    otype = None
+    logfile = out/inputs2.logs/chandra/acisf07364N004_evt2.fits.gz.check.log
+    verbosity = 2
+    dtype = none
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/chandra/acisf07364N004_evt2.fits.gz
 File opened successfully.
 Running basic FITS verification with external call to ftverify.

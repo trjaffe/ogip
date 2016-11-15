@@ -4,6 +4,7 @@ from ogip_dictionary import ogip_dictionary
 from ogip_generic_lib import *
 import os.path
 import astropy.wcs as wcs
+import inspect
 
 def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False,meta_key=None):
     """
@@ -23,8 +24,6 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False,meta_key=Non
     the retstat.ERRORS attribute.
 
     """
-    #
-    # TODO - ADD OPTIONS FOR VERBOSITY
 
     filename=input
     status=retstat()
@@ -33,6 +32,12 @@ def ogip_check(input,otype,logfile,verbosity,dtype=None,vonly=False,meta_key=Non
         logf=init_log(logfile,status)
     except:
         return status
+
+    frame = inspect.currentframe()
+    args, _, _, values = inspect.getargvalues(frame)
+    print("Running %s with" % inspect.getframeinfo(frame)[2],file=logf)
+    for i in args:
+        print("    %s = %s" % (i, values[i]),file=logf)
 
  
 

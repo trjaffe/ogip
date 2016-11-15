@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z
+    otype = None
+    logfile = out/inputs.logs/rosat/rh500047n00/rh500047n00_bas.fits.Z.check.log
+    verbosity = 2
+    dtype = CALDB
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z
 Failed to open as a FITS file.  Trying to unzip first.
 Trying to gunzip it.

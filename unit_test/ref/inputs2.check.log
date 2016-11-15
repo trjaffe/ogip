@@ -1,23 +1,22 @@
-
-Running ogip_check_dir with:
-   directory inputs
-    logdir out/inputs2.logs
-    meta_key default
-    default_type none
-
+Running ogip_check_dir with
+    basedir = inputs
+    logdir = out/inputs2.logs
+    meta_key = default
+    default_type = none
+    verbosity = 2
 
 
 ************************************************
 Now on directory inputs/chandra
 ************************************************
 
-TIMESTAMP:  2016-11-15 09:06:42
+TIMESTAMP:  2016-11-15 10:05:33
 CHECKING inputs/chandra/acisf07364N004_evt2.fits.gz;  see log in out/inputs2.logs/chandra/acisf07364N004_evt2.fits.gz.check.log
-Done.  Found file of type TIMING with 0 errors and 75 warnings.
+Done.  Found file of type TIMING with 0 errors and 0 (level=2) and 75 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:42
+TIMESTAMP:  2016-11-15 10:05:33
 CHECKING inputs/chandra/hrcf00025N005_pha2.fits.gz;  see log in out/inputs2.logs/chandra/hrcf00025N005_pha2.fits.gz.check.log
-Done.  Found file of type SPECTRAL with 2 errors and 22 warnings.
+Done.  Found file of type SPECTRAL with 2 errors and 0 (level=2) and 22 (level=3) warnings.
 
 ********
 Found 2 files in this directory that could be checked out of 2 that were examined and 0 that were ignored (for 2 total in the directory).
@@ -27,19 +26,19 @@ Found 2 files in this directory that could be checked out of 2 that were examine
 Now on directory inputs/fermi/crab/lightcurves
 ************************************************
 
-TIMESTAMP:  2016-11-15 09:06:42
+TIMESTAMP:  2016-11-15 10:05:33
 CHECKING inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201_lc.fits.gz;  see log in out/inputs2.logs/fermi/crab/lightcurves/3FGL_J0534d5p2201_lc.fits.gz.check.log
-Done.  Found file of type TIMING with 1 errors and 27 warnings.
+Done.  Found file of type TIMING with 1 errors and 0 (level=2) and 27 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:42
+TIMESTAMP:  2016-11-15 10:05:33
 CHECKING inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201i_lc.fits.gz;  see log in out/inputs2.logs/fermi/crab/lightcurves/3FGL_J0534d5p2201i_lc.fits.gz.check.log
 ERROR:  file inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201i_lc.fits.gz does not pass FITS verification but able to continue.
-Done.  Found file of type TIMING with 1 errors and 27 warnings.
+Done.  Found file of type TIMING with 1 errors and 0 (level=2) and 27 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:42
+TIMESTAMP:  2016-11-15 10:05:34
 CHECKING inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201s_lc.fits.gz;  see log in out/inputs2.logs/fermi/crab/lightcurves/3FGL_J0534d5p2201s_lc.fits.gz.check.log
 ERROR:  file inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201s_lc.fits.gz does not pass FITS verification but able to continue.
-Done.  Found file of type TIMING with 1 errors and 27 warnings.
+Done.  Found file of type TIMING with 1 errors and 0 (level=2) and 27 (level=3) warnings.
 
 ********
 Found 3 files in this directory that could be checked out of 3 that were examined and 0 that were ignored (for 3 total in the directory).
@@ -49,10 +48,10 @@ Found 3 files in this directory that could be checked out of 3 that were examine
 Now on directory inputs/fermi/crab
 ************************************************
 
-TIMESTAMP:  2016-11-15 09:06:42
+TIMESTAMP:  2016-11-15 10:05:34
 CHECKING inputs/fermi/crab/3FGL_J0534d5p2201s_lc.fits.gz;  see log in out/inputs2.logs/fermi/crab/3FGL_J0534d5p2201s_lc.fits.gz.check.log
 ERROR:  file inputs/fermi/crab/3FGL_J0534d5p2201s_lc.fits.gz does not pass FITS verification but able to continue.
-Done.  Found file of type TIMING with 1 errors and 27 warnings.
+Done.  Found file of type TIMING with 1 errors and 0 (level=2) and 27 (level=3) warnings.
 
 ********
 Found 1 files in this directory that could be checked out of 1 that were examined and 0 that were ignored (for 1 total in the directory).
@@ -78,18 +77,18 @@ Found 0 files in this directory that could be checked out of 0 that were examine
 Now on directory inputs/integral/crab/high_level/spectra
 ************************************************
 
-TIMESTAMP:  2016-11-15 09:06:42
+TIMESTAMP:  2016-11-15 10:05:34
 CHECKING inputs/integral/crab/high_level/spectra/Crab_rmf.fits.gz;  see log in out/inputs2.logs/integral/crab/high_level/spectra/Crab_rmf.fits.gz.check.log
-Done.  Found file of type RMF with 22 errors and 11 warnings.
+Done.  Found file of type RMF with 22 errors and 0 (level=2) and 11 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:42
+TIMESTAMP:  2016-11-15 10:05:34
 CHECKING inputs/integral/crab/high_level/spectra/Crab_sum_arf.fits.gz;  see log in out/inputs2.logs/integral/crab/high_level/spectra/Crab_sum_arf.fits.gz.check.log
-Done.  Found file of type ARF with 13 errors and 7 warnings.
+Done.  Found file of type ARF with 13 errors and 0 (level=2) and 7 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:42
+TIMESTAMP:  2016-11-15 10:05:34
 CHECKING inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz;  see log in out/inputs2.logs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz.check.log
 ERROR:  file inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz does not pass FITS verification but able to continue.
-Done.  Found file of type SPECTRAL with 2 errors and 26 warnings.
+Done.  Found file of type SPECTRAL with 2 errors and 0 (level=2) and 26 (level=3) warnings.
 
 ********
 Found 3 files in this directory that could be checked out of 3 that were examined and 1 that were ignored (for 4 total in the directory).
@@ -99,36 +98,36 @@ Found 3 files in this directory that could be checked out of 3 that were examine
 Now on directory inputs/rosat/rh500047n00
 ************************************************
 
-TIMESTAMP:  2016-11-15 09:06:42
+TIMESTAMP:  2016-11-15 10:05:34
 CHECKING inputs/rosat/rh500047n00/raa;  see log in out/inputs2.logs/rosat/rh500047n00/raa.check.log
 ERROR: could not open inputs/rosat/rh500047n00/raa as a FITS file; RETURNING
 
-TIMESTAMP:  2016-11-15 09:06:42
+TIMESTAMP:  2016-11-15 10:05:34
 CHECKING inputs/rosat/rh500047n00/rh500047n00.public_contents.Z;  see log in out/inputs2.logs/rosat/rh500047n00/rh500047n00.public_contents.Z.check.log
 ERROR: Could not open rh500047n00.public_contents.Z as a FITS file (after unzipped); RETURNING
 
-TIMESTAMP:  2016-11-15 09:06:42
+TIMESTAMP:  2016-11-15 10:05:34
 CHECKING inputs/rosat/rh500047n00/rh500047n00_anc.fits.Z;  see log in out/inputs2.logs/rosat/rh500047n00/rh500047n00_anc.fits.Z.check.log
 WARNING:  do not recognize the file inputs/rosat/rh500047n00/rh500047n00_anc.fits.Z as any type (extnames OBSTABLE, EPHEM, ASPECT, HKP, EVRATE, GSTAR)
 
-TIMESTAMP:  2016-11-15 09:06:43
+TIMESTAMP:  2016-11-15 10:05:34
 CHECKING inputs/rosat/rh500047n00/rh500047n00_bas.fits.Z;  see log in out/inputs2.logs/rosat/rh500047n00/rh500047n00_bas.fits.Z.check.log
-Done.  Found file of type TIMING with 7 errors and 36 warnings.
+Done.  Found file of type TIMING with 7 errors and 0 (level=2) and 36 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:46
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/rosat/rh500047n00/rh500047n00_bk1.fits.Z;  see log in out/inputs2.logs/rosat/rh500047n00/rh500047n00_bk1.fits.Z.check.log
-Done.  Found file of type IMAGE with 0 errors and 3 warnings.
+Done.  Found file of type IMAGE with 0 errors and 0 (level=2) and 3 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:46
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/rosat/rh500047n00/rh500047n00_his.fits.Z;  see log in out/inputs2.logs/rosat/rh500047n00/rh500047n00_his.fits.Z.check.log
 ERROR:  file inputs/rosat/rh500047n00/rh500047n00_his.fits.Z does not pass FITS verification but able to continue.
 WARNING:  do not recognize the file inputs/rosat/rh500047n00/rh500047n00_his.fits.Z as any type (extnames SEQPAR.trl, SEQLOG.trl, OBP001.trl, OBP002.trl, OBP003.trl, OBP004.trl, OBP005.trl, OBP006.trl, OBP007.trl, OBP008.trl, OBP009.trl, OBP010.trl, OBP011.trl, OBL001.trl, OBL002.trl, OBL003.trl, OBL004.trl, OBL005.trl, OBL006.trl, OBL007.trl, OBL008.trl, OBL009.trl, OBL010.trl, OBL011.trl)
 
-TIMESTAMP:  2016-11-15 09:06:46
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/rosat/rh500047n00/rh500047n00_im1.fits.Z;  see log in out/inputs2.logs/rosat/rh500047n00/rh500047n00_im1.fits.Z.check.log
-Done.  Found file of type IMAGE with 0 errors and 2 warnings.
+Done.  Found file of type IMAGE with 0 errors and 0 (level=2) and 2 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:46
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/rosat/rh500047n00/rh500047n00_prt.fits.Z;  see log in out/inputs2.logs/rosat/rh500047n00/rh500047n00_prt.fits.Z.check.log
 ERROR:  file inputs/rosat/rh500047n00/rh500047n00_prt.fits.Z does not pass FITS verification but able to continue.
 WARNING:  do not recognize the file inputs/rosat/rh500047n00/rh500047n00_prt.fits.Z as any type (extnames SUMPG.trl, OUTPUT.trl, SKYLST.trl, FLDPLT.trl, SRCPLT.trl, SKYMAP.trl, SMBPLT.trl, SMBLST.trl, CORLST.trl, CORPS.trl, STRPLT.trl, HIMAGE.trl, SMBID.trl, SMBPS.trl)
@@ -141,7 +140,7 @@ Found 3 files in this directory that could be checked out of 8 that were examine
 Now on directory inputs/rxte/Cal/asm
 ************************************************
 
-TIMESTAMP:  2016-11-15 09:06:46
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/rxte/Cal/asm/unrec.fits;  see log in out/inputs2.logs/rxte/Cal/asm/unrec.fits.check.log
 WARNING:  do not recognize the file inputs/rxte/Cal/asm/unrec.fits as any type (extnames FOOBAR, STDGTI)
 
@@ -153,7 +152,7 @@ Found 0 files in this directory that could be checked out of 1 that were examine
 Now on directory inputs/rxte/prop/obs/Cal/asm
 ************************************************
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/rxte/prop/obs/Cal/asm/unrec.fits;  see log in out/inputs2.logs/rxte/prop/obs/Cal/asm/unrec.fits.check.log
 WARNING:  do not recognize the file inputs/rxte/prop/obs/Cal/asm/unrec.fits as any type (extnames FOOBAR, STDGTI)
 
@@ -165,9 +164,9 @@ Found 0 files in this directory that could be checked out of 1 that were examine
 Now on directory inputs/rxte/test1
 ************************************************
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/rxte/test1/hexte.arf;  see log in out/inputs2.logs/rxte/test1/hexte.arf.check.log
-Done.  Found file of type ARF with 6 errors and 5 warnings.
+Done.  Found file of type ARF with 6 errors and 0 (level=2) and 5 (level=3) warnings.
 
 ********
 Found 1 files in this directory that could be checked out of 1 that were examined and 3 that were ignored (for 4 total in the directory).
@@ -177,10 +176,10 @@ Found 1 files in this directory that could be checked out of 1 that were examine
 Now on directory inputs/suzaku
 ************************************************
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/suzaku/ae905006010xi0_1_conf_uf.gti.gz;  see log in out/inputs2.logs/suzaku/ae905006010xi0_1_conf_uf.gti.gz.check.log
 WARNING:  Filename ae905006010xi0_1_conf_uf.gti.gz ends with .gz but appears not to be gzipped;  has been opened after removing the suffix.
-Done.  Found file of type TIMING with 1 errors and 16 warnings.
+Done.  Found file of type TIMING with 1 errors and 0 (level=2) and 16 (level=3) warnings.
 
 ********
 Found 1 files in this directory that could be checked out of 1 that were examined and 1 that were ignored (for 2 total in the directory).
@@ -190,51 +189,51 @@ Found 1 files in this directory that could be checked out of 1 that were examine
 Now on directory inputs
 ************************************************
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/asca_sis_bcf_calfile.fits;  see log in out/inputs2.logs/./asca_sis_bcf_calfile.fits.check.log
-Done.  Found file of type CALDB with 16 errors and 48 warnings.
+Done.  Found file of type CALDB with 16 errors and 0 (level=2) and 48 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/fermi_lat_bcf_edisp_calfile.fits;  see log in out/inputs2.logs/./fermi_lat_bcf_edisp_calfile.fits.check.log
-Done.  Found file of type RMF with 28 errors and 16 warnings.
+Done.  Found file of type RMF with 28 errors and 0 (level=2) and 16 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/hexte.arf;  see log in out/inputs2.logs/./hexte.arf.check.log
-Done.  Found file of type ARF with 6 errors and 5 warnings.
+Done.  Found file of type ARF with 6 errors and 0 (level=2) and 5 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/specresp_matrix.rmf;  see log in out/inputs2.logs/./specresp_matrix.rmf.check.log
-Done.  Found file of type RMF with 2 errors and 8 warnings.
+Done.  Found file of type RMF with 2 errors and 0 (level=2) and 8 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/spectrum.pha;  see log in out/inputs2.logs/./spectrum.pha.check.log
-Done.  Found file of type SPECTRAL with 1 errors and 27 warnings.
+Done.  Found file of type SPECTRAL with 1 errors and 0 (level=2) and 27 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/spectrumII.pha;  see log in out/inputs2.logs/./spectrumII.pha.check.log
-Done.  Found file of type SPECTRAL with 1 errors and 31 warnings.
+Done.  Found file of type SPECTRAL with 1 errors and 0 (level=2) and 31 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/timing.evt;  see log in out/inputs2.logs/./timing.evt.check.log
-Done.  Found file of type TIMING with 0 errors and 16 warnings.
+Done.  Found file of type TIMING with 0 errors and 0 (level=2) and 16 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/timing_fails.lc;  see log in out/inputs2.logs/./timing_fails.lc.check.log
-Done.  Found file of type TIMING with 2 errors and 17 warnings.
+Done.  Found file of type TIMING with 2 errors and 0 (level=2) and 17 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:38
 CHECKING inputs/timing_passes.lc;  see log in out/inputs2.logs/./timing_passes.lc.check.log
-Done.  Found file of type TIMING with 0 errors and 17 warnings.
+Done.  Found file of type TIMING with 0 errors and 0 (level=2) and 17 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:39
 CHECKING inputs/two_images.fits;  see log in out/inputs2.logs/./two_images.fits.check.log
-Done.  Found file of type IMAGE with 4 errors and 3 warnings.
+Done.  Found file of type IMAGE with 4 errors and 0 (level=2) and 3 (level=3) warnings.
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:39
 CHECKING inputs/unrec.fits;  see log in out/inputs2.logs/./unrec.fits.check.log
 WARNING:  do not recognize the file inputs/unrec.fits as any type (extnames FOOBAR, STDGTI)
 
-TIMESTAMP:  2016-11-15 09:06:47
+TIMESTAMP:  2016-11-15 10:05:39
 CHECKING inputs/unrec2.fits;  see log in out/inputs2.logs/./unrec2.fits.check.log
 WARNING:  do not recognize the file inputs/unrec2.fits as any type (extnames FOOBAR, STDGTI)
 

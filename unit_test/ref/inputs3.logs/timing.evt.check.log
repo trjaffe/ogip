@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/timing.evt
+    otype = None
+    logfile = out/inputs3.logs/./timing.evt.check.log
+    verbosity = 2
+    dtype = none
+    vonly = False
+    meta_key = rxte
 Attempting to open file inputs/timing.evt
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
@@ -64,4 +72,4 @@ WARNING3: column TIMEDEL incorrect in timing.evt[STDGTI]
 
 ===========================================================
 
-File inputs/timing.evt conforms to the OGIP Standards
+File inputs/timing.evt conforms to the OGIP Standards with exceptions defined for meta_key=rxte

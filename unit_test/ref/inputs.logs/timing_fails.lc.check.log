@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/timing_fails.lc
+    otype = None
+    logfile = out/inputs.logs/./timing_fails.lc.check.log
+    verbosity = 2
+    dtype = CALDB
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/timing_fails.lc
 File opened successfully.
 Running basic FITS verification with external call to ftverify.

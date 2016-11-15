@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/hexte.arf
+    otype = None
+    logfile = <open file '<stdout>', mode 'w' at 0x1020cd150>
+    verbosity = 2
+    dtype = None
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/hexte.arf
 File opened successfully.
 Running basic FITS verification with external call to ftverify.

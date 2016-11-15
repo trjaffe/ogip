@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/spectrumII.pha
+    otype = None
+    logfile = out/inputs2.logs/./spectrumII.pha.check.log
+    verbosity = 2
+    dtype = none
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/spectrumII.pha
 File opened successfully.
 Running basic FITS verification with external call to ftverify.

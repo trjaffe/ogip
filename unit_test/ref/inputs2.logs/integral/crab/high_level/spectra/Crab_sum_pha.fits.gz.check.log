@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz
+    otype = None
+    logfile = out/inputs2.logs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz.check.log
+    verbosity = 2
+    dtype = none
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz
 File opened successfully.
 Running basic FITS verification with external call to ftverify.

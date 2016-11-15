@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/suzaku/ae905006010xi0_1_conf_uf.gti.gz
+    otype = None
+    logfile = out/inputs.logs/suzaku/ae905006010xi0_1_conf_uf.gti.gz.check.log
+    verbosity = 2
+    dtype = CALDB
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/suzaku/ae905006010xi0_1_conf_uf.gti.gz
 Failed to open as a FITS file.  Since it's named .gz, try after removing suffix.
 File opened successfully.

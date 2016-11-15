@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/asca_sis_bcf_calfile.fits
+    otype = None
+    logfile = <open file '<stdout>', mode 'w' at 0x10063e150>
+    verbosity = 2
+    dtype = None
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/asca_sis_bcf_calfile.fits
 File opened successfully.
 Running basic FITS verification with external call to ftverify.

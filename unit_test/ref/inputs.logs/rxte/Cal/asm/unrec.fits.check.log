@@ -1,3 +1,11 @@
+Running ogip_check with
+    input = inputs/rxte/Cal/asm/unrec.fits
+    otype = None
+    logfile = out/inputs.logs/rxte/Cal/asm/unrec.fits.check.log
+    verbosity = 2
+    dtype = CALDB
+    vonly = False
+    meta_key = default
 Attempting to open file inputs/rxte/Cal/asm/unrec.fits
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
