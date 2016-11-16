@@ -36,7 +36,6 @@ def ogip_dictionary_spectral():
     reqkeys = {
         "TELESCOPE":{"level":1,"req":"h.Exists('TELESCOP')"},
         "INSTRUME": {"level":1,"req":"h.Exists('INSTRUME')"},
-        "FILTER":   {"level":1,"req":"h.Exists('FILTER')"},
         # record of the exposure for each row in the type II file
         "EXPOSURE": {"level":1,"req":"h.Exists('EXPOSURE') or h.hasCol('EXPOSURE')"}, 
         # background file for each row in the type II file
@@ -64,6 +63,7 @@ def ogip_dictionary_spectral():
         #
         # xspec filter descriptor
         "XFLT*":    {"level":3,"req":"h.Exists('XFLT*')"},  
+        "FILTER":   {"level":3,"req":"h.Exists('FILTER')"},
         "OBJECT":   {"level":3,"req":"h.Exists('OBJECT')"}, 
         "RA-OBJ":   {"level":3,"req":"h.Exists('RA-OBJ')"}, 
         "DEC-OBJ":  {"level":3,"req":"h.Exists('DEC-OBJ')"}, 

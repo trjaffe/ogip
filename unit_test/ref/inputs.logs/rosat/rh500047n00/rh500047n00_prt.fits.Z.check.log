@@ -62,8 +62,8 @@ Ftverify:  *** Error:   String in row #2387, column #1 contains non-ASCII text.
 Ftverify:  *** Error:   String in row #2437, column #1 contains non-ASCII text.
 Ftverify:  
 Trying to fix simple errors with astropy.io.fits.verify(option='fix')
-ERROR:  failed to determine the file type;  trying CALDB
 
+ERROR:  failed to determine the file type;  trying CALDB
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
 

@@ -14,6 +14,7 @@ File opened successfully.
 Running basic FITS verification with external call to ftverify.
 Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
 Found a file with only a PRIMARY extension.  Testing as an IMAGE.
+Running wcs.validate().
 
 =============== Checking 'PRIMARY' extension against 'IMAGE' standard ===============
 

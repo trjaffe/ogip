@@ -35,7 +35,7 @@ def ogip_dictionary_image():
         'TELESCOP':{"level":1,"req":"h.Exists('TELESCOP')"},
         'INSTRUME':{"level":1,"req":"h.Exists('INSTRUME')"},
         'HDUCLASS':{"level":1,"req":"h.hasVal('HDUCLASS','OGIP')"},
-        'FILTER':  {"level":1,"req":"h.Exists('FILTER')"}, 
+        'FILTER':  {"level":3,"req":"h.Exists('FILTER')"}, 
     }
 
     """

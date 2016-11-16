@@ -17,14 +17,14 @@ Checking file as type CALDB
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -43,12 +43,9 @@ WARNING3: Key CTEL* incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_
 Checking columns:
 
 
-=============== 1 Errors; 0 (level==2) warnings;  6 (level==3) warnings found in 2 extensions checked ===============
+=============== 0 Errors; 0 (level==2) warnings;  7 (level==3) warnings found in 2 extensions checked ===============
 
 
 ===========================================================
 
-FAILURE: inputs/fermi_lat_bcf_edisp_calfile.fits is not a Valid OGIP formatted file
-Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
-Available at
-   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
+File inputs/fermi_lat_bcf_edisp_calfile.fits conforms to the OGIP Standards

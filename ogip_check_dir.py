@@ -101,6 +101,10 @@ class ogip_collect:
         #  These are always bad (couldn't be checked, fver==2).  (But not all bad have fver==2 so check.)  
         return sum( sum([f.fver/2 for f in d.itervalues() if f.fver == 2]) for d in self.bad.itervalues() )
 
+    def count_wcsval_err(self):
+        #  These may subsequently be checked.    
+        return sum( sum([f.wcsval for f in d.itervalues() if f.wcsval == 1]) for d in self.checked.itervalues() )
+
     def count_fver_fixed(self):
         #  Want to count all those that were fixable fverify problems,
         #  i.e., with fver==1 (as opposed to 0==no problem, or 2==not
@@ -283,6 +287,7 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
     print("The total number of files with no errors but with OGIP level 3 warnings:  %s" % summary.count_warned(3) )
     print("The total number of files with no errors but with OGIP level 2 warnings:  %s" % summary.count_warned(2) )
     print("The total number of files with OGIP errors:  %s" % summary.count_failed() )
+    print("The total number of images that failed wcs.validate():  %s" % summary.count_wcsval_err() )
 
     print("")
     for k in sorted(summary.count_types):

@@ -12,7 +12,6 @@ Running basic FITS verification with external call to ftverify.
 Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
 
 Checking file as type CALDB (match for this file's ECD_G0E0 and reference extension CALFILE)
-
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
 
@@ -20,14 +19,14 @@ Checking file as type CALDB (match for this file's ECD_G0E0 and reference extens
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G0E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G0E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G0E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G0E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G0E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -36,14 +35,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G1E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G1E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G1E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G1E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G1E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -52,14 +51,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G2E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G2E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G2E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G2E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G2E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -68,14 +67,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G3E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G3E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G3E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G3E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G3E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -84,14 +83,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G4E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G4E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G4E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G4E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G4E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -100,14 +99,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G5E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G5E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G5E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G5E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G5E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -116,14 +115,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G6E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G6E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G6E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G6E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G6E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -132,14 +131,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G7E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_G7E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_G7E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_G7E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_G7E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -148,14 +147,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D0E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D0E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D0E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D0E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D0E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -164,14 +163,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D1E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D1E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D1E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D1E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D1E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -180,14 +179,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D2E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D2E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D2E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D2E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D2E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -196,14 +195,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D3E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D3E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D3E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D3E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D3E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -212,14 +211,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D4E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D4E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D4E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D4E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D4E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -228,14 +227,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D5E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D5E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D5E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D5E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D5E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -244,14 +243,14 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D6E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D6E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D6E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D6E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D6E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
@@ -260,24 +259,21 @@ Checking columns:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D7E0]
-        Eval(h.Exists('FILTER'))==False
 WARNING3: Key CFI* incorrect in asca_sis_bcf_calfile.fits[ECD_D7E0]
         Eval(h.Exists('CFI*'))==False
 WARNING3: Key CINS* incorrect in asca_sis_bcf_calfile.fits[ECD_D7E0]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in asca_sis_bcf_calfile.fits[ECD_D7E0]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in asca_sis_bcf_calfile.fits[ECD_D7E0]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
 
-=============== 16 Errors; 0 (level==2) warnings;  48 (level==3) warnings found in 16 extensions checked ===============
+=============== 0 Errors; 0 (level==2) warnings;  64 (level==3) warnings found in 16 extensions checked ===============
 
 
 ===========================================================
 
-FAILURE: inputs/asca_sis_bcf_calfile.fits is not a Valid OGIP formatted file
-Please see OGIP/92-011: Required and Recommended FITS keywords for Calibration Files
-Available at
-   http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_011/cal_gen_92_011.html
+File inputs/asca_sis_bcf_calfile.fits conforms to the OGIP Standards

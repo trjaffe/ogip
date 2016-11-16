@@ -1,0 +1,55 @@
+{
+    "ignore": {
+        "directories": [
+        ],
+        "suffixes": [
+            ".jpg",
+            ".txt",
+            ".gif",
+            ".dat",
+            ".ps",
+            ".html",
+            ".par",
+            ".png",
+            ".pdf",
+            ".htm",
+            ".log",
+	    "readme"
+        ]
+    },
+    "root_data_directory": "/FTP/rosat/data/",
+    "dicts": {
+	"TIMING" : { 
+	    "COMMENTS":  "For ROSAT PSPC, the FILTER keyword is required.",
+	    "EVENTS":  {
+		"KEYWORDS":{ 
+		    "FILTER":  {"level":1}
+		}
+	    },
+	    "GTI": {
+		"KEYWORDS":{ 
+		    "FILTER":  {"level":1}
+		}
+	    }
+	},
+	"SPECTRAL": {
+	    "COMMENTS": "Einstein spectral files have extensions named SPECTABLE instead of the OGIP-defined SPECTRUM.  They are also missing the error information in the form defined by OGIP.",
+	    "EXTENSIONS": { "REQUIRED":["SPECTRUM","SPECTABLE"] },
+	    "SPECTRUM": {
+		"KEYWORDS": {
+		    "FILTER":  {"level":1}
+		},
+		"COLUMNS": {
+		    "FILTER":  {"level":1}
+		}
+	    }
+	},
+	"IMAGE":  {
+	    "IMAGE": {
+		"KEYWORDS": {
+		    "FILTER":  {"level":1}
+		}
+	    }
+	}
+    }
+}

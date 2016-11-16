@@ -1,0 +1,73 @@
+Running ogip_check_dir with
+    basedir = inputs/einstein
+    logdir = out/einstein.logs
+    meta_key = test
+    default_type = none
+    verbosity = 2
+
+
+************************************************
+Now on directory inputs/einstein/events
+************************************************
+
+TIMESTAMP:  2016-11-16 14:13:16
+CHECKING inputs/einstein/events/2a0335.02.Z;  see log in out/einstein.logs/events/2a0335.02.Z.check.log
+ERROR:  file inputs/einstein/events/2a0335.02.Z does not pass FITS verification but able to continue.
+Done.  Found file of type TIMING with 0 errors and 7 (level=2) and 20 (level=3) warnings.
+
+********
+Found 1 files in this directory that could be checked out of 1 that were examined and 0 that were ignored (for 1 total in the directory).
+
+
+************************************************
+Now on directory inputs/einstein/spectra
+************************************************
+
+TIMESTAMP:  2016-11-16 14:13:17
+CHECKING inputs/einstein/spectra/2a0335.001.Z;  see log in out/einstein.logs/spectra/2a0335.001.Z.check.log
+Done.  Found file of type SPECTRAL with 1 errors and 17 (level=2) and 41 (level=3) warnings.
+
+********
+Found 1 files in this directory that could be checked out of 1 that were examined and 0 that were ignored (for 1 total in the directory).
+
+***************************************************
+Done checking.  Now to summarize:
+
+The total number of files found: 2
+The total number of files that could not be opened as FITS:  0
+The total number of files whose type could not be recognized:  0
+The total number of files that failed FITS verify and could NOT be 'fixed':  0
+The total number of files that failed FITS verify but 'fixed':  1
+The total number of files that could not be checked for other reasons:  0
+The total number of files verified only:  0
+The total number of files checked:  2
+The total number of files with no OGIP warnings or errors:  0
+The total number of files with no errors but with OGIP level 3 warnings:  1
+The total number of files with no errors but with OGIP level 2 warnings:  1
+The total number of files with OGIP errors:  1
+The total number of images that failed wcs.validate():  0
+
+Checked 1 files of type SPECTRAL
+Checked 1 files of type TIMING
+
+
+Found no files of type ARF
+
+Found no files of type CALDB
+
+Found no files of type IMAGE
+
+Found no files of type RMF
+
+Summary of missing required keywords and columns for type SPECTRAL:
+     None of these are missing required keywords or columns.
+
+Summary of missing required keywords and columns for type TIMING:
+     None of these are missing required keywords or columns.
+
+Found the following unrecognized extensions (with total number of each):
+    EXPOSURE (1)
+
+
+Done
+

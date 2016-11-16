@@ -12,7 +12,6 @@ Running basic FITS verification with external call to ftverify.
 Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
 
 Checking file as type RMF (match for this file's ENERGY DISPERSION and reference extension MATRIX)
-
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
 ERROR: fermi_lat_bcf_edisp_calfile.fits does not have any of the required extension names
@@ -31,8 +30,6 @@ ERROR: Key CHANTYPE incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERS
         Eval(h.hasVal('CHANTYPE','PI'))==False
 ERROR: Key DETCHANS incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
         Eval(h.Exists('DETCHANS'))==False
-ERROR: Key FILTER incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
-        Eval(h.Exists('FILTER'))==False
 ERROR: Key HDUCLAS2 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
         Eval(h.hasVal('HDUCLAS2','RSP_MATRIX'))==False
 ERROR: Key NUMELT incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
@@ -41,6 +38,8 @@ ERROR: Key NUMGRP incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSIO
         Eval(h.Exists('NUMGRP'))==False
 ERROR: Key TLMIN* incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
         Eval(h.Exists('TLMIN*'))==False
+WARNING3: Key FILTER incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
+        Eval(h.Exists('FILTER'))==False
 WARNING3: Key HDUCLAS3 incorrect in fermi_lat_bcf_edisp_calfile.fits[ENERGY DISPERSION]
         Full requirement is:  "h.hasVal('HDUCLAS3','REDIST') or h.hasVal('HDUCLAS3','DETECTOR') or h.hasVal('HDUCLAS3','FULL')"
         Eval(h.hasVal('HDUCLAS3','REDIST'))==False
@@ -129,7 +128,7 @@ ERROR: column N_GRP incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_
 WARNING3: column ORDER incorrect in fermi_lat_bcf_edisp_calfile.fits[EDISP_SCALING_PARAMS]
         Eval(h.hasCol('ORDER'))==False
 
-=============== 28 Errors; 0 (level==2) warnings;  16 (level==3) warnings found in 2 extensions checked ===============
+=============== 27 Errors; 0 (level==2) warnings;  17 (level==3) warnings found in 2 extensions checked ===============
 
 
 ===========================================================

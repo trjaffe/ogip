@@ -11,6 +11,7 @@ File opened successfully.
 Running basic FITS verification with external call to ftverify.
 Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
 Found a file with an image in the PRIMARY extension.  Testing as an IMAGE.
+Running wcs.validate().
 
 =============== Checking 'PRIMARY' extension against 'IMAGE' standard ===============
 
@@ -24,16 +25,16 @@ Checking keywords:
 
 Checking keywords:
 
-ERROR: Key FILTER incorrect in two_images.fits[]
-        Eval(h.Exists('FILTER'))==False
 ERROR: Key HDUCLASS incorrect in two_images.fits[]
         Eval(h.hasVal('HDUCLASS','OGIP'))==False
 ERROR: Key INSTRUME incorrect in two_images.fits[]
         Eval(h.Exists('INSTRUME'))==False
 ERROR: Key TELESCOP incorrect in two_images.fits[]
         Eval(h.Exists('TELESCOP'))==False
+WARNING3: Key FILTER incorrect in two_images.fits[]
+        Eval(h.Exists('FILTER'))==False
 
-=============== 4 Errors; 0 (level==2) warnings;  3 (level==3) warnings found in 2 extensions checked ===============
+=============== 3 Errors; 0 (level==2) warnings;  4 (level==3) warnings found in 2 extensions checked ===============
 
 
 ===========================================================

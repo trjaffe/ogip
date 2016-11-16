@@ -31,7 +31,6 @@ def ogip_dictionary_caldb():
         "TELESCOP":{"level":1,"req":"h.Exists('TELESCOP')"},
         "INSTRUME":{"level":1,"req":"h.Exists('INSTRUME')"},
         "DETNAM":  {"level":1,"req":"h.Exists('DETNAM')"},
-        "FILTER":  {"level":1,"req":"h.Exists('FILTER')"},
         "CCLS0001":{"level":1,"req":"h.Exists('CCLS0001')"},
         "CDTP0001":{"level":1,"req":"h.Exists('CDTP0001')"},
         "CCNM0001":{"level":1,"req":"h.Exists('CCNM0001')"},
@@ -42,6 +41,7 @@ def ogip_dictionary_caldb():
         #
         #  Optional
         #
+        "FILTER":  {"level":3,"req":"h.Exists('FILTER')"},
         "CTEL*":{"level":3,"req":"h.Exists('CTEL*')"},
         "CINS*":{"level":3,"req":"h.Exists('CINS*')"},
         "CDT*": {"level":3,"req":"h.Exists('CDT*')"},

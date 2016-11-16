@@ -10,8 +10,8 @@ Attempting to open file inputs/rxte/prop/obs/Cal/asm/unrec.fits
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
 Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
-ERROR:  failed to determine the file type;  trying CALDB
 
+ERROR:  failed to determine the file type;  trying CALDB
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
 
@@ -65,8 +65,6 @@ ERROR: Key CVST0001 incorrect in unrec.fits[STDGTI]
         Eval(h.Exists('CVST0001'))==False
 ERROR: Key DETNAM incorrect in unrec.fits[STDGTI]
         Eval(h.Exists('DETNAM'))==False
-ERROR: Key FILTER incorrect in unrec.fits[STDGTI]
-        Eval(h.Exists('FILTER'))==False
 ERROR: Key TELESCOP incorrect in unrec.fits[STDGTI]
         Eval(h.Exists('TELESCOP'))==False
 WARNING3: Key CDT* incorrect in unrec.fits[STDGTI]
@@ -77,11 +75,13 @@ WARNING3: Key CINS* incorrect in unrec.fits[STDGTI]
         Eval(h.Exists('CINS*'))==False
 WARNING3: Key CTEL* incorrect in unrec.fits[STDGTI]
         Eval(h.Exists('CTEL*'))==False
+WARNING3: Key FILTER incorrect in unrec.fits[STDGTI]
+        Eval(h.Exists('FILTER'))==False
 
 Checking columns:
 
 
-=============== 18 Errors; 0 (level==2) warnings;  8 (level==3) warnings found in 2 extensions checked ===============
+=============== 17 Errors; 0 (level==2) warnings;  9 (level==3) warnings found in 2 extensions checked ===============
 
 
 ===========================================================

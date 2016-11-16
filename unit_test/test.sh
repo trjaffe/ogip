@@ -294,6 +294,35 @@ echo ""
 
 
 
+echo ""
+echo "##################################################################"
+echo "#  Re-checking a single file with meta-data to supersede certain requirements:"
+echo ""
+mkdir -p out/inputs.logs/chandra
+file="chandra/hrcf00025N005_pha2.fits.gz"
+echo "Checking file ${file}"
+../ogip_check inputs/${file} --meta_key=chandra >& out/inputs.logs/${file}.check.log2
+retval=$?
+echo "Return status was $retval"
+if [[ "$retval" != "0" ]]; then 
+    echo "ERROR:  ogip_check returned an error status!"
+    let errors+=1
+fi
+echo "Comparing output to reference.  "
+diffs=`diff  ref/inputs.logs/${file}.check.log2 out/inputs.logs/${file}.check.log2`
+if [[ ${#diffs} != 0 ]]; then
+    echo "WARNING:  Differences appear in 'diff ref/inputs.logs/${file}.check.log2 out/inputs.logs/${file}.check.log2'"
+#    echo ${diffs[@]} | tail
+    let diffcnt+=1
+else
+    echo "No differences."
+fi
+echo ""
+
+
+
+
+
 
 
 #  Test the directory tool
@@ -390,30 +419,27 @@ fi
 
 
 
-
+#  Test the directory tool with local meta data file to supercede 
 echo ""
 echo "##################################################################"
-echo "#  Re-checking a single file with meta-data to supersede certain requirements:"
-echo ""
-file="chandra/hrcf00025N005_pha2.fits.gz"
-echo "Checking file ${file}"
-../ogip_check inputs/${file} --meta_key=chandra >& out/inputs.logs/${file}.check.log2
+echo "Checking entire contents of directory inputs with local meta_test.json containing Einstein replacement criteria"
+../ogip_check_dir inputs/einstein out/einstein.logs --meta_key test -v 2 >& out/einstein.check.log
 retval=$?
 echo "Return status was $retval"
 if [[ "$retval" != "0" ]]; then 
-    echo "ERROR:  ogip_check returned an error status!"
+    echo "ERROR:  ogip_check_dir returned an error status!"
     let errors+=1
-fi
-echo "Comparing output to reference.  "
-diffs=`diff  ref/inputs.logs/${file}.check.log2 out/inputs.logs/${file}.check.log2`
-if [[ ${#diffs} != 0 ]]; then
-    echo "WARNING:  Differences appear in 'diff ref/inputs.logs/${file}.check.log2 out/inputs.logs/${file}.check.log2'"
-#    echo ${diffs[@]} | tail
-    let diffcnt+=1
 else
-    echo "No differences."
+    echo "Comparing output to reference.  "
+    diffs=`diff  -I TIMESTAMP ref/einstein.check.log out/einstein.check.log`
+    if [[ ${#diffs} != 0 ]]; then
+	echo "WARNING:  Differences appear in 'diff -I TIMESTAMP ref/einstein.check.log out/einstein.check.log'"
+	#    echo ${diffs[@]} | tail
+	let diffcnt+=1
+    else
+	echo "No differences in directory check log."
+    fi
 fi
-echo ""
 
 
 

@@ -50,7 +50,7 @@ def ogip_dictionary(type,meta_key=None):
 
 
     #########################################
-    #  Replace items in dictionary if found in the given meta data file.
+    #  Replace/add items in dictionary if found in the given meta data file.  
     if meta_key is not None:
         metafile=os.path.join(os.path.dirname(__file__),("meta_%s.json"%meta_key))
         try:

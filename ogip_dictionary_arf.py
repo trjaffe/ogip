@@ -34,7 +34,6 @@ def ogip_dictionary_arf():
     reqkeys = {
         "TELESCOP":{"level":1,"req":"h.Exists('TELESCOP')"}, 
         "INSTRUME":{"level":1,"req":"h.Exists('INSTRUME')"}, 
-        "FILTER":  {"level":1,"req":"h.Exists('FILTER')"},
         "CHANTYPE":{"level":1,"req":"h.hasVal('CHANTYPE','PHA') or h.hasVal('CHANTYPE','PI')"},
         "DETCHANS":{"level":1,"req":"h.Exists('DETCHANS')"},
         "HDUCLASS":{"level":1,"req":"h.hasVal('HDUCLASS','OGIP')"},
@@ -53,6 +52,7 @@ def ogip_dictionary_arf():
         #
         #  Optional
         #
+        "FILTER":  {"level":3,"req":"h.Exists('FILTER')"},
         "PHAFILE": {"level":3,"req":"h.Exists('PHAFILE')"},
         # minimum probability threshold in matrix (values < this are set to 0)
         "LO_THRES":{"level":3,"req":"h.Exists('LO_THRES')"}, 

@@ -12,7 +12,6 @@ Running basic FITS verification with external call to ftverify.
 Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
 
 Checking file as type RMF (match for this file's SPECRESP MATRIX and reference extension MATRIX)
-
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
 
 

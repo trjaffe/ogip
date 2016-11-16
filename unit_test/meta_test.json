@@ -1,0 +1,78 @@
+{
+    "ignore": {
+        "directories": [
+        ],
+        "suffixes": [
+            ".jpg",
+            ".txt",
+            ".gif",
+            ".dat",
+            ".ps",
+            ".html",
+            ".par",
+            ".png",
+            ".pdf",
+            ".htm",
+            ".log",
+	    "readme"
+        ]
+    },
+    "root_data_directory": "/FTP/einstein/data/",
+    "dicts": {
+	"TIMING" : { 
+	    "EVENTS":  {
+		"KEYWORDS":{ 
+		    "TIMESYS": {"level":2},
+		    "TSTOP":   {"level":2},
+		    "HDUCLASS":{"level":2},
+		    "TIMEUNIT":{"level":2},
+		    "DATE-END":{"level":2},
+		    "HDUCLAS1":{"level":2},
+		    "TSTART":  {"level":2}
+		}
+	    },
+	    "GTI": {
+		"KEYWORDS":{ 
+		    "TELESCOP":{"level":2},
+		    "INSTRUME":{"level":2}
+		}
+	    }
+	},
+	"SPECTRAL": {
+	    "COMMENTS": "Einstein spectral files have extensions named SPECTABLE instead of the OGIP-defined SPECTRUM.  They are also missing the error information in the form defined by OGIP.",
+	    "EXTENSIONS": { "REQUIRED":["SPECTRUM","SPECTABLE"] },
+	    "SPECTRUM": {
+		"KEYWORDS": {
+		    "EXTRA": {"level":1,"req":"h.Exists('FOOBAR')"},
+		    "POISSERR": {"level":2,"req":"h.Exists('POISSERR') or h.hasVal('OBSNUM','1')"}, 
+		    "CORRFILE": {"level":2},
+		    "EXPOSURE": {"level":2},
+		    "RESPFILE": {"level":2},
+		    "CHANTYPE": {"level":2},
+		    "ANCRFILE": {"level":2},
+		    "CORRSCAL": {"level":2},
+		    "HDUCLASS": {"level":2},
+		    "DETCHANS": {"level":2},
+		    "HDUCLAS1": {"level":2},
+		    "BACKFILE": {"level":2},
+		    "FILTER":   {"level":2}
+		},
+		"COLUMNS": {
+		    "SYS_ERR":    {"level":2},
+		    "BACKSCAL":   {"level":2},
+		    "AREASCAL":   {"level":2},
+		    "QUALITY":    {"level":2},
+		    "CHANNEL":    {"level":2},
+		    "GROUPING":   {"level":2}
+		}
+	    }
+	},
+	"IMAGE":  {
+	    "IMAGE": {
+		"KEYWORDS": {
+		    "HDUCLASS": {"level":2}
+		}
+	    }
+	}
+    }
+}

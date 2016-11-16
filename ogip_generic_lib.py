@@ -6,6 +6,7 @@ import subprocess
 from ogip_dictionary import ogip_dictionary
 import re
 import gc
+import astropy.wcs as wcs
 
 """
 Library of generic functions used by OGIP check utilities.
@@ -88,7 +89,7 @@ class retstat:
     to calling codes without global variables.  
 
     """
-    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, level=0,log=sys.stdout,otype=None,fver=0,fopen=0,unrec=0,verbosity=2,unrec_extn=None,vonly=False):
+    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, level=0,log=sys.stdout,otype=None,fver=0,wcsval=0,fopen=0,unrec=0,verbosity=2,unrec_extn=None,vonly=False):
         #  Set an error status for the file if nonzero;  this will halt the checks.
         self.status+=status
         #  Flag problems opening the file as FITS specifically
@@ -97,6 +98,8 @@ class retstat:
         self.unrec+=unrec
         #  Flag FITS verification errors specifically
         self.fver+=fver
+        #  Flag WCS validation errors specifically
+        self.wcsval+=wcsval
         #  Flag whether OGIP checks were performed or only FITS verification:
         self.vonly=vonly
         #  Set the file type
@@ -129,6 +132,7 @@ class retstat:
     def __init__(self,otype='unknown'):
         self.status=0
         self.fver=0
+        self.wcsval=0
         self.fopen=0
         self.unrec=0
         self.vonly=False
@@ -239,7 +243,15 @@ def cleanup(hdulist):
 
 
 
-
+def ogip_wcs_validate(hdulist,filename,logf,status):
+    print("Running wcs.validate().",file=logf)
+    with stdouterr_redirector(logf):
+        try:
+            wcs_out=wcs.validate(hdulist)
+        except:
+            status.update(report="ERROR:  failure within wcs.validate().  Attempting to continue.",wcsval=1)
+            return None
+    return wcs_out
 
 
 
@@ -383,12 +395,12 @@ def ogip_determine_ref_type(filename,hdulist,status,logf,dtype=None,verbosity=3)
                 status.extns=extnames
                 return None
             else:
-                status.update(report="ERROR:  failed to determine the file type;  trying %s" % dtype,level=1,log=logf,verbosity=verbosity)
+                status.update(report="\nERROR:  failed to determine the file type;  trying %s" % dtype,level=1,log=logf,verbosity=verbosity)
                 otype=dtype
         else:
-            status.update(report="ERROR:  failed to determine the file type;  trying CALDB",level=1,log=logf,verbosity=verbosity)
+            status.update(report="\nERROR:  failed to determine the file type;  trying CALDB",level=1,log=logf,verbosity=verbosity)
             otype='CALDB'
-    print("\n(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.\n",file=logf)
+    print("(If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.\n",file=logf)
     return otype
 
 
