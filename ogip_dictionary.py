@@ -29,7 +29,8 @@ def ogip_dictionary(type,meta_key=None):
     this function returns the  required and optional keywords and columns
     as defined by OGIP 93-003 (TIMING), 92-007 (SPECTRAL), 92-002 and 92-002a (ARF and RMF) for a given extension
     """
-
+    #########################################
+    #  Get the base dictionary:
     if type.strip().upper() == 'TIMING':
         ogip=ogip_dictionary_timing()
     elif type.strip().upper() == 'SPECTRAL':
@@ -47,18 +48,24 @@ def ogip_dictionary(type,meta_key=None):
         print "Type = TIMING, SPECTRAL, CALDB, ARF, RMF, or IMAGE."
         ogip = 0
 
+
+    #########################################
     #  Replace items in dictionary if found in the given meta data file.
     if meta_key is not None:
         metafile=os.path.join(os.path.dirname(__file__),("meta_%s.json"%meta_key))
         try:
-            meta=json.load( open(metafile) )
+            meta=json.load(open(metafile))
         except:
-            print("ERROR:  the meta data key %s does not correspond to a known meta-data JSON dictionary in %s." % (meta_key,os.path.dirname(__file__)) )
-            raise
+            try:  
+                metafile=os.path.join(os.getcwd(),("meta_%s.json"%meta_key))
+                meta=json.load(open(metafile))
+            except:
+                print("ERROR:  the meta data key %s does not correspond to a known meta-data JSON dictionary in %s or the working directory." % (meta_key,os.path.dirname(__file__)) )
+                raise
 
         #  The meta table is minimal, so things are only there if
         #  needed.  First check each of the keys that have a single
-        #  string value.  Then check the EXTN and ALT_EXTNS, which are
+        #  string value.  Then check the EXTENSIONS and ALT_EXTNS, which are
         #  dictionary types.  Then loop over keyword and column
         #  requirements for each extension defined.  If the meta data
         #  includes the full requirement ("level" and "req") for each

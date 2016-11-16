@@ -675,17 +675,17 @@ def ogip_fail(filename,ogip_dict,logf):
 
 
 
-def init_log(logfile,status):
+def init_log(logfile,status=None):
    #  Should be given either sys.stdout for the logfile, or a string
     #  filename to open:
     if isinstance(logfile,(str,unicode)):
         try:  logf=open(logfile,'w')
         except:  
-            status.update(report="ERROR:  Cannot open output log file %s" % logfile, status=1,verbosity=verbosity)
+            if status is not None:  status.update(report="ERROR:  Cannot open output log file %s" % logfile, status=1,verbosity=verbosity)
             raise
     else:
         if logfile is not sys.stdout:
-            status.update(report="ERROR:  Cannot write to log file %s" % logfile, status=1,verbosity=verbosity)
+            if status is not None:  status.update(report="ERROR:  Cannot write to log file %s" % logfile, status=1,verbosity=verbosity)
             raise
         else:
             logf=logfile

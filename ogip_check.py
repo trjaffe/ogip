@@ -37,7 +37,8 @@ def ogip_check(input,otype,logfile,verbosity=2,dtype=None,vonly=False,meta_key=N
     args, _, _, values = inspect.getargvalues(frame)
     print("Running %s with" % inspect.getframeinfo(frame)[2],file=logf)
     for i in args:
-        print("    %s = %s" % (i, values[i]),file=logf)
+        if type(values[i]) is file:  print("    %s = %s" % (i, values[i].name),file=logf)
+        else: print("    %s = %s" % (i, values[i]),file=logf)
  
 
     #  Even just trying to open it can lead to pyfits barfing errors

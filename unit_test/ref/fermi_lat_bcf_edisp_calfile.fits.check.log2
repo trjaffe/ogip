@@ -1,7 +1,7 @@
 Running ogip_check with
     input = inputs/fermi_lat_bcf_edisp_calfile.fits
     otype = CALDB
-    logfile = <open file '<stdout>', mode 'w' at 0x10cdf7150>
+    logfile = <stdout>
     verbosity = 2
     dtype = None
     vonly = False

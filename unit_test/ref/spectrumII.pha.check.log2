@@ -1,7 +1,7 @@
 Running ogip_check with
     input = inputs/spectrumII.pha
     otype = SPECTRAL
-    logfile = <open file '<stdout>', mode 'w' at 0x10f674150>
+    logfile = <stdout>
     verbosity = 2
     dtype = None
     vonly = False

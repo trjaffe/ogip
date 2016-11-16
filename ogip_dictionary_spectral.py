@@ -135,7 +135,10 @@ def ogip_dictionary_spectral():
         "RATE|COUNTS":{"level":1,"req":"h.hasCol('RATE') or h.hasCol('COUNTS')"},   
         # optional if data given in counts per channel
         "STAT_ERR":   {"level":1,"req":" h.hasCol('STAT_ERR') or h.hasCol('COUNTS')"},  
-        # can give SYS_ERR= 0 as keyword if no systematic error
+        # Can give SYS_ERR= 0 as keyword if no systematic error.
+        # Here, allow partial matching in the column name.  In the
+        # second, throw a warning.  That way, it's not an error if
+        # there's a SYS_ERR_X but it is a warning.
         "SYS_ERR":    {"level":1,"req":"h.hasCol('SYS_ERR',part=True) or h.hasVal('SYS_ERR',0)"},  
         "SYS_ERR2":    {"level":3,"req":"h.hasCol('SYS_ERR') or h.hasVal('SYS_ERR',0)"},  
         # can give QUALITY = 0 keyword if all data are good
