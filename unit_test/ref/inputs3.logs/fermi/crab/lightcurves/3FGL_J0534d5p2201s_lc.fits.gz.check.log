@@ -9,13 +9,13 @@ Running ogip_check with
 Attempting to open file inputs/fermi/crab/lightcurves/3FGL_J0534d5p2201s_lc.fits.gz
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
-Ftverify:  *** Error:   Keyword #94, CNF68SMA: Type of value "NAN" is unknown.
-Ftverify:  *** Error:   Keyword #95, CNF68SMI: Type of value "NAN" is unknown.
-Ftverify:  *** Error:   Keyword #96, CNF68PA: Type of value "NAN" is unknown.
-Ftverify:  *** Error:   Keyword #97, CNF95SMA: Type of value "NAN" is unknown.
-Ftverify:  *** Error:   Keyword #98, CNF95SMI: Type of value "NAN" is unknown.
-Ftverify:  *** Error:   Keyword #99, CNF95PA: Type of value "NAN" is unknown.
-Ftverify:  
+Ftverify ERRORS:  *** Error:   Keyword #94, CNF68SMA: Type of value "NAN" is unknown.
+Ftverify ERRORS:  *** Error:   Keyword #95, CNF68SMI: Type of value "NAN" is unknown.
+Ftverify ERRORS:  *** Error:   Keyword #96, CNF68PA: Type of value "NAN" is unknown.
+Ftverify ERRORS:  *** Error:   Keyword #97, CNF95SMA: Type of value "NAN" is unknown.
+Ftverify ERRORS:  *** Error:   Keyword #98, CNF95SMI: Type of value "NAN" is unknown.
+Ftverify ERRORS:  *** Error:   Keyword #99, CNF95PA: Type of value "NAN" is unknown.
+Ftverify ERRORS:  
 Trying to fix simple errors with astropy.io.fits.verify(option='fix')
 WARNING: VerifyWarning: Verification reported errors: [astropy.io.fits.verify]
 WARNING: VerifyWarning: HDU 1: [astropy.io.fits.verify]

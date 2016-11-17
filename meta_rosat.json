@@ -33,7 +33,6 @@
 	    }
 	},
 	"SPECTRAL": {
-	    "COMMENTS": "Einstein spectral files have extensions named SPECTABLE instead of the OGIP-defined SPECTRUM.  They are also missing the error information in the form defined by OGIP.",
 	    "EXTENSIONS": { "REQUIRED":["SPECTRUM","SPECTABLE"] },
 	    "SPECTRUM": {
 		"KEYWORDS": {

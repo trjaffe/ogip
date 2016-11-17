@@ -10,7 +10,7 @@ Running ogip_check_dir with
 Now on directory inputs/einstein/events
 ************************************************
 
-TIMESTAMP:  2016-11-16 14:13:16
+TIMESTAMP:  2016-11-17 16:55:55
 CHECKING inputs/einstein/events/2a0335.02.Z;  see log in out/einstein.logs/events/2a0335.02.Z.check.log
 ERROR:  file inputs/einstein/events/2a0335.02.Z does not pass FITS verification but able to continue.
 Done.  Found file of type TIMING with 0 errors and 7 (level=2) and 20 (level=3) warnings.
@@ -23,7 +23,7 @@ Found 1 files in this directory that could be checked out of 1 that were examine
 Now on directory inputs/einstein/spectra
 ************************************************
 
-TIMESTAMP:  2016-11-16 14:13:17
+TIMESTAMP:  2016-11-17 16:55:55
 CHECKING inputs/einstein/spectra/2a0335.001.Z;  see log in out/einstein.logs/spectra/2a0335.001.Z.check.log
 Done.  Found file of type SPECTRAL with 1 errors and 17 (level=2) and 41 (level=3) warnings.
 

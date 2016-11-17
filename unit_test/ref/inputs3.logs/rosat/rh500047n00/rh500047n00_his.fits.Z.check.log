@@ -12,13 +12,37 @@ Trying to gunzip it.
 Trying now to open it again as FITS.
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
-Ftverify:  *** Error:   String in row #367, column #1 contains non-ASCII text.
-Ftverify:  *** Error:   String in row #370, column #1 contains non-ASCII text.
-Ftverify:  *** Error:   String in row #373, column #1 contains non-ASCII text.
-Ftverify:  *** Error:   String in row #376, column #1 contains non-ASCII text.
-Ftverify:  *** Error:   String in row #379, column #1 contains non-ASCII text.
-Ftverify:  *** Error:   String in row #382, column #1 contains non-ASCII text.
-Ftverify:  *** Error:   String in row #385, column #1 contains non-ASCII text.
-Ftverify:  *** Error:   String in row #388, column #1 contains non-ASCII text.
-Ftverify:  
+Ftverify ERRORS:  *** Error:   String in row #367, column #1 contains non-ASCII text.
+Ftverify ERRORS:  *** Error:   String in row #370, column #1 contains non-ASCII text.
+Ftverify ERRORS:  *** Error:   String in row #373, column #1 contains non-ASCII text.
+Ftverify ERRORS:  *** Error:   String in row #376, column #1 contains non-ASCII text.
+Ftverify ERRORS:  *** Error:   String in row #379, column #1 contains non-ASCII text.
+Ftverify ERRORS:  *** Error:   String in row #382, column #1 contains non-ASCII text.
+Ftverify ERRORS:  *** Error:   String in row #385, column #1 contains non-ASCII text.
+Ftverify ERRORS:  *** Error:   String in row #388, column #1 contains non-ASCII text.
+Ftverify ERRORS:  
 Trying to fix simple errors with astropy.io.fits.verify(option='fix')
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword

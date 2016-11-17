@@ -12,12 +12,15 @@ Trying to gunzip it.
 Trying now to open it again as FITS.
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
-Ftverify:  *** Error:   Keyword #30, DATEZERO: (from CFITSIO error stack:)
-Ftverify:               input date string has illegal format (ffs2dt):
-Ftverify:               28/3/75
-Ftverify:               
-Ftverify:  
+Ftverify ERRORS:  *** Error:   Keyword #30, DATEZERO: (from CFITSIO error stack:)
+Ftverify ERRORS:               input date string has illegal format (ffs2dt):
+Ftverify ERRORS:               28/3/75
+Ftverify ERRORS:               
+Ftverify ERRORS:  
 Trying to fix simple errors with astropy.io.fits.verify(option='fix')
+Ftverify WARNINGS:  *** Warning: Column #4: Name "DET-POS" contains character '-' other than
+Ftverify WARNINGS:  *** Warning: Column #7: Name "WIRE-NUM" contains character '-' other than
+Ftverify WARNINGS:  *** Warning: Keyword #30, DATEZERO 28/3/75 intends to mean year 2005?
 
 Checking file as type TIMING (match for this file's EVENTS and reference extension EVENTS)
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.

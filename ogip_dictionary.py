@@ -5,10 +5,11 @@ from ogip_dictionary_arf import ogip_dictionary_arf
 from ogip_dictionary_rmf import ogip_dictionary_rmf
 from ogip_dictionary_image import ogip_dictionary_image
 import os
-import json
 
 
 def ogip_dictionary(type,meta_key=None):
+    import ogip_generic_lib
+
     """
     for a given OGIP file type (timing, etc),
     returns a dictionary giving the extnames, the keywords and columns for that extension, and whether the
@@ -52,16 +53,7 @@ def ogip_dictionary(type,meta_key=None):
     #########################################
     #  Replace/add items in dictionary if found in the given meta data file.  
     if meta_key is not None:
-        metafile=os.path.join(os.path.dirname(__file__),("meta_%s.json"%meta_key))
-        try:
-            meta=json.load(open(metafile))
-        except:
-            try:  
-                metafile=os.path.join(os.getcwd(),("meta_%s.json"%meta_key))
-                meta=json.load(open(metafile))
-            except:
-                print("ERROR:  the meta data key %s does not correspond to a known meta-data JSON dictionary in %s or the working directory." % (meta_key,os.path.dirname(__file__)) )
-                raise
+        meta=ogip_generic_lib.ogip_get_meta(meta_key)
 
         #  The meta table is minimal, so things are only there if
         #  needed.  First check each of the keys that have a single

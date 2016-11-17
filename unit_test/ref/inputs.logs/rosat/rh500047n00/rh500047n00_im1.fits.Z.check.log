@@ -12,7 +12,7 @@ Trying to gunzip it.
 Trying now to open it again as FITS.
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
-Nothing from ftverify, trying with astropy.io.fits.verify(option='exception')
+Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
 Found a file with only a PRIMARY extension.  Testing as an IMAGE.
 Running wcs.validate().
 

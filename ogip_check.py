@@ -45,6 +45,8 @@ def ogip_check(input,otype,logfile,verbosity=2,dtype=None,vonly=False,meta_key=N
     #  just don't want to stderr at this point).  Leave stdout though,
     #  since robust_open() logs what happens to stdout and we'll want
     #  to see that.
+    stop=False
+
     if logf is not sys.stdout:
         with stdouterr_redirector(logf,redir_out=False):
             try:
@@ -52,48 +54,66 @@ def ogip_check(input,otype,logfile,verbosity=2,dtype=None,vonly=False,meta_key=N
             except IOError:
             #  Cases should be trapped in robust_open and already
             #  reflected in status:
-                return status
+                stop=True
             except:
             #  For the unexpected, e.g., the system call to gunzip fails
             #  for some reason:
                 print("ERROR:  Non-IOError error raised.  Status is %s." % status.status)
                 sys.stdout.flush()
-                return status
+                stop=True
             else:
             #  Just in case:
                 if status.status != 0:
                     print("ERROR:  No error raised, but status is %s." % status.status)
                     sys.stdout.flush()
-                    return status
+                    stop=True
     else:
         try:
             hdulist = robust_open(filename,logf,status)
         except IOError:
         #  Cases should be trapped in robust_open and already
         #  reflected in status:
-            return status
+            stop=True
         except:
         #  For the unexpected, e.g., the system call to gunzip fails
         #  for some reason:
             print("ERROR:  Non-IOError error raised.  Error is %s, status is %s." % (sys.exc_info()[0],status.status) )
             sys.stdout.flush()
-            return status
+            stop=True
         else:
         #  Just in case:
             if status.status != 0:
                 print("ERROR:  No error raised, but status is %s." % status.status)
                 sys.stdout.flush()
-                return status
+                stop=True
 
-
+    # At this point, if stop=True, then python could not open the
+    #  file.  Try still to run ftverify, and then quit?  On the other
+    #  hand, this is not a good idea.  Will ftverify lots of junk that
+    #  isn't FITS and swamp the problems in the FITS files.  These
+    #  files that cannot be opened are summarized and we can then
+    #  ftverify them on a case-by-case basis.
+    if stop:  return status
 
     #  Basic FITS verification:
-    fits_errs=ogip_fits_verify(hdulist,filename,logf,status)
+    if stop==False:
+        fits_errs=ogip_fits_verify(filename,logf,status,hdulist=hdulist)
+    else:
+        fits_errs=ogip_fits_verify(filename,logf,status,hdulist=None)
+
+    #  Note that in ogip_check, this error ends up in line below the
+    #  ftverify warning.  But in ogip_check_dir, it ends up not in the
+    #  log for the file but in the master log only.
     if fits_errs == 1:
         status.update(report="ERROR:  file %s does not pass FITS verification but able to continue." % filename,fver=1,verbosity=verbosity)
     if fits_errs == 2:  
         status.update(report="ERROR:  file %s does not pass FITS verification;  giving up." % filename,fver=2,status=1,verbosity=verbosity)
         return status
+
+    if stop==True: 
+        status.update(report="ERROR:  problems opening the file, but fits_err!=2.  How did I get here?",status=1,verbosity=2)
+        return status
+
     if vonly:  
         status.update(vonly=True,report='Skipping OGIP standards check.')
         return status

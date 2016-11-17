@@ -5,7 +5,6 @@ from itertools import chain
 from ogip_dictionary import ogip_dictionary
 from datetime import datetime
 import gc
-import json
 import inspect
 
 def dict_add(dict,dir,file,statobj):
@@ -196,17 +195,7 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
     """
 
     #  Get from meta data lists of suffixes and directories to ignore:
-    igfile=os.path.join(os.path.dirname(__file__),("meta_%s.json"%meta_key))
-    try:
-        meta=json.load(open(igfile))
-    except:
-        try:  
-            igfile=os.path.join(os.getcwd(),("meta_%s.json"%meta_key))
-            meta=json.load(open(igfile))
-        except:
-            print("ERROR:  the meta data key %s does not correspond to a known meta-data JSON dictionary in %s or the working directory." % (meta_key,os.path.dirname(__file__)) )
-            raise
-
+    meta=ogip_get_meta(meta_key)
     ignore={
         'suffixes':tuple(meta["ignore"]["suffixes"]),
         'directories':tuple(meta["ignore"]["directories"]),

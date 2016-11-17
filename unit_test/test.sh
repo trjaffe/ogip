@@ -346,9 +346,10 @@ else
     else
 	echo "No differences in directory check log."
     fi
+
     echo "Comparing logs of individual files run this way with those run individually."
     for file in asca_sis_bcf_calfile.fits fermi_lat_bcf_edisp_calfile.fits hexte.arf specresp_matrix.rmf spectrum.pha spectrumII.pha timing.evt timing_fails.lc timing_passes.lc ; do 
-	diffs=`diff -I TIMESTAMP -I dtype -I logfile out/${file}.check.log out/inputs.logs/${file}.check.log`
+	diffs=`diff -I TIMESTAMP -I dtype -I logfile -I "FITS verification" out/${file}.check.log out/inputs.logs/${file}.check.log`
 	if [[ ${#diffs} != 0 ]]; then
 	    echo "WARNING:  Differences appear in 'diff -I TIMESTAMP -I dtype -I logfile out/${file}.check.log out/inputs.logs/${file}.check.log'"
 	    let diffcnt+=1

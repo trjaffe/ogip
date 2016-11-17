@@ -7,6 +7,7 @@ from ogip_dictionary import ogip_dictionary
 import re
 import gc
 import astropy.wcs as wcs
+import json
 
 """
 Library of generic functions used by OGIP check utilities.
@@ -255,7 +256,7 @@ def ogip_wcs_validate(hdulist,filename,logf,status):
 
 
 
-def ogip_fits_verify(hdulist,filename,logf,status):
+def ogip_fits_verify(filename,logf,status,hdulist=None):
 
     """
 
@@ -279,7 +280,7 @@ def ogip_fits_verify(hdulist,filename,logf,status):
 
     """
 
-    fits_err=0
+    fits_errs=0
 
     print("Running basic FITS verification with external call to ftverify.",file=logf)
 
@@ -290,14 +291,29 @@ def ogip_fits_verify(hdulist,filename,logf,status):
         if stat != 0: raise OSError
     except OSError:
         print("ERROR: external call to ftverify returns an error.")
-#        exit(-1)
-
-    #  I don't actually want to keep the STDOUT from ftverify, only
-    #  STDERR that lists the errors.
+        #exit(-1)
+        
+    #  To STDERR go error messages.  But to STDOUT goes the warning
+    #  about the CHECKSUM that we want to know about.  So need both.
+    #  Print all warnings to the log, but only flag a verification
+    #  problem if one of the warnings contains CHECKSUM.
     result=err.split('\n')
     if result != ['']:
-        [status.update(report="Ftverify:  %s" % x,log=logf) for x in result]
+        [status.update(report="Ftverify ERRORS:  %s" % x,log=logf) for x in result]
         fits_errs=1
+        with stdouterr_redirector(logf):
+            try:
+                print("Trying to fix simple errors with astropy.io.fits.verify(option='fix')",file=logf)
+                hdulist.verify(option='fix')
+            except:
+                fits_errs=2
+
+
+    result=out.split('\n')
+    for line in [l for l in result if l.startswith("*** Warning:")]:
+        status.update(report="Ftverify WARNINGS:  %s" % line,log=logf)
+        if "checksum" in line.lower():  
+            fits_errs=1
 
         #  See if we can continue.  Use
         #  astropy.io.fits.verify(option='fix').  If it can, it fixes
@@ -307,14 +323,13 @@ def ogip_fits_verify(hdulist,filename,logf,status):
         #  Presume that if the verify() is satisfied, then we won't
         #  run into exceptions later.
 
-        with stdouterr_redirector(logf):
-            try:
-                print("Trying to fix simple errors with astropy.io.fits.verify(option='fix')",file=logf)
-                hdulist.verify(option='fix')
-            except:
-                fits_errs=2
 
-    else:
+    #  If you don't get an hdulist, cannot fix it.  
+    if hdulist is None:
+        fits_errs=2 
+        return fits_errs
+
+    if fits_errs==0:
         #  Even if ftverify finds nothing, check the Python version
         #  just in case.  
 
@@ -716,3 +731,16 @@ def detailed_eval(req,h,logf):
 
 
 
+def ogip_get_meta(meta_key):
+    if meta_key is None:  return
+    metafile=os.path.join(os.path.dirname(__file__),("meta_%s.json"%meta_key))
+    try:
+        meta=json.load(open(metafile))
+    except:
+        try:  
+            metafile=os.path.join(os.getcwd(),("meta_%s.json"%meta_key))
+            meta=json.load(open(metafile))
+        except:
+            print("ERROR:  the meta data key %s does not correspond to a known meta-data JSON dictionary in %s or the working directory." % (meta_key,os.path.dirname(__file__)) )
+            raise
+    return meta

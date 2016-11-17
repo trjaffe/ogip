@@ -19,11 +19,12 @@
     },
     "root_data_directory": "/FTP/einstein/data/",
     "dicts": {
-	"COMMENTS":"This seems to work for Einstein pspc and hri.",
 	"TIMING" : { 
-	    "COMMENTS": "Note that hri event files start with a GTI and are not automatically recognized.  Use ogip_check_dir --default_type=TIMING.",
+	    "COMMENTS": "Note that ipc event files start with a GTI and are not automatically recognized.  Use ogip_check_dir --default_type=TIMING.  Unlike pspc and hri event files, these are missing more keywords.",
 	    "EVENTS":  {
 		"KEYWORDS":{ 
+		    "TELESCOP":{"level":2},
+		    "INSTRUME":{"level":2},
 		    "TIMESYS": {"level":2},
 		    "TSTOP":   {"level":2},
 		    "HDUCLASS":{"level":2},
