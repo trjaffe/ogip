@@ -10,6 +10,8 @@ Attempting to open file inputs/unrec.fits
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
 Ftverify WARNINGS:  *** Warning: Invalid CHECKSUM means header has been modified. (DATASUM is OK) 
+ERROR:  Ftverify finds a checksum problem.
+ERROR:  file inputs/unrec.fits does not pass FITS verification but able to continue.
 
 ERROR:  failed to determine the file type;  trying CALDB
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.

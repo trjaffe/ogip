@@ -13,6 +13,8 @@ Trying now to open it again as FITS.
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
 Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+ERROR:  Ftverify finds a checksum problem.
+ERROR:  file inputs/rosat/rh500047n00/rh500047n00_bk1.fits.Z does not pass FITS verification but able to continue.
 Found a file with only a PRIMARY extension.  Testing as an IMAGE.
 Running wcs.validate().
 

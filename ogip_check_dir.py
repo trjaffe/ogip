@@ -100,6 +100,10 @@ class ogip_collect:
         #  These are always bad (couldn't be checked, fver==2).  (But not all bad have fver==2 so check.)  
         return sum( sum([f.fver/2 for f in d.itervalues() if f.fver == 2]) for d in self.bad.itervalues() )
 
+    def count_checksum(self):
+        #  Count checksum issues in files that otherwise passed ftverify
+        return sum( sum([f.checksum for f in d.itervalues() if f.checksum==1]) for d in self.checked.itervalues() )
+
     def count_wcsval_err(self):
         #  These may subsequently be checked.    
         return sum( sum([f.wcsval for f in d.itervalues() if f.wcsval == 1]) for d in self.checked.itervalues() )
@@ -269,6 +273,7 @@ def ogip_check_dir(basedir,logdir,meta_key,default_type,verbosity):
     print("The total number of files whose type could not be recognized:  %s" % summary.count_unrecognized() )
     print("The total number of files that failed FITS verify and could NOT be 'fixed':  %s" % summary.count_fver_bad() )
     print("The total number of files that failed FITS verify but 'fixed':  %s" % summary.count_fver_fixed() )
+    print("The total number of files that have FITS checksum issues:  %s" % summary.count_checksum() )
     print("The total number of files that could not be checked for other reasons:  %s" % int(summary.count_bad()-summary.count_fopen()-summary.count_unrecognized()-summary.count_fver_bad() ) )
     print("The total number of files verified only:  %s" % summary.count_verified() )
     print("The total number of files checked:  %s" % summary.count_checked() )

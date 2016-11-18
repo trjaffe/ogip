@@ -10,6 +10,7 @@ Attempting to open file inputs/two_images.fits
 File opened successfully.
 Running basic FITS verification with external call to ftverify.
 Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+ERROR:  Ftverify finds a checksum problem.
 ERROR:  file inputs/two_images.fits does not pass FITS verification but able to continue.
 Found a file with an image in the PRIMARY extension.  Testing as an IMAGE.
 Running wcs.validate().

@@ -90,7 +90,7 @@ class retstat:
     to calling codes without global variables.  
 
     """
-    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, level=0,log=sys.stdout,otype=None,fver=0,wcsval=0,fopen=0,unrec=0,verbosity=2,unrec_extn=None,vonly=False):
+    def update(self, extn=None, report=None, miskey=None, miscol=None, status=0, level=0,log=sys.stdout,otype=None,fver=0,checksum=0,wcsval=0,fopen=0,unrec=0,verbosity=2,unrec_extn=None,vonly=False):
         #  Set an error status for the file if nonzero;  this will halt the checks.
         self.status+=status
         #  Flag problems opening the file as FITS specifically
@@ -99,6 +99,8 @@ class retstat:
         self.unrec+=unrec
         #  Flag FITS verification errors specifically
         self.fver+=fver
+        #  Flag checksum problems
+        self.checksum+=checksum
         #  Flag WCS validation errors specifically
         self.wcsval+=wcsval
         #  Flag whether OGIP checks were performed or only FITS verification:
@@ -133,6 +135,7 @@ class retstat:
     def __init__(self,otype='unknown'):
         self.status=0
         self.fver=0
+        self.checksum=0
         self.wcsval=0
         self.fopen=0
         self.unrec=0
@@ -250,8 +253,10 @@ def ogip_wcs_validate(hdulist,filename,logf,status):
         try:
             wcs_out=wcs.validate(hdulist)
         except:
-            status.update(report="ERROR:  failure within wcs.validate().  Attempting to continue.",wcsval=1)
+            status.update(report="WARNING:  failure within wcs.validate().  Attempting to continue.",wcsval=1)
             return None
+    #  Need to see this is top level log as well:
+    if status.wcsval==1 and logf is not sys.stdout:  status.update(report="WARNING:  failure within wcs.validate().")
     return wcs_out
 
 
@@ -313,7 +318,13 @@ def ogip_fits_verify(filename,logf,status,hdulist=None):
     for line in [l for l in result if l.startswith("*** Warning:")]:
         status.update(report="Ftverify WARNINGS:  %s" % line,log=logf)
         if "checksum" in line.lower():  
-            fits_errs=1
+            #  Only do this stuff once even if multiple extensions throw the warning
+            if status.checksum==0:  
+                if fits_errs==0:  fits_errs=1
+                status.update(report="ERROR:  Ftverify finds a checksum problem.",log=logf,checksum=1)
+                if logf is not sys.stdout:
+                    #  Want to see this in both logs.
+                    status.update(report="ERROR:  Ftverify finds a checksum problem.")
 
         #  See if we can continue.  Use
         #  astropy.io.fits.verify(option='fix').  If it can, it fixes

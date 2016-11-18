@@ -106,8 +106,10 @@ def ogip_check(input,otype,logfile,verbosity=2,dtype=None,vonly=False,meta_key=N
     #  log for the file but in the master log only.
     if fits_errs == 1:
         status.update(report="ERROR:  file %s does not pass FITS verification but able to continue." % filename,fver=1,verbosity=verbosity)
+        if logf is not sys.stdout:  status.update(report="ERROR:  file %s does not pass FITS verification but able to continue." % filename,verbosity=verbosity,log=logf)
     if fits_errs == 2:  
         status.update(report="ERROR:  file %s does not pass FITS verification;  giving up." % filename,fver=2,status=1,verbosity=verbosity)
+        if logf is not sys.stdout:  status.update(report="ERROR:  file %s does not pass FITS verification;  giving up." % filename,log=logf,verbosity=verbosity)
         return status
 
     if stop==True: 

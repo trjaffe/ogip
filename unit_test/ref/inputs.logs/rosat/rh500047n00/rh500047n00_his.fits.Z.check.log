@@ -23,6 +23,7 @@ Ftverify ERRORS:  *** Error:   String in row #388, column #1 contains non-ASCII 
 Ftverify ERRORS:  
 Trying to fix simple errors with astropy.io.fits.verify(option='fix')
 Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+ERROR:  Ftverify finds a checksum problem.
 Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
 Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
 Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
@@ -46,6 +47,7 @@ Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATAS
 Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
 Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
 Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+ERROR:  file inputs/rosat/rh500047n00/rh500047n00_his.fits.Z does not pass FITS verification but able to continue.
 
 ERROR:  failed to determine the file type;  trying CALDB
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.

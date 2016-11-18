@@ -20,7 +20,9 @@ Ftverify ERRORS:
 Ftverify ERRORS:  
 Trying to fix simple errors with astropy.io.fits.verify(option='fix')
 Ftverify WARNINGS:  *** Warning: Data checksum is not consistent with  the DATASUM keyword
+ERROR:  Ftverify finds a checksum problem.
 Ftverify WARNINGS:  *** Warning: HDU checksum is not in agreement with CHECKSUM.
+ERROR:  file inputs/integral/crab/high_level/spectra/Crab_sum_pha.fits.gz does not pass FITS verification but able to continue.
 
 Checking file as type SPECTRAL (match for this file's ISGR-PHA1-SPE and reference extension SPECTRUM)
 (If this is incorrect, rerun with --t and one of TIMING, SPECTRAL, CALDB, RMF, or ARF.
